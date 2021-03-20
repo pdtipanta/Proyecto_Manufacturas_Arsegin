@@ -18,6 +18,18 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
+        this.grupo_Botones.add(this.radio_Cedula);
+        this.grupo_Botones.add(this.radio_RUC);
+        this.campo_RUC.setEditable(false);
+        this.grupo_Botones_Telefono.add(this.radio_Convencional);
+        this.grupo_Botones_Telefono.add(this.radio_Celular);
+        this.campo_Telefono.setEditable(false);
+        this.etiqueta_Indicador_RUC.setVisible( false );
+        this.etiqueta_Indicador_Direccion.setVisible( false );
+        this.etiqueta_Indicador_Telefono.setVisible( false );  
+        this.etiqueta_Indicador_Servicio.setVisible( false );
+        this.etiqueta_Indicador_Maquila.setVisible( false );
+        this.etiqueta_Correccion_RUC.setVisible(false);
     }
 
     /**
@@ -29,12 +41,13 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupo_Botones = new javax.swing.ButtonGroup();
+        grupo_Botones_Telefono = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        boton_Buscar = new javax.swing.JButton();
         campo_RUC = new javax.swing.JTextField();
         campo_Direccion = new javax.swing.JTextField();
         campo_Telefono = new javax.swing.JTextField();
@@ -55,32 +68,30 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         boton_Guardar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(820, 500));
+        setMinimumSize(new java.awt.Dimension(820, 500));
+        setPreferredSize(new java.awt.Dimension(820, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Maquila:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("R.U.C/ CI:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 140, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Direccion:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Telefono:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Servicio:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, -1));
-
-        boton_Buscar.setBackground(java.awt.Color.white);
-        boton_Buscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar-en-carpeta.png"))); // NOI18N
-        getContentPane().add(boton_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 40, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
         campo_RUC.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_RUC.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -89,7 +100,7 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
                 campo_RUCKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 249, 24));
+        getContentPane().add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 249, 24));
 
         campo_Direccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Direccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -98,7 +109,7 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
                 campo_DireccionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 249, 24));
+        getContentPane().add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 249, 24));
 
         campo_Telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Telefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -107,7 +118,7 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
                 campo_TelefonoKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 150, 24));
+        getContentPane().add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 150, 24));
 
         caja_Servicios.setColumns(20);
         caja_Servicios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -120,39 +131,39 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         });
         jScrollPane1.setViewportView(caja_Servicios);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 287, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 287, -1));
 
         etiqueta_Indicador_RUC.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_RUC.setForeground(new java.awt.Color(198, 0, 0));
         etiqueta_Indicador_RUC.setText("*");
-        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
+        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 126, -1, -1));
 
         etiqueta_Indicador_Direccion.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Direccion.setForeground(new java.awt.Color(198, 0, 0));
         etiqueta_Indicador_Direccion.setText("*");
-        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 200, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 186, -1, -1));
 
         etiqueta_Indicador_Telefono.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Telefono.setForeground(new java.awt.Color(198, 0, 0));
         etiqueta_Indicador_Telefono.setText("*");
-        getContentPane().add(etiqueta_Indicador_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 246, -1, -1));
 
         etiqueta_Indicador_Servicio.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Servicio.setForeground(new java.awt.Color(195, 0, 0));
         etiqueta_Indicador_Servicio.setText("*");
-        getContentPane().add(etiqueta_Indicador_Servicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Servicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, -1, -1));
 
         combo_Maquila.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Maquila.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         combo_Maquila.setMaximumSize(new java.awt.Dimension(2, 20));
         combo_Maquila.setMinimumSize(new java.awt.Dimension(2, 20));
         combo_Maquila.setPreferredSize(new java.awt.Dimension(2, 20));
-        getContentPane().add(combo_Maquila, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 310, 24));
+        getContentPane().add(combo_Maquila, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 310, 24));
 
         etiqueta_Indicador_Maquila.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Maquila.setForeground(new java.awt.Color(198, 0, 0));
         etiqueta_Indicador_Maquila.setText("*");
-        getContentPane().add(etiqueta_Indicador_Maquila, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Maquila, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 66, -1, -1));
 
         radio_RUC.setBackground(new java.awt.Color(255, 255, 255));
         radio_RUC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -162,7 +173,7 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
                 radio_RUCActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, -1));
+        getContentPane().add(radio_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, -1, -1));
 
         radio_Cedula.setBackground(new java.awt.Color(255, 255, 255));
         radio_Cedula.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -172,7 +183,7 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
                 radio_CedulaActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, -1));
+        getContentPane().add(radio_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, -1, -1));
 
         radio_Convencional.setBackground(new java.awt.Color(255, 255, 255));
         radio_Convencional.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -182,7 +193,7 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
                 radio_ConvencionalActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_Convencional, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+        getContentPane().add(radio_Convencional, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, -1, -1));
 
         radio_Celular.setBackground(new java.awt.Color(255, 255, 255));
         radio_Celular.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -192,12 +203,12 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
                 radio_CelularActionPerformed(evt);
             }
         });
-        getContentPane().add(radio_Celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, -1, -1));
+        getContentPane().add(radio_Celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, -1, -1));
 
         etiqueta_Correccion_RUC.setFont(new java.awt.Font("Arial", 3, 11)); // NOI18N
         etiqueta_Correccion_RUC.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Correccion_RUC.setText("El RUC/CI ya se encuentra registrado para otro maquila");
-        getContentPane().add(etiqueta_Correccion_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 310, -1));
+        getContentPane().add(etiqueta_Correccion_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 310, -1));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -296,6 +307,86 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_GuardarActionPerformed
 
+    public boolean etiquetas(){
+       boolean bandera = true;
+       
+        if( this.combo_Maquila.getText().isEmpty() ){
+            this.etiqueta_Indicador_Maquila.setVisible( true );
+            bandera = false;
+        }else{ 
+            this.etiqueta_Indicador_Maquila.setVisible( false );
+        }
+            
+        if( this.campo_RUC.getText().matches( "[0-9][0-9]{12}" ) && this.radio_RUC.isSelected() ){
+            this.etiqueta_Indicador_RUC.setVisible( false );
+        }else if(this.campo_RUC.getText().matches( "[0-9][0-9]{9}" ) && this.radio_Cedula.isSelected()){
+            this.etiqueta_Indicador_RUC.setVisible( false );
+        }
+        else{
+            this.etiqueta_Indicador_RUC.setVisible( true );
+            bandera = false;
+        }
+            
+        if( this.campo_Direccion.getText().isEmpty() ){ 
+            this.etiqueta_Indicador_Direccion.setVisible( true );
+            bandera = false;
+        }else{ 
+            this.etiqueta_Indicador_Direccion.setVisible( false );
+        }
+            
+        if( this.campo_Telefono.getText().matches( "[0][1-9][0-9]{7}" ) && this.radio_Convencional.isSelected() ){
+            this.etiqueta_Indicador_Telefono.setVisible( false );
+        }else if(this.campo_Telefono.getText().matches( "[0-9][0-9]{9}" ) && this.radio_Celular.isSelected()){
+            this.etiqueta_Indicador_Telefono.setVisible( false );
+        }
+        else{
+            this.etiqueta_Indicador_Telefono.setVisible( true );
+            bandera = false;
+        }
+            
+        if( this.caja_Servicios.getText().isEmpty() ){
+            this.etiqueta_Indicador_Servicio.setVisible( true );
+            bandera = false;
+        }else{ 
+            this.etiqueta_Indicador_Servicio.setVisible( false );
+        }
+        return bandera;
+    }
+    
+    public void correccion_Campos(String valor) {
+        if (valor.equals(this.campo_RUC.getText())) {
+            this.etiqueta_Correccion_RUC.setVisible(true);
+        } else {
+            this.etiqueta_Correccion_RUC.setVisible(false);
+        }
+    }
+    
+    public void setCampos( String maquila, String RUC, String direccion, String telefono, String servicio ){
+        //this.botones(false, true, true, true, false);
+        this.combo_Maquila.setText(maquila);
+        this.campo_Direccion.setText(direccion);
+        this.campo_RUC.setText(RUC);
+        this.campo_Telefono.setText(telefono);
+        this.caja_Servicios.setText(servicio);
+    }
+    
+    public void campos_Busqueda() {
+        this.campo_RUC.setEditable(true);
+        this.campo_Telefono.setEditable(true);
+
+        if (this.campo_RUC.getText().length() == 10) {
+            this.radio_Cedula.setSelected(true);
+        } else if (this.campo_RUC.getText().length() == 13) {
+            this.radio_RUC.setSelected(true);
+        }
+
+        if (this.campo_Telefono.getText().length() == 9) {
+            this.radio_Convencional.setSelected(true);
+        } else if (this.campo_Telefono.getText().length() == 10) {
+            this.radio_Celular.setSelected(true);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -339,7 +430,6 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton boton_Buscar;
     public javax.swing.JButton boton_Guardar;
     public javax.swing.JTextArea caja_Servicios;
     public javax.swing.JTextField campo_Direccion;
@@ -352,6 +442,8 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
     private javax.swing.JLabel etiqueta_Indicador_RUC;
     private javax.swing.JLabel etiqueta_Indicador_Servicio;
     private javax.swing.JLabel etiqueta_Indicador_Telefono;
+    private javax.swing.ButtonGroup grupo_Botones;
+    private javax.swing.ButtonGroup grupo_Botones_Telefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

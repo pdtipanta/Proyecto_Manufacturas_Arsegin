@@ -28,7 +28,7 @@ public class Controlador_Reporte_Orden_Produccion {
         this.panel_Orden_Produccion = panel_Orden_De_Produccion;
     }
 
-    public void iniciar() {
+    public void iniciar() {/*
         ArrayList<Orden_Produccion> lista_Trabajo = new ArrayList<Orden_Produccion>();
 
         for (int i = 0; i < this.panel_Orden_Produccion.tabla_Productos_Maquila.getRowCount(); i++) {
@@ -49,6 +49,6 @@ public class Controlador_Reporte_Orden_Produccion {
             parametro.put("observaciones", this.panel_Orden_Produccion.caja_Observaciones_Maquila.getText());
             new JasperViewer(JasperFillManager.fillReport((JasperReport) JRLoader.loadObjectFromFile(System.getProperty("user.dir") + "/src/Reportes/Reporte_Orden.jasper"), parametro, new JRBeanCollectionDataSource(lista_Trabajo)), false).setVisible(true);
         } catch (Exception e) {
-        }
+        }*/
     }
 }

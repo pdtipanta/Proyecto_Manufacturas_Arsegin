@@ -5,6 +5,7 @@
  */
 package Controlador.Maquila;
 
+import Controlador.Gestion_Usuarios.Controlador_Panel_Ingreso;
 import Datos.Maquila.DAO_Maquila_Implementacion;
 import Modelo.Maquila;
 import Modelo.Usuario;
@@ -18,7 +19,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -32,6 +36,7 @@ public class Controlador_Maquila implements ActionListener, KeyListener, MouseLi
     private Connection  conexion_Database;
     private Usuario            usuario;
     private String                rol;
+    private Maquila maquilas;
     private TableRowSorter                  TRSFiltro;
     private DefaultTableModel               modelo_Tabla_Maquilas;
     private Panel_Maquilas     panel_Maquilas = new Panel_Maquilas();
@@ -140,7 +145,47 @@ public class Controlador_Maquila implements ActionListener, KeyListener, MouseLi
 
 if (ae.getSource() == this.panel_Maquilas.boton_Nuevo_Maquila) {
     
+    
+    if(new Controlador_Dialogo_Maquilas(this.vista, this.conexion_Database, this.maquilas, "Registrar").iniciar()){
+        this.panel_Maquilas.boton_Modificar.setEnabled(false);
+        this.panel_Maquilas.boton_Eliminar.setEnabled(false);
+        this.cargar_Maquilas();
+    }
 }
+
+if (ae.getSource() == this.panel_Maquilas.boton_Modificar) {
+    ArrayList<Maquila> maquila = new DAO_Maquila_Implementacion(this.conexion_Database).consultar(this.panel_Maquilas.tabla_Maquilas.getValueAt(this.panel_Maquilas.tabla_Maquilas.getSelectedRow(), 0));
+    
+    if(maquila.size() == 1){
+    if(new Controlador_Dialogo_Maquilas(this.vista, this.conexion_Database, maquila.get(0), "Modificar").iniciar()){
+        this.panel_Maquilas.boton_Modificar.setEnabled(false);
+        this.panel_Maquilas.boton_Eliminar.setEnabled(false);
+        this.cargar_Maquilas();
+    }
+    }
+}
+if (ae.getSource() == this.panel_Maquilas.boton_Cerrar_Sesion) {
+            vista.Panel_Contenedor.removeAll();
+            this.vista.borrar_Menu();
+            new Controlador_Panel_Ingreso(this.vista).iniciar();
+        }
+
+if (ae.getSource() == this.panel_Maquilas.boton_Eliminar) {
+            try {
+                if (new DAO_Maquila_Implementacion(this.conexion_Database).eliminar((String)this.panel_Maquilas.tabla_Maquilas.getValueAt(this.panel_Maquilas.tabla_Maquilas.getSelectedRow(), 0)) > 0) {
+                    //this.panel_Maquilas.limpiar_Campos();
+                    //this.panel_Maquilas.limpiar_Etiquetas_Campos();
+                    //this.panel_Maquilas.botones(true, true, false, false, true);
+                    //this.id_Maquila = null;
+                    //JOptionPane.showMessageDialog(null, "Maquila eliminada", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
+                    this.cargar_Maquilas();
+                }
+            } catch (SQLIntegrityConstraintViolationException e1) {
+                JOptionPane.showMessageDialog(null, "No se puede eliminar la maquila, debido a que mantiene documentos pendientes", "Maquilas", JOptionPane.WARNING_MESSAGE);
+                //this.panel_Maquilas.limpiar_Campos();
+            } catch (SQLException ex) {
+            }
+        }
     }
 /*
     public String numero_Maquila() {

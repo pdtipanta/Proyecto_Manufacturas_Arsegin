@@ -58,7 +58,7 @@ public class Controlador_Dialogo_Buscar_Factura implements ActionListener, KeyLi
     }
 
     public DefaultTableModel iniciar() {
-        return consultar_Datos_Facturas();
+        return this.consultar_Datos_Facturas();
         //this.dialogo_Buscar_Facturas.setVisible(true);
         //return this.factura;
     }

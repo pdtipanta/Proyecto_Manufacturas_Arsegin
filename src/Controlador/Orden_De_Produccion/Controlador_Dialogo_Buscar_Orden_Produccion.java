@@ -10,6 +10,7 @@ import Datos.Orden_Produccion.DAO_Orden_Produccion_Implementacion;
 import Modelo.Maquila;
 import Modelo.Orden_Produccion;
 import Vista.Maquilas.Orden_De_Produccion.Dialogo_Buscar_Orden_Produccion;
+import Vista.Maquilas.Orden_De_Produccion.Panel_Orden_De_Produccion;
 import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,37 +31,38 @@ import javax.swing.table.TableRowSorter;
  */
 public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListener, KeyListener, MouseListener {
 
-    private final Vista_Principal                     vista;
+    //private final Vista_Principal                     vista;
     private final Connection                          conexion;
-    private final Dialogo_Buscar_Orden_Produccion     dialogo_Buscar_Orden_Produccion;
+    //private final Dialogo_Buscar_Orden_Produccion     dialogo_Buscar_Orden_Produccion;
     private TableRowSorter                            TRSFiltro;
     private DefaultTableModel                         modelo_Tabla_Orden_Produccion;
+    private Panel_Orden_De_Produccion panel_Orden_De_Produccion;
     private ArrayList<Orden_Produccion>               orden_Produccion = new ArrayList<Orden_Produccion>();
 
-    public Controlador_Dialogo_Buscar_Orden_Produccion(Vista_Principal vista, Connection conexion) {
-        this.vista = vista;
+    public Controlador_Dialogo_Buscar_Orden_Produccion(Panel_Orden_De_Produccion panel_Orden_De_Produccion, Connection conexion) {
+        //this.vista = vista;
+        this.panel_Orden_De_Produccion = panel_Orden_De_Produccion;
         this.conexion = conexion;
-        this.dialogo_Buscar_Orden_Produccion = new Dialogo_Buscar_Orden_Produccion(this.vista, true);
-        this.dialogo_Buscar_Orden_Produccion.campo_Busqueda.addKeyListener(this);
-        this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion.addMouseListener(this);
-        this.dialogo_Buscar_Orden_Produccion.combo_Opciones.addActionListener(this);
-        this.dialogo_Buscar_Orden_Produccion.boton_Fecha.addActionListener(this);
-        this.modelo_Tabla_Orden_Produccion = (DefaultTableModel) this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion.getModel();
+        //this.dialogo_Buscar_Orden_Produccion = new Dialogo_Buscar_Orden_Produccion(this.vista, true);
+        //this.dialogo_Buscar_Orden_Produccion.campo_Busqueda.addKeyListener(this);
+        //this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion.addMouseListener(this);
+        //this.dialogo_Buscar_Orden_Produccion.combo_Opciones.addActionListener(this);
+        //this.dialogo_Buscar_Orden_Produccion.boton_Fecha.addActionListener(this);
+        this.modelo_Tabla_Orden_Produccion = (DefaultTableModel) this.panel_Orden_De_Produccion.tabla_Consulta_Orden_Produccion.getModel();
     }
 
-    public ArrayList<Orden_Produccion> iniciar() {
-        consultar_Datos_Orden_Produccion();
-        this.dialogo_Buscar_Orden_Produccion.setVisible(true);
-        return this.orden_Produccion;
+    public DefaultTableModel iniciar() {
+       return consultar_Datos_Orden_Produccion();
+        //this.dialogo_Buscar_Orden_Produccion.setVisible(true);
     }
 
-    public void consultar_Datos_Orden_Produccion() {
+    public DefaultTableModel consultar_Datos_Orden_Produccion() {
         String valor = "Todas";
         
-        presentar_Ordenes(new DAO_Orden_Produccion_Implementacion(this.conexion).consultar(valor));    
+        return presentar_Ordenes(new DAO_Orden_Produccion_Implementacion(this.conexion).consultar(valor));    
     }
     
-    public void presentar_Ordenes(ArrayList<Orden_Produccion> orden_Produccion) {
+    public DefaultTableModel presentar_Ordenes(ArrayList<Orden_Produccion> orden_Produccion) {
         this.modelo_Tabla_Orden_Produccion.setRowCount(0);
         
         if (orden_Produccion.size() > 0) {
@@ -70,12 +72,13 @@ public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListen
                 this.modelo_Tabla_Orden_Produccion.addRow(fila);
             }
         }
+        return this.modelo_Tabla_Orden_Produccion;
     }
     
 
     @Override
     public void keyTyped(KeyEvent ke) {
-
+/*
         if (this.dialogo_Buscar_Orden_Produccion.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
             this.dialogo_Buscar_Orden_Produccion.campo_Busqueda.setEditable(false);
         } else {
@@ -91,7 +94,7 @@ public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListen
                 TRSFiltro = new TableRowSorter(this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion.getModel());
                 this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion.setRowSorter(TRSFiltro);
             }
-        }
+        }*/
     }
 
     @Override
@@ -102,22 +105,22 @@ public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListen
     public void keyReleased(KeyEvent ke) {
     }
 
-    public void filtro() {
+    public void filtro() {/*
         if (this.dialogo_Buscar_Orden_Produccion.combo_Opciones.getSelectedItem() == "Por numero") {
             filtrar_Tabla(0);
         } else if (this.dialogo_Buscar_Orden_Produccion.combo_Opciones.getSelectedItem() == "Por nombre") {
             filtrar_Tabla(1);
         } else if (this.dialogo_Buscar_Orden_Produccion.combo_Opciones.getSelectedItem() == "Por RUC") {
             filtrar_Tabla(2);
-        }
+        }*/
     }
 
     public void filtrar_Tabla(int valor) {
-        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.dialogo_Buscar_Orden_Produccion.campo_Busqueda.getText(), valor));
+       // TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.dialogo_Buscar_Orden_Produccion.campo_Busqueda.getText(), valor));
     }
 
     @Override
-    public void mouseClicked(MouseEvent me) {
+    public void mouseClicked(MouseEvent me) {/*
         if (me.getSource() == this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion) {
             
             String valor = String.valueOf(this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion.getValueAt(this.dialogo_Buscar_Orden_Produccion.tabla_Consulta_Orden_Produccion.getSelectedRow(), 0));
@@ -126,7 +129,7 @@ public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListen
             if (this.orden_Produccion.size() == 1) {
                 this.dialogo_Buscar_Orden_Produccion.dispose();
             }
-        }
+        }*/
     }
 
     @Override
@@ -146,15 +149,15 @@ public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListen
     }
 
     @Override
-    public void actionPerformed(ActionEvent ae) {
+    public void actionPerformed(ActionEvent ae) {/*
         if (ae.getSource() == this.dialogo_Buscar_Orden_Produccion.combo_Opciones) {
             if (this.dialogo_Buscar_Orden_Produccion.combo_Opciones.getSelectedItem().equals("Por fecha")) {
                 this.dialogo_Buscar_Orden_Produccion.desactivar_Calendarios(true);
             } else {
                 this.dialogo_Buscar_Orden_Produccion.desactivar_Calendarios(false);
             }
-        }
-
+        }*/
+/*
         if (ae.getSource() == this.dialogo_Buscar_Orden_Produccion.boton_Fecha) {
             if (this.dialogo_Buscar_Orden_Produccion.verificar_Campos()) {
                 this.presentar_Ordenes(new DAO_Orden_Produccion_Implementacion(this.conexion).consultar_Ordenes_Produccion_Fechas( this.dialogo_Buscar_Orden_Produccion.calendario_Inicio() + ";" + this.dialogo_Buscar_Orden_Produccion.calendario_Final()));
@@ -162,6 +165,6 @@ public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListen
             } else {
                 this.dialogo_Buscar_Orden_Produccion.etiqueta_Error_Etiqueta(true);
             }
-        }
+        }*/
     }
 }

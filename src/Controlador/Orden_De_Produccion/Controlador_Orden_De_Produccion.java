@@ -37,7 +37,7 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
     private ArrayList<Maquila>          modelo_Maquila = new ArrayList<Maquila>(); 
     private Orden_Produccion            modelo_Orden_Produccion;
     private Panel_Orden_De_Produccion   panel_Orden_Produccion = new Panel_Orden_De_Produccion();
-    private DefaultTableModel           modelo_Tabla_Maquila = ( DefaultTableModel )  panel_Orden_Produccion.tabla_Productos_Maquila.getModel();
+    private DefaultTableModel           modelo_Tabla_Maquila = ( DefaultTableModel )  panel_Orden_Produccion.tabla_Consulta_Orden_Produccion.getModel();
     private ArrayList<Orden_Produccion>  lista_Orden = new ArrayList<Orden_Produccion>();
     private String id_Maquila;
     
@@ -46,12 +46,12 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
         this.conexion_Database = conexion_Database;
         this.usuario = usuario;
         this.rol = rol;
-        this.panel_Orden_Produccion.boton_Guardar_Orden.addActionListener(this);
+        //this.panel_Orden_Produccion.boton_Guardar_Orden.addActionListener(this);
         this.panel_Orden_Produccion.boton_Modificar_Orden.addActionListener(this);
-        this.panel_Orden_Produccion.boton_Agregar_Fila.addActionListener(this);
+        //this.panel_Orden_Produccion.boton_Agregar_Fila.addActionListener(this);
         this.panel_Orden_Produccion.boton_Nueva_Orden.addActionListener(this);
-        this.panel_Orden_Produccion.boton_Buscar_Orden.addActionListener(this);
-        this.panel_Orden_Produccion.boton_Agregar_Maquila.addActionListener(this);
+        //this.panel_Orden_Produccion.boton_Buscar_Orden.addActionListener(this);
+        //this.panel_Orden_Produccion.boton_Agregar_Maquila.addActionListener(this);
         this.panel_Orden_Produccion.boton_Generar_Orden.addActionListener(this);
         this.panel_Orden_Produccion.boton_Cerrar_Sesion.addActionListener(this);
     }
@@ -60,13 +60,14 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
         this.vista.Panel_Contenedor.add(this.panel_Orden_Produccion);
         this.panel_Orden_Produccion.setVisible(true);
         this.vista.Panel_Contenedor.validate();
-        this.numero_Orden_Produccion();
+        this.cargar_Ordenes_Produccion();
+        //this.numero_Orden_Produccion();
         this.set_Usuario();
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-
+/*
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Agregar_Maquila) {
             ArrayList<Maquila> maquila = new Controlador_Dialogo_Buscar_Maquila(this.vista, this.conexion_Database).iniciar();
 
@@ -75,8 +76,8 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
                 this.panel_Orden_Produccion.botones(true, true, false, false, true, true);
                 this.id_Maquila = maquila.get(0).getId_Maquila();
             }
-        }
-
+        }*/
+/*
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Nueva_Orden) {
             this.panel_Orden_Produccion.limpiar_Valores();
             this.panel_Orden_Produccion.limpiar_Tabla();
@@ -84,8 +85,8 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
             this.panel_Orden_Produccion.limpiar_Etiquetas();
             this.panel_Orden_Produccion.botones(true, true, false, false, true, false);
             this.numero_Orden_Produccion();
-        }
-
+        }*/
+/*
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Guardar_Orden) {
 
             if (this.modelo_Tabla_Maquila.getRowCount() > 0 && this.panel_Orden_Produccion.etiquetas()) {
@@ -108,8 +109,8 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
             } else {
                 this.panel_Orden_Produccion.etiquetas();
             }
-        }
-
+        }*/
+/*
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Modificar_Orden) {
 
             if (this.modelo_Tabla_Maquila.getRowCount() > 0 && this.panel_Orden_Produccion.etiquetas()) {
@@ -133,8 +134,8 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
             } else {
                 JOptionPane.showMessageDialog(null, "No se puede actualizar la orden", "Orden de Produccion", JOptionPane.WARNING_MESSAGE);
             }
-        }
-
+        }*/
+/*
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Buscar_Orden) {
             ArrayList<Orden_Produccion> orden_Produccion = new Controlador_Dialogo_Buscar_Orden_Produccion(this.vista, this.conexion_Database).iniciar();
             boolean bandera = false;
@@ -154,8 +155,8 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
                 }
             }
 
-        }
-
+        }*/
+/*
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Agregar_Fila) {
             Object[] trabajo = new Controlador_Dialogo_Agregar_Trabajo(this.vista).iniciar();
 
@@ -163,6 +164,10 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
                 this.modelo_Tabla_Maquila.addRow(trabajo);
                 this.panel_Orden_Produccion.calculo_Valores();
             }
+        }*/
+
+        if (ae.getSource() == this.panel_Orden_Produccion.boton_Nueva_Orden) {
+           new Controlador_Dialogo_Orden_Produccion(this.vista, this.conexion_Database).iniciar();
         }
         
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Generar_Orden) {
@@ -175,11 +180,15 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
             new Controlador_Panel_Ingreso(this.vista).iniciar();
         }
     }
-
+/*
     public void numero_Orden_Produccion() {
         this.panel_Orden_Produccion.etiqueta_No_Orden.setText(new Numeracion_Documentos().convertir_Numero(new DAO_Orden_Produccion_Implementacion(this.conexion_Database).consultar_Numero_Orden()));
-    }
+    }*/
     
+    public void cargar_Ordenes_Produccion(){
+        new Controlador_Dialogo_Buscar_Orden_Produccion(this.panel_Orden_Produccion, this.conexion_Database).iniciar();
+        
+    }
     public void set_Usuario(){
         this.panel_Orden_Produccion.set_Usuario(this.usuario, this.rol);
     }
