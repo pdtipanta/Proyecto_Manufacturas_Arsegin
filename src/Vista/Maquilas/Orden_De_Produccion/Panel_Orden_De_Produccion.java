@@ -33,6 +33,8 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
  
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(SwingConstants.CENTER);
+        this.tabla_Consulta_Orden_Produccion.getColumnModel().getColumn(0).setCellRenderer(tcr);
+        this.campo_Busqueda.setEditable(false);
 /*
         this.tabla_Productos_Maquila.getColumnModel().getColumn(0).setCellRenderer(tcr);
         this.etiqueta_Indicador_Maquila.setVisible( false );
@@ -40,12 +42,18 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         this.etiqueta_Indicador_Direccion.setVisible( false );
         this.etiqueta_Indicador_Telefono.setVisible( false );
         this.etiqueta_Estado.setVisible( false );*/
+this.fecha_1.setVisible(false);
+        this.fecha_2.setVisible(false);
+        this.boton_Fecha.setVisible(false);
+        this.fecha_1.setDate( new Date() );
+        this.fecha_2.setDate( new Date() );
+        this.etiqueta_Error_Fecha.setVisible(false);
         this.boton_Modificar_Orden.setEnabled( false );
         //this.boton_Agregar_Fila.setEnabled( false );
         //this.boton_Quitar_Fila.setEnabled( false );
         this.boton_Generar_Orden.setEnabled(false);
         //this.etiqueta_Indicador_Calendario.setVisible(false);
-        //this.tabla_Productos_Maquila.getTableHeader().setReorderingAllowed(false) ;
+        this.tabla_Consulta_Orden_Produccion.getTableHeader().setReorderingAllowed(false) ;
     }
     
     public void Roles(String rol) {
@@ -110,6 +118,17 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Consulta_Orden_Produccion = new javax.swing.JTable();
         jToolBar2 = new javax.swing.JToolBar();
+        jLabel1 = new javax.swing.JLabel();
+        campo_Busqueda = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JToolBar.Separator();
+        fecha_1 = new com.toedter.calendar.JDateChooser();
+        fecha_2 = new com.toedter.calendar.JDateChooser();
+        jSeparator6 = new javax.swing.JToolBar.Separator();
+        etiqueta_Error_Fecha = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JToolBar.Separator();
+        boton_Fecha = new javax.swing.JButton();
+        jSeparator8 = new javax.swing.JToolBar.Separator();
+        combo_Opciones = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(239, 239, 239));
         setMaximumSize(new java.awt.Dimension(1400, 800));
@@ -224,6 +243,52 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.setRollover(true);
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jLabel1.setText("    ");
+        jToolBar2.add(jLabel1);
+
+        campo_Busqueda.setEditable(false);
+        campo_Busqueda.setBackground(new java.awt.Color(255, 255, 255));
+        campo_Busqueda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        campo_Busqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Busqueda.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        campo_Busqueda.setMaximumSize(new java.awt.Dimension(450, 30));
+        campo_Busqueda.setMinimumSize(new java.awt.Dimension(450, 30));
+        campo_Busqueda.setPreferredSize(new java.awt.Dimension(440, 30));
+        jToolBar2.add(campo_Busqueda);
+        jToolBar2.add(jSeparator4);
+
+        fecha_1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Desde", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+        jToolBar2.add(fecha_1);
+
+        fecha_2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Hasta", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+        jToolBar2.add(fecha_2);
+        jToolBar2.add(jSeparator6);
+
+        etiqueta_Error_Fecha.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        etiqueta_Error_Fecha.setForeground(new java.awt.Color(204, 0, 51));
+        etiqueta_Error_Fecha.setText("*");
+        jToolBar2.add(etiqueta_Error_Fecha);
+        jToolBar2.add(jSeparator7);
+
+        boton_Fecha.setBackground(new java.awt.Color(255, 255, 255));
+        boton_Fecha.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        boton_Fecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/busqueda (1).png"))); // NOI18N
+        boton_Fecha.setText("Buscar");
+        boton_Fecha.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton_Fecha.setMaximumSize(new java.awt.Dimension(75, 40));
+        boton_Fecha.setMinimumSize(new java.awt.Dimension(75, 40));
+        boton_Fecha.setPreferredSize(new java.awt.Dimension(75, 40));
+        jToolBar2.add(boton_Fecha);
+        jToolBar2.add(jSeparator8);
+
+        combo_Opciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        combo_Opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.....", "Por numero", "Por nombre", "Por RUC", "Por fecha" }));
+        combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.add(combo_Opciones);
+
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 1000, 40));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -383,20 +448,65 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
     }
+    
+    public void desactivar_Calendarios(boolean bandera) {
+        this.fecha_1.setVisible(bandera);
+        this.fecha_2.setVisible(bandera);
+        this.boton_Fecha.setVisible(bandera);
+    }
+
+    public boolean verificar_Campos() {
+        boolean bandera = true;
+
+        if (this.fecha_1.getDate() == null) {
+            bandera = false;
+        }
+
+        if (this.fecha_2.getDate() == null) {
+            bandera = false;
+        }
+
+        return bandera;
+    }
+
+    public String calendario_Inicio() {
+        Date fecha = this.fecha_1.getDate();
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
+    }
+
+    public String calendario_Final() {
+        Date fecha = this.fecha_2.getDate();
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
+    }
+    
+     public void etiqueta_Error_Etiqueta(boolean bandera){
+        this.etiqueta_Error_Fecha.setVisible(bandera);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Cerrar_Sesion;
+    public javax.swing.JButton boton_Fecha;
     public javax.swing.JButton boton_Generar_Orden;
     public javax.swing.JButton boton_Modificar_Orden;
     public javax.swing.JButton boton_Nueva_Orden;
+    public javax.swing.JTextField campo_Busqueda;
+    public javax.swing.JComboBox<String> combo_Opciones;
+    public javax.swing.JLabel etiqueta_Error_Fecha;
     public javax.swing.JLabel etiqueta_Nombre_Usuario;
     public javax.swing.JLabel etiqueta_Rol;
+    public com.toedter.calendar.JDateChooser fecha_1;
+    public com.toedter.calendar.JDateChooser fecha_2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
+    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
+    private javax.swing.JToolBar.Separator jSeparator6;
+    private javax.swing.JToolBar.Separator jSeparator7;
+    private javax.swing.JToolBar.Separator jSeparator8;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     public javax.swing.JTable tabla_Consulta_Orden_Produccion;

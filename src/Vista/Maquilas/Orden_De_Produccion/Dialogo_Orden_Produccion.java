@@ -5,6 +5,10 @@
  */
 package Vista.Maquilas.Orden_De_Produccion;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author David
@@ -18,12 +22,15 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
+        calendario_Orden.setDate( new Date() );
         this.etiqueta_Indicador_Maquila.setVisible( false );
         this.etiqueta_Indicador_RUC.setVisible( false );
         this.etiqueta_Indicador_Direccion.setVisible( false );
         this.etiqueta_Indicador_Telefono.setVisible( false );
         this.etiqueta_Estado.setVisible( false );
         this.etiqueta_Indicador_Calendario.setVisible(false);
+        this.boton_Agregar_Fila.setEnabled( false );
+        this.boton_Quitar_Fila.setEnabled( false );
         this.tabla_Productos_Maquila.getTableHeader().setReorderingAllowed(false) ;
     }
 
@@ -62,7 +69,6 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         combo_Estado_Orden = new javax.swing.JComboBox<>();
         etiqueta_Estado = new javax.swing.JLabel();
         combo_Maquila_Orden = new javax.swing.JTextField();
-        boton_Agregar_Maquila = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         etiqueta_Indicador_Calendario = new javax.swing.JLabel();
@@ -71,6 +77,8 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Guardar_Orden = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        boton_Agregar_Maquila = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1203, 826));
@@ -252,11 +260,6 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         combo_Maquila_Orden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(combo_Maquila_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 310, 22));
 
-        boton_Agregar_Maquila.setBackground(new java.awt.Color(255, 255, 255));
-        boton_Agregar_Maquila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/lupa.png"))); // NOI18N
-        boton_Agregar_Maquila.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(boton_Agregar_Maquila, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 40, 30));
-
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Estado del trabajo:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
@@ -296,6 +299,18 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         boton_Guardar_Orden.setMinimumSize(new java.awt.Dimension(100, 37));
         boton_Guardar_Orden.setPreferredSize(new java.awt.Dimension(60, 37));
         jToolBar1.add(boton_Guardar_Orden);
+        jToolBar1.add(jSeparator1);
+
+        boton_Agregar_Maquila.setBackground(new java.awt.Color(255, 255, 255));
+        boton_Agregar_Maquila.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        boton_Agregar_Maquila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario-especialista.png"))); // NOI18N
+        boton_Agregar_Maquila.setText("Maquila");
+        boton_Agregar_Maquila.setToolTipText("Agregar maquila");
+        boton_Agregar_Maquila.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton_Agregar_Maquila.setMaximumSize(new java.awt.Dimension(95, 40));
+        boton_Agregar_Maquila.setMinimumSize(new java.awt.Dimension(95, 40));
+        boton_Agregar_Maquila.setPreferredSize(new java.awt.Dimension(95, 40));
+        jToolBar1.add(boton_Agregar_Maquila);
 
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1203, 40));
 
@@ -320,11 +335,11 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
     }//GEN-LAST:event_tabla_Productos_MaquilaKeyTyped
 
     private void boton_Quitar_FilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Quitar_FilaActionPerformed
-        //DefaultTableModel modelo_Tabla_Maquila = (DefaultTableModel) this.tabla_Productos_Maquila.getModel();
+        DefaultTableModel modelo_Tabla_Maquila = (DefaultTableModel) this.tabla_Productos_Maquila.getModel();
 
         try {
-            //modelo_Tabla_Maquila.removeRow(this.tabla_Productos_Maquila.getSelectedRow());
-            //this.calculo_Valores();
+            modelo_Tabla_Maquila.removeRow(this.tabla_Productos_Maquila.getSelectedRow());
+            this.calculo_Valores();
         } catch (Exception ex) {
         }
     }//GEN-LAST:event_boton_Quitar_FilaActionPerformed
@@ -334,6 +349,98 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         if( c < '0'  || c > '9' || this.campo_RUC_Orden.getText().length() >= 13 ) evt.consume();
     }//GEN-LAST:event_campo_RUC_OrdenKeyTyped
 
+    public boolean etiquetas( ){
+        boolean bandera = true;
+        if( this.combo_Maquila_Orden.getText().isEmpty() ){
+            this.etiqueta_Indicador_Maquila.setVisible( true );
+            bandera = false;
+        }else{ 
+            this.etiqueta_Indicador_Maquila.setVisible( false );
+        }
+        
+        if (this.calendario_Orden.getDate() == null) {
+            this.etiqueta_Indicador_Calendario.setVisible(bandera);
+            bandera = false;
+        }else{
+            this.etiqueta_Indicador_Calendario.setVisible(false);
+        }
+            
+        if( this.campo_RUC_Orden.getText().matches( "[0-9][0-9]{12}" ) ){
+            this.etiqueta_Indicador_RUC.setVisible( false );
+        }else if(this.campo_RUC_Orden.getText().matches( "[0-9][0-9]{9}" )){
+            this.etiqueta_Indicador_RUC.setVisible( false );
+        }
+        else{
+            this.etiqueta_Indicador_RUC.setVisible( true );
+            bandera = false;
+        }
+            
+        if( this.campo_Direccion_Orden.getText().isEmpty() ){ 
+            this.etiqueta_Indicador_Direccion.setVisible( true );
+            bandera = false;
+        }else{ 
+            this.etiqueta_Indicador_Direccion.setVisible( false );
+        }
+            
+        if( this.campo_Telefono_Orden.getText().matches( "[0][1-9][0-9]{7}" ) ){
+            this.etiqueta_Indicador_Telefono.setVisible( false );
+        }else{
+            this.etiqueta_Indicador_Telefono.setVisible( true );
+            bandera = false;
+        } 
+        
+        if( this.combo_Estado_Orden.getSelectedItem().equals( "Seleccionar.........." ) ){ 
+            this.etiqueta_Estado.setVisible( true );
+            bandera = false;
+        }else{ 
+            this.etiqueta_Estado.setVisible( false );
+        }
+        
+        return bandera;
+    }
+    
+    public void calculo_Valores() {
+        try {
+            double valor_Subtotal = 0;
+            for (int i = 0; i < this.tabla_Productos_Maquila.getRowCount(); i++) {
+                valor_Subtotal = valor_Subtotal + (double) this.tabla_Productos_Maquila.getValueAt(i, 3);
+            }
+            this.campo_Total_Orden.setText(String.valueOf(valor_Subtotal));
+        } catch (Exception e) {
+        }
+    }
+    
+    public String[] evaluar_Tabla(){
+        DefaultTableModel modelo_Tabla_Maquila = ( DefaultTableModel ) this.tabla_Productos_Maquila.getModel();
+        int verificar = 0;
+        String[] valores = new String[5];
+            
+            for( int i = 0; i< modelo_Tabla_Maquila.getRowCount(); i++ ){
+                if( modelo_Tabla_Maquila.getValueAt( i, 3 ) != null && ( double ) modelo_Tabla_Maquila.getValueAt( i, 3 ) > 0  ){
+                    valores[0] = modelo_Tabla_Maquila.getValueAt( i, 0 ) + ";" + valores[0];
+                    valores[1] = modelo_Tabla_Maquila.getValueAt( i, 1 ) + ";" + valores[1];
+                    valores[2] = modelo_Tabla_Maquila.getValueAt( i, 2 ) + ";" + valores[2];
+                    valores[3] = modelo_Tabla_Maquila.getValueAt( i, 3 ) + ";" + valores[3];
+                    verificar++;
+                }else{    
+                }
+            }
+            valores[4] = String.valueOf( verificar );
+            return valores;
+    }
+    
+    public String calendario() {
+        Date fecha;
+        fecha = (Date) this.calendario_Orden.getDate();
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha); 
+    }
+    
+    public void valores_Maquila( String maquila, String direccion, String telefono, String RUC ){
+        this.combo_Maquila_Orden.setText(maquila);
+        this.campo_Direccion_Orden.setText( direccion );
+        this.campo_Telefono_Orden.setText( telefono );
+        this.campo_RUC_Orden.setText( RUC );
+    }
     /**
      * @param args the command line arguments
      */
@@ -410,6 +517,7 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     public javax.swing.JTable tabla_Productos_Maquila;
     // End of variables declaration//GEN-END:variables
