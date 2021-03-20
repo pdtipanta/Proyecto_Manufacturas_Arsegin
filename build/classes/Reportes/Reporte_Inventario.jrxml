@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte_Inventario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f005d998-ed30-4879-9e52-33020dc6faf6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="codigo_Producto" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 1]]>
+	</queryString>
+	<field name="codigo" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="cantidad_Disponible" class="java.lang.String"/>
+	<field name="precio_Compra" class="java.lang.String"/>
+	<field name="precio_Venta" class="java.lang.String"/>
+	<field name="proveedor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="195" splitType="Stretch">
+			<image>
+				<reportElement x="1" y="0" width="388" height="139" uuid="3df144d0-9535-4240-9067-597fdcec0c70"/>
+				<imageExpression><![CDATA["C:\\Users\\David\\Documents\\NetBeansProjects\\Proyecto Manufacturas Arsegin\\src\\Imagenes\\arsegin total.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="148" y="139" width="271" height="45" uuid="62a66164-a75e-4017-ac10-aff00c0aec73"/>
+				<textElement verticalAlignment="Middle">
+					<font size="20" isUnderline="false" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[INFORME DE INVENTARIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="305" y="30" width="248" height="26" uuid="90d38632-a844-44b6-9881-d55488e1c3b3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Times New Roman" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MANUFACTURAS ARSEGIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="56" width="100" height="20" uuid="05c618e4-0242-44e8-b811-9a1b8515bdfd"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1722467444001]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="76" width="175" height="20" uuid="09eddb81-99e2-439c-b0da-828f0157aca7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Av. principal OE7-418 y transversal 20]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="96" width="156" height="20" uuid="bd7142a0-407b-494e-8f88-8f4e83e3c6b3"/>
+				<textElement>
+					<font fontName="Times New Roman" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3004385/ 0998630727/ 0983745058]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="84" height="20" uuid="e8be619d-8037-47e3-8742-e5dbeec3d0c9"/>
+				<text><![CDATA[codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="2" width="127" height="19" uuid="65ebda2c-6089-4b6c-85b5-b004e7fa4326"/>
+				<text><![CDATA[descripcion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="2" width="100" height="19" uuid="9f2f8b15-f7fd-4dcf-a78e-14cc86239818"/>
+				<text><![CDATA[cantidad_Disponible]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="0" width="65" height="20" uuid="c5397d3e-0dbd-43e6-970a-fdde66d911c0"/>
+				<text><![CDATA[precio_Compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="0" width="69" height="20" uuid="fdcbba34-95a8-4425-b1ce-7eb07f7e6923"/>
+				<text><![CDATA[precio_Venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="0" width="100" height="20" uuid="caaa01ab-6ce4-4fb7-b710-4dce4b04bdfa"/>
+				<text><![CDATA[proveedor]]></text>
+			</staticText>
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="22" uuid="239cebd0-01ae-49a6-b1d8-3f3207c4b02b"/>
+				<staticText>
+					<reportElement x="1" y="0" width="100" height="20" uuid="bb4dc485-c404-4180-b0f7-d3052e09e8d8"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Codigo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="101" y="1" width="100" height="19" uuid="786a7130-c175-4966-95c4-d2eb1ac18f00"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Descripcion]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="201" y="0" width="70" height="20" uuid="daa95abd-80ef-46b2-a23f-ba680a1aa3ec"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Disponible]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="271" y="0" width="86" height="20" uuid="914946ed-3d25-4e20-bd07-3c7e57fe38a1"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Precio_Compra]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="357" y="0" width="88" height="20" uuid="74a0d975-5f60-4ab1-b3a6-25ce88be6af7"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Precio_Venta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="445" y="0" width="110" height="20" uuid="64e6b00d-5e15-4f02-9f35-03d521186e4c"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Proveedor]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="3" width="100" height="20" uuid="7d99affd-fea9-473c-bb66-df7d800d3d0d"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="3" width="100" height="20" uuid="17138cdc-23fe-440f-986f-a51225f91581"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="3" width="70" height="20" uuid="db9b6a90-d762-4834-a8ed-cb818fa6fd82"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad_Disponible}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="3" width="86" height="20" uuid="c8fdf914-b8a5-4f31-9762-f7146d00f794"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio_Compra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="357" y="3" width="88" height="20" uuid="5d41d93f-305d-4401-af6d-dc2fa058f09b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio_Venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="3" width="110" height="20" uuid="b01c769e-7a4d-463c-8903-8cd73da757b6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{proveedor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="f706ce4f-e6e1-418c-99db-4286a4302f16"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="74d2c8bb-f5b3-4fd0-978a-bd5c0fcba49e"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="9b98dc15-96e2-4e3d-8702-fb75e7809cf6"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="64bd4abf-37a2-4d18-bc5e-9cdabc1b869f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
