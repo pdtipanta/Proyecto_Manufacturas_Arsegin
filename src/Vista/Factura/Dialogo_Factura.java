@@ -5,7 +5,9 @@
  */
 package Vista.Factura;
 
+import Modelo.Cliente;
 import Modelo.Factura;
+import Modelo.Usuario;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -20,8 +22,9 @@ import javax.swing.table.DefaultTableModel;
  * @author David
  */
 public class Dialogo_Factura extends javax.swing.JDialog {
-    private DefaultTableModel       modelo_Tabla_Factura;
-    private DecimalFormat           formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
+    private DefaultTableModel modelo_Tabla_Factura;
+    private DecimalFormat formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
+
     /**
      * Creates new form Dialogo_Factura
      */
@@ -30,20 +33,20 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.setResizable(false);
-        calendario_Factura.setDate( new Date() );
-        this.etiqueta_Indicador_Cliente.setVisible( false );
-        this.etiqueta_Indicador_Ciudad.setVisible( false );
-        this.etiqueta_Indicador_RUC.setVisible( false );
-        this.etiqueta_Indicador_Direccion.setVisible( false );
-       this.etiqueta_Indicador_Telefono.setVisible( false );
-       this.etiqueta_Indicador_Contacto.setVisible( false );
-       this.etiqueta_Indicador_Estado.setVisible( false );
-       this.boton_Agregar_Fila.setEnabled( false );
-      this.boton_Quitar_Fila.setEnabled( false );
-       this.etiqueta_Indicador_Calendario.setVisible(false);
-       this.valor_IVA.setValue(12);
-       this.valor_IVA.setEnabled(false);
-       this.modelo_Tabla_Factura = ( DefaultTableModel )  this.tabla_Productos_Factura.getModel();
+        calendario_Factura.setDate(new Date());
+        this.etiqueta_Indicador_Cliente.setVisible(false);
+        this.etiqueta_Indicador_Ciudad.setVisible(false);
+        this.etiqueta_Indicador_RUC.setVisible(false);
+        this.etiqueta_Indicador_Direccion.setVisible(false);
+        this.etiqueta_Indicador_Telefono.setVisible(false);
+        this.etiqueta_Indicador_Contacto.setVisible(false);
+        this.etiqueta_Indicador_Estado.setVisible(false);
+        this.boton_Agregar_Fila.setEnabled(false);
+        this.boton_Quitar_Fila.setEnabled(false);
+        this.etiqueta_Indicador_Calendario.setVisible(false);
+        this.valor_IVA.setValue(12);
+        this.valor_IVA.setEnabled(false);
+        this.modelo_Tabla_Factura = (DefaultTableModel) this.tabla_Productos_Factura.getModel();
     }
 
     /**
@@ -503,11 +506,11 @@ public class Dialogo_Factura extends javax.swing.JDialog {
 
     private void valor_IVAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_valor_IVAStateChanged
 
-        if((Integer)this.valor_IVA.getValue() < 1){
+        if ((Integer) this.valor_IVA.getValue() < 1) {
             this.valor_IVA.setValue(1);
-        }else if((Integer)this.valor_IVA.getValue() > 25){
+        } else if ((Integer) this.valor_IVA.getValue() > 25) {
             this.valor_IVA.setValue(25);
-        }else{
+        } else {
             calculo_Valores();
         }
     }//GEN-LAST:event_valor_IVAStateChanged
@@ -606,20 +609,20 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         return valores;
     }
     
-    public void valores_Clientes( String codigo, String cliente, String direccion, String telefono, String RUC, String ciudad, String nombre, String apellido ){
-        this.campo_Codigo.setText(codigo);
-        this.combo_Cliente_Factura.setText(cliente);
-        this.campo_RUC_Factura.setText( RUC );
-        this.campo_Direccion_Factura.setText( direccion );
-        this.campo_Ciudad_Factura.setText( ciudad );
-        this.campo_Telefono_Factura.setText( telefono );
-        this.campo_Vendedor.setText(nombre + " " + apellido);
+    public void valores_Clientes(Cliente cliente, Usuario usuario) {
+        this.campo_Codigo.setText(cliente.getCodigo_Cliente());
+        this.combo_Cliente_Factura.setText(cliente.getCliente());
+        this.campo_RUC_Factura.setText(cliente.getRUC());
+        this.campo_Direccion_Factura.setText(cliente.getDireccion());
+        this.campo_Ciudad_Factura.setText(cliente.getCiudad());
+        this.campo_Telefono_Factura.setText(cliente.getTelefono());
+        this.campo_Vendedor.setText(usuario.getNombre() + " " + usuario.getApellido());
     }
-    
-    public String calendario(){
+
+    public String calendario() {
         Date fecha;
         fecha = (Date) this.calendario_Factura.getDate();
-        return  new SimpleDateFormat("yyyy-MM-dd").format( fecha ) ;
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
 
     public void calculo_Valores() {
@@ -629,27 +632,26 @@ public class Dialogo_Factura extends javax.swing.JDialog {
                 valor_Subtotal = valor_Subtotal + (double) this.modelo_Tabla_Factura.getValueAt(i, 4);
             }
             this.campo_Subtotal_Factura.setText(this.formato_Numero.format(valor_Subtotal));
-            this.campo_IVA_Factura.setText(this.formato_Numero.format(valor_Subtotal * (Integer)this.valor_IVA.getValue()/100));
+            this.campo_IVA_Factura.setText(this.formato_Numero.format(valor_Subtotal * (Integer) this.valor_IVA.getValue() / 100));
             this.campo_Total_Factura.setText(this.formato_Numero.format(Double.valueOf(this.campo_IVA_Factura.getText()) + valor_Subtotal));
         } catch (Exception e) {
         }
     }
-    
-    public void valores_Clientes( String codigo, String cliente, String direccion, String telefono, String RUC, String ciudad, String nombre, String apellido, String c){
-        System.out.println("Ingrese");
+
+    public void valores_Clientes(String codigo, String cliente, String direccion, String telefono, String RUC, String ciudad, String nombre, String apellido, String c) {
         this.campo_Codigo.setText(codigo);
         this.combo_Cliente_Factura.setText(cliente);
-        this.campo_RUC_Factura.setText( RUC );
-        this.campo_Direccion_Factura.setText( direccion );
-        this.campo_Ciudad_Factura.setText( ciudad );
-        this.campo_Telefono_Factura.setText( telefono );
+        this.campo_RUC_Factura.setText(RUC);
+        this.campo_Direccion_Factura.setText(direccion);
+        this.campo_Ciudad_Factura.setText(ciudad);
+        this.campo_Telefono_Factura.setText(telefono);
         this.campo_Vendedor.setText(nombre + " " + apellido);
     }
     
-    public void valores_Tabla_Factura(ArrayList<Factura>  lista_Factura){
-        DefaultTableModel modelo_Tabla_Factura = ( DefaultTableModel )  this.tabla_Productos_Factura.getModel();
+    public void valores_Tabla_Factura(ArrayList<Factura> lista_Factura) {
+        DefaultTableModel modelo_Tabla_Factura = (DefaultTableModel) this.tabla_Productos_Factura.getModel();
         modelo_Tabla_Factura.setRowCount(0);
-        
+
         String[] cantidad = lista_Factura.get(0).getCantidad().split(";");
         String[] codigo = lista_Factura.get(0).getCodigo().split(";");
         String[] descripcion = lista_Factura.get(0).getDescripcion().split(";");
@@ -660,21 +662,21 @@ public class Dialogo_Factura extends javax.swing.JDialog {
             Object[] valores_Tabla = {cantidad[i], codigo[i], descripcion[i], Double.parseDouble(v_Unitario[i]), Double.parseDouble(v_Total[i])};
             modelo_Tabla_Factura.addRow(valores_Tabla);
         }
-        this.cantidad_Items.setText(String.valueOf(codigo.length-1));
-        this.valores_Factura(lista_Factura.get(0).getEstado(), lista_Factura.get(0).getV_Subtotal(), lista_Factura.get(0).getIVA(), lista_Factura.get(0).getValor_Total(), lista_Factura.get(0).getNo_Factura(), lista_Factura.get(0).getVendedor(), lista_Factura.get(0).getObservaciones());  
+        this.cantidad_Items.setText(String.valueOf(codigo.length - 1));
+        this.valores_Factura(lista_Factura.get(0));
     }
-    
-    public void valores_Factura( String estado, double subtotal, double IVA, double valor_Total, String no_Factura, String vendedor, String observaciones ){
-        this.combo_Estado_Factura.setSelectedItem( estado );
-        this.campo_Subtotal_Factura.setText( String.valueOf( subtotal ) );
-        this.campo_IVA_Factura.setText( String.valueOf( IVA ) );
-        this.campo_Total_Factura.setText( String.valueOf( valor_Total ) );
-        this.etiqueta_No_Factura.setText( no_Factura  );
-        this.campo_Vendedor.setText(vendedor);
-        this.caja_Observaciones_Factura.setText(observaciones);
-        this.valor_IVA.setValue((int)((IVA/subtotal)*100));
+
+    public void valores_Factura(Factura factura) {
+        this.combo_Estado_Factura.setSelectedItem(factura.getEstado());
+        this.campo_Subtotal_Factura.setText(String.valueOf(factura.getV_Subtotal()));
+        this.campo_IVA_Factura.setText(String.valueOf(factura.getIVA()));
+        this.campo_Total_Factura.setText(String.valueOf(factura.getValor_Total()));
+        this.etiqueta_No_Factura.setText(factura.getNo_Factura());
+        this.campo_Vendedor.setText(factura.getVendedor());
+        this.caja_Observaciones_Factura.setText(factura.getObservaciones());
+        this.valor_IVA.setValue((int) ((factura.getIVA() / factura.getV_Subtotal()) * 100));
     }
-    
+
     /**
      * @param args the command line arguments
      */

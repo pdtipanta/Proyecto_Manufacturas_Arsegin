@@ -10,9 +10,7 @@ import Datos.Factura.DAO_Factura_Implementacion;
 import Modelo.Cliente;
 import Modelo.Factura;
 import Modelo.Usuario;
-import Vista.Factura.Dialogo_Buscar_Facturas;
 import Vista.Factura.Panel_Factura;
-import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -32,24 +30,19 @@ import javax.swing.table.TableRowSorter;
  */
 public class Controlador_Dialogo_Buscar_Factura implements ActionListener, KeyListener, MouseListener {
 
-    //private final Vista_Principal               vista;
-    Panel_Factura                               panel_Factura;
+    private Panel_Factura                       panel_Factura;
     private final Connection                    conexion;
     private final Usuario                       usuario;
     private final String                        rol;
-    //private final Dialogo_Buscar_Facturas       dialogo_Buscar_Facturas;
     private TableRowSorter                      TRSFiltro;
-    private DefaultTableModel                   modelo_Tabla_Facturas;
+    private final DefaultTableModel             modelo_Tabla_Facturas;
     private String                              valor = null;
-    private ArrayList<Factura>                  factura = new ArrayList<Factura>();
 
     public Controlador_Dialogo_Buscar_Factura(Panel_Factura panel_Factura, Connection conexion, Usuario usuario, String rol) {
-        //this.vista = vista;
         this.panel_Factura = panel_Factura; 
         this.conexion = conexion;
         this.usuario = usuario;
         this.rol = rol;
-        //this.dialogo_Buscar_Facturas = new Dialogo_Buscar_Facturas(this.vista, true);
         this.panel_Factura.campo_Busqueda.addKeyListener(this);
         this.panel_Factura.boton_Fecha.addActionListener(this);
         this.panel_Factura.combo_Opciones.addActionListener(this);
@@ -59,12 +52,9 @@ public class Controlador_Dialogo_Buscar_Factura implements ActionListener, KeyLi
 
     public DefaultTableModel iniciar() {
         return this.consultar_Datos_Facturas();
-        //this.dialogo_Buscar_Facturas.setVisible(true);
-        //return this.factura;
     }
 
     public DefaultTableModel consultar_Datos_Facturas() {
-
         switch (this.rol) {
             case "Vendedor":
                 valor = "Todos" + ";" + this.usuario.getCedula();
@@ -78,13 +68,12 @@ public class Controlador_Dialogo_Buscar_Factura implements ActionListener, KeyLi
                 valor = "Todos" + ";" + "Todos";
                 break;
         }
-        
         return presentar_Facturas(new DAO_Factura_Implementacion(this.conexion).consultar(valor));
     }
 
     public DefaultTableModel presentar_Facturas(ArrayList<Factura> factura) {
         this.modelo_Tabla_Facturas.setRowCount(0);
-        
+
         if (factura.size() > 0) {
             for (int i = 0; i < factura.size(); i++) {
                 String valor_Cliente = factura.get(i).getCliente() + ";" + factura.get(i).getVendedor();
@@ -137,36 +126,24 @@ public class Controlador_Dialogo_Buscar_Factura implements ActionListener, KeyLi
 
     public void filtrar_Tabla(int valor) {
         seleccion_Tabla(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow());
-      TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.panel_Factura.campo_Busqueda.getText(), valor));
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.panel_Factura.campo_Busqueda.getText(), valor));
     }
-    
+
     public void seleccion_Tabla(int bandera) {
         if (bandera != -1) {
             this.panel_Factura.boton_Modificar_Factura.setEnabled(true);
             this.panel_Factura.boton_Imprimir_Facturacion.setEnabled(true);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(true);
         } else {
             this.panel_Factura.boton_Modificar_Factura.setEnabled(false);
             this.panel_Factura.boton_Imprimir_Facturacion.setEnabled(false);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(false);
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.panel_Factura.tabla_Consulta_Factura){
+        if (me.getSource() == this.panel_Factura.tabla_Consulta_Factura) {
             seleccion_Tabla(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow());
         }
-        /*
-        if (me.getSource() == this.dialogo_Buscar_Facturas.tabla_Consulta_Factura) {
-
-            String valor = this.dialogo_Buscar_Facturas.tabla_Consulta_Factura.getValueAt(this.dialogo_Buscar_Facturas.tabla_Consulta_Factura.getSelectedRow(), 0) + ";" + this.dialogo_Buscar_Facturas.tabla_Consulta_Factura.getValueAt(this.dialogo_Buscar_Facturas.tabla_Consulta_Factura.getSelectedRow(), 6);
-
-            this.factura = new DAO_Factura_Implementacion(this.conexion).consultar(valor);
-            if (this.factura.size() == 1) {
-                this.dialogo_Buscar_Facturas.dispose();
-            }
-        } */
     }
 
     @Override

@@ -46,14 +46,7 @@ public class Controlador_Reporte_Cotizacion {
             for (int i = 0; i < codigo.length - 1; i++) {
                 Cotizacion modelo_Cotizacion = new Cotizacion(this.cotizacion.getNo_Cotizacion(), this.cotizacion.getFecha(), this.cotizacion.getTipo_Pago(), this.cotizacion.getV_Subtotal(), this.cotizacion.getIVA(), this.cotizacion.getValor_Total(), this.cotizacion.getEmisor(), this.cliente.getCliente(), cantidad[i], codigo[i], descripcion[i], v_Unitario[i], v_Total[i]);
                 lista_Productos.add(modelo_Cotizacion);
-                //Object[] valores_Tabla = {cantidad[i], codigo[i], descripcion[i], Double.parseDouble(v_Unitario[i]), Double.parseDouble(v_Total[i])};
-                //this.modelo_Tabla_Datos_Cotizacion.addRow(valores_Tabla);
             }
-            /*
-        for (int i = 0; i < this.panel_Cotizacion.tabla_Productos_Cotizacion.getRowCount(); i++) {
-            Cotizacion modelo_Cotizacion = new Cotizacion(this.panel_Cotizacion.etiqueta_No_Cotizacion.getText(), this.panel_Cotizacion.calendario_Fecha(), this.panel_Cotizacion.campo_Modalidad_Cotizacion.getText(), Double.valueOf(this.panel_Cotizacion.campo_Subtotal_Cotizacion.getText()), Double.valueOf(this.panel_Cotizacion.campo_IVA_Cotizacion.getText()), Double.valueOf(this.panel_Cotizacion.campo_Total_Cotizacion.getText()), this.panel_Cotizacion.campo_Emisor_Cotizacion.getText(), this.panel_Cotizacion.combo_Cliente_Cotizacion.getText(), String.valueOf(this.panel_Cotizacion.tabla_Productos_Cotizacion.getValueAt(i, 0)), String.valueOf(this.panel_Cotizacion.tabla_Productos_Cotizacion.getValueAt(i, 1)), String.valueOf(this.panel_Cotizacion.tabla_Productos_Cotizacion.getValueAt(i, 2)), String.valueOf(this.panel_Cotizacion.tabla_Productos_Cotizacion.getValueAt(i, 3)), String.valueOf(this.panel_Cotizacion.tabla_Productos_Cotizacion.getValueAt(i, 4)));
-            lista_Productos.add(modelo_Cotizacion);
-        }*/
 
             try {
                 Map parametro = new HashMap();

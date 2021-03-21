@@ -10,9 +10,7 @@ import Datos.Cotizacion.DAO_Cotizacion_Implementacion;
 import Modelo.Cliente;
 import Modelo.Cotizacion;
 import Modelo.Usuario;
-import Vista.Cotizacion.Dialogo_Buscar_Cotizacion;
 import Vista.Cotizacion.Panel_Cotizacion;
-import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -32,23 +30,18 @@ import javax.swing.table.TableRowSorter;
  */
 public class Controlador_Dialogo_Buscar_Cotizacion implements ActionListener, KeyListener, MouseListener {
     private final Panel_Cotizacion              panel_Cotizacion;
-    //private final Vista_Principal               vista;
     private final Connection                    conexion;
     private final Usuario                       usuario;
     private final String                        rol;
     private String                              valor = null;
-    //private final Dialogo_Buscar_Cotizacion     dialogo_Buscar_Cotizacion;
     private TableRowSorter                      TRSFiltro;
-    private DefaultTableModel                   modelo_Tabla_Cotizacion;
-    private ArrayList<Cotizacion>               cotizacion = new ArrayList<Cotizacion>();
+    private final DefaultTableModel             modelo_Tabla_Cotizacion;
 
     public Controlador_Dialogo_Buscar_Cotizacion(Panel_Cotizacion panel_Cotizacion, Connection conexion, Usuario usuario, String rol) {
-        //this.vista = vista;
         this.panel_Cotizacion = panel_Cotizacion;
         this.conexion = conexion;
         this.usuario = usuario;
         this.rol = rol;
-        //this.dialogo_Buscar_Cotizacion = new Dialogo_Buscar_Cotizacion(this.vista, true);
         this.panel_Cotizacion.campo_Busqueda.addKeyListener(this);
         this.panel_Cotizacion.tabla_Consulta_Cotizacion.addMouseListener(this);
         this.panel_Cotizacion.combo_Opciones.addActionListener(this);
@@ -58,8 +51,6 @@ public class Controlador_Dialogo_Buscar_Cotizacion implements ActionListener, Ke
 
     public DefaultTableModel iniciar() {
         return this.consultar_Datos_Cotizacion();
-        //this.dialogo_Buscar_Cotizacion.setVisible(true);
-        //return this.cotizacion;
     }
 
     public DefaultTableModel consultar_Datos_Cotizacion() {
@@ -77,7 +68,6 @@ public class Controlador_Dialogo_Buscar_Cotizacion implements ActionListener, Ke
                 valor = "Todos" + ";" + "Todos";
                 break;
         }
-
         return presentar_Cotizacion(new DAO_Cotizacion_Implementacion(this.conexion).consultar(valor));
     }
 
@@ -108,7 +98,6 @@ public class Controlador_Dialogo_Buscar_Cotizacion implements ActionListener, Ke
                         filtro();
                     }
                 });
-
                 TRSFiltro = new TableRowSorter(this.panel_Cotizacion.tabla_Consulta_Cotizacion.getModel());
                 this.panel_Cotizacion.tabla_Consulta_Cotizacion.setRowSorter(TRSFiltro);
             }
@@ -142,27 +131,17 @@ public class Controlador_Dialogo_Buscar_Cotizacion implements ActionListener, Ke
         if (bandera != -1) {
             this.panel_Cotizacion.boton_Modificar_Cotizacion.setEnabled(true);
             this.panel_Cotizacion.boton_Generar_Cotizacion.setEnabled(true);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(true);
         } else {
             this.panel_Cotizacion.boton_Generar_Cotizacion.setEnabled(false);
             this.panel_Cotizacion.boton_Modificar_Cotizacion.setEnabled(false);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(false);
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        seleccion_Tabla(this.panel_Cotizacion.tabla_Consulta_Cotizacion.getSelectedRow());
-        /*
-        if (me.getSource() == this.dialogo_Buscar_Cotizacion.tabla_Consulta_Cotizacion) {
-
-            String valor = this.dialogo_Buscar_Cotizacion.tabla_Consulta_Cotizacion.getValueAt(this.dialogo_Buscar_Cotizacion.tabla_Consulta_Cotizacion.getSelectedRow(), 0) + ";" + this.dialogo_Buscar_Cotizacion.tabla_Consulta_Cotizacion.getValueAt(this.dialogo_Buscar_Cotizacion.tabla_Consulta_Cotizacion.getSelectedRow(), 3);
-
-            this.cotizacion = new DAO_Cotizacion_Implementacion(this.conexion).consultar(valor);
-            if (this.cotizacion.size() == 1) {
-                this.dialogo_Buscar_Cotizacion.dispose();
-            }
-        }*/
+        if (me.getSource() == this.panel_Cotizacion.tabla_Consulta_Cotizacion) {
+            seleccion_Tabla(this.panel_Cotizacion.tabla_Consulta_Cotizacion.getSelectedRow());
+        }
     }
 
     @Override

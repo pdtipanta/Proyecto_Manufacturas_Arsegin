@@ -34,7 +34,7 @@ public class Controlador_Dialogo_Agregar_Producto implements ActionListener {
         if (this.inventario.getCantidad_Disponible() == 0) {
             JOptionPane.showMessageDialog(null, "La cantidad del producto en inventario es 0, no disponible", "Inventario", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            this.dialogo_Cantidad_Producto.setValores(this.inventario.getDescripcion(), this.inventario.getCodigo(), this.inventario.getCantidad_Disponible(), this.inventario.getPrecio_Venta());
+            this.dialogo_Cantidad_Producto.setValores(this.inventario);
             this.dialogo_Cantidad_Producto.setVisible(true);
         }
         return this.item;
@@ -43,8 +43,8 @@ public class Controlador_Dialogo_Agregar_Producto implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.dialogo_Cantidad_Producto.boton_Agregar_Producto) {
-            if (this.dialogo_Cantidad_Producto.campo_Cantidad.getText().equals( "0")) {   
-            }else{
+            if (this.dialogo_Cantidad_Producto.campo_Cantidad.getText().equals("0")) {
+            } else {
                 double total = Double.valueOf(this.dialogo_Cantidad_Producto.campo_Cantidad.getText()) * this.inventario.getPrecio_Venta();
                 Object[] valores = {Integer.valueOf(this.dialogo_Cantidad_Producto.campo_Cantidad.getText()), this.inventario.getCodigo(), this.inventario.getDescripcion(), this.inventario.getPrecio_Venta(), total};
 

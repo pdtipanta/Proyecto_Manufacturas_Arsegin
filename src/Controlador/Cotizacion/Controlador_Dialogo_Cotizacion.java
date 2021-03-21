@@ -33,8 +33,6 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
     private final Connection              conexion_Database;
     private final Dialogo_Cotizacion      dialogo_Cotizacion;
     private final DefaultTableModel       modelo_Tabla_Cotizacion;
-    private ArrayList<Cotizacion>         lista_Cotizacion = new ArrayList<Cotizacion>();
-    private ArrayList<Cliente>            cliente = new ArrayList<Cliente>();
     private final Cliente                 modelo_Cliente;
     private final Cotizacion              cotizacion;
     private final Usuario                 usuario;
@@ -69,20 +67,19 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
             this.dialogo_Cotizacion.boton_Agregar_Fila.setEnabled(true);
             this.dialogo_Cotizacion.boton_Quitar_Fila.setEnabled(true);
             this.dialogo_Cotizacion.boton_Agregar_Cliente.setEnabled(false);
-            this.dialogo_Cotizacion.valores_Tabla_Cotizacion(cotizacion, modelo_Cliente);
+            this.dialogo_Cotizacion.valores_Tabla_Cotizacion(this.cotizacion, this.modelo_Cliente, this.usuario);
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == this.dialogo_Cotizacion.boton_Agregar_Cliente) {
-            ArrayList<Cliente> cliente = new Controlador_Dialogo_Buscar_Cliente(this.vista, this.conexion_Database, this.usuario, this.rol).iniciar();     
-        
+            ArrayList<Cliente> cliente = new Controlador_Dialogo_Buscar_Cliente(this.vista, this.conexion_Database, this.usuario, this.rol).iniciar();
+
             if (cliente.size() == 1) {
-                this.dialogo_Cotizacion.valores_Clientes(cliente.get(0).getCodigo_Cliente(), cliente.get(0).getCliente(), cliente.get(0).getDireccion(), cliente.get(0).getTelefono(), cliente.get(0).getCorreo(), cliente.get(0).getRUC(), cliente.get(0).getCiudad(), cliente.get(0).getPersona_Contacto(), this.usuario.getNombre(), this.usuario.getApellido());
+                this.dialogo_Cotizacion.valores_Clientes(cliente.get(0), this.usuario);
                 this.dialogo_Cotizacion.boton_Agregar_Fila.setEnabled(true);
                 this.dialogo_Cotizacion.boton_Quitar_Fila.setEnabled(true);
-// this.dialogo_Cotizacion.botones(true, true, false, false, true, true);
             }
         }
         
@@ -117,61 +114,46 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
         if (ae.getSource() == this.dialogo_Cotizacion.boton_Guardar_Cotizacion) {
 
             if (this.modelo_Tabla_Cotizacion.getRowCount() > 0 && this.dialogo_Cotizacion.etiquetas()) {
-                if(this.actividad.equals("Registrar")){
+                if (this.actividad.equals("Registrar")) {
                     this.numero_Cotizacion();
-                String[] valores = this.dialogo_Cotizacion.evaluar_Tabla();
+                    String[] valores = this.dialogo_Cotizacion.evaluar_Tabla();
+                    this.modelo_Cotizacion = new Cotizacion(this.dialogo_Cotizacion.etiqueta_No_Cotizacion.getText(), this.dialogo_Cotizacion.calendario_Fecha(), this.dialogo_Cotizacion.campo_Modalidad_Cotizacion.getText(), Double.valueOf(this.dialogo_Cotizacion.campo_Subtotal_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_IVA_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_Total_Cotizacion.getText()), this.usuario.getCedula(), this.dialogo_Cotizacion.campo_Codigo_Cliente.getText(), valores[0], valores[1], valores[2], valores[3], valores[4]);
 
-                this.modelo_Cotizacion = new Cotizacion(this.dialogo_Cotizacion.etiqueta_No_Cotizacion.getText(), this.dialogo_Cotizacion.calendario_Fecha(), this.dialogo_Cotizacion.campo_Modalidad_Cotizacion.getText(), Double.valueOf(this.dialogo_Cotizacion.campo_Subtotal_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_IVA_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_Total_Cotizacion.getText()), this.usuario.getCedula(), this.dialogo_Cotizacion.campo_Codigo_Cliente.getText(), valores[0], valores[1], valores[2], valores[3], valores[4]);
-
-                try {
-                    if (new DAO_Cotizacion_Implementacion(this.conexion_Database).crear(this.modelo_Cotizacion)) {
-                        //this.panel_Cotizacion.valores_Clientes("", "", "", "", "", "", "", "", "", "");
-                        //this.panel_Cotizacion.limpiar_Valores();
-                        //this.panel_Cotizacion.limpiar_Tabla();
-                        //this.panel_Cotizacion.limpiar_Etiquetas();
-                        //this.panel_Cotizacion.botones(true, true, false, false, true, false);
-                        //this.numero_Cotizacion();
-                        this.bandera = true;
-                        JOptionPane.showMessageDialog(null, "Registro exitoso", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
-                        this.dialogo_Cotizacion.dispose();
+                    try {
+                        if (new DAO_Cotizacion_Implementacion(this.conexion_Database).crear(this.modelo_Cotizacion)) {
+                            this.bandera = true;
+                            this.dialogo_Cotizacion.dispose();
+                            JOptionPane.showMessageDialog(null, "Registro exitoso", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    } catch (SQLException ex) {
                     }
-                } catch (SQLException ex) {
                 }
-                } 
-            }else {
+            } else {
                 this.dialogo_Cotizacion.etiquetas();
-            }  
-            
-                if (this.modelo_Tabla_Cotizacion.getRowCount() > 0 && this.dialogo_Cotizacion.etiquetas()) {
-                if(this.actividad.equals("Modificar")){
+            }
+
+            if (this.modelo_Tabla_Cotizacion.getRowCount() > 0 && this.dialogo_Cotizacion.etiquetas()) {
+                if (this.actividad.equals("Modificar")) {
                     String[] valores = this.dialogo_Cotizacion.evaluar_Tabla();
 
-                this.modelo_Cotizacion = new Cotizacion(this.dialogo_Cotizacion.etiqueta_No_Cotizacion.getText(), this.dialogo_Cotizacion.calendario_Fecha(), this.dialogo_Cotizacion.campo_Modalidad_Cotizacion.getText(), Double.valueOf(this.dialogo_Cotizacion.campo_Subtotal_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_IVA_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_Total_Cotizacion.getText()), this.usuario.getCedula(), this.dialogo_Cotizacion.combo_Cliente_Cotizacion.getText(), valores[0], valores[1], valores[2], valores[3], valores[4]);
+                    this.modelo_Cotizacion = new Cotizacion(this.dialogo_Cotizacion.etiqueta_No_Cotizacion.getText(), this.dialogo_Cotizacion.calendario_Fecha(), this.dialogo_Cotizacion.campo_Modalidad_Cotizacion.getText(), Double.valueOf(this.dialogo_Cotizacion.campo_Subtotal_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_IVA_Cotizacion.getText()), Double.valueOf(this.dialogo_Cotizacion.campo_Total_Cotizacion.getText()), this.usuario.getCedula(), this.dialogo_Cotizacion.combo_Cliente_Cotizacion.getText(), valores[0], valores[1], valores[2], valores[3], valores[4]);
 
-                try {
-                    if (new DAO_Cotizacion_Implementacion(this.conexion_Database).editar(this.modelo_Cotizacion) > 0) {
-                       // this.panel_Cotizacion.valores_Clientes("", "", "", "", "", "", "", "", "", "");
-                       // this.panel_Cotizacion.limpiar_Valores();
-                       // this.panel_Cotizacion.limpiar_Tabla();
-                       // this.panel_Cotizacion.botones(true, true, false, false, true, false);
-                        //this.numero_Cotizacion();
-                        this.bandera = true;
-                        JOptionPane.showMessageDialog(null, "Cotizacion actualizada", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
-                        this.dialogo_Cotizacion.dispose();
+                    try {
+                        if (new DAO_Cotizacion_Implementacion(this.conexion_Database).editar(this.modelo_Cotizacion) > 0) {
+                            this.bandera = true;
+                            this.dialogo_Cotizacion.dispose();
+                            JOptionPane.showMessageDialog(null, "Cotizacion actualizada", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    } catch (SQLException ex) {
                     }
-                } catch (SQLException ex) {
                 }
-            }
-            
-                }else {
+            } else {
                 JOptionPane.showMessageDialog(null, "No se puede actualizar cotizacion", "Cotizacion", JOptionPane.WARNING_MESSAGE);
             }
-        }    
-        
+        }
     }
     
     public void numero_Cotizacion() {;
-       this.dialogo_Cotizacion.etiqueta_No_Cotizacion.setText(new Numeracion_Documentos().convertir_Numero(new DAO_Cotizacion_Implementacion(this.conexion_Database).consultar_Numero_Cotizacion()));
+        this.dialogo_Cotizacion.etiqueta_No_Cotizacion.setText(new Numeracion_Documentos().convertir_Numero(new DAO_Cotizacion_Implementacion(this.conexion_Database).consultar_Numero_Cotizacion()));
     }
-    
 }

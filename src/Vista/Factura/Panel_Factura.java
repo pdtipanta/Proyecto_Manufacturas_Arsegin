@@ -5,44 +5,25 @@
  */
 package Vista.Factura;
 
-import Modelo.Factura;
 import Modelo.Usuario;
-import java.awt.Color;
-import java.awt.Font;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
-import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author David
  */
 public class Panel_Factura extends javax.swing.JPanel {
-    private DefaultTableModel       modelo_Tabla_Factura;
     private DecimalFormat           formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
     /**
      * Creates new form Panel_Cotizacion
      */
     public Panel_Factura() {
         initComponents();
-        //calendario_Factura.setDate( new Date() );
-       // this.modelo_Tabla_Factura = ( DefaultTableModel )  this.tabla_Productos_Factura.getModel();
-       // this.tabla_Productos_Factura.getTableHeader().setFont( new Font( "Arial", Font.BOLD, 14 ) );
-       // this.tabla_Productos_Factura.getTableHeader().setBackground( new Color( 32, 136, 203 ) );
-       // this.tabla_Productos_Factura.getTableHeader().setForeground( new Color( 255, 255, 255) ); 
         this.boton_Modificar_Factura.setEnabled( false );
         this.boton_Imprimir_Facturacion.setEnabled(false);
-        //this.etiqueta_Indicador_Cliente.setVisible( false );
-        //this.etiqueta_Indicador_Ciudad.setVisible( false );
-        //this.etiqueta_Indicador_RUC.setVisible( false );
-        //this.etiqueta_Indicador_Direccion.setVisible( false );
-       // this.etiqueta_Indicador_Telefono.setVisible( false );
-       // this.etiqueta_Indicador_Contacto.setVisible( false );
-       // this.etiqueta_Indicador_Estado.setVisible( false );
         this.boton_Modificar_Factura.setEnabled( false );
         this.fecha_1.setVisible(false);
         this.fecha_2.setVisible(false);
@@ -50,12 +31,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         this.fecha_1.setDate( new Date() );
         this.fecha_2.setDate( new Date() );
         this.etiqueta_Error_Fecha.setVisible(false);
-       // this.boton_Agregar_Fila.setEnabled( false );
-      //  this.boton_Quitar_Fila.setEnabled( false );
-       // this.etiqueta_Indicador_Calendario.setVisible(false);
        this.tabla_Consulta_Factura.getTableHeader().setReorderingAllowed(false) ;
-      //  this.valor_IVA.setValue(12);
-       // this.valor_IVA.setEnabled(false);
     }
     
     public void Roles(String rol) {
@@ -202,6 +178,7 @@ public class Panel_Factura extends javax.swing.JPanel {
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -212,7 +189,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         campo_Busqueda.setEditable(false);
         campo_Busqueda.setBackground(new java.awt.Color(255, 255, 255));
         campo_Busqueda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Busqueda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Busqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Busqueda.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         campo_Busqueda.setMaximumSize(new java.awt.Dimension(450, 30));
         campo_Busqueda.setMinimumSize(new java.awt.Dimension(450, 30));
@@ -286,198 +263,20 @@ public class Panel_Factura extends javax.swing.JPanel {
     private void boton_Nueva_FacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_FacturaActionPerformed
 
     }//GEN-LAST:event_boton_Nueva_FacturaActionPerformed
-/*
-    public void valores_Clientes( String codigo, String cliente, String direccion, String telefono, String RUC, String ciudad, String nombre, String apellido ){
-        this.campo_Codigo.setText(codigo);
-        this.combo_Cliente_Factura.setText(cliente);
-        this.campo_RUC_Factura.setText( RUC );
-        this.campo_Direccion_Factura.setText( direccion );
-        this.campo_Ciudad_Factura.setText( ciudad );
-        this.campo_Telefono_Factura.setText( telefono );
-        this.campo_Vendedor.setText(nombre + " " + apellido);
-    }
-    
-    public void valores_Factura( String estado, double subtotal, double IVA, double valor_Total, String no_Factura, String vendedor, String observaciones ){
-        this.combo_Estado_Factura.setSelectedItem( estado );
-        this.campo_Subtotal_Factura.setText( String.valueOf( subtotal ) );
-        this.campo_IVA_Factura.setText( String.valueOf( IVA ) );
-        this.campo_Total_Factura.setText( String.valueOf( valor_Total ) );
-        this.etiqueta_No_Factura.setText( no_Factura  );
-        this.campo_Vendedor.setText(vendedor);
-        this.caja_Observaciones_Factura.setText(observaciones);
-        this.valor_IVA.setValue((int)((IVA/subtotal)*100));
-    }
-    
-    public void valores_Tabla_Factura(ArrayList<Factura>  lista_Factura){
-        DefaultTableModel modelo_Tabla_Factura = ( DefaultTableModel )  this.tabla_Productos_Factura.getModel();
-        modelo_Tabla_Factura.setRowCount(0);
-        
-        String[] cantidad = lista_Factura.get(0).getCantidad().split(";");
-        String[] codigo = lista_Factura.get(0).getCodigo().split(";");
-        String[] descripcion = lista_Factura.get(0).getDescripcion().split(";");
-        String[] v_Unitario = lista_Factura.get(0).getV_Unitario().split(";");
-        String[] v_Total = lista_Factura.get(0).getV_Total().split(";");
-
-        for (int i = 0; i < codigo.length - 1; i++) {
-            Object[] valores_Tabla = {cantidad[i], codigo[i], descripcion[i], Double.parseDouble(v_Unitario[i]), Double.parseDouble(v_Total[i])};
-            modelo_Tabla_Factura.addRow(valores_Tabla);
-        }
-        this.cantidad_Items.setText(String.valueOf(codigo.length-1));
-        this.valores_Factura(lista_Factura.get(0).getEstado(), lista_Factura.get(0).getV_Subtotal(), lista_Factura.get(0).getIVA(), lista_Factura.get(0).getValor_Total(), lista_Factura.get(0).getNo_Factura(), lista_Factura.get(0).getVendedor(), lista_Factura.get(0).getObservaciones());  
-    }
-    
-    public boolean etiquetas( ){
-        boolean bandera = true;
-        
-        if( this.combo_Cliente_Factura.getText().isEmpty() ){
-            this.etiqueta_Indicador_Cliente.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Cliente.setVisible( false );
-        }
-        
-        if (this.calendario_Factura.getDate() == null) {
-            this.etiqueta_Indicador_Calendario.setVisible(bandera);
-            bandera = false;
-        }else{
-            this.etiqueta_Indicador_Calendario.setVisible(false);
-        }
-        
-        if( this.campo_Ciudad_Factura.getText().isEmpty() ){
-            this.etiqueta_Indicador_Ciudad.setVisible( true );
-            bandera = false;
-        }else{ 
-           this.etiqueta_Indicador_Ciudad.setVisible( false );
-        }
-            
-        if( this.campo_RUC_Factura.getText().matches( "[0-9][0-9]{12}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }else if(this.campo_RUC_Factura.getText().matches( "[0-9][0-9]{9}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_RUC.setVisible( true );
-            bandera = false;
-        }
-            
-        if( this.campo_Direccion_Factura.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Direccion.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Direccion.setVisible( false );
-        }
-            
-        if( this.campo_Telefono_Factura.getText().matches( "[0][1-9][0-9]{7}" ) ){
-            this.etiqueta_Indicador_Telefono.setVisible( false );
-        }else{
-            this.etiqueta_Indicador_Telefono.setVisible( true );
-            bandera = false;
-        }  
-            
-        if( this.campo_Vendedor.getText().isEmpty() ){
-            this.etiqueta_Indicador_Contacto.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Contacto.setVisible( false );
-        }
-        
-        if( this.combo_Estado_Factura.getSelectedItem().equals( "Seleccione........." ) ){
-           this.etiqueta_Indicador_Estado.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Estado.setVisible( false );
-        }
-        return bandera;
-    }
-    
-    public String[] evaluar_Tabla() {
-        DefaultTableModel modelo_Tabla_Factura = (DefaultTableModel) this.tabla_Productos_Factura.getModel();
-        String[] valores = new String[6];
-
-        for (int i = 0; i < modelo_Tabla_Factura.getRowCount(); i++) {
-            valores[0] = modelo_Tabla_Factura.getValueAt(i, 0) + ";" + valores[0];
-            valores[1] = modelo_Tabla_Factura.getValueAt(i, 1) + ";" + valores[1];
-            valores[2] = modelo_Tabla_Factura.getValueAt(i, 2) + ";" + valores[2];
-            valores[3] = modelo_Tabla_Factura.getValueAt(i, 3) + ";" + valores[3];
-            valores[4] = modelo_Tabla_Factura.getValueAt(i, 4) + ";" + valores[4];
-        }
-        return valores;
-    }
-    
-    public void limpiar_Valores() {
-        this.combo_Cliente_Factura.setText("");
-        this.campo_Subtotal_Factura.setText("");
-        this.campo_IVA_Factura.setText("");
-        this.campo_Total_Factura.setText("");
-        this.combo_Cliente_Factura.setText("");
-        this.combo_Estado_Factura.setSelectedItem("Seleccione.........");
-        this.caja_Observaciones_Factura.setText("");
-        this.cantidad_Items.setText("");
-        this.valor_IVA.setValue(12);
-    }
-    
-    public void limpiar_Tabla(){
-        DefaultTableModel modelo_Tabla_Cotizacion = ( DefaultTableModel ) this.tabla_Productos_Factura.getModel();
-        modelo_Tabla_Cotizacion.setRowCount( 0 );
-    }
-    
-    public void botones(boolean bandera1, boolean bandera2, boolean bandera3, boolean bandera4, boolean bandera5) {
-        this.boton_Guardar_Factura.setEnabled(bandera1);
-        this.boton_Agregar_Cliente.setEnabled(bandera1);
-        this.boton_Nueva_Factura.setEnabled(bandera2);
-        this.boton_Imprimir_Facturacion.setEnabled(!bandera1);
-        this.boton_Modificar_Factura.setEnabled(bandera3);
-        this.combo_Estado_Factura.setEnabled(bandera4);
-        this.boton_Agregar_Fila.setEnabled(bandera5);
-        this.boton_Quitar_Fila.setEnabled(bandera5);
-        this.valor_IVA.setEnabled(bandera5);
-    }
-    
-    
-    public String calendario(){
-        Date fecha;
-        fecha = (Date) this.calendario_Factura.getDate();
-        return  new SimpleDateFormat("yyyy-MM-dd").format( fecha ) ;
-    }
-
-    public void calculo_Valores() {
-        try {
-            double valor_Subtotal = 0;
-            for (int i = 0; i < this.modelo_Tabla_Factura.getRowCount(); i++) {
-                valor_Subtotal = valor_Subtotal + (double) this.modelo_Tabla_Factura.getValueAt(i, 4);
-            }
-            this.campo_Subtotal_Factura.setText(this.formato_Numero.format(valor_Subtotal));
-            this.campo_IVA_Factura.setText(this.formato_Numero.format(valor_Subtotal * (Integer)this.valor_IVA.getValue()/100));
-            this.campo_Total_Factura.setText(this.formato_Numero.format(Double.valueOf(this.campo_IVA_Factura.getText()) + valor_Subtotal));
-        } catch (Exception e) {
-        }
-    }
-    
-    public void limpiar_Etiquetas() {
-        this.etiqueta_Indicador_Cliente.setVisible(false);
-        this.etiqueta_Indicador_Ciudad.setVisible(false);
-        this.etiqueta_Indicador_RUC.setVisible(false);
-        this.etiqueta_Indicador_RUC.setVisible(false);
-        this.etiqueta_Indicador_Direccion.setVisible(false);
-        this.etiqueta_Indicador_Telefono.setVisible(false);
-        this.etiqueta_Indicador_Contacto.setVisible(false);
-        this.etiqueta_Indicador_Estado.setVisible(false);
-    }
-   */ 
-    
+  
     public String calendario_Inicio() {
         Date fecha = this.fecha_1.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
-    
-    public String calendario_Final() {   
+
+    public String calendario_Final() {
         Date fecha = this.fecha_2.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
-    
+
     public boolean verificar_Campos() {
         boolean bandera = true;
-        
+
         if (this.fecha_1.getDate() == null) {
             bandera = false;
         }
@@ -485,31 +284,26 @@ public class Panel_Factura extends javax.swing.JPanel {
         if (this.fecha_2.getDate() == null) {
             bandera = false;
         }
-
         return bandera;
     }
-    
-    public void etiqueta_Error_Etiqueta(boolean bandera){
+
+    public void etiqueta_Error_Etiqueta(boolean bandera) {
         this.etiqueta_Error_Fecha.setVisible(bandera);
     }
-    
+
     public void desactivar_Calendarios(boolean bandera) {
         this.fecha_1.setVisible(bandera);
         this.fecha_2.setVisible(bandera);
         this.boton_Fecha.setVisible(bandera);
     }
-    
+
     public void habilitar_Rol(boolean[] bandera) {
         this.boton_Nueva_Factura.setVisible(bandera[0]);
-        //this.boton_Guardar_Factura.setVisible(bandera[1]);
         this.boton_Modificar_Factura.setVisible(bandera[2]);
         this.boton_Imprimir_Facturacion.setVisible(bandera[3]);
-        //this.boton_Agregar_Cliente.setVisible(bandera[4]);
-        //this.boton_Agregar_Fila.setVisible(bandera[5]);
-        //this.boton_Quitar_Fila.setVisible(bandera[6]);
     }
-    
-    public void set_Usuario(Usuario usuario, String rol){
+
+    public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
     }

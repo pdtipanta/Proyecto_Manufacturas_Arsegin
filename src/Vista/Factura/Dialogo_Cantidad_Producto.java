@@ -5,6 +5,8 @@
  */
 package Vista.Factura;
 
+import Modelo.Inventario;
+
 /**
  *
  * @author David
@@ -157,7 +159,6 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
         if (c < '0' || c > '9' || this.campo_Cantidad.getText().length() >= 13) {
             evt.consume();
         }
- 
     }//GEN-LAST:event_campo_CantidadKeyTyped
 
     private void etiqueta_PrecioPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_etiqueta_PrecioPropertyChange
@@ -169,7 +170,6 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
     }//GEN-LAST:event_campo_CantidadPropertyChange
 
     private void campo_CantidadKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_CantidadKeyReleased
-/*
         if (this.campo_Cantidad.getText().matches("^[1-9][0-9]*$")) {
             if (Integer.valueOf(this.campo_Cantidad.getText()) <= Integer.valueOf(this.etiqueta_Stock.getText())) {
                 this.etiqueta_Advertencia.setVisible(false);
@@ -184,7 +184,7 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
         } else {
             this.etiqueta_Total.setText("0.0");
             this.boton_Agregar_Producto.setEnabled(false);
-        }*/
+        }
     }//GEN-LAST:event_campo_CantidadKeyReleased
 
     public void calcular_Valores() {
@@ -234,11 +234,11 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
         });
     }
     
-    public void setValores(String descripcion, String codigo, int stock, double valor_Unitario){
-        this.etiqueta_Producto.setText(descripcion);
-        this.etiqueta_Codigo.setText(codigo);
-        this.etiqueta_Stock.setText(String.valueOf(stock));
-        this.etiqueta_Precio.setText(String.valueOf(valor_Unitario));
+    public void setValores(Inventario inventario){
+        this.etiqueta_Producto.setText(inventario.getDescripcion());
+        this.etiqueta_Codigo.setText(inventario.getCodigo());
+        this.etiqueta_Stock.setText(String.valueOf(inventario.getCantidad_Disponible()));
+        this.etiqueta_Precio.setText(String.valueOf(inventario.getPrecio_Venta()));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

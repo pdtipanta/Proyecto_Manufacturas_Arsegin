@@ -7,6 +7,7 @@ package Vista.Cotizacion;
 
 import Modelo.Cliente;
 import Modelo.Cotizacion;
+import Modelo.Usuario;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -424,6 +425,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         boton_Guardar_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -610,7 +612,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         return bandera;
     }
     
-    public void valores_Tabla_Cotizacion(Cotizacion lista_Cotizacion, Cliente cliente) {
+    public void valores_Tabla_Cotizacion(Cotizacion lista_Cotizacion, Cliente cliente, Usuario usuario) {
         this.modelo_Tabla_Datos_Cotizacion.setRowCount(0);
 
         String[] cantidad = lista_Cotizacion.getCantidad().split(";");
@@ -624,29 +626,29 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
             this.modelo_Tabla_Datos_Cotizacion.addRow(valores_Tabla);
         }
 
-        this.valores_Clientes(cliente.getCodigo_Cliente(), cliente.getCliente(), cliente.getDireccion(), cliente.getTelefono(), cliente.getCorreo(), cliente.getRUC(), cliente.getCiudad(), cliente.getPersona_Contacto(), lista_Cotizacion.getEmisor(), "");
-        this.valores_Cotizacion(lista_Cotizacion.getCliente(), lista_Cotizacion.getV_Subtotal(), lista_Cotizacion.getIVA(), lista_Cotizacion.getValor_Total(), lista_Cotizacion.getTipo_Pago(), lista_Cotizacion.getNo_Cotizacion());
+        this.valores_Clientes(cliente, usuario);
+        this.valores_Cotizacion(lista_Cotizacion);
     }
     
-    public void valores_Cotizacion(String cliente, double subtotal, double IVA, double valor_Total, String modalidad, String no_Cotizacion) {
-        this.campo_Subtotal_Cotizacion.setText(String.valueOf(subtotal));
-        this.campo_IVA_Cotizacion.setText(String.valueOf(IVA));
-        this.campo_Total_Cotizacion.setText(String.valueOf(valor_Total));
-        this.campo_Modalidad_Cotizacion.setText(modalidad);
-        this.etiqueta_No_Cotizacion.setText(no_Cotizacion);
-        this.valor_IVA.setValue((int)((IVA/subtotal)*100));
+    public void valores_Cotizacion(Cotizacion cotizacion) {
+        this.campo_Subtotal_Cotizacion.setText(String.valueOf(cotizacion.getV_Subtotal()));
+        this.campo_IVA_Cotizacion.setText(String.valueOf(cotizacion.getIVA()));
+        this.campo_Total_Cotizacion.setText(String.valueOf(cotizacion.getValor_Total()));
+        this.campo_Modalidad_Cotizacion.setText(cotizacion.getTipo_Pago());
+        this.etiqueta_No_Cotizacion.setText(cotizacion.getNo_Cotizacion());
+        this.valor_IVA.setValue((int) ((cotizacion.getIVA() / cotizacion.getV_Subtotal()) * 100));
     }
-    
-    public void valores_Clientes(String codigo_Cliente, String cliente, String direccion, String telefono, String correo, String RUC, String ciudad, String persona_Contacto, String nombre, String apellido) {
-        this.campo_Codigo_Cliente.setText(codigo_Cliente);
-        this.combo_Cliente_Cotizacion.setText(cliente);
-        this.campo_Direccion_Cotizacion.setText(direccion);
-        this.campo_Telefono_Cotizacion.setText(telefono);
-        this.campo_Correo_Cotizacion.setText(correo);
-        this.campo_RUC_Cotizacion.setText(RUC);
-        this.campo_Ciudad_Cotizacion.setText(ciudad);
-        this.campo_Contacto_Cotizacion.setText(persona_Contacto);
-        this.campo_Emisor_Cotizacion.setText(nombre + " " + apellido);
+
+    public void valores_Clientes(Cliente cliente, Usuario usuario) {
+        this.campo_Codigo_Cliente.setText(cliente.getCodigo_Cliente());
+        this.combo_Cliente_Cotizacion.setText(cliente.getCliente());
+        this.campo_Direccion_Cotizacion.setText(cliente.getDireccion());
+        this.campo_Telefono_Cotizacion.setText(cliente.getTelefono());
+        this.campo_Correo_Cotizacion.setText(cliente.getCorreo());
+        this.campo_RUC_Cotizacion.setText(cliente.getRUC());
+        this.campo_Ciudad_Cotizacion.setText(cliente.getCiudad());
+        this.campo_Contacto_Cotizacion.setText(cliente.getPersona_Contacto());
+        this.campo_Emisor_Cotizacion.setText(usuario.getNombre() + " " + usuario.getApellido());
     }
     
     public void calculo_Valores() {
@@ -656,7 +658,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
                 valor_Subtotal = valor_Subtotal + (double) this.modelo_Tabla_Datos_Cotizacion.getValueAt(i, 4);
             }
             this.campo_Subtotal_Cotizacion.setText(this.formato_Numero.format(valor_Subtotal));
-            this.campo_IVA_Cotizacion.setText(this.formato_Numero.format(valor_Subtotal * (Integer)this.valor_IVA.getValue()/100));
+            this.campo_IVA_Cotizacion.setText(this.formato_Numero.format(valor_Subtotal * (Integer) this.valor_IVA.getValue() / 100));
             this.campo_Total_Cotizacion.setText(this.formato_Numero.format(Double.valueOf(this.campo_IVA_Cotizacion.getText()) + valor_Subtotal));
         } catch (Exception e) {
         }

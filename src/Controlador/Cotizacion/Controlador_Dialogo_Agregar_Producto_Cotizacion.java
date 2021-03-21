@@ -18,11 +18,10 @@ import java.awt.event.KeyListener;
  * @author David
  */
 public class Controlador_Dialogo_Agregar_Producto_Cotizacion implements ActionListener, KeyListener {
-
-    private final Vista_Principal vista;
-    private final Inventario inventario;
-    private Object[] item;
-    private final Dialogo_Cantidad_Producto dialogo_Cantidad_Producto;
+    private final Vista_Principal            vista;
+    private final Inventario                 inventario;
+    private Object[]                         item;
+    private final Dialogo_Cantidad_Producto  dialogo_Cantidad_Producto;
 
     public Controlador_Dialogo_Agregar_Producto_Cotizacion(Vista_Principal vista, Inventario inventario) {
         this.vista = vista;
@@ -33,7 +32,7 @@ public class Controlador_Dialogo_Agregar_Producto_Cotizacion implements ActionLi
     }
 
     public Object[] iniciar() {
-        this.dialogo_Cantidad_Producto.setValores(this.inventario.getDescripcion(), this.inventario.getCodigo(), this.inventario.getCantidad_Disponible(), this.inventario.getPrecio_Venta());
+        this.dialogo_Cantidad_Producto.setValores(this.inventario);
         this.dialogo_Cantidad_Producto.setVisible(true);
         return this.item;
     }
