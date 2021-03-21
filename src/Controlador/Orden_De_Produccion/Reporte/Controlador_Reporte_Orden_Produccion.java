@@ -5,8 +5,8 @@
  */
 package Controlador.Orden_De_Produccion.Reporte;
 
+import Modelo.Maquila;
 import Modelo.Orden_Produccion;
-import Vista.Maquilas.Orden_De_Produccion.Panel_Orden_De_Produccion;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,33 +22,46 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Controlador_Reporte_Orden_Produccion {
 
-    Panel_Orden_De_Produccion panel_Orden_Produccion;
+    private final Orden_Produccion orden_Produccion;
+            private final Maquila maquila;
 
-    public Controlador_Reporte_Orden_Produccion(Panel_Orden_De_Produccion panel_Orden_De_Produccion) {
-        this.panel_Orden_Produccion = panel_Orden_De_Produccion;
+    public Controlador_Reporte_Orden_Produccion(Orden_Produccion orden_Produccion, Maquila maquila) {
+        this.orden_Produccion = orden_Produccion;
+        this.maquila = maquila;
     }
 
-    public void iniciar() {/*
-        ArrayList<Orden_Produccion> lista_Trabajo = new ArrayList<Orden_Produccion>();
+    
 
-        for (int i = 0; i < this.panel_Orden_Produccion.tabla_Productos_Maquila.getRowCount(); i++) {
-            Orden_Produccion modelo_Orden_Produccion = new Orden_Produccion(this.panel_Orden_Produccion.etiqueta_No_Orden.getText(), this.panel_Orden_Produccion.calendario(), Double.valueOf(this.panel_Orden_Produccion.campo_Total_Orden.getText()), String.valueOf(this.panel_Orden_Produccion.combo_Estado_Orden.getSelectedItem()), this.panel_Orden_Produccion.caja_Observaciones_Maquila.getText(), this.panel_Orden_Produccion.combo_Maquila_Orden.getText(),
-                    String.valueOf(this.panel_Orden_Produccion.tabla_Productos_Maquila.getValueAt(i, 0)), String.valueOf(this.panel_Orden_Produccion.tabla_Productos_Maquila.getValueAt(i, 1)), String.valueOf(this.panel_Orden_Produccion.tabla_Productos_Maquila.getValueAt(i, 2)), String.valueOf(this.panel_Orden_Produccion.tabla_Productos_Maquila.getValueAt(i, 3)));
-            lista_Trabajo.add(modelo_Orden_Produccion);
-        }
+    public void iniciar() {
 
         try {
             Map parametro = new HashMap();
-            parametro.put("no_Orden", this.panel_Orden_Produccion.etiqueta_No_Orden.getText());
-            parametro.put("RUC", this.panel_Orden_Produccion.campo_RUC_Orden.getText());
-            parametro.put("telefono", this.panel_Orden_Produccion.campo_Telefono_Orden.getText());
-            parametro.put("direccion", this.panel_Orden_Produccion.campo_Direccion_Orden.getText());
-            parametro.put("estado", this.panel_Orden_Produccion.combo_Estado_Orden.getSelectedItem());
-            parametro.put("maquila", this.panel_Orden_Produccion.combo_Maquila_Orden.getText());
-            parametro.put("total", this.panel_Orden_Produccion.campo_Total_Orden.getText());
-            parametro.put("observaciones", this.panel_Orden_Produccion.caja_Observaciones_Maquila.getText());
-            new JasperViewer(JasperFillManager.fillReport((JasperReport) JRLoader.loadObjectFromFile(System.getProperty("user.dir") + "/src/Reportes/Reporte_Orden.jasper"), parametro, new JRBeanCollectionDataSource(lista_Trabajo)), false).setVisible(true);
+            parametro.put("no_Orden", this.orden_Produccion.getNumero_Orden());
+            parametro.put("RUC", this.maquila.getRUC());
+            parametro.put("telefono", this.maquila.getTelefono());
+            parametro.put("direccion", this.maquila.getDireccion());
+            parametro.put("estado", this.orden_Produccion.getEstado());
+            parametro.put("maquila", this.maquila.getMaquila());
+            parametro.put("total", this.orden_Produccion.getV_Pagar());
+            parametro.put("observaciones", this.orden_Produccion.getObservaciones());
+            new JasperViewer(JasperFillManager.fillReport((JasperReport) JRLoader.loadObjectFromFile(System.getProperty("user.dir") + "/src/Reportes/Reporte_Orden.jasper"), parametro, new JRBeanCollectionDataSource(this.contruir_Orden())), false).setVisible(true);
         } catch (Exception e) {
-        }*/
+        }
+    }
+    
+    public ArrayList<Orden_Produccion> contruir_Orden(){
+        ArrayList<Orden_Produccion> lista_Trabajo = new ArrayList<Orden_Produccion>();
+        
+        String[] cantidad = this.orden_Produccion.getCantidad().split(";");
+        String[] descripcion = this.orden_Produccion.getDescripcion().split(";");
+        String[] v_Unitario = this.orden_Produccion.getV_Unitario().split(";");
+        String[] v_Total = this.orden_Produccion.getV_Total().split(";");
+        
+        for (int i = 0; i < cantidad.length - 1; i++) {
+            
+            lista_Trabajo.add(new Orden_Produccion(this.orden_Produccion.getNumero_Orden(), this.orden_Produccion.getFecha(), this.orden_Produccion.getV_Pagar(), this.orden_Produccion.getEstado(), this.orden_Produccion.getObservaciones(), this.orden_Produccion.getMaquila(), cantidad[i], descripcion[i], v_Unitario[i], v_Total[i]));
+        }
+        
+        return lista_Trabajo;
     }
 }

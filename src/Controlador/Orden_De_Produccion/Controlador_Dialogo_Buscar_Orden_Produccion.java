@@ -68,7 +68,7 @@ public class Controlador_Dialogo_Buscar_Orden_Produccion implements ActionListen
         if (orden_Produccion.size() > 0) {
             for (int i = 0; i < orden_Produccion.size(); i++) {
                 ArrayList<Maquila> maquila = new DAO_Maquila_Implementacion(this.conexion).consultar(orden_Produccion.get(i).getMaquila());
-                Object[] fila = {orden_Produccion.get(i).getNumero_Orden(), maquila.get(0).getMaquila(), maquila.get(0).getRUC(), orden_Produccion.get(i).getFecha(), maquila.get(0).getTelefono()};
+                Object[] fila = {orden_Produccion.get(i).getNumero_Orden(), maquila.get(0).getMaquila(), maquila.get(0).getRUC(), orden_Produccion.get(i).getFecha(), orden_Produccion.get(i).getEstado(), orden_Produccion.get(i).getV_Pagar(), maquila.get(0).getTelefono()};
                 this.modelo_Tabla_Orden_Produccion.addRow(fila);
             }
         }

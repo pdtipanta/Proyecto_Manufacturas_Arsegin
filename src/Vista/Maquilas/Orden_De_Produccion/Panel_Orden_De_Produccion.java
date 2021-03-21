@@ -190,7 +190,7 @@ this.fecha_1.setVisible(false);
         jToolBar1.add(boton_Generar_Orden);
         jToolBar1.add(jSeparator5);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -218,14 +218,14 @@ this.fecha_1.setVisible(false);
 
             },
             new String [] {
-                "No_Orden", "Maquila", "RUC / CI", "Fecha", "Telefono"
+                "No_Orden", "Maquila", "RUC / CI", "Fecha", "Estado", "Valor", "Telefono"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -238,7 +238,7 @@ this.fecha_1.setVisible(false);
         });
         jScrollPane1.setViewportView(tabla_Consulta_Orden_Produccion);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 1300, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1290, 760));
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -289,7 +289,7 @@ this.fecha_1.setVisible(false);
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 1000, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 990, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_OrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_OrdenActionPerformed

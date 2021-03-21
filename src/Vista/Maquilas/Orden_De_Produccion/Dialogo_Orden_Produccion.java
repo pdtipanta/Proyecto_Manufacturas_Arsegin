@@ -5,6 +5,8 @@
  */
 package Vista.Maquilas.Orden_De_Produccion;
 
+import Modelo.Maquila;
+import Modelo.Orden_Produccion;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
@@ -88,9 +90,10 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         calendario_Orden.setBackground(new java.awt.Color(255, 255, 255));
+        calendario_Orden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         calendario_Orden.setDateFormatString("yyyy-MM-dd");
         calendario_Orden.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        getContentPane().add(calendario_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 150, 22));
+        getContentPane().add(calendario_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, 150, 24));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Fecha:");
@@ -111,24 +114,24 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         campo_Direccion_Orden.setEditable(false);
         campo_Direccion_Orden.setBackground(new java.awt.Color(255, 255, 255));
         campo_Direccion_Orden.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Direccion_Orden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Direccion_Orden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Direccion_Orden.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Direccion_OrdenKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Direccion_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 340, 22));
+        getContentPane().add(campo_Direccion_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 340, 24));
 
         campo_Telefono_Orden.setEditable(false);
         campo_Telefono_Orden.setBackground(new java.awt.Color(255, 255, 255));
         campo_Telefono_Orden.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Telefono_Orden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Telefono_Orden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Telefono_Orden.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Telefono_OrdenKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Telefono_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 150, 22));
+        getContentPane().add(campo_Telefono_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 220, 150, 24));
 
         tabla_Productos_Maquila.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tabla_Productos_Maquila.setModel(new javax.swing.table.DefaultTableModel(
@@ -166,8 +169,8 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         campo_Total_Orden.setEditable(false);
         campo_Total_Orden.setBackground(new java.awt.Color(255, 255, 255));
         campo_Total_Orden.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        campo_Total_Orden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(campo_Total_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 660, 80, 22));
+        campo_Total_Orden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(campo_Total_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 668, 90, 24));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Total:");
@@ -208,13 +211,13 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         campo_RUC_Orden.setEditable(false);
         campo_RUC_Orden.setBackground(new java.awt.Color(255, 255, 255));
         campo_RUC_Orden.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_RUC_Orden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_RUC_Orden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_RUC_Orden.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_RUC_OrdenKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_RUC_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 150, 22));
+        getContentPane().add(campo_RUC_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, 150, 24));
 
         etiqueta_Indicador_Maquila.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Maquila.setForeground(new java.awt.Color(220, 0, 0));
@@ -247,7 +250,7 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
 
         combo_Estado_Orden.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Estado_Orden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar..........", "Pagado", "Por pagar", "Anulada" }));
-        getContentPane().add(combo_Estado_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 220, 22));
+        getContentPane().add(combo_Estado_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 220, 24));
 
         etiqueta_Estado.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Estado.setForeground(new java.awt.Color(195, 0, 0));
@@ -257,8 +260,8 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         combo_Maquila_Orden.setEditable(false);
         combo_Maquila_Orden.setBackground(new java.awt.Color(255, 255, 255));
         combo_Maquila_Orden.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        combo_Maquila_Orden.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(combo_Maquila_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 310, 22));
+        combo_Maquila_Orden.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(combo_Maquila_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 310, 24));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Estado del trabajo:");
@@ -427,6 +430,30 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
             }
             valores[4] = String.valueOf( verificar );
             return valores;
+    }
+    
+    public void valores_Tabla_Orden(Orden_Produccion lista_Orden, Maquila maquila){
+        DefaultTableModel modelo_Tabla_Orden = ( DefaultTableModel )  this.tabla_Productos_Maquila.getModel();
+        modelo_Tabla_Orden.setRowCount(0);
+        
+        String[] cantidad = lista_Orden.getCantidad().split(";");
+        String[] descripcion = lista_Orden.getDescripcion().split(";");
+        String[] v_Unitario = lista_Orden.getV_Unitario().split(";");
+        String[] v_Total = lista_Orden.getV_Total().split(";");
+
+        for (int i = 0; i < cantidad.length - 1; i++) {
+            Object[] valores_Tabla = {cantidad[i], descripcion[i], Double.parseDouble(v_Unitario[i]), Double.parseDouble(v_Total[i])};
+            modelo_Tabla_Orden.addRow(valores_Tabla);
+        }
+        this.valores_Maquila(maquila.getMaquila(), maquila.getDireccion(), maquila.getTelefono(), maquila.getRUC());
+        this.valores_Orden(lista_Orden.getEstado(), lista_Orden.getV_Pagar(), lista_Orden.getNumero_Orden(), lista_Orden.getObservaciones());  
+    }
+    
+    public void valores_Orden( String estado, double valor_Total, String no_Factura, String observaciones ){
+        this.combo_Estado_Orden.setSelectedItem( estado );
+        this.campo_Total_Orden.setText( String.valueOf( valor_Total ) );
+        this.etiqueta_No_Orden.setText( no_Factura );
+        this.caja_Observaciones_Maquila.setText( observaciones );
     }
     
     public String calendario() {

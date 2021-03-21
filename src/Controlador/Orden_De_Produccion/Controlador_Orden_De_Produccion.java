@@ -184,11 +184,27 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
         }
         
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Modificar_Orden) {
-            
+            ArrayList<Orden_Produccion> orden_Produccion = new DAO_Orden_Produccion_Implementacion(this.conexion_Database).consultar(this.panel_Orden_Produccion.tabla_Consulta_Orden_Produccion.getValueAt(this.panel_Orden_Produccion.tabla_Consulta_Orden_Produccion.getSelectedRow(), 0));
+        
+            if(orden_Produccion.size() == 1){
+            if(new Controlador_Dialogo_Orden_Produccion(this.vista, this.conexion_Database, orden_Produccion.get(0), "Modificar").iniciar()){
+                this.panel_Orden_Produccion.boton_Modificar_Orden.setEnabled(false);
+               this.panel_Orden_Produccion.boton_Generar_Orden.setEnabled(false);
+                this.cargar_Ordenes_Produccion();
+            }
+        }
+        
         }
         
         if (ae.getSource() == this.panel_Orden_Produccion.boton_Generar_Orden) {
-            new Controlador_Reporte_Orden_Produccion(this.panel_Orden_Produccion).iniciar();
+            //new Controlador_Reporte_Orden_Produccion(this.panel_Orden_Produccion).iniciar();
+            
+            ArrayList<Orden_Produccion> orden_Produccion = new DAO_Orden_Produccion_Implementacion(this.conexion_Database).consultar(this.panel_Orden_Produccion.tabla_Consulta_Orden_Produccion.getValueAt(this.panel_Orden_Produccion.tabla_Consulta_Orden_Produccion.getSelectedRow(), 0));
+            if(orden_Produccion.size() == 1){
+                ArrayList<Maquila> maquila = new DAO_Maquila_Implementacion(this.conexion_Database).consultar(orden_Produccion.get(0).getMaquila());
+                new Controlador_Reporte_Orden_Produccion(orden_Produccion.get(0), maquila.get(0)).iniciar();
+            }
+        
         }
         
         if (ae.getSource() == this.panel_Orden_Produccion.combo_Opciones) {
