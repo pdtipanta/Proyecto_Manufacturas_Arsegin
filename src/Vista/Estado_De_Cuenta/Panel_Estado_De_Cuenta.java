@@ -5,8 +5,11 @@
  */
 package Vista.Estado_De_Cuenta;
 
+import Modelo.Cliente;
 import Modelo.Usuario;
 import javax.swing.RowFilter;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -83,8 +86,9 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
 
         boton_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Buscar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-anadir-usuario (1).png"))); // NOI18N
+        boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario-especialista.png"))); // NOI18N
         boton_Buscar.setText("Cliente");
+        boton_Buscar.setToolTipText("Buscar cliente");
         boton_Buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Buscar.setFocusable(false);
         boton_Buscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -98,6 +102,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         boton_Reporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         boton_Reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reportar 1.png"))); // NOI18N
         boton_Reporte.setText("Reporte");
+        boton_Reporte.setToolTipText("Generar estado de cuenta");
         boton_Reporte.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Reporte.setFocusable(false);
         boton_Reporte.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -110,7 +115,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("Cliente:");
-        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
+        add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
 
         tabla_Estado_Cuenta_Facturacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tabla_Estado_Cuenta_Facturacion.setModel(new javax.swing.table.DefaultTableModel(
@@ -127,59 +132,59 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("RUC:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Direccion:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 150, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Telefono:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 190, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Ciudad:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, -1, -1));
 
         campo_Cliente.setEditable(false);
         campo_Cliente.setBackground(new java.awt.Color(255, 255, 255));
         campo_Cliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Cliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 290, 24));
+        add(campo_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 290, 24));
 
         campo_Direccion.setEditable(false);
         campo_Direccion.setBackground(new java.awt.Color(255, 255, 255));
         campo_Direccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Direccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 500, 24));
+        add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 500, 24));
 
         campo_Telefono.setEditable(false);
         campo_Telefono.setBackground(new java.awt.Color(255, 255, 255));
         campo_Telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Telefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 190, 24));
+        add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 190, 24));
 
         campo_RUC.setEditable(false);
         campo_RUC.setBackground(new java.awt.Color(255, 255, 255));
         campo_RUC.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_RUC.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 140, 24));
+        add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 140, 24));
 
         campo_Ciudad.setEditable(false);
         campo_Ciudad.setBackground(new java.awt.Color(255, 255, 255));
         campo_Ciudad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Ciudad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 190, 200, 24));
+        add(campo_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 200, 24));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Correo:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, -1, -1));
 
         campo_Correo.setEditable(false);
         campo_Correo.setBackground(new java.awt.Color(255, 255, 255));
         campo_Correo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Correo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 500, 24));
+        add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 500, 24));
 
         combo_Opcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Opcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.........", "Todas", "Por cobrar", "Pagadas", "Anuladas" }));
@@ -189,11 +194,11 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
                 combo_OpcionItemStateChanged(evt);
             }
         });
-        add(combo_Opcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 210, 24));
+        add(combo_Opcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, 210, 24));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Estado facturas:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, 20));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, 20));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -204,21 +209,21 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Codigo:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
         campo_Codigo.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         campo_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 160, 24));
+        add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 160, 24));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Vendedor:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
 
         campo_Vendedor.setEditable(false);
         campo_Vendedor.setBackground(new java.awt.Color(255, 255, 255));
         campo_Vendedor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Vendedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 240, 24));
+        add(campo_Vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 240, 24));
 
         etiqueta_Rol.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         etiqueta_Rol.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -243,6 +248,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 1000, 40));
     }// </editor-fold>//GEN-END:initComponents
@@ -263,19 +269,19 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         }
     }
 
-    public void valores_Clientes(String codigo, String cliente, String RUC, String direccion, String telefono, String ciudad, String correo, String vendedor) {
+    public void valores_Clientes(Cliente cliente, Usuario usuario) {
         DefaultTableModel modelo_Tabla_Consulta_Estado_Cuenta = (DefaultTableModel) this.tabla_Estado_Cuenta_Facturacion.getModel();
 
-        this.combo_Opcion.setSelectedItem("Seleccione.........");
         modelo_Tabla_Consulta_Estado_Cuenta.setRowCount(0);
-        this.campo_Codigo.setText(codigo);
-        this.campo_Cliente.setText(cliente);
-        this.campo_RUC.setText(RUC);
-        this.campo_Direccion.setText(direccion);
-        this.campo_Telefono.setText(telefono);
-        this.campo_Ciudad.setText(ciudad);
-        this.campo_Correo.setText(correo);
-        this.campo_Vendedor.setText(vendedor);
+        this.combo_Opcion.setSelectedItem("Seleccione.........");
+        this.campo_Codigo.setText(cliente.getCodigo_Cliente());
+        this.campo_Cliente.setText(cliente.getCliente());
+        this.campo_RUC.setText(cliente.getRUC());
+        this.campo_Direccion.setText(cliente.getDireccion());
+        this.campo_Telefono.setText(cliente.getTelefono());
+        this.campo_Ciudad.setText(cliente.getCiudad());
+        this.campo_Correo.setText(cliente.getCorreo());
+        this.campo_Vendedor.setText(usuario.getNombre() + " " + usuario.getApellido());
     }
 
     public void activar_Botones(boolean bandera1, boolean bandera2) {
@@ -288,6 +294,20 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         this.etiqueta_Rol.setText(rol);
     }
 
+    public void centrar_Tabla() {
+        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.CENTER);
+        this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(0).setCellRenderer(tcr);
+        this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(1).setCellRenderer(tcr);
+        this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(2).setCellRenderer(tcr);
+    }
+
+    public void derecha_Tabla() {
+        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.RIGHT);
+        this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(4).setCellRenderer(tcr);
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Buscar;
     public javax.swing.JButton boton_Cerrar_Sesion;
@@ -295,11 +315,11 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
     public javax.swing.JTextField campo_Ciudad;
     public javax.swing.JTextField campo_Cliente;
     public javax.swing.JTextField campo_Codigo;
-    private javax.swing.JTextField campo_Correo;
+    public javax.swing.JTextField campo_Correo;
     public javax.swing.JTextField campo_Direccion;
     public javax.swing.JTextField campo_RUC;
     public javax.swing.JTextField campo_Telefono;
-    private javax.swing.JTextField campo_Vendedor;
+    public javax.swing.JTextField campo_Vendedor;
     public javax.swing.JComboBox<String> combo_Opcion;
     public javax.swing.JLabel etiqueta_Nombre_Usuario;
     public javax.swing.JLabel etiqueta_Rol;

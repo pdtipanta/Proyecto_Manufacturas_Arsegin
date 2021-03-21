@@ -98,6 +98,7 @@ public class Dialogo_Buscar_Cliente extends javax.swing.JDialog {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -132,7 +133,7 @@ public class Dialogo_Buscar_Cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_combo_OpcionesActionPerformed
 
     public void limpiar_Campo(){
-        this.campo_Buscar.setText(null);
+        this.campo_Buscar.setText("");
     }
     /**
      * @param args the command line arguments

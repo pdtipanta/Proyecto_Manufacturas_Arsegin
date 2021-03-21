@@ -20,7 +20,7 @@ public class Panel_Clientes extends javax.swing.JPanel {
         initComponents();
         this.boton_Modificar.setEnabled(false);
         this.boton_Eliminar.setEnabled(false);
-        this.tabla_Clientes.getTableHeader().setReorderingAllowed(false) ;
+        this.tabla_Clientes.getTableHeader().setReorderingAllowed(false);
     }
 
     /**
@@ -32,7 +32,6 @@ public class Panel_Clientes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupo_Botones_DNI = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Nuevo_Cliente = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
@@ -204,6 +203,7 @@ public class Panel_Clientes extends javax.swing.JPanel {
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 990, 40));
     }// </editor-fold>//GEN-END:initComponents
@@ -235,7 +235,6 @@ public class Panel_Clientes extends javax.swing.JPanel {
     public javax.swing.JComboBox<String> combo_Opciones;
     public javax.swing.JLabel etiqueta_Nombre_Usuario;
     public javax.swing.JLabel etiqueta_Rol;
-    private javax.swing.ButtonGroup grupo_Botones_DNI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

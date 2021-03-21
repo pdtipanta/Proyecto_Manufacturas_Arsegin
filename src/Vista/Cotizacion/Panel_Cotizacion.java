@@ -5,26 +5,16 @@
  */
 package Vista.Cotizacion;
 
-import Modelo.Cliente;
-import Modelo.Cotizacion;
 import Modelo.Usuario;
-import java.awt.Color;
-import java.awt.Font;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author David
  */
 public class Panel_Cotizacion extends javax.swing.JPanel {
-    private DefaultTableModel       modelo_Tabla_Datos_Cotizacion;
-    private DecimalFormat           formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
     /**
      * Creates new form Panel_Cotizacion
      */
@@ -33,8 +23,8 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(SwingConstants.CENTER);
         this.tabla_Consulta_Cotizacion.getColumnModel().getColumn(0).setCellRenderer(tcr);
-        this.campo_Busqueda.setEditable(false);
         this.tabla_Consulta_Cotizacion.getTableHeader().setReorderingAllowed(false) ;
+        this.campo_Busqueda.setEditable(false);
         this.campo_Busqueda.setEditable(false);
         this.fecha_1.setVisible(false);
         this.fecha_2.setVisible(false);
@@ -42,29 +32,8 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         this.fecha_1.setDate( new Date() );
         this.fecha_2.setDate( new Date() );
         this.etiqueta_Error_Fecha.setVisible(false);
-        /*
-        this.calendario_Cotizacion.setDate(new Date());
-        this.modelo_Tabla_Datos_Cotizacion = (DefaultTableModel) this.tabla_Productos_Cotizacion.getModel();
-        this.tabla_Productos_Cotizacion.getTableHeader().setFont(new Font("Arial", Font.BOLD, 14));
-        this.tabla_Productos_Cotizacion.getTableHeader().setBackground(new Color(32, 136, 203));
-        this.tabla_Productos_Cotizacion.getTableHeader().setForeground(new Color(255, 255, 255));
-        this.etiqueta_Indicador_Cliente.setVisible(false);
-        this.etiqueta_Indicador_Ciudad.setVisible(false);
-        this.etiqueta_Indicador_RUC.setVisible(false);
-        this.etiqueta_Indicador_Direccion.setVisible(false);
-        this.etiqueta_Indicador_Telefono.setVisible(false);
-        this.etiqueta_Indicador_Correo.setVisible(false);
-        this.etiqueta_Indicador_Contacto.setVisible(false);
-        this.etiqueta_Indicador_Modalidad.setVisible(false);*/
         this.boton_Modificar_Cotizacion.setEnabled(false);
         this.boton_Generar_Cotizacion.setEnabled(false);
-        /*this.boton_Modificar_Cotizacion.setEnabled(false);is.boton_Generar_Cotizacion.setEnabled(false);
-        this.boton_Agregar_Fila.setEnabled(false);
-        this.boton_Quitar_Fila.setEnabled(false);
-        this.etiqueta_Indicador_Calendario.setVisible(false);
-        this.tabla_Productos_Cotizacion.getTableHeader().setReorderingAllowed(false) ;
-        this.valor_IVA.setValue(12);
-        this.valor_IVA.setEnabled(false);*/
     }
     
     public void Roles(String rol) {
@@ -79,12 +48,12 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         }
 
         if (rol.equals("Contador")) {
-            boolean[] bandera = {true, false, false, false, false, false, false};
+            boolean[] bandera = {false, false, false, false, false, false, false};
             this.habilitar_Rol(bandera);
         }
 
         if (rol.equals("Administrador")) {
-            boolean[] bandera = {true, false, false, false, false, false, false};
+            boolean[] bandera = {false, false, false, true, false, false, false};
             this.habilitar_Rol(bandera);
         }
     }
@@ -238,6 +207,7 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -297,222 +267,31 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
     private void boton_Nueva_CotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_CotizacionActionPerformed
 
     }//GEN-LAST:event_boton_Nueva_CotizacionActionPerformed
- /*
-    public boolean etiquetas( ){
-        boolean bandera = true;
-        
-        if( this.combo_Cliente_Cotizacion.getText().isEmpty() ){
-            this.etiqueta_Indicador_Cliente.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Cliente.setVisible( false );
-        }
-        
-        if( this.campo_Ciudad_Cotizacion.getText().isEmpty() ){
-            this.etiqueta_Indicador_Ciudad.setVisible( true );
-            bandera = false;
-        }else{ 
-           this.etiqueta_Indicador_Ciudad.setVisible( false );
-        }
-            
-        if( this.campo_RUC_Cotizacion.getText().matches( "[0-9][0-9]{12}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }else if(this.campo_RUC_Cotizacion.getText().matches( "[0-9][0-9]{9}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_RUC.setVisible( true );
-            bandera = false;
-        }
-            
-        if( this.campo_Direccion_Cotizacion.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Direccion.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Direccion.setVisible( false );
-        }
-            
-        if (this.campo_Telefono_Cotizacion.getText().matches("[0][1-9][0-9]{7}|[0][8-9][0-9]{8}")) {
-            this.etiqueta_Indicador_Telefono.setVisible(false);
-        } else {
-            this.etiqueta_Indicador_Telefono.setVisible(true);
-            bandera = false;
-        }
-        
-        if (this.calendario_Cotizacion.getDate() == null) {
-            this.etiqueta_Indicador_Calendario.setVisible(bandera);
-            bandera = false;
-        }else{
-            this.etiqueta_Indicador_Calendario.setVisible(false);
-        }
-        
-        if( this.campo_Correo_Cotizacion.getText().matches( "[a-zA-Z_\\d]+@[a-zA-Z]+(\\.[a-zA-Z]*)+" )){  
-            this.etiqueta_Indicador_Correo.setVisible( false );
-        }else{
-            this.etiqueta_Indicador_Correo.setVisible( true );
-            bandera = false;
-        }
-            
-        if( this.campo_Contacto_Cotizacion.getText().isEmpty() ){
-            this.etiqueta_Indicador_Contacto.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Contacto.setVisible( false );
-        }
-        
-        if( this.campo_Modalidad_Cotizacion.getText().isEmpty() ){
-            this.etiqueta_Indicador_Modalidad.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Modalidad.setVisible( false );
-        }
-        return bandera;
-    }*/
-    /*
-    public String[] evaluar_Tabla() {
-        DefaultTableModel modelo_Tabla_Cotizacion = (DefaultTableModel) this.tabla_Productos_Cotizacion.getModel();
-        String[] valores = new String[6];
 
-        for (int i = 0; i < modelo_Tabla_Cotizacion.getRowCount(); i++) {
-            valores[0] = modelo_Tabla_Cotizacion.getValueAt(i, 0) + ";" + valores[0];
-            valores[1] = modelo_Tabla_Cotizacion.getValueAt(i, 1) + ";" + valores[1];
-            valores[2] = modelo_Tabla_Cotizacion.getValueAt(i, 2) + ";" + valores[2];
-            valores[3] = modelo_Tabla_Cotizacion.getValueAt(i, 3) + ";" + valores[3];
-            valores[4] = modelo_Tabla_Cotizacion.getValueAt(i, 4) + ";" + valores[4];
-        }
-        return valores;
-    }
-
-    public void limpiar_Valores() {
-        this.campo_Subtotal_Cotizacion.setText("");
-        this.campo_IVA_Cotizacion.setText("");
-        this.campo_Total_Cotizacion.setText("");
-        this.campo_Modalidad_Cotizacion.setText("");
-        this.valor_IVA.setValue(12);
-    }
-    
-    public void limpiar_Tabla() {
-        DefaultTableModel modelo_Tabla_Cotizacion = (DefaultTableModel) this.tabla_Productos_Cotizacion.getModel();
-        modelo_Tabla_Cotizacion.setRowCount(0);
-    }
-
-    public void botones(boolean bandera1, boolean bandera2, boolean bandera3, boolean bandera4, boolean bandera5, boolean bandera6) {
-        this.boton_Guardar_Cotizacion.setEnabled(bandera1);
-        this.boton_Agregar_Cliente.setEnabled(bandera1);
-        this.boton_Nueva_Cotizacion.setEnabled(bandera2);
-        this.boton_Modificar_Cotizacion.setEnabled(bandera3);
-        this.boton_Generar_Cotizacion.setEnabled(bandera4);
-        this.boton_Agregar_Fila.setEnabled(bandera6);
-        this.boton_Quitar_Fila.setEnabled(bandera6);
-        this.valor_IVA.setEnabled(bandera6);
-    }
-    
-    public void calculo_Valores() {
-        try {
-            double valor_Subtotal = 0;
-            for (int i = 0; i < this.modelo_Tabla_Datos_Cotizacion.getRowCount(); i++) {
-                valor_Subtotal = valor_Subtotal + (double) this.modelo_Tabla_Datos_Cotizacion.getValueAt(i, 4);
-            }
-            this.campo_Subtotal_Cotizacion.setText(this.formato_Numero.format(valor_Subtotal));
-            this.campo_IVA_Cotizacion.setText(this.formato_Numero.format(valor_Subtotal * (Integer)this.valor_IVA.getValue()/100));
-            this.campo_Total_Cotizacion.setText(this.formato_Numero.format(Double.valueOf(this.campo_IVA_Cotizacion.getText()) + valor_Subtotal));
-        } catch (Exception e) {
-        }
-    }
-
-    public String calendario_Fecha() {
-        Date fecha;
-        fecha = (Date) this.calendario_Cotizacion.getDate();
-        return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
-    }
-
-    public void valores_Tabla_Cotizacion(Cotizacion lista_Cotizacion, Cliente cliente) {
-        this.modelo_Tabla_Datos_Cotizacion.setRowCount(0);
-
-        String[] cantidad = lista_Cotizacion.getCantidad().split(";");
-        String[] codigo = lista_Cotizacion.getCodigo().split(";");
-        String[] descripcion = lista_Cotizacion.getDescripcion().split(";");
-        String[] v_Unitario = lista_Cotizacion.getV_Unitario().split(";");
-        String[] v_Total = lista_Cotizacion.getV_Total().split(";");
-
-        for (int i = 0; i < codigo.length - 1; i++) {
-            Object[] valores_Tabla = {cantidad[i], codigo[i], descripcion[i], Double.parseDouble(v_Unitario[i]), Double.parseDouble(v_Total[i])};
-            this.modelo_Tabla_Datos_Cotizacion.addRow(valores_Tabla);
-        }
-
-        this.valores_Clientes(cliente.getCodigo_Cliente(), cliente.getCliente(), cliente.getDireccion(), cliente.getTelefono(), cliente.getCorreo(), cliente.getRUC(), cliente.getCiudad(), cliente.getPersona_Contacto(), lista_Cotizacion.getEmisor(), "");
-        this.valores_Cotizacion(lista_Cotizacion.getCliente(), lista_Cotizacion.getV_Subtotal(), lista_Cotizacion.getIVA(), lista_Cotizacion.getValor_Total(), lista_Cotizacion.getTipo_Pago(), lista_Cotizacion.getNo_Cotizacion());
-    }
-    
-    public void valores_Clientes(String codigo_Cliente, String cliente, String direccion, String telefono, String correo, String RUC, String ciudad, String persona_Contacto, String nombre, String apellido) {
-        this.campo_Codigo_Cliente.setText(codigo_Cliente);
-        this.combo_Cliente_Cotizacion.setText(cliente);
-        this.campo_Direccion_Cotizacion.setText(direccion);
-        this.campo_Telefono_Cotizacion.setText(telefono);
-        this.campo_Correo_Cotizacion.setText(correo);
-        this.campo_RUC_Cotizacion.setText(RUC);
-        this.campo_Ciudad_Cotizacion.setText(ciudad);
-        this.campo_Contacto_Cotizacion.setText(persona_Contacto);
-        this.campo_Emisor_Cotizacion.setText(nombre + " " + apellido);
-    }
-
-    public void valores_Cotizacion(String cliente, double subtotal, double IVA, double valor_Total, String modalidad, String no_Cotizacion) {
-        this.campo_Subtotal_Cotizacion.setText(String.valueOf(subtotal));
-        this.campo_IVA_Cotizacion.setText(String.valueOf(IVA));
-        this.campo_Total_Cotizacion.setText(String.valueOf(valor_Total));
-        this.campo_Modalidad_Cotizacion.setText(modalidad);
-        this.etiqueta_No_Cotizacion.setText(no_Cotizacion);
-        this.valor_IVA.setValue((int)((IVA/subtotal)*100));
-    }
-    
-    public void limpiar_Etiquetas() {
-        this.etiqueta_Indicador_Cliente.setVisible(false);
-        this.etiqueta_Indicador_Ciudad.setVisible(false);
-        this.etiqueta_Indicador_RUC.setVisible(false);
-        this.etiqueta_Indicador_Direccion.setVisible(false);
-        this.etiqueta_Indicador_Telefono.setVisible(false);
-        this.etiqueta_Indicador_Correo.setVisible(false);
-        this.etiqueta_Indicador_Contacto.setVisible(false);
-        this.etiqueta_Indicador_Modalidad.setVisible(false);
-    }
-    
-    public void habilitar_Rol(boolean[] bandera) {
-        this.boton_Nueva_Cotizacion.setVisible(bandera[0]);
-        this.boton_Guardar_Cotizacion.setVisible(bandera[1]);
-        this.boton_Modificar_Cotizacion.setVisible(bandera[2]);
-        this.boton_Generar_Cotizacion.setVisible(bandera[3]);
-        this.boton_Agregar_Cliente.setVisible(bandera[4]);
-        this.boton_Agregar_Fila.setVisible(bandera[5]);
-        this.boton_Quitar_Fila.setVisible(bandera[6]);
-    }
-    */
-    public void set_Usuario(Usuario usuario, String rol){
+    public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
     }
+
     public void habilitar_Rol(boolean[] bandera) {
         this.boton_Nueva_Cotizacion.setVisible(bandera[0]);
-        //this.boton_Guardar_Cotizacion.setVisible(bandera[1]);
         this.boton_Modificar_Cotizacion.setVisible(bandera[2]);
         this.boton_Generar_Cotizacion.setVisible(bandera[3]);
-        //this.boton_Agregar_Cliente.setVisible(bandera[4]);
-      //  this.boton_Agregar_Fila.setVisible(bandera[5]);
-       // this.boton_Quitar_Fila.setVisible(bandera[6]);
     }
-    
+
     public String calendario_Inicio() {
         Date fecha = this.fecha_1.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
-    
-    public String calendario_Final() {   
+
+    public String calendario_Final() {
         Date fecha = this.fecha_2.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
-    
+
     public boolean verificar_Campos() {
         boolean bandera = true;
-        
+
         if (this.fecha_1.getDate() == null) {
             bandera = false;
         }
@@ -522,11 +301,11 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         }
         return bandera;
     }
-    
-    public void etiqueta_Error_Etiqueta(boolean bandera){
+
+    public void etiqueta_Error_Etiqueta(boolean bandera) {
         this.etiqueta_Error_Fecha.setVisible(bandera);
     }
-    
+
     public void desactivar_Calendarios(boolean bandera) {
         this.fecha_1.setVisible(bandera);
         this.fecha_2.setVisible(bandera);

@@ -27,13 +27,13 @@ import javax.swing.table.TableRowSorter;
  */
 public class Controlador_Dialogo_Buscar_Cliente implements KeyListener, MouseListener{
     private final Vista_Principal           vista;
-    private Connection                      conexion;
+    private final Connection                conexion;
     private final Usuario                   usuario;
     private final String                    rol;   
     private final Dialogo_Buscar_Cliente    dialogo_Buscar_Cliente;
-    private DefaultTableModel               modelo_Tabla_Clientes;
+    private final DefaultTableModel         modelo_Tabla_Clientes;
     private TableRowSorter                  TRSFiltro;
-    private ArrayList< Cliente>             cliente = new ArrayList< Cliente>();
+    private ArrayList<Cliente>             cliente = new ArrayList< Cliente>();
 
     public Controlador_Dialogo_Buscar_Cliente(Vista_Principal vista, Connection conexion, Usuario usuario, String rol) {
         this.vista = vista;

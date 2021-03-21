@@ -19,8 +19,8 @@ import javax.swing.table.DefaultTableModel;
  * @author David
  */
 public class Dialogo_Cotizacion extends javax.swing.JDialog {
-    private DefaultTableModel       modelo_Tabla_Datos_Cotizacion;
-    private DecimalFormat           formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
+    private final DefaultTableModel       modelo_Tabla_Datos_Cotizacion;
+    private final DecimalFormat           formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
     /**
      * Creates new form Dialogo_Cotizacion
      */
@@ -526,12 +526,11 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
     }//GEN-LAST:event_campo_Ciudad_CotizacionKeyTyped
 
     private void valor_IVAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_valor_IVAStateChanged
-
-        if((Integer)this.valor_IVA.getValue() < 1){
+        if ((Integer) this.valor_IVA.getValue() < 1) {
             this.valor_IVA.setValue(1);
-        }else if((Integer)this.valor_IVA.getValue() > 25){
+        } else if ((Integer) this.valor_IVA.getValue() > 25) {
             this.valor_IVA.setValue(25);
-        }else{
+        } else {
             calculo_Valores();
         }
     }//GEN-LAST:event_valor_IVAStateChanged

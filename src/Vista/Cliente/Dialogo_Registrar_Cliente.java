@@ -16,8 +16,6 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
  */
 public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
-    PlaceHolder_Textos textos_Place;
-
     /**
      * Creates new form Dialogo_Registrar_Cliente
      */
@@ -261,6 +259,11 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
                 combo_ClienteMouseClicked(evt);
             }
         });
+        combo_Cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                combo_ClienteKeyTyped(evt);
+            }
+        });
         getContentPane().add(combo_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 330, 24));
 
         etiqueta_Indicador_Cliente.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -279,6 +282,11 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         campo_Cod_Cliente.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Cod_Cliente.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Cod_Cliente.setPreferredSize(new java.awt.Dimension(2, 20));
+        campo_Cod_Cliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_Cod_ClienteKeyTyped(evt);
+            }
+        });
         getContentPane().add(campo_Cod_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 75, 170, 24));
 
         radio_Boton_CI.setBackground(new java.awt.Color(255, 255, 255));
@@ -339,7 +347,9 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         etiqueta_Correccion_Correo.setText("El Correo ya se encuentra registrado para otro cliente");
         getContentPane().add(etiqueta_Correccion_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 310, -1));
 
+        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         boton_Agregar.setBackground(java.awt.Color.white);
@@ -361,7 +371,7 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         jToolBar1.add(boton_Agregar);
         jToolBar1.add(jSeparator1);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 830, 35));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -436,7 +446,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_campo_ContactoKeyTyped
 
     private void combo_ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_combo_ClienteMouseClicked
-        // TODO add your handling code here:
         this.colores_Bordes();
         combo_Cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
     }//GEN-LAST:event_combo_ClienteMouseClicked
@@ -488,6 +497,14 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     private void campo_CiudadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_campo_CiudadItemStateChanged
         this.colores_Bordes();
     }//GEN-LAST:event_campo_CiudadItemStateChanged
+
+    private void campo_Cod_ClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_Cod_ClienteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campo_Cod_ClienteKeyTyped
+
+    private void combo_ClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_combo_ClienteKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_combo_ClienteKeyTyped
 
     public boolean etiquetas() {
         boolean bandera = true;
@@ -563,7 +580,7 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     
     public String convertirNumero(int numero) {
         DecimalFormat format = new DecimalFormat("00000000");
-        return format.format(Integer.valueOf(numero) + 1);
+        return format.format(numero + 1);
     }
     
     public void correccion_Campos(String valor){

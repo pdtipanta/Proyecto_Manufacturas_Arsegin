@@ -19,7 +19,6 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author David
  */
 public class Controlador_Reporte_Cliente {
-
     ArrayList<Cliente> lista_Clientes;
 
     public Controlador_Reporte_Cliente(ArrayList<Cliente> lista_Clientes) {

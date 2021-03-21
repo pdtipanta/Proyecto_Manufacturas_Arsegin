@@ -34,7 +34,6 @@ public class Controlador_Reporte_Estado_De_Cuenta {
 
         try {
             Map parametro = new HashMap();
-            
             parametro.put("RUC", this.panel_Estado_De_Cuenta.campo_RUC.getText());
             parametro.put("telefono", this.panel_Estado_De_Cuenta.campo_Telefono.getText());
             parametro.put("direccion", this.panel_Estado_De_Cuenta.campo_Direccion.getText());

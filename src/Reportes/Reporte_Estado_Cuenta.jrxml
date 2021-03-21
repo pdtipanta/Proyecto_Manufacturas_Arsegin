@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d3464a6-edd8-4fc9-9620-ec29848a9d46">
-	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="70"/>
 	<parameter name="cliente" class="java.lang.String"/>
 	<parameter name="direccion" class="java.lang.String"/>
 	<parameter name="RUC" class="java.lang.String"/>
@@ -248,7 +248,7 @@
 			</textField>
 			<textField>
 				<reportElement x="251" y="0" width="100" height="20" uuid="e12a2b05-b682-481c-b127-638dfe8f9c20"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
+				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{valor_Total}]]></textFieldExpression>
@@ -270,23 +270,47 @@
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="50" splitType="Stretch">
+		<band height="59" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="554" height="59" uuid="b115f008-ee26-4049-8919-f14e3856dd73"/>
+			</rectangle>
 			<rectangle radius="10">
-				<reportElement x="356" y="0" width="199" height="39" uuid="9bf868e1-9440-464e-aad8-a1c999fd5941"/>
+				<reportElement x="356" y="0" width="199" height="59" uuid="9bf868e1-9440-464e-aad8-a1c999fd5941"/>
 			</rectangle>
 			<textField>
-				<reportElement x="455" y="10" width="100" height="20" uuid="6b6d4425-42af-4eae-89d3-ca483b3f4b56"/>
+				<reportElement x="465" y="20" width="41" height="20" uuid="6b6d4425-42af-4eae-89d3-ca483b3f4b56"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="366" y="10" width="74" height="20" uuid="2df1893a-b667-4e14-9813-ad452be28326"/>
+				<reportElement x="377" y="20" width="74" height="20" uuid="2df1893a-b667-4e14-9813-ad452be28326"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="0" width="227" height="20" uuid="0493d4ae-0145-48aa-8eba-9678b8ef0a22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pagar a nombre de: Alexis Daniel Tutasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="20" width="275" height="20" uuid="7dda4678-8ab4-49bb-9cfc-7012d7769c54"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Banco Pichincha / Cuenta de Ahorros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="39" width="227" height="20" uuid="ed4ebaad-7232-4bd3-8f65-c28af8539666"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[2200592494]]></text>
 			</staticText>
 		</band>
 	</columnFooter>

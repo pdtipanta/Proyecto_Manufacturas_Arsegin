@@ -23,13 +23,13 @@ import javax.swing.JOptionPane;
  */
 public class Controlador_Dialogo_Registrar_Cliente implements ActionListener {
 
-    private final Dialogo_Registrar_Cliente dialogo_Registrar_Cliente;
-    private final Vista_Principal vista;
-    private final Connection conexion_Database;
-    private final Usuario usuario;
-    private final String actividad;
-    private final Cliente cliente;
-    private boolean bandera = false;
+    private final Dialogo_Registrar_Cliente  dialogo_Registrar_Cliente;
+    private final Vista_Principal            vista;
+    private final Connection                 conexion_Database;
+    private final Usuario                    usuario;
+    private final String                     actividad;
+    private final Cliente                    cliente;
+    private boolean                          bandera = false;
 
     public Controlador_Dialogo_Registrar_Cliente(Vista_Principal vista, Connection conexion_Database, Usuario usuario, Cliente cliente, String actividad) {
         this.vista = vista;

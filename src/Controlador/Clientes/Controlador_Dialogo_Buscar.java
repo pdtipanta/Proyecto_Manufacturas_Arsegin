@@ -25,11 +25,11 @@ import javax.swing.table.TableRowSorter;
  * @author David
  */
 public class Controlador_Dialogo_Buscar implements KeyListener, MouseListener{
-    private Connection                      conexion;
+    private final Connection                conexion;
     private final Usuario                   usuario;
     private final String                    rol;  
     private final Panel_Clientes            panel_Clientes;
-    private DefaultTableModel               modelo_Tabla_Clientes;
+    private final DefaultTableModel         modelo_Tabla_Clientes;
     private TableRowSorter                  TRSFiltro;
 
     public Controlador_Dialogo_Buscar(Panel_Clientes panel_Clientes, Connection conexion, Usuario usuario, String rol) {
@@ -61,6 +61,7 @@ public class Controlador_Dialogo_Buscar implements KeyListener, MouseListener{
                 valor = "Todos" + ";" + "Todos";
                 break;
         }
+        
         this.modelo_Tabla_Clientes.setRowCount(0);
         ArrayList<Cliente> cliente = new DAO_Cliente_Implementacion(this.conexion).consultar(valor);
 
@@ -126,9 +127,9 @@ public class Controlador_Dialogo_Buscar implements KeyListener, MouseListener{
     public void filtrar_Tabla(int valor) {
         seleccion_Tabla(this.panel_Clientes.tabla_Clientes.getSelectedRow());
         TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.panel_Clientes.campo_Buscar.getText(), valor));
-        if(this.panel_Clientes.tabla_Clientes.getRowCount() > 0 ){
+        if (this.panel_Clientes.tabla_Clientes.getRowCount() > 0) {
             this.panel_Clientes.boton_Reportes_Clientes.setEnabled(true);
-        }else{
+        } else {
             this.panel_Clientes.boton_Reportes_Clientes.setEnabled(false);
         }
     }

@@ -304,45 +304,37 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
         }
         return this.modelo_Tabla_Maquila;
     }
-    
+
     public void seleccion_Tabla(int bandera) {
         if (bandera != -1) {
             this.panel_Orden_Produccion.boton_Modificar_Orden.setEnabled(true);
             this.panel_Orden_Produccion.boton_Generar_Orden.setEnabled(true);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(true);
         } else {
             this.panel_Orden_Produccion.boton_Modificar_Orden.setEnabled(false);
             this.panel_Orden_Produccion.boton_Generar_Orden.setEnabled(false);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(false);
         }
     }
     
-    
-
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.panel_Orden_Produccion.tabla_Consulta_Orden_Produccion){
+        if (me.getSource() == this.panel_Orden_Produccion.tabla_Consulta_Orden_Produccion) {
             seleccion_Tabla(this.panel_Orden_Produccion.tabla_Consulta_Orden_Produccion.getSelectedRow());
         }
     }
 
     @Override
-    public void mousePressed(MouseEvent me) {
-        
+    public void mousePressed(MouseEvent me) {  
     }
 
     @Override
-    public void mouseReleased(MouseEvent me) {
-        
+    public void mouseReleased(MouseEvent me) {   
     }
 
     @Override
-    public void mouseEntered(MouseEvent me) {
-        
+    public void mouseEntered(MouseEvent me) { 
     }
 
     @Override
-    public void mouseExited(MouseEvent me) {
-        
+    public void mouseExited(MouseEvent me) {    
     }
 }

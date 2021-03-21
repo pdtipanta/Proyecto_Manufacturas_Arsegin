@@ -31,13 +31,13 @@ import javax.swing.table.DefaultTableModel;
  * @author David
  */
 public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
-    private Vista_Principal         vista;
-    private Connection              conexion_Database;
-    private Usuario                 usuario;
-    private String                  rol;
-    private Panel_Estado_De_Cuenta  panel_Estado_De_Cuenta = new Panel_Estado_De_Cuenta();
-    private DefaultTableModel       modelo_Tabla_Consulta_Estado_Cuenta = ( DefaultTableModel ) panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getModel();
-    private ArrayList<Factura>      lista_Factura = new ArrayList<Factura>();
+    private final Vista_Principal         vista;
+    private final Connection              conexion_Database;
+    private final Usuario                 usuario;
+    private final String                  rol;
+    private final Panel_Estado_De_Cuenta  panel_Estado_De_Cuenta = new Panel_Estado_De_Cuenta();
+    private final DefaultTableModel       modelo_Tabla_Consulta_Estado_Cuenta = ( DefaultTableModel ) panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getModel();
+    private ArrayList<Factura>            lista_Factura = new ArrayList<Factura>();
     
     public Controlador_Estado_Cuenta(Vista_Principal vista, Connection conexion_Database, Usuario usuario, String rol) {
         this.vista = vista;
@@ -66,8 +66,10 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
 
             if (cliente.size() == 1) {
                 ArrayList<Usuario> usuario = new DAO_Usuario(this.conexion_Database).consultar(cliente.get(0).getEmpleado());
-                this.panel_Estado_De_Cuenta.valores_Clientes(cliente.get(0).getCodigo_Cliente(), cliente.get(0).getCliente(), cliente.get(0).getRUC(), cliente.get(0).getDireccion(), cliente.get(0).getTelefono(), cliente.get(0).getCiudad(), cliente.get(0).getCorreo(), usuario.get(0).getNombre() + " " + usuario.get(0).getApellido());
-                this.panel_Estado_De_Cuenta.activar_Botones(true, true);
+                if (usuario.size() == 1) {
+                    this.panel_Estado_De_Cuenta.valores_Clientes(cliente.get(0), usuario.get(0));
+                    this.panel_Estado_De_Cuenta.activar_Botones(true, true);
+                }
             }
         }
 
@@ -83,6 +85,9 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
             } else if (this.panel_Estado_De_Cuenta.combo_Opcion.getSelectedItem() == "Pagadas") {
                 facturas("Pagado");
             }
+
+            this.panel_Estado_De_Cuenta.centrar_Tabla();
+            this.panel_Estado_De_Cuenta.derecha_Tabla();
         }
 
         if (ae.getSource() == this.panel_Estado_De_Cuenta.boton_Reporte) {
@@ -131,13 +136,13 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
         if (me.getSource() == this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion) {
             int column = this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumnIndexAtX(me.getX());
             int row = me.getY() / this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getRowHeight();
-
+            
             if (column > 0) {
                 Object ubicacion_BotonTabla = this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getValueAt(row, column);
                 if (ubicacion_BotonTabla instanceof JButton) {
                     ((JButton) ubicacion_BotonTabla).doClick();
                     JButton boton_Tabla = (JButton) ubicacion_BotonTabla;
-
+                    
                     ArrayList<Factura> lista_Factura = new DAO_Factura_Implementacion(this.conexion_Database).consultar(this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getValueAt(row, 1) + ";" + "Todos");
                     ArrayList<Cliente> cliente = new DAO_Cliente_Implementacion(this.conexion_Database).consultar(lista_Factura.get(0).getCliente() + ";" + "Todos");
                     
@@ -165,7 +170,7 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
     public void mouseExited(MouseEvent me) {
     }
     
-    public void set_Usuario(){
+    public void set_Usuario() {
         this.panel_Estado_De_Cuenta.set_Usuario(this.usuario, this.rol);
     }
 }

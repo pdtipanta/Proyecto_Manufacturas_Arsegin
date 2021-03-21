@@ -28,20 +28,19 @@ import javax.swing.table.DefaultTableModel;
  * @author David
  */
 public class Controlador_Dialogo_Cotizacion implements ActionListener{
-    private Vista_Principal         vista;
-    private Cotizacion              modelo_Cotizacion;
-    private Connection              conexion_Database;
-    private Dialogo_Cotizacion      dialogo_Cotizacion;
-    //private Panel_Cotizacion        panel_Cotizacion = new Panel_Cotizacion();
-    private DefaultTableModel       modelo_Tabla_Cotizacion;
-    private ArrayList<Cotizacion>   lista_Cotizacion = new ArrayList<Cotizacion>();
-    private ArrayList<Cliente>      cliente = new ArrayList<Cliente>();
-    private final Cliente modelo_Cliente;
-    private final Cotizacion cotizacion;
-    private Usuario                 usuario;
-    private String                  rol;
-    private final String            actividad;
-    private boolean                 bandera = false;
+    private final Vista_Principal         vista;
+    private Cotizacion                    modelo_Cotizacion;
+    private final Connection              conexion_Database;
+    private final Dialogo_Cotizacion      dialogo_Cotizacion;
+    private final DefaultTableModel       modelo_Tabla_Cotizacion;
+    private ArrayList<Cotizacion>         lista_Cotizacion = new ArrayList<Cotizacion>();
+    private ArrayList<Cliente>            cliente = new ArrayList<Cliente>();
+    private final Cliente                 modelo_Cliente;
+    private final Cotizacion              cotizacion;
+    private final Usuario                 usuario;
+    private final String                  rol;
+    private final String                  actividad;
+    private boolean                       bandera = false;
     public Controlador_Dialogo_Cotizacion(Vista_Principal vista, Connection conexion_Database, Cliente cliente, Cotizacion cotizacion, Usuario usuario, String rol, String actividad) {
         this.vista = vista;
         this.conexion_Database = conexion_Database;
@@ -52,26 +51,14 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
         this.rol = rol;
         dialogo_Cotizacion = new Dialogo_Cotizacion(this.vista, true);
         this.dialogo_Cotizacion.boton_Guardar_Cotizacion.addActionListener(this);
-        //this.panel_Cotizacion.boton_Modificar_Cotizacion.addActionListener(this);
         this.dialogo_Cotizacion.boton_Agregar_Fila.addActionListener(this);
-        //this.panel_Cotizacion.boton_Quitar_Fila.addActionListener(this);
-        //this.panel_Cotizacion.boton_Nueva_Cotizacion.addActionListener(this);
-        //this.panel_Cotizacion.boton_Buscar_Cotizacion.addActionListener(this);
         this.dialogo_Cotizacion.boton_Agregar_Cliente.addActionListener(this);
-        //this.panel_Cotizacion.boton_Generar_Cotizacion.addActionListener(this);
-        //this.panel_Cotizacion.boton_Cerrar_Sesion.addActionListener(this);
-        modelo_Tabla_Cotizacion = ( DefaultTableModel ) dialogo_Cotizacion.tabla_Productos_Cotizacion.getModel();
+        modelo_Tabla_Cotizacion = (DefaultTableModel) dialogo_Cotizacion.tabla_Productos_Cotizacion.getModel();
     }
     
     public boolean iniciar() {
-        this.tipo_Actividad();
-        
+        this.tipo_Actividad();   
         this.dialogo_Cotizacion.setVisible(true);
-        //this.vista.Panel_Contenedor.add(panel_Cotizacion);
-        //this.panel_Cotizacion.setVisible(true);
-        //this.vista.Panel_Contenedor.validate();
-        //this.cargar_Cotizaciones();
-        //this.set_Usuario();
         return this.bandera;
     }
     
@@ -80,7 +67,7 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
             this.numero_Cotizacion();
         } else if (this.actividad.equals("Modificar")) {
             this.dialogo_Cotizacion.boton_Agregar_Fila.setEnabled(true);
-                this.dialogo_Cotizacion.boton_Quitar_Fila.setEnabled(true);
+            this.dialogo_Cotizacion.boton_Quitar_Fila.setEnabled(true);
             this.dialogo_Cotizacion.boton_Agregar_Cliente.setEnabled(false);
             this.dialogo_Cotizacion.valores_Tabla_Cotizacion(cotizacion, modelo_Cliente);
         }

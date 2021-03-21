@@ -18,19 +18,18 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author David
  */
 public class Controlador_Panel_Cliente implements ActionListener {
-    private Vista_Principal         vista;
-    private Connection              conexion_Database;
-    private Panel_Clientes          panel_Cliente = new Panel_Clientes();
-    private final Usuario           usuario;
-    private final String            rol;
-    private Cliente                 cliente;
+    private final Vista_Principal         vista;
+    private final Connection              conexion_Database;
+    private final Panel_Clientes          panel_Cliente = new Panel_Clientes();
+    private final Usuario                 usuario;
+    private final String                  rol;
+    private Cliente                       cliente;
 
     public Controlador_Panel_Cliente(Vista_Principal vista, Connection conexion_Database, Usuario usuario, String rol) {
         this.vista = vista;
@@ -61,7 +60,6 @@ public class Controlador_Panel_Cliente implements ActionListener {
             if (new Controlador_Dialogo_Registrar_Cliente(this.vista, this.conexion_Database, this.usuario, cliente, "Modificar").iniciar()) {
                 this.panel_Cliente.boton_Modificar.setEnabled(false);
                 this.panel_Cliente.boton_Eliminar.setEnabled(false);
-                //this.limpiar_Tabla();
                 this.cargar_Clientes();
             }
         }
@@ -71,7 +69,6 @@ public class Controlador_Panel_Cliente implements ActionListener {
             try {
                 if (new DAO_Cliente_Implementacion(this.conexion_Database).eliminar((String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 0)) > 0) {
                     JOptionPane.showMessageDialog(null, "Cliente eliminado", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
-                   // this.limpiar_Tabla();
                     this.cargar_Clientes();
                     this.panel_Cliente.boton_Modificar.setEnabled(false);
                     this.panel_Cliente.boton_Eliminar.setEnabled(false);
@@ -83,15 +80,13 @@ public class Controlador_Panel_Cliente implements ActionListener {
         }
 
         if (ae.getSource() == this.panel_Cliente.boton_Reportes_Clientes) {
-            if(this.panel_Cliente.tabla_Clientes.getRowCount() > 0){
+            if (this.panel_Cliente.tabla_Clientes.getRowCount() > 0) {
                 ArrayList<Cliente> cliente = new ArrayList<Cliente>();
-                
-                for(int i = 0; i<this.panel_Cliente.tabla_Clientes.getRowCount(); i++){
-                cliente.add(new Cliente((String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 0), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 1), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 4), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 3), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 5), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 6), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 2), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 8), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 7), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 9)));
+                for (int i = 0; i < this.panel_Cliente.tabla_Clientes.getRowCount(); i++) {
+                    cliente.add(new Cliente((String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 0), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 1), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 4), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 3), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 5), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 6), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 2), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 8), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 7), (String) this.panel_Cliente.tabla_Clientes.getValueAt(i, 9)));
                 }
                 new Controlador_Reporte_Cliente(cliente).iniciar();
             }
-            //new Controlador_Reporte_Cliente(this.vista, this.conexion_Database, this.usuario, this.rol).iniciar();
         }
 
         if (ae.getSource() == this.panel_Cliente.boton_Cerrar_Sesion) {
@@ -102,18 +97,12 @@ public class Controlador_Panel_Cliente implements ActionListener {
 
         if (ae.getSource() == this.panel_Cliente.boton_Nuevo_Cliente) {
             if (new Controlador_Dialogo_Registrar_Cliente(this.vista, this.conexion_Database, this.usuario, cliente, "Registrar").iniciar()) {
-               // this.limpiar_Tabla();
                 this.cargar_Clientes();
                 this.panel_Cliente.boton_Modificar.setEnabled(false);
                 this.panel_Cliente.boton_Eliminar.setEnabled(false);
             }
         }
     }
-/*
-    public void limpiar_Tabla() {
-        DefaultTableModel modelo_Tabla_Cotizacion = (DefaultTableModel) this.panel_Cliente.tabla_Clientes.getModel();
-        modelo_Tabla_Cotizacion.setRowCount(0);
-    }*/
 
     public void set_Usuario() {
         this.panel_Cliente.set_Usuario(this.usuario, this.rol);
