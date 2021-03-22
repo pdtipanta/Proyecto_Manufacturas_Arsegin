@@ -50,6 +50,7 @@ public class Vista_Principal extends javax.swing.JFrame {
         Panel_Contenedor.setMinimumSize(new java.awt.Dimension(1400, 800));
         Panel_Contenedor.setPreferredSize(new java.awt.Dimension(1400, 800));
 
+        menu_Principal.setBackground(new java.awt.Color(255, 255, 255));
         menu_Principal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         menu_Principal.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         menu_Principal.setMaximumSize(new java.awt.Dimension(338, 30));

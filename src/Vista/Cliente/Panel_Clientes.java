@@ -47,11 +47,11 @@ public class Panel_Clientes extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_Clientes = new javax.swing.JTable();
-        campo_Buscar = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        combo_Opciones = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
+        jLabel1 = new javax.swing.JLabel();
+        campo_Buscar = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        combo_Opciones = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setMaximumSize(new java.awt.Dimension(1400, 800));
@@ -67,7 +67,7 @@ public class Panel_Clientes extends javax.swing.JPanel {
 
         boton_Nuevo_Cliente.setBackground(new java.awt.Color(255, 255, 255));
         boton_Nuevo_Cliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Nuevo_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-archivo.png"))); // NOI18N
+        boton_Nuevo_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         boton_Nuevo_Cliente.setText("Nuevo");
         boton_Nuevo_Cliente.setToolTipText("Nuevo cliente");
         boton_Nuevo_Cliente.setFocusable(false);
@@ -85,31 +85,31 @@ public class Panel_Clientes extends javax.swing.JPanel {
 
         boton_Modificar.setBackground(java.awt.Color.white);
         boton_Modificar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar-documento.png"))); // NOI18N
+        boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/businessapplication_edit_male_user_thepencil_theclient_negocio_2321.png"))); // NOI18N
         boton_Modificar.setText("Modificar");
         boton_Modificar.setToolTipText("Modificar cliente");
         boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(100, 40));
-        boton_Modificar.setMinimumSize(new java.awt.Dimension(100, 40));
-        boton_Modificar.setPreferredSize(new java.awt.Dimension(100, 40));
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 40));
+        boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 40));
+        boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 40));
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator3);
 
         boton_Eliminar.setBackground(java.awt.Color.white);
         boton_Eliminar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-eliminar.png"))); // NOI18N
+        boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delete_delete_deleteusers_delete_male_user_maleclient_2348.png"))); // NOI18N
         boton_Eliminar.setText("Eliminar");
         boton_Eliminar.setToolTipText("Eliminar cliente");
         boton_Eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Eliminar.setMaximumSize(new java.awt.Dimension(100, 40));
-        boton_Eliminar.setMinimumSize(new java.awt.Dimension(100, 40));
-        boton_Eliminar.setPreferredSize(new java.awt.Dimension(100, 40));
+        boton_Eliminar.setMaximumSize(new java.awt.Dimension(110, 40));
+        boton_Eliminar.setMinimumSize(new java.awt.Dimension(110, 40));
+        boton_Eliminar.setPreferredSize(new java.awt.Dimension(110, 40));
         jToolBar1.add(boton_Eliminar);
         jToolBar1.add(jSeparator4);
 
         boton_Reportes_Clientes.setBackground(new java.awt.Color(255, 255, 255));
         boton_Reportes_Clientes.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Reportes_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reportar.png"))); // NOI18N
+        boton_Reportes_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Reportes_Clientes.setText("Reporte");
         boton_Reportes_Clientes.setToolTipText("Reporte cliente");
         boton_Reportes_Clientes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -172,20 +172,30 @@ public class Panel_Clientes extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1290, 760));
 
+        jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jLabel1.setText("     ");
+        jToolBar2.add(jLabel1);
+
         campo_Buscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Buscar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        campo_Buscar.setMaximumSize(new java.awt.Dimension(2, 20));
-        campo_Buscar.setMinimumSize(new java.awt.Dimension(2, 20));
-        campo_Buscar.setPreferredSize(new java.awt.Dimension(2, 20));
+        campo_Buscar.setMaximumSize(new java.awt.Dimension(550, 30));
+        campo_Buscar.setMinimumSize(new java.awt.Dimension(550, 30));
+        campo_Buscar.setPreferredSize(new java.awt.Dimension(550, 30));
         campo_Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_BuscarKeyTyped(evt);
             }
         });
-        add(campo_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 7, 540, 30));
+        jToolBar2.add(campo_Buscar);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 50, 40));
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel3.setText("    Busqueda:  ");
+        jToolBar2.add(jLabel3);
 
         combo_Opciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "Por codigo", "Por nombre", "Por RUC / Cedula", "Ciudad" }));
@@ -195,16 +205,8 @@ public class Panel_Clientes extends javax.swing.JPanel {
                 combo_OpcionesActionPerformed(evt);
             }
         });
-        add(combo_Opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 5, 180, 30));
+        jToolBar2.add(combo_Opciones);
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
-        jLabel3.setText("Busqueda:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 7, 90, 30));
-
-        jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
-        jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToolBar2.setFloatable(false);
-        jToolBar2.setRollover(true);
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 990, 40));
     }// </editor-fold>//GEN-END:initComponents
 

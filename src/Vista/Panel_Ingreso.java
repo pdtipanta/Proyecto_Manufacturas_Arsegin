@@ -69,7 +69,7 @@ public class Panel_Ingreso extends javax.swing.JPanel {
 
         boton_Iniciar_Sesion.setBackground(java.awt.SystemColor.textHighlight);
         boton_Iniciar_Sesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        boton_Iniciar_Sesion.setForeground(new java.awt.Color(240, 240, 240));
+        boton_Iniciar_Sesion.setForeground(new java.awt.Color(255, 255, 255));
         boton_Iniciar_Sesion.setText("Iniciar sesion");
         boton_Iniciar_Sesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Iniciar_Sesion.setBorderPainted(false);

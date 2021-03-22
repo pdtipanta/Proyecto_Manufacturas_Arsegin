@@ -82,7 +82,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         etiqueta_Correccion_Correo = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Agregar = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JToolBar.Separator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Datos cliente");
@@ -354,7 +353,7 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         boton_Agregar.setBackground(java.awt.Color.white);
         boton_Agregar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-anadir-usuario (1).png"))); // NOI18N
+        boton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/businessapplication_accept_ok_male_man_you_negocio_2311.png"))); // NOI18N
         boton_Agregar.setText("Guardar");
         boton_Agregar.setToolTipText("Guardar cliente");
         boton_Agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -369,7 +368,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
             }
         });
         jToolBar1.add(boton_Agregar);
-        jToolBar1.add(jSeparator1);
 
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 40));
 
@@ -696,7 +694,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     public javax.swing.ButtonGroup grupo_Botones_DNI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JRadioButton radio_Boton_CI;
     private javax.swing.JRadioButton radio_Boton_RUC;

@@ -52,7 +52,6 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
         etiqueta_Advertencia = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Producto");
@@ -142,13 +141,6 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
 
         jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 520, 70));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagen-fondo-aurora-celeste_1.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jLabel5.setMaximumSize(new java.awt.Dimension(545, 360));
-        jLabel5.setMinimumSize(new java.awt.Dimension(545, 360));
-        jLabel5.setPreferredSize(new java.awt.Dimension(545, 360));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 545, 400));
 
         pack();
         setLocationRelativeTo(null);
@@ -254,7 +246,6 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
