@@ -23,8 +23,8 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Controlador_Reporte_Pagos {
 
-    private Panel_Pagos panel_Pagos;
-    private ArrayList<Compras> lista_Compras;
+    private Panel_Pagos         panel_Pagos;
+    private ArrayList<Compras>  lista_Compras;
 
     public Controlador_Reporte_Pagos(Panel_Pagos panel_Pagos, ArrayList<Compras> lista_Compras) {
         this.lista_Compras = lista_Compras;

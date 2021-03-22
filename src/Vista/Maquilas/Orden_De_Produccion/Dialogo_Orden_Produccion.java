@@ -349,59 +349,60 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
 
     private void campo_RUC_OrdenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_RUC_OrdenKeyTyped
         char c = evt.getKeyChar();
-        if( c < '0'  || c > '9' || this.campo_RUC_Orden.getText().length() >= 13 ) evt.consume();
+        if (c < '0' || c > '9' || this.campo_RUC_Orden.getText().length() >= 13) {
+            evt.consume();
+        }
     }//GEN-LAST:event_campo_RUC_OrdenKeyTyped
 
-    public boolean etiquetas( ){
+    public boolean etiquetas() {
         boolean bandera = true;
-        if( this.combo_Maquila_Orden.getText().isEmpty() ){
-            this.etiqueta_Indicador_Maquila.setVisible( true );
+        if (this.combo_Maquila_Orden.getText().isEmpty()) {
+            this.etiqueta_Indicador_Maquila.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Maquila.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Maquila.setVisible(false);
         }
-        
+
         if (this.calendario_Orden.getDate() == null) {
             this.etiqueta_Indicador_Calendario.setVisible(bandera);
             bandera = false;
-        }else{
+        } else {
             this.etiqueta_Indicador_Calendario.setVisible(false);
         }
-            
-        if( this.campo_RUC_Orden.getText().matches( "[0-9][0-9]{12}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }else if(this.campo_RUC_Orden.getText().matches( "[0-9][0-9]{9}" )){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_RUC.setVisible( true );
+
+        if (this.campo_RUC_Orden.getText().matches("[0-9][0-9]{12}")) {
+            this.etiqueta_Indicador_RUC.setVisible(false);
+        } else if (this.campo_RUC_Orden.getText().matches("[0-9][0-9]{9}")) {
+            this.etiqueta_Indicador_RUC.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_RUC.setVisible(true);
             bandera = false;
         }
-            
-        if( this.campo_Direccion_Orden.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Direccion.setVisible( true );
+
+        if (this.campo_Direccion_Orden.getText().isEmpty()) {
+            this.etiqueta_Indicador_Direccion.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Direccion.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Direccion.setVisible(false);
         }
-            
-        if( this.campo_Telefono_Orden.getText().matches( "[0][1-9][0-9]{7}" ) ){
-            this.etiqueta_Indicador_Telefono.setVisible( false );
-        }else{
-            this.etiqueta_Indicador_Telefono.setVisible( true );
+
+        if (this.campo_Telefono_Orden.getText().matches("[0][1-9][0-9]{7}")) {
+            this.etiqueta_Indicador_Telefono.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_Telefono.setVisible(true);
             bandera = false;
-        } 
-        
-        if( this.combo_Estado_Orden.getSelectedItem().equals( "Seleccionar.........." ) ){ 
-            this.etiqueta_Estado.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Estado.setVisible( false );
         }
-        
+
+        if (this.combo_Estado_Orden.getSelectedItem().equals("Seleccionar..........")) {
+            this.etiqueta_Estado.setVisible(true);
+            bandera = false;
+        } else {
+            this.etiqueta_Estado.setVisible(false);
+        }
+
         return bandera;
     }
-    
+
     public void calculo_Valores() {
         try {
             double valor_Subtotal = 0;
@@ -412,30 +413,30 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
         } catch (Exception e) {
         }
     }
-    
-    public String[] evaluar_Tabla(){
-        DefaultTableModel modelo_Tabla_Maquila = ( DefaultTableModel ) this.tabla_Productos_Maquila.getModel();
+
+    public String[] evaluar_Tabla() {
+        DefaultTableModel modelo_Tabla_Maquila = (DefaultTableModel) this.tabla_Productos_Maquila.getModel();
         int verificar = 0;
         String[] valores = new String[5];
-            
-            for( int i = 0; i< modelo_Tabla_Maquila.getRowCount(); i++ ){
-                if( modelo_Tabla_Maquila.getValueAt( i, 3 ) != null && ( double ) modelo_Tabla_Maquila.getValueAt( i, 3 ) > 0  ){
-                    valores[0] = modelo_Tabla_Maquila.getValueAt( i, 0 ) + ";" + valores[0];
-                    valores[1] = modelo_Tabla_Maquila.getValueAt( i, 1 ) + ";" + valores[1];
-                    valores[2] = modelo_Tabla_Maquila.getValueAt( i, 2 ) + ";" + valores[2];
-                    valores[3] = modelo_Tabla_Maquila.getValueAt( i, 3 ) + ";" + valores[3];
-                    verificar++;
-                }else{    
-                }
+
+        for (int i = 0; i < modelo_Tabla_Maquila.getRowCount(); i++) {
+            if (modelo_Tabla_Maquila.getValueAt(i, 3) != null && (double) modelo_Tabla_Maquila.getValueAt(i, 3) > 0) {
+                valores[0] = modelo_Tabla_Maquila.getValueAt(i, 0) + ";" + valores[0];
+                valores[1] = modelo_Tabla_Maquila.getValueAt(i, 1) + ";" + valores[1];
+                valores[2] = modelo_Tabla_Maquila.getValueAt(i, 2) + ";" + valores[2];
+                valores[3] = modelo_Tabla_Maquila.getValueAt(i, 3) + ";" + valores[3];
+                verificar++;
+            } else {
             }
-            valores[4] = String.valueOf( verificar );
-            return valores;
+        }
+        valores[4] = String.valueOf(verificar);
+        return valores;
     }
-    
-    public void valores_Tabla_Orden(Orden_Produccion lista_Orden, Maquila maquila){
-        DefaultTableModel modelo_Tabla_Orden = ( DefaultTableModel )  this.tabla_Productos_Maquila.getModel();
+
+    public void valores_Tabla_Orden(Orden_Produccion lista_Orden, Maquila maquila) {
+        DefaultTableModel modelo_Tabla_Orden = (DefaultTableModel) this.tabla_Productos_Maquila.getModel();
         modelo_Tabla_Orden.setRowCount(0);
-        
+
         String[] cantidad = lista_Orden.getCantidad().split(";");
         String[] descripcion = lista_Orden.getDescripcion().split(";");
         String[] v_Unitario = lista_Orden.getV_Unitario().split(";");
@@ -445,28 +446,28 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
             Object[] valores_Tabla = {cantidad[i], descripcion[i], Double.parseDouble(v_Unitario[i]), Double.parseDouble(v_Total[i])};
             modelo_Tabla_Orden.addRow(valores_Tabla);
         }
-        this.valores_Maquila(maquila.getMaquila(), maquila.getDireccion(), maquila.getTelefono(), maquila.getRUC());
-        this.valores_Orden(lista_Orden.getEstado(), lista_Orden.getV_Pagar(), lista_Orden.getNumero_Orden(), lista_Orden.getObservaciones());  
+        this.valores_Maquila(maquila);
+        this.valores_Orden(lista_Orden);
     }
-    
-    public void valores_Orden( String estado, double valor_Total, String no_Factura, String observaciones ){
-        this.combo_Estado_Orden.setSelectedItem( estado );
-        this.campo_Total_Orden.setText( String.valueOf( valor_Total ) );
-        this.etiqueta_No_Orden.setText( no_Factura );
-        this.caja_Observaciones_Maquila.setText( observaciones );
+
+    public void valores_Orden(Orden_Produccion orden_Produccion) {
+        this.combo_Estado_Orden.setSelectedItem(orden_Produccion.getEstado());
+        this.campo_Total_Orden.setText(String.valueOf(orden_Produccion.getV_Pagar()));
+        this.etiqueta_No_Orden.setText(orden_Produccion.getNumero_Orden());
+        this.caja_Observaciones_Maquila.setText(orden_Produccion.getObservaciones());
     }
-    
+
     public String calendario() {
         Date fecha;
         fecha = (Date) this.calendario_Orden.getDate();
-        return new SimpleDateFormat("yyyy-MM-dd").format(fecha); 
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
-    
-    public void valores_Maquila( String maquila, String direccion, String telefono, String RUC ){
-        this.combo_Maquila_Orden.setText(maquila);
-        this.campo_Direccion_Orden.setText( direccion );
-        this.campo_Telefono_Orden.setText( telefono );
-        this.campo_RUC_Orden.setText( RUC );
+
+    public void valores_Maquila(Maquila maquila) {
+        this.combo_Maquila_Orden.setText(maquila.getMaquila());
+        this.campo_Direccion_Orden.setText(maquila.getDireccion());
+        this.campo_Telefono_Orden.setText(maquila.getTelefono());
+        this.campo_RUC_Orden.setText(maquila.getRUC());
     }
     /**
      * @param args the command line arguments

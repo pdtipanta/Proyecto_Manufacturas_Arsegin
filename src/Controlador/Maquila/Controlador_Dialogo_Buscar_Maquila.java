@@ -28,7 +28,7 @@ public class Controlador_Dialogo_Buscar_Maquila implements KeyListener, MouseLis
     private final Vista_Principal           vista;
     private final Connection                conexion;
     private final Dialogo_Buscar_Maquilas   dialogo_Buscar_Maquilas;
-    private DefaultTableModel               modelo_Tabla_Maquilas;
+    private final DefaultTableModel         modelo_Tabla_Maquilas;
     private TableRowSorter                  TRSFiltro;
     private ArrayList<Maquila>              maquila = new ArrayList<Maquila>();
 

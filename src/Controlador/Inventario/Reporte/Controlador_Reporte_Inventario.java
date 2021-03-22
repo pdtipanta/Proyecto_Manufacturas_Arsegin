@@ -18,18 +18,18 @@ import net.sf.jasperreports.view.JasperViewer;
  *
  * @author David
  */
-public class Controlador_Reporte_Inventario{
+public class Controlador_Reporte_Inventario {
+
     ArrayList<Inventario> inventario;
-    
+
     public Controlador_Reporte_Inventario(ArrayList<Inventario> inventario) {
         this.inventario = inventario;
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
         try {
             new JasperViewer(JasperFillManager.fillReport((JasperReport) JRLoader.loadObjectFromFile(System.getProperty("user.dir") + "/src/Reportes/Reporte_Inventario.jasper"), new HashMap(), new JRBeanCollectionDataSource(this.inventario)), false).setVisible(true);
         } catch (Exception e) {
         }
     }
-    
 }

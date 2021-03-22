@@ -10,9 +10,7 @@ import Datos.Inventario.DAO_Inventario_Implementacion;
 import Modelo.Inventario;
 import Vista.Inventario.Dialogo_Buscar_Inventario;
 import Vista.Orden_De_Compra.Dialogo_Orden_Compra;
-import Vista.Orden_De_Compra.Panel_Orden_Compra;
 import Vista.Vista_Principal;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -23,33 +21,28 @@ import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author David
  */
-public class Controlador_Dialogo_Buscar_Producto_Orden_Compra implements ActionListener, KeyListener, MouseListener{
+public class Controlador_Dialogo_Producto_Orden_Compra implements ActionListener, KeyListener, MouseListener{
     private final Vista_Principal                   vista;
     private final Connection                        conexion;
     private final Dialogo_Orden_Compra              dialogo_Orden_Compra;
     private final Dialogo_Buscar_Inventario         dialogo_Buscar_Inventario;
-    private DefaultTableModel                       modelo_Tabla_Productos;
+    private final DefaultTableModel                 modelo_Tabla_Productos;
     private TableRowSorter                          TRSFiltro;
     private ArrayList< Inventario>                  inventario = new ArrayList<Inventario>();
-    //Panel_Orden_Compra                              panel_Orden_Compra;
     private Object[]                                filas;
 
-    public Controlador_Dialogo_Buscar_Producto_Orden_Compra(Vista_Principal vista, Connection conexion, Dialogo_Orden_Compra dialogo_Orden_Compra) {
+    public Controlador_Dialogo_Producto_Orden_Compra(Vista_Principal vista, Connection conexion, Dialogo_Orden_Compra dialogo_Orden_Compra) {
         this.vista = vista;
         this.conexion = conexion;
         this.dialogo_Orden_Compra = dialogo_Orden_Compra;
-        //this.panel_Orden_Compra = panel_Orden_Compra;
         this.dialogo_Buscar_Inventario = new Dialogo_Buscar_Inventario(this.vista, true); 
         this.dialogo_Buscar_Inventario.campo_Buscar.addKeyListener(this);
         this.dialogo_Buscar_Inventario.tabla_Inventario.addMouseListener(this);

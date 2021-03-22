@@ -29,7 +29,6 @@ import javax.swing.table.TableRowSorter;
  * @author David
  */
 public class Controlador_Dialogo_Buscar_Factura implements ActionListener, KeyListener, MouseListener {
-
     private Panel_Factura                       panel_Factura;
     private final Connection                    conexion;
     private final Usuario                       usuario;

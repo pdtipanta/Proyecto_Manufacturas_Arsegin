@@ -5,6 +5,7 @@
  */
 package Vista.Pagos;
 
+import Modelo.Proveedor;
 import Modelo.Rol;
 import Modelo.Usuario;
 import java.awt.Color;
@@ -250,12 +251,12 @@ public class Panel_Pagos extends javax.swing.JPanel {
         if ( ( c < 'a' || c > 'z' ) && ( c < 'A' || c >'Z' ) && ( c < '0'  || c > '9' ) && ( c < '#' || c > '&' ) && ( c < '-' || c > '/' ) &&  (  c == evt.VK_SPACE || this.campo_Correo.getText().contains( "@" ) ) ) evt.consume();
     }//GEN-LAST:event_campo_CorreoKeyTyped
 
-    public void valores_Proveedores(String proveedor, String direccion, String telefono, String correo, String RUC) {
-        this.combo_Proveedor.setText(proveedor);
-        this.campo_Direccion.setText(direccion);
-        this.campo_Telefono.setText(telefono);
-        this.campo_Correo.setText(correo);
-        this.campo_RUC.setText(RUC);
+    public void valores_Proveedores(Proveedor proveedor) {
+        this.combo_Proveedor.setText(proveedor.getProveedor());
+        this.campo_Direccion.setText(proveedor.getDireccion());
+        this.campo_Telefono.setText(proveedor.getTelefono());
+        this.campo_Correo.setText(proveedor.getCorreo());
+        this.campo_RUC.setText(proveedor.getRUC());
         this.combo_Opcion.setSelectedItem("Seleccionar......");
     }
     

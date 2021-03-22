@@ -5,16 +5,11 @@
  */
 package Vista.Maquilas.Orden_De_Produccion;
 
-import Modelo.Maquila;
-import Modelo.Orden_Produccion;
 import Modelo.Usuario;
-import java.awt.Color;
-import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author David
@@ -25,37 +20,22 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
      * Creates new form Panel_Cotizacion
      */
     public Panel_Orden_De_Produccion() {
-        initComponents();/*
-        calendario_Orden.setDate( new Date() );
-        tabla_Productos_Maquila.getTableHeader().setFont( new Font( "Segoe UI", Font.BOLD, 14 ) );
-        tabla_Productos_Maquila.getTableHeader().setBackground( new Color( 32, 136, 203 ) );
-        tabla_Productos_Maquila.getTableHeader().setForeground( new Color( 255, 255, 255) );*/
- 
+        initComponents();
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(SwingConstants.CENTER);
         this.tabla_Consulta_Orden_Produccion.getColumnModel().getColumn(0).setCellRenderer(tcr);
         this.campo_Busqueda.setEditable(false);
-/*
-        this.tabla_Productos_Maquila.getColumnModel().getColumn(0).setCellRenderer(tcr);
-        this.etiqueta_Indicador_Maquila.setVisible( false );
-        this.etiqueta_Indicador_RUC.setVisible( false );
-        this.etiqueta_Indicador_Direccion.setVisible( false );
-        this.etiqueta_Indicador_Telefono.setVisible( false );
-        this.etiqueta_Estado.setVisible( false );*/
-this.fecha_1.setVisible(false);
+        this.fecha_1.setVisible(false);
         this.fecha_2.setVisible(false);
         this.boton_Fecha.setVisible(false);
-        this.fecha_1.setDate( new Date() );
-        this.fecha_2.setDate( new Date() );
+        this.fecha_1.setDate(new Date());
+        this.fecha_2.setDate(new Date());
         this.etiqueta_Error_Fecha.setVisible(false);
-        this.boton_Modificar_Orden.setEnabled( false );
-        //this.boton_Agregar_Fila.setEnabled( false );
-        //this.boton_Quitar_Fila.setEnabled( false );
+        this.boton_Modificar_Orden.setEnabled(false);
         this.boton_Generar_Orden.setEnabled(false);
-        //this.etiqueta_Indicador_Calendario.setVisible(false);
-        this.tabla_Consulta_Orden_Produccion.getTableHeader().setReorderingAllowed(false) ;
+        this.tabla_Consulta_Orden_Produccion.getTableHeader().setReorderingAllowed(false);
     }
-    
+
     public void Roles(String rol) {
         if (rol.equals("Vendedor")) {
             boolean[] bandera = {false, false, false, false, false, false, false};
@@ -77,7 +57,7 @@ this.fecha_1.setVisible(false);
             boolean[] bandera = {true, false, false, true, false, false, false};
             this.habilitar_Rol(bandera);
         }
-        
+
         if (rol.equals("Maquila")) {
             boolean[] bandera = {true, true, true, true, true, true, true};
             this.habilitar_Rol(bandera);
@@ -86,12 +66,8 @@ this.fecha_1.setVisible(false);
     
      public void habilitar_Rol(boolean[] bandera) {
         this.boton_Nueva_Orden.setVisible(bandera[0]);
-        //this.boton_Guardar_Orden.setVisible(bandera[1]);
         this.boton_Modificar_Orden.setVisible(bandera[2]);
         this.boton_Generar_Orden.setVisible(bandera[3]);
-       // this.boton_Agregar_Maquila.setVisible(bandera[4]);
-       // this.boton_Agregar_Fila.setVisible(bandera[5]);
-       // this.boton_Quitar_Fila.setVisible(bandera[6]);
     }
 
     /**
@@ -242,6 +218,7 @@ this.fecha_1.setVisible(false);
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -295,160 +272,12 @@ this.fecha_1.setVisible(false);
     private void boton_Nueva_OrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_OrdenActionPerformed
 
     }//GEN-LAST:event_boton_Nueva_OrdenActionPerformed
-/*
-    public void valores_Maquila( String maquila, String direccion, String telefono, String RUC ){
-        this.combo_Maquila_Orden.setText(maquila);
-        this.campo_Direccion_Orden.setText( direccion );
-        this.campo_Telefono_Orden.setText( telefono );
-        this.campo_RUC_Orden.setText( RUC );
-    }
-*/    
-  /*  public void valores_Orden( String estado, double valor_Total, String no_Factura, String observaciones ){
-        this.combo_Estado_Orden.setSelectedItem( estado );
-        this.campo_Total_Orden.setText( String.valueOf( valor_Total ) );
-        this.etiqueta_No_Orden.setText( no_Factura );
-        this.caja_Observaciones_Maquila.setText( observaciones );
-    }*/
-    /*
-    public void valores_Tabla_Orden(Orden_Produccion lista_Orden, Maquila maquila){
-        DefaultTableModel modelo_Tabla_Orden = ( DefaultTableModel )  this.tabla_Productos_Maquila.getModel();
-        modelo_Tabla_Orden.setRowCount(0);
-        
-        String[] cantidad = lista_Orden.getCantidad().split(";");
-        String[] descripcion = lista_Orden.getDescripcion().split(";");
-        String[] v_Unitario = lista_Orden.getV_Unitario().split(";");
-        String[] v_Total = lista_Orden.getV_Total().split(";");
-
-        for (int i = 0; i < cantidad.length - 1; i++) {
-            Object[] valores_Tabla = {cantidad[i], descripcion[i], Double.parseDouble(v_Unitario[i]), Double.parseDouble(v_Total[i])};
-            modelo_Tabla_Orden.addRow(valores_Tabla);
-        }
-        this.valores_Maquila(maquila.getMaquila(), maquila.getDireccion(), maquila.getTelefono(), maquila.getRUC());
-        this.valores_Orden(lista_Orden.getEstado(), lista_Orden.getV_Pagar(), lista_Orden.getNumero_Orden(), lista_Orden.getObservaciones());  
-    }*/
-    /*
-    public boolean etiquetas( ){
-        boolean bandera = true;
-        if( this.combo_Maquila_Orden.getText().isEmpty() ){
-            this.etiqueta_Indicador_Maquila.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Maquila.setVisible( false );
-        }
-        
-        if (this.calendario_Orden.getDate() == null) {
-            this.etiqueta_Indicador_Calendario.setVisible(bandera);
-            bandera = false;
-        }else{
-            this.etiqueta_Indicador_Calendario.setVisible(false);
-        }
-            
-        if( this.campo_RUC_Orden.getText().matches( "[0-9][0-9]{12}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }else if(this.campo_RUC_Orden.getText().matches( "[0-9][0-9]{9}" )){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_RUC.setVisible( true );
-            bandera = false;
-        }
-            
-        if( this.campo_Direccion_Orden.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Direccion.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Direccion.setVisible( false );
-        }
-            
-        if( this.campo_Telefono_Orden.getText().matches( "[0][1-9][0-9]{7}" ) ){
-            this.etiqueta_Indicador_Telefono.setVisible( false );
-        }else{
-            this.etiqueta_Indicador_Telefono.setVisible( true );
-            bandera = false;
-        } 
-        
-        if( this.combo_Estado_Orden.getSelectedItem().equals( "Seleccionar.........." ) ){ 
-            this.etiqueta_Estado.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Estado.setVisible( false );
-        }
-        
-        return bandera;
-    }*/
-  /*  
-    public String[] evaluar_Tabla(){
-        DefaultTableModel modelo_Tabla_Maquila = ( DefaultTableModel ) this.tabla_Productos_Maquila.getModel();
-        int verificar = 0;
-        String[] valores = new String[5];
-            
-            for( int i = 0; i< modelo_Tabla_Maquila.getRowCount(); i++ ){
-                if( modelo_Tabla_Maquila.getValueAt( i, 3 ) != null && ( double ) modelo_Tabla_Maquila.getValueAt( i, 3 ) > 0  ){
-                    valores[0] = modelo_Tabla_Maquila.getValueAt( i, 0 ) + ";" + valores[0];
-                    valores[1] = modelo_Tabla_Maquila.getValueAt( i, 1 ) + ";" + valores[1];
-                    valores[2] = modelo_Tabla_Maquila.getValueAt( i, 2 ) + ";" + valores[2];
-                    valores[3] = modelo_Tabla_Maquila.getValueAt( i, 3 ) + ";" + valores[3];
-                    verificar++;
-                }else{    
-                }
-            }
-            valores[4] = String.valueOf( verificar );
-            return valores;
-    }*/
-    /*
-    public void limpiar_Valores(){
-        this.campo_Total_Orden.setText( "" );
-        this.caja_Observaciones_Maquila.setText("");
-        this.combo_Estado_Orden.setSelectedItem( "Seleccionar.........." );
-    }*/
- /*   
-    public void limpiar_Tabla(){
-        DefaultTableModel modelo_Tabla_Cotizacion = ( DefaultTableModel ) this.tabla_Productos_Maquila.getModel();
-        modelo_Tabla_Cotizacion.setRowCount( 0 );
-    }*/
- /*   
-    public void botones( boolean bandera1, boolean bandera2, boolean bandera3, boolean bandera4, boolean bandera5, boolean bandera6  ){
-        this.boton_Guardar_Orden.setEnabled(bandera1);
-        this.boton_Agregar_Maquila.setEnabled(bandera1);
-        this.boton_Nueva_Orden.setEnabled(bandera2);
-        this.boton_Modificar_Orden.setEnabled(bandera3);
-        this.boton_Generar_Orden.setEnabled(bandera4);
-        this.combo_Estado_Orden.setEnabled(bandera5);
-        this.boton_Agregar_Fila.setEnabled(bandera6);
-        this.boton_Quitar_Fila.setEnabled(bandera6);
-    }*/
- /*   
-    public void calculo_Valores() {
-        try {
-            double valor_Subtotal = 0;
-            for (int i = 0; i < this.tabla_Productos_Maquila.getRowCount(); i++) {
-                valor_Subtotal = valor_Subtotal + (double) this.tabla_Productos_Maquila.getValueAt(i, 3);
-            }
-            this.campo_Total_Orden.setText(String.valueOf(valor_Subtotal));
-        } catch (Exception e) {
-        }
-    }*/
- /*   
-    public String calendario() {
-        Date fecha;
-        fecha = (Date) this.calendario_Orden.getDate();
-        return new SimpleDateFormat("yyyy-MM-dd").format(fecha); 
-    }*/
-    /*
-    public void limpiar_Etiquetas() {
-        this.etiqueta_Indicador_Maquila.setVisible(false);
-        this.etiqueta_Indicador_RUC.setVisible(false);
-        this.etiqueta_Indicador_RUC.setVisible(false);
-        this.etiqueta_Indicador_Direccion.setVisible(false);
-        this.etiqueta_Indicador_Telefono.setVisible(false);
-        this.etiqueta_Estado.setVisible(false);
-    }*/
     
-    public void set_Usuario(Usuario usuario, String rol){
+    public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
     }
-    
+
     public void desactivar_Calendarios(boolean bandera) {
         this.fecha_1.setVisible(bandera);
         this.fecha_2.setVisible(bandera);
@@ -478,8 +307,8 @@ this.fecha_1.setVisible(false);
         Date fecha = this.fecha_2.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
-    
-     public void etiqueta_Error_Etiqueta(boolean bandera){
+
+    public void etiqueta_Error_Etiqueta(boolean bandera) {
         this.etiqueta_Error_Fecha.setVisible(bandera);
     }
 

@@ -6,14 +6,16 @@
 
 package Vista.Proveedor;
 
+import Modelo.Proveedor;
+
 /**
  *
  * @author David
  */
-public class Dialogo_Registrar_Proveedor extends javax.swing.JDialog {
+public class Dialogo_Proveedor extends javax.swing.JDialog {
 
     /** Creates new form Dialogo_Registrar_Proveedor */
-    public Dialogo_Registrar_Proveedor(java.awt.Frame parent, boolean modal) {
+    public Dialogo_Proveedor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
@@ -250,6 +252,7 @@ public class Dialogo_Registrar_Proveedor extends javax.swing.JDialog {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         boton_Guardar.setBackground(new java.awt.Color(255, 255, 255));
@@ -338,77 +341,74 @@ public class Dialogo_Registrar_Proveedor extends javax.swing.JDialog {
         this.campo_Telefono.setText("");
     }//GEN-LAST:event_radio_CelularActionPerformed
 
-    public boolean etiquetas(){
+    public boolean etiquetas() {
         boolean bandera = true;
-        
-        if( this.combo_Proveedor.getText().isEmpty() ){
-            this.etiqueta_Indicador_Proveedor.setVisible( true );
+
+        if (this.combo_Proveedor.getText().isEmpty()) {
+            this.etiqueta_Indicador_Proveedor.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Proveedor.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Proveedor.setVisible(false);
         }
-            
-        if( this.campo_RUC.getText().matches( "[0-9][0-9]{12}" ) && this.radio_RUC.isSelected() ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }else if(this.campo_RUC.getText().matches( "[0-9][0-9]{9}" ) && this.radio_Cedula.isSelected()){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_RUC.setVisible( true );
-            bandera = false;
-        }
-            
-        if( this.campo_Direccion.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Direccion.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Direccion.setVisible( false );
-        }
-            
-        if( this.campo_Telefono.getText().matches( "[0][1-9][0-9]{7}" ) && this.radio_Convencional.isSelected() ){
-            this.etiqueta_Indicador_Telefono.setVisible( false );
-        }else if(this.campo_Telefono.getText().matches( "[0-9][0-9]{9}" ) && this.radio_Celular.isSelected()){
-            this.etiqueta_Indicador_Telefono.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_Telefono.setVisible( true );
-            bandera = false;
-        } 
-        
-        if( this.campo_Correo.getText().matches( "[a-zA-Z_\\d]+@[a-zA-Z]+(\\.[a-zA-Z]*)+" )){  
-            this.etiqueta_Indicador_Correo.setVisible( false );
-        }else{
-            this.etiqueta_Indicador_Correo.setVisible( true );
+
+        if (this.campo_RUC.getText().matches("[0-9][0-9]{12}") && this.radio_RUC.isSelected()) {
+            this.etiqueta_Indicador_RUC.setVisible(false);
+        } else if (this.campo_RUC.getText().matches("[0-9][0-9]{9}") && this.radio_Cedula.isSelected()) {
+            this.etiqueta_Indicador_RUC.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_RUC.setVisible(true);
             bandera = false;
         }
-            
-        if( this.caja_Productos.getText().isEmpty() ){
-            this.etiqueta_Indicador_Producto.setVisible( true );
+
+        if (this.campo_Direccion.getText().isEmpty()) {
+            this.etiqueta_Indicador_Direccion.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Producto.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Direccion.setVisible(false);
+        }
+
+        if (this.campo_Telefono.getText().matches("[0][1-9][0-9]{7}") && this.radio_Convencional.isSelected()) {
+            this.etiqueta_Indicador_Telefono.setVisible(false);
+        } else if (this.campo_Telefono.getText().matches("[0-9][0-9]{9}") && this.radio_Celular.isSelected()) {
+            this.etiqueta_Indicador_Telefono.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_Telefono.setVisible(true);
+            bandera = false;
+        }
+
+        if (this.campo_Correo.getText().matches("[a-zA-Z_\\d]+@[a-zA-Z]+(\\.[a-zA-Z]*)+")) {
+            this.etiqueta_Indicador_Correo.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_Correo.setVisible(true);
+            bandera = false;
+        }
+
+        if (this.caja_Productos.getText().isEmpty()) {
+            this.etiqueta_Indicador_Producto.setVisible(true);
+            bandera = false;
+        } else {
+            this.etiqueta_Indicador_Producto.setVisible(false);
         }
         return bandera;
     }
-    
-    public void correccion_Campos(String valor){
-        if(valor.equals(this.campo_RUC.getText())){
+
+    public void correccion_Campos(String valor) {
+        if (valor.equals(this.campo_RUC.getText())) {
             this.etiqueta_Correccion_RUC.setVisible(true);
         }
-        
-        if(valor.equals(this.campo_Correo.getText())){
+
+        if (valor.equals(this.campo_Correo.getText())) {
             this.etiqueta_Correccion_Correo.setVisible(true);
         }
     }
     
-    public void setCampos( String proveedor, String direccion, String RUC, String telefono, String correo, String producto){
-        //this.botones(false, true, true, true, false, false);
-        this.combo_Proveedor.setText(proveedor);
-        this.campo_Direccion.setText(direccion);
-        this.campo_RUC.setText(RUC);
-        this.campo_Telefono.setText(telefono);
-        this.campo_Correo.setText(correo);
-        this.caja_Productos.setText(producto);
+    public void setCampos(Proveedor proveedor) {
+        this.combo_Proveedor.setText(proveedor.getProveedor());
+        this.campo_Direccion.setText(proveedor.getDireccion());
+        this.campo_RUC.setText(proveedor.getRUC());
+        this.campo_Telefono.setText(proveedor.getTelefono());
+        this.campo_Correo.setText(proveedor.getCorreo());
+        this.caja_Productos.setText(proveedor.getProductos());
     }
     
     public void campos_Busqueda() {
@@ -444,20 +444,21 @@ public class Dialogo_Registrar_Proveedor extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dialogo_Registrar_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dialogo_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dialogo_Registrar_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dialogo_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dialogo_Registrar_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dialogo_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dialogo_Registrar_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Dialogo_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Dialogo_Registrar_Proveedor dialog = new Dialogo_Registrar_Proveedor(new javax.swing.JFrame(), true);
+                Dialogo_Proveedor dialog = new Dialogo_Proveedor(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

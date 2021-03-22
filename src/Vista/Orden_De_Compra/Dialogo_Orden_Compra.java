@@ -7,6 +7,7 @@ package Vista.Orden_De_Compra;
 
 import Modelo.Orden_Compra;
 import Modelo.Proveedor;
+import Modelo.Usuario;
 import java.awt.Color;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -72,7 +73,6 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
     
     public void habilitar_Rol(boolean[] bandera) {
         this.boton_Guardar_Orden_Compra.setVisible(bandera[1]);
-        //this.boton_Modificar_Orden_Compra.setVisible(bandera[2]);
         this.boton_Buscar_Proveedor_Orden.setVisible(bandera[3]);
         this.boton_Agregar_Fila.setVisible(bandera[4]);
         this.boton_Quitar_Fila.setVisible(bandera[5]);
@@ -466,6 +466,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         boton_Guardar_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
@@ -532,25 +533,27 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
     }//GEN-LAST:event_boton_Agregar_FilaActionPerformed
 
     private void boton_Quitar_FilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Quitar_FilaActionPerformed
-        try{
-            modelo_Tabla_Datos_Compras.removeRow( this.tabla_Productos_Orden_Compra.getSelectedRow() );
+        try {
+            modelo_Tabla_Datos_Compras.removeRow(this.tabla_Productos_Orden_Compra.getSelectedRow());
             this.cantidad_Items.setText(String.valueOf(this.tabla_Productos_Orden_Compra.getRowCount()));
             calculo_Valores();
-        }catch( Exception e1 ){}
+        } catch (Exception e1) {
+        }
     }//GEN-LAST:event_boton_Quitar_FilaActionPerformed
 
     private void campo_RUC_Orden_CompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_RUC_Orden_CompraKeyTyped
         char c = evt.getKeyChar();
-        if( c < '0'  || c > '9' || this.campo_RUC_Orden_Compra.getText().length() >= 13 ) evt.consume();
+        if (c < '0' || c > '9' || this.campo_RUC_Orden_Compra.getText().length() >= 13) {
+            evt.consume();
+        }
     }//GEN-LAST:event_campo_RUC_Orden_CompraKeyTyped
 
     private void valor_IVAStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_valor_IVAStateChanged
-
-        if((Integer)this.valor_IVA.getValue() < 1){
+        if ((Integer) this.valor_IVA.getValue() < 1) {
             this.valor_IVA.setValue(1);
-        }else if((Integer)this.valor_IVA.getValue() > 25){
+        } else if ((Integer) this.valor_IVA.getValue() > 25) {
             this.valor_IVA.setValue(25);
-        }else{
+        } else {
             calculo_Valores();
         }
     }//GEN-LAST:event_valor_IVAStateChanged
@@ -563,71 +566,69 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         this.cantidad_Items.setText(String.valueOf(this.tabla_Productos_Orden_Compra.getRowCount()));
     }//GEN-LAST:event_boton_Guardar_Orden_CompraActionPerformed
 
-    public boolean etiquetas( ){ 
-        boolean bandera=true;
-        
-        if( this.combo_Proveedor_Orden_Compra.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Proveedor.setVisible( true );
+    public boolean etiquetas() {
+        boolean bandera = true;
+
+        if (this.combo_Proveedor_Orden_Compra.getText().isEmpty()) {
+            this.etiqueta_Indicador_Proveedor.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Proveedor.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Proveedor.setVisible(false);
         }
-        
-        if( this.campo_RUC_Orden_Compra.getText().matches( "[0-9][0-9]{12}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }else if(this.campo_RUC_Orden_Compra.getText().matches( "[0-9][0-9]{9}" ) ){
-            this.etiqueta_Indicador_RUC.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_RUC.setVisible( true );
+
+        if (this.campo_RUC_Orden_Compra.getText().matches("[0-9][0-9]{12}")) {
+            this.etiqueta_Indicador_RUC.setVisible(false);
+        } else if (this.campo_RUC_Orden_Compra.getText().matches("[0-9][0-9]{9}")) {
+            this.etiqueta_Indicador_RUC.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_RUC.setVisible(true);
             bandera = false;
         }
-        
+
         if (this.calendario_Orden_Compra.getDate() == null) {
             this.etiqueta_Indicador_Calendario.setVisible(bandera);
             bandera = false;
-        }else{
+        } else {
             this.etiqueta_Indicador_Calendario.setVisible(false);
         }
-            
-        if( this.campo_Direccion_Orden_Compra.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Direccion.setVisible( true );
+
+        if (this.campo_Direccion_Orden_Compra.getText().isEmpty()) {
+            this.etiqueta_Indicador_Direccion.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Direccion.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Direccion.setVisible(false);
         }
-        
-        if( this.campo_Telefono_Orden_Compra.getText().matches( "[0][1-9][0-9]{7}" ) ){
-            this.etiqueta_Indicador_Telefono.setVisible( false );
-        }else if(this.campo_Telefono_Orden_Compra.getText().matches( "[0-9][0-9]{9}" )){
-            this.etiqueta_Indicador_Telefono.setVisible( false );
-        }
-        else{
-            this.etiqueta_Indicador_Telefono.setVisible( true );
-            bandera = false;
-        } 
-        
-        if( this.campo_Correo_Orden_Compra.getText().matches( "[a-zA-Z_\\d]+@[a-zA-Z]+(\\.[a-zA-Z]*)+" )){  
-            this.etiqueta_Indicador_Correo.setVisible( false );
-        }else{
-            this.etiqueta_Indicador_Correo.setVisible( true );
+
+        if (this.campo_Telefono_Orden_Compra.getText().matches("[0][1-9][0-9]{7}")) {
+            this.etiqueta_Indicador_Telefono.setVisible(false);
+        } else if (this.campo_Telefono_Orden_Compra.getText().matches("[0-9][0-9]{9}")) {
+            this.etiqueta_Indicador_Telefono.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_Telefono.setVisible(true);
             bandera = false;
         }
-            
-        if( this.campo_Solicitante_Orden_Compra.getText().isEmpty() ){
-            this.etiqueta_Indicador_Contacto.setVisible( true );
+
+        if (this.campo_Correo_Orden_Compra.getText().matches("[a-zA-Z_\\d]+@[a-zA-Z]+(\\.[a-zA-Z]*)+")) {
+            this.etiqueta_Indicador_Correo.setVisible(false);
+        } else {
+            this.etiqueta_Indicador_Correo.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Contacto.setVisible( false );
         }
-        
-        if( this.combo_Modalidad_Pago_Orden_Compra.getSelectedItem().equals( "Seleccionar......" ) ){
-            this.etiqueta_Indicador_Modalidad.setVisible( true );
+
+        if (this.campo_Solicitante_Orden_Compra.getText().isEmpty()) {
+            this.etiqueta_Indicador_Contacto.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Modalidad.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Contacto.setVisible(false);
         }
-        
+
+        if (this.combo_Modalidad_Pago_Orden_Compra.getSelectedItem().equals("Seleccionar......")) {
+            this.etiqueta_Indicador_Modalidad.setVisible(true);
+            bandera = false;
+        } else {
+            this.etiqueta_Indicador_Modalidad.setVisible(false);
+        }
+
         if (this.combo_Estado_Orden.isVisible()) {
             if (this.combo_Estado_Orden.getSelectedItem().equals("Seleccionar.....")) {
                 this.etiqueta_Indicador_Estado.setVisible(true);
@@ -636,11 +637,11 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 this.etiqueta_Indicador_Estado.setVisible(false);
             }
         }
-        
+
         return bandera;
     }
     
-    public String[] evaluar_Tabla(){
+    public String[] evaluar_Tabla() {
         DefaultTableModel modelo_Tabla_Cotizacion = (DefaultTableModel) this.tabla_Productos_Orden_Compra.getModel();
         String[] valores = new String[6];
 
@@ -654,7 +655,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         return valores;
     }
     
-    public void valores_Tabla_Orden(Orden_Compra lista_Orden, Proveedor proveedor) {
+    public void valores_Tabla_Orden(Orden_Compra lista_Orden, Proveedor proveedor, Usuario usuario) {
         DefaultTableModel modelo_Tabla_Orden = (DefaultTableModel) this.tabla_Productos_Orden_Compra.getModel();
         modelo_Tabla_Orden.setRowCount(0);
 
@@ -669,20 +670,20 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
             modelo_Tabla_Orden.addRow(valores_Tabla);
         }
         this.cantidad_Items.setText(String.valueOf(codigo.length - 1));
-        this.valores_Proveedores(proveedor.getProveedor(), proveedor.getDireccion(), proveedor.getTelefono(), proveedor.getCorreo(), proveedor.getRUC(), lista_Orden.getSolicitante(), "");
-        this.valores_Orden_Compra(lista_Orden.getProveedor(), lista_Orden.getV_Subtotal(), lista_Orden.getIVA(), lista_Orden.getValor_Total(), lista_Orden.getTipo_Pago(), lista_Orden.getNo_Orden(), lista_Orden.getEstado());
+        this.valores_Proveedores(proveedor, usuario);
+        this.valores_Orden_Compra(lista_Orden);
     }
-    
-    public void valores_Orden_Compra(String proveedor, double subtotal, double IVA, double valor_Total, String tipo_Pago, String no_Orden, String estado) {
-        this.campo_Subtotal_Orden_Compra.setText(String.valueOf(subtotal));
-        this.campo_IVA_Orden_Compra.setText(String.valueOf(IVA));
-        this.campo_Total_Orden_Compra.setText(String.valueOf(valor_Total));
-        this.combo_Modalidad_Pago_Orden_Compra.setSelectedItem(tipo_Pago);
-        this.etiqueta_No_Orden_Compra.setText(no_Orden);
-        this.color_Etiqueta_Estado(estado);
-        this.valor_IVA.setValue((int)((IVA/subtotal)*100));
+
+    public void valores_Orden_Compra(Orden_Compra orden_Compra) {
+        this.campo_Subtotal_Orden_Compra.setText(String.valueOf(orden_Compra.getV_Subtotal()));
+        this.campo_IVA_Orden_Compra.setText(String.valueOf(orden_Compra.getIVA()));
+        this.campo_Total_Orden_Compra.setText(String.valueOf(orden_Compra.getValor_Total()));
+        this.combo_Modalidad_Pago_Orden_Compra.setSelectedItem(orden_Compra.getTipo_Pago());
+        this.etiqueta_No_Orden_Compra.setText(orden_Compra.getNo_Orden());
+        this.color_Etiqueta_Estado(orden_Compra.getEstado());
+        this.valor_IVA.setValue((int) ((orden_Compra.getIVA() / orden_Compra.getV_Subtotal()) * 100));
     }
-    
+
     public void calculo_Valores() {
         try {
             double valor_Subtotal = 0;
@@ -690,35 +691,35 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 valor_Subtotal = valor_Subtotal + (double) modelo_Tabla_Datos_Compras.getValueAt(i, 4);
             }
             this.campo_Subtotal_Orden_Compra.setText(this.formato_Numero.format(valor_Subtotal));
-            this.campo_IVA_Orden_Compra.setText(this.formato_Numero.format(valor_Subtotal * (Integer)this.valor_IVA.getValue()/100));
+            this.campo_IVA_Orden_Compra.setText(this.formato_Numero.format(valor_Subtotal * (Integer) this.valor_IVA.getValue() / 100));
             this.campo_Total_Orden_Compra.setText(this.formato_Numero.format(Double.valueOf(this.campo_IVA_Orden_Compra.getText()) + valor_Subtotal));
         } catch (Exception e) {
         }
     }
-    
-    public void valores_Proveedores(String proveedor, String direccion, String telefono, String correo, String RUC, String nombre, String apellido) {
-        this.combo_Proveedor_Orden_Compra.setText(proveedor);
-        this.campo_Direccion_Orden_Compra.setText(direccion);
-        this.campo_Telefono_Orden_Compra.setText(telefono);
-        this.campo_Correo_Orden_Compra.setText(correo);
-        this.campo_RUC_Orden_Compra.setText(RUC);
-        this.campo_Solicitante_Orden_Compra.setText(nombre + " " + apellido);
+
+    public void valores_Proveedores(Proveedor proveedor, Usuario usuario) {
+        this.combo_Proveedor_Orden_Compra.setText(proveedor.getProveedor());
+        this.campo_Direccion_Orden_Compra.setText(proveedor.getDireccion());
+        this.campo_Telefono_Orden_Compra.setText(proveedor.getTelefono());
+        this.campo_Correo_Orden_Compra.setText(proveedor.getCorreo());
+        this.campo_RUC_Orden_Compra.setText(proveedor.getRUC());
+        this.campo_Solicitante_Orden_Compra.setText(usuario.getNombre() + " " + usuario.getApellido());
     }
-    
-    public void color_Etiqueta_Estado(String estado){
+
+    public void color_Etiqueta_Estado(String estado) {
         this.etiqueta_Estado_Orden.setText(estado.toUpperCase());
-        
-        if(estado.equals("En revision")){
+
+        if (estado.equals("En revision")) {
             this.etiqueta_Estado_Orden.setForeground(Color.blue);
-        }else if(estado.equals("No Aprobado")){
+        } else if (estado.equals("No Aprobado")) {
             this.etiqueta_Estado_Orden.setForeground(Color.RED);
-        }else if(estado.equals("Aprobado")){
+        } else if (estado.equals("Aprobado")) {
             this.etiqueta_Estado_Orden.setForeground(Color.GREEN);
-        }else if(estado.equals("Anulado")){
+        } else if (estado.equals("Anulado")) {
             this.etiqueta_Estado_Orden.setForeground(Color.BLACK);
         }
     }
-    
+
     public String calendario_Fecha() {
         Date fecha;
         fecha = (Date) this.calendario_Orden_Compra.getDate();

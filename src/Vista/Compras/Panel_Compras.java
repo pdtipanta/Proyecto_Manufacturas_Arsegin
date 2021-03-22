@@ -5,9 +5,8 @@
  */
 package Vista.Compras;
 
+import Modelo.Proveedor;
 import Modelo.Usuario;
-import java.awt.Color;
-import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JButton;
@@ -24,69 +23,49 @@ public class Panel_Compras extends javax.swing.JPanel {
      */
     public Panel_Compras() {
         initComponents();
-       // this.grupo_Botones.add( radio_Boton_No_Ingresados );
-       // this.grupo_Botones.add( radio_Boton_Ingresados );
-       // this.radio_Boton_Ingresados.setEnabled(false);
-       // this.radio_Boton_No_Ingresados.setEnabled(false);
         this.combo_Opcion.setEnabled(false);
-        this.combo_Filtrar.setEnabled(false);/*
-        this.tabla_Consulta_Orden_Compra.getTableHeader().setFont( new Font( "Arial", Font.BOLD, 13 ) );
-        this.tabla_Consulta_Orden_Compra.getTableHeader().setBackground( new Color( 32, 136, 203 ) );
-        this.tabla_Consulta_Orden_Compra.getTableHeader().setForeground( new Color( 255, 255, 255) );
-        this.tabla_Consulta_Orden_Compra.getTableHeader().setFont( new Font( "Arial", Font.BOLD, 13 ) );
-        this.tabla_Consulta_Orden_Compra.getTableHeader().setBackground( new Color( 32, 136, 203 ) );
-        this.tabla_Consulta_Orden_Compra.getTableHeader().setForeground( new Color( 255, 255, 255) );*/
-        this.tabla_Consulta_Orden_Compra.getTableHeader().setReorderingAllowed(false) ;
+        this.combo_Filtrar.setEnabled(false);
+        this.tabla_Consulta_Orden_Compra.getTableHeader().setReorderingAllowed(false);
     }
-    
-    public boolean etiquetas( boolean bandera, int fila, JButton boton ){
-        modelo_Tabla_Datos_Compras = ( DefaultTableModel )  tabla_Consulta_Orden_Compra.getModel();
-        
-        if( modelo_Tabla_Datos_Compras.getValueAt( fila, 6 ) == null ){
+
+    public boolean etiquetas(boolean bandera, int fila, JButton boton) {
+        modelo_Tabla_Datos_Compras = (DefaultTableModel) tabla_Consulta_Orden_Compra.getModel();
+
+        if (modelo_Tabla_Datos_Compras.getValueAt(fila, 6) == null) {
             bandera = false;
         }
-        
-        if( modelo_Tabla_Datos_Compras.getValueAt( fila, 7 ) == null ){
+
+        if (modelo_Tabla_Datos_Compras.getValueAt(fila, 7) == null) {
             bandera = false;
         }
-        
-        if( boton.getText().equals( "Subir Archivo" )){
+
+        if (boton.getText().equals("Subir Archivo")) {
             bandera = false;
         }
-        
-        if( modelo_Tabla_Datos_Compras.getValueAt( fila, 9 ) == "Seleccione..." ){
+
+        if (modelo_Tabla_Datos_Compras.getValueAt(fila, 9) == "Seleccione...") {
             bandera = false;
         }
         return bandera;
     }
     
-    public String calendario_Fecha( int fila ){
-        Date fecha =  (Date) tabla_Consulta_Orden_Compra.getValueAt( fila, 7);
-        return  new SimpleDateFormat("yyyy-MM-dd").format( fecha ) ;
+    public String calendario_Fecha(int fila) {
+        Date fecha = (Date) tabla_Consulta_Orden_Compra.getValueAt(fila, 7);
+        return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
     
-    public void valores_Proveedor(String proveedor, String RUC, String direccion, String correo, String telefono){
-        this.campo_Proveedor.setText(proveedor);
-        this.campo_RUC.setText(RUC);
-        this.campo_Direccion.setText(direccion);
-        this.campo_Correo.setText(correo);
-        this.campo_Telefono.setText(telefono);
-    }
-    
-    public void limpiar_Campos(){
-        this.campo_Proveedor.setText("");
-        this.campo_RUC.setText("");
-        this.campo_Direccion.setText("");
-        this.campo_Correo.setText("");
-        this.campo_Telefono.setText("");
+    public void valores_Proveedor(Proveedor proveedor){
+        this.campo_Proveedor.setText(proveedor.getProveedor());
+        this.campo_RUC.setText(proveedor.getRUC());
+        this.campo_Direccion.setText(proveedor.getDireccion());
+        this.campo_Correo.setText(proveedor.getCorreo());
+        this.campo_Telefono.setText(proveedor.getTelefono());
     }
     
     public void set_Usuario(Usuario usuario, String rol){
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.

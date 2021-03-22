@@ -22,7 +22,7 @@ public class Dialogo_Buscar_Proveedor extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.campo_Buscar.setEditable(false);
-        this.tabla_Proveedores.getTableHeader().setReorderingAllowed(false) ;
+        this.tabla_Proveedores.getTableHeader().setReorderingAllowed(false);
     }
 
     /**
@@ -47,7 +47,6 @@ public class Dialogo_Buscar_Proveedor extends javax.swing.JDialog {
         setTitle("Proveedores");
         setMaximumSize(new java.awt.Dimension(1400, 830));
         setMinimumSize(new java.awt.Dimension(1400, 830));
-        setPreferredSize(new java.awt.Dimension(1400, 830));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -80,6 +79,7 @@ public class Dialogo_Buscar_Proveedor extends javax.swing.JDialog {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -91,7 +91,7 @@ public class Dialogo_Buscar_Proveedor extends javax.swing.JDialog {
         campo_Buscar.setEditable(false);
         campo_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         campo_Buscar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        campo_Buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Buscar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Buscar.setMaximumSize(new java.awt.Dimension(950, 30));
         campo_Buscar.setMinimumSize(new java.awt.Dimension(950, 30));
         campo_Buscar.setPreferredSize(new java.awt.Dimension(950, 30));

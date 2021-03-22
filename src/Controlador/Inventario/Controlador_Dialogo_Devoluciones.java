@@ -5,8 +5,6 @@
  */
 package Controlador.Inventario;
 
-import Datos.Creador;
-import Datos.Factory;
 import Modelo.Inventario;
 import Vista.Inventario.Dialogo_Devoluciones_Inventario;
 import Vista.Vista_Principal;

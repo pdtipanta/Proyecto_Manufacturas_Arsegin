@@ -9,8 +9,6 @@ import Datos.Inventario.DAO_Inventario_Implementacion;
 import Modelo.Inventario;
 import Vista.Inventario.Dialogo_Buscar_Inventario;
 import Vista.Vista_Principal;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -30,7 +28,7 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
     private final Vista_Principal           vista;
     private final Connection                conexion;
     private final Dialogo_Buscar_Inventario dialogo_Buscar_Inventario;
-    private DefaultTableModel               modelo_Tabla_Productos;
+    private final DefaultTableModel         modelo_Tabla_Productos;
     private TableRowSorter                  TRSFiltro;
     private ArrayList< Inventario>          inventario = new ArrayList<Inventario>();
 
@@ -41,7 +39,6 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
         this.dialogo_Buscar_Inventario.campo_Buscar.addKeyListener(this);
         this.dialogo_Buscar_Inventario.tabla_Inventario.addMouseListener(this);
         this.modelo_Tabla_Productos = (DefaultTableModel) this.dialogo_Buscar_Inventario.tabla_Inventario.getModel();
-        
         this.dialogo_Buscar_Inventario.boton_Nuevo_Producto.setVisible(botones);
     }
 
@@ -50,9 +47,8 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
         this.dialogo_Buscar_Inventario.setVisible(true);
         return inventario;
     }
-    
+
     public void consultar_Datos_Inventario() {
-        
         ArrayList<Inventario> inventario = new DAO_Inventario_Implementacion(this.conexion).consultar("");
 
         if (inventario.size() > 0) {
@@ -77,7 +73,6 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
                         filtro();
                     }
                 });
-
                 TRSFiltro = new TableRowSorter(this.dialogo_Buscar_Inventario.tabla_Inventario.getModel());
                 this.dialogo_Buscar_Inventario.tabla_Inventario.setRowSorter(TRSFiltro);
             }
@@ -101,7 +96,7 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
             filtrar_Tabla(2);
         }
     }
-    
+
     public void filtrar_Tabla(int valor) {
         TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.dialogo_Buscar_Inventario.campo_Buscar.getText(), valor));
     }
@@ -110,7 +105,6 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
     public void mouseClicked(MouseEvent me) {
         if (me.getSource() == this.dialogo_Buscar_Inventario.tabla_Inventario) {
             inventario = new DAO_Inventario_Implementacion(this.conexion).consultar(String.valueOf(this.dialogo_Buscar_Inventario.tabla_Inventario.getValueAt(this.dialogo_Buscar_Inventario.tabla_Inventario.getSelectedRow(), 0)));
-
             if (inventario.size() == 1) {
                 this.dialogo_Buscar_Inventario.dispose();
             }

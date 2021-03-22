@@ -5,6 +5,7 @@
  */
 package Vista.Inventario;
 
+import Modelo.Inventario;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 
@@ -135,7 +136,6 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         });
         getContentPane().add(campo_Precio_Venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 200, 24));
 
-        campo_Codigo.setBackground(new java.awt.Color(255, 255, 255));
         campo_Codigo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -236,7 +236,7 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
     }//GEN-LAST:event_campo_CantidadKeyTyped
 
     private void campo_Precio_CompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_Precio_CompraKeyTyped
-       // validar_Campos( evt, this.campo_Precio_Compra );
+       validar_Campos( evt, this.campo_Precio_Compra );
     }//GEN-LAST:event_campo_Precio_CompraKeyTyped
 
     private void campo_Precio_VentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_Precio_VentaActionPerformed
@@ -244,86 +244,89 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
     }//GEN-LAST:event_campo_Precio_VentaActionPerformed
 
     private void campo_Precio_VentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_Precio_VentaKeyTyped
-        //validar_Campos( evt, this.campo_Precio_Venta );
+        validar_Campos( evt, this.campo_Precio_Venta );
     }//GEN-LAST:event_campo_Precio_VentaKeyTyped
 
     private void campo_CodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_CodigoKeyTyped
         char c = evt.getKeyChar();
-        if ( ( c < 'a' || c > 'z' ) && ( c < 'A' || c >'Z' ) && ( c < '0'  || c > '9' ) && ( c < '#' || c > '&' ) && ( c < '-' || c > '/' ) &&  (  c == evt.VK_SPACE ) ) evt.consume();
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c < '0' || c > '9') && (c < '#' || c > '&') && (c < '-' || c > '/') && (c == evt.VK_SPACE)) {
+            evt.consume();
+        }
     }//GEN-LAST:event_campo_CodigoKeyTyped
 
     private void boton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_GuardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_GuardarActionPerformed
 
-     public void validar_Campos( KeyEvent evt, JTextField campo ){
+    public void validar_Campos(KeyEvent evt, JTextField campo) {
         char c = evt.getKeyChar();
-        if ( ( ( c < '0' ) || ( c > '9' ) ) && ( c != evt.VK_BACK_SPACE) && ( c != '.' || campo.getText().contains( "." ) ) ) evt.consume();
+        if (((c < '0') || (c > '9')) && (c != evt.VK_BACK_SPACE) && (c != '.' || campo.getText().contains("."))) {
+            evt.consume();
+        }
     }
      
-     public boolean etiquetas( ){
-         boolean bandera = true;
-        
-        if( this.campo_Codigo.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Codigo.setVisible( true );
+    public boolean etiquetas() {
+        boolean bandera = true;
+
+        if (this.campo_Codigo.getText().isEmpty()) {
+            this.etiqueta_Indicador_Codigo.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Codigo.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Codigo.setVisible(false);
         }
-        
-        if( this.campo_Descripcion.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Descripcion.setVisible( true );
+
+        if (this.campo_Descripcion.getText().isEmpty()) {
+            this.etiqueta_Indicador_Descripcion.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Descripcion.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Descripcion.setVisible(false);
         }
-            
-        if( this.campo_Cantidad.getText().isEmpty() ){
-            this.etiqueta_Indicador_Cantidad.setVisible( true );
+
+        if (this.campo_Cantidad.getText().isEmpty()) {
+            this.etiqueta_Indicador_Cantidad.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Cantidad.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Cantidad.setVisible(false);
         }
-        
-        if( this.campo_Precio_Compra.getText().isEmpty() ){
-            this.etiqueta_Indicador_Precio_Compra.setVisible( true );
+
+        if (this.campo_Precio_Compra.getText().isEmpty()) {
+            this.etiqueta_Indicador_Precio_Compra.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Precio_Compra.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Precio_Compra.setVisible(false);
         }
-        
-        if( this.campo_Precio_Venta.getText().isEmpty() ){
-            this.etiqueta_Indicador_Precio_Venta.setVisible( true );
+
+        if (this.campo_Precio_Venta.getText().isEmpty()) {
+            this.etiqueta_Indicador_Precio_Venta.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Precio_Venta.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Precio_Venta.setVisible(false);
         }
-        
-        if( this.combo_Proveedor.getText().isEmpty()){
-            this.etiqueta_Indicador_Proveedor.setVisible( true );
+
+        if (this.combo_Proveedor.getText().isEmpty()) {
+            this.etiqueta_Indicador_Proveedor.setVisible(true);
             bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Proveedor.setVisible( false );
+        } else {
+            this.etiqueta_Indicador_Proveedor.setVisible(false);
         }
         return bandera;
     }
-     
-     public void correccion_Campos(String valor){
-        if(valor.equals(this.campo_Codigo.getText())){
+  
+    public void correccion_Campos(String valor) {
+        if (valor.equals(this.campo_Codigo.getText())) {
             this.etiqueta_Correccion_Producto.setVisible(true);
-        }else{
+        } else {
             this.etiqueta_Correccion_Producto.setVisible(false);
         }
     }
-     
-     public void setCampos( String codigo, String descripcion, String cantidad_Disponible, String precio_Compra, String precio_Venta, String proveedor){
-       // this.botones(false, false, true, true, false, true);
-        this.campo_Codigo.setText(codigo);
-        this.campo_Descripcion.setText(descripcion);
-        this.campo_Cantidad.setText(cantidad_Disponible);
-        this.campo_Precio_Compra.setText(precio_Compra);
-        this.campo_Precio_Venta.setText(precio_Venta);
-        this.combo_Proveedor.setText(proveedor);
+
+    public void setCampos(Inventario inventario) {
+        this.campo_Codigo.setText(inventario.getCodigo());
+        this.campo_Descripcion.setText(inventario.getDescripcion());
+        this.campo_Cantidad.setText(String.valueOf(inventario.getCantidad_Disponible()));
+        this.campo_Precio_Compra.setText(String.valueOf(inventario.getPrecio_Compra()));
+        this.campo_Precio_Venta.setText(String.valueOf(inventario.getPrecio_Venta()));
+        this.combo_Proveedor.setText(inventario.getProveedor());
     }
     /**
      * @param args the command line arguments

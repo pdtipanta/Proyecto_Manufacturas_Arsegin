@@ -10,7 +10,6 @@ import Controlador.Pagos.Reporte.Controlador_Reporte_Pagos;
 import Controlador.Proveedor.Controlador_Dialogo_Buscar_Proveedor;
 import Datos.Compras.DAO_Compras_Implementacion;
 import Modelo.Compras;
-import Modelo.Orden_Compra;
 import Modelo.Proveedor;
 import Modelo.Usuario;
 import Vista.Pagos.Panel_Pagos;
@@ -36,18 +35,17 @@ import javax.swing.table.DefaultTableModel;
  * @author David
  */
 public class Controlador_Pagos implements  ActionListener, MouseListener {
-    private Vista_Principal         vista;
-    private Connection              conexion_Database;
-    private Usuario                 usuario;
-    private String                  rol;
-    private String                  id_Proveedor;
-    private Panel_Pagos             panel_Pagos = new Panel_Pagos();;
-    private Tabla_PDF_Pagos         tabla_PDF_Pagos;
-    private ArrayList<Compras>      lista_Compras = new ArrayList<Compras>();
-    private ArrayList< Orden_Compra >          lista_Orden_Compra = new ArrayList<Orden_Compra>();
-    private DefaultTableModel       modelo_Tabla_Consulta_Pagos = ( DefaultTableModel ) this.panel_Pagos.tabla_Estado_Pagos.getModel();
+    private final Vista_Principal         vista;
+    private final Connection              conexion_Database;
+    private final Usuario                 usuario;
+    private final String                  rol;
+    private String                        id_Proveedor;
+    private final Panel_Pagos             panel_Pagos = new Panel_Pagos();;
+    private Tabla_PDF_Pagos               tabla_PDF_Pagos;
+    private ArrayList<Compras>            lista_Compras = new ArrayList<Compras>();
+    private DefaultTableModel             modelo_Tabla_Consulta_Pagos = ( DefaultTableModel ) this.panel_Pagos.tabla_Estado_Pagos.getModel();
     
-    public Controlador_Pagos( Vista_Principal vista, Connection conexion_Database, Usuario usuario, String rol ){
+    public Controlador_Pagos(Vista_Principal vista, Connection conexion_Database, Usuario usuario, String rol) {
         this.vista = vista;
         this.conexion_Database = conexion_Database;
         this.usuario = usuario;
@@ -56,9 +54,9 @@ public class Controlador_Pagos implements  ActionListener, MouseListener {
         this.panel_Pagos.combo_Opcion.addActionListener(this);
         this.panel_Pagos.boton_Reporte.addActionListener(this);
         this.panel_Pagos.boton_Cerrar_Sesion.addActionListener(this);
-        this.panel_Pagos.tabla_Estado_Pagos.addMouseListener( this );
+        this.panel_Pagos.tabla_Estado_Pagos.addMouseListener(this);
     }
-    
+
     public void iniciar() {
         this.vista.Panel_Contenedor.add(this.panel_Pagos);
         this.panel_Pagos.setVisible(true);
@@ -73,7 +71,7 @@ public class Controlador_Pagos implements  ActionListener, MouseListener {
             ArrayList<Proveedor> proveedor = new Controlador_Dialogo_Buscar_Proveedor(this.vista, this.conexion_Database).iniciar();
 
             if (proveedor.size() == 1) {
-                this.panel_Pagos.valores_Proveedores(proveedor.get(0).getProveedor(), proveedor.get(0).getDireccion(), proveedor.get(0).getTelefono(), proveedor.get(0).getCorreo(), proveedor.get(0).getRUC());
+                this.panel_Pagos.valores_Proveedores(proveedor.get(0));
                 this.panel_Pagos.activar_Botones(true, true);
                 this.id_Proveedor = proveedor.get(0).getId_Proveedor();
             }
@@ -82,32 +80,32 @@ public class Controlador_Pagos implements  ActionListener, MouseListener {
         if (ae.getSource() == this.panel_Pagos.combo_Opcion) {
             facturas(this.panel_Pagos.combo_Opcion.getSelectedItem().toString());
         }
-        
-        if(ae.getSource() == this.panel_Pagos.boton_Reporte){
+
+        if (ae.getSource() == this.panel_Pagos.boton_Reporte) {
             new Controlador_Reporte_Pagos(this.panel_Pagos, this.lista_Compras).iniciar();
         }
-        
+
         if (ae.getSource() == this.panel_Pagos.boton_Cerrar_Sesion) {
             vista.Panel_Contenedor.removeAll();
             this.vista.borrar_Menu();
             new Controlador_Panel_Ingreso(this.vista).iniciar();
         }
     }
-    
-    public void facturas(String opcion) { 
+
+    public void facturas(String opcion) {
         this.modelo_Tabla_Consulta_Pagos.setRowCount(0);
 
         this.lista_Compras = new DAO_Compras_Implementacion(this.conexion_Database).consultar_Pagos_Adeudados(this.id_Proveedor, opcion);
         tabla_PDF_Pagos = new Tabla_PDF_Pagos();
         tabla_PDF_Pagos.construir_TablaPDF(this.panel_Pagos.tabla_Estado_Pagos, lista_Compras);
-        
-        if(this.panel_Pagos.tabla_Estado_Pagos.getRowCount()>0){
+
+        if (this.panel_Pagos.tabla_Estado_Pagos.getRowCount() > 0) {
             this.panel_Pagos.boton_Reporte.setEnabled(true);
-        }else{
+        } else {
             this.panel_Pagos.boton_Reporte.setEnabled(false);
         }
     }
-    
+
     @Override
     public void mouseClicked(MouseEvent me) {
         if (me.getSource() == this.panel_Pagos.tabla_Estado_Pagos) {
@@ -126,13 +124,16 @@ public class Controlador_Pagos implements  ActionListener, MouseListener {
     }
 
     @Override
-    public void mousePressed(MouseEvent me) {}
+    public void mousePressed(MouseEvent me) {
+    }
 
     @Override
-    public void mouseReleased(MouseEvent me) {}
+    public void mouseReleased(MouseEvent me) {
+    }
 
     @Override
-    public void mouseEntered(MouseEvent me) {}
+    public void mouseEntered(MouseEvent me) {
+    }
 
     @Override
     public void mouseExited(MouseEvent me) {
@@ -160,6 +161,5 @@ public class Controlador_Pagos implements  ActionListener, MouseListener {
         this.panel_Pagos.set_Usuario(this.usuario, this.rol);
     }
 }
-
 
 

@@ -47,37 +47,38 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
         campo_Cantidad = new javax.swing.JTextField();
         campo_Unitario = new javax.swing.JTextField();
         campo_Total = new javax.swing.JTextField();
+        jToolBar1 = new javax.swing.JToolBar();
         boton_Agregar = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nuevo producto");
-        setMaximumSize(new java.awt.Dimension(560, 335));
-        setMinimumSize(new java.awt.Dimension(560, 335));
+        setMaximumSize(new java.awt.Dimension(640, 402));
+        setMinimumSize(new java.awt.Dimension(640, 402));
+        setPreferredSize(new java.awt.Dimension(640, 402));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Codigo:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 41, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Descripcion:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 85, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Cantidad:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 128, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Valor unitario:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 172, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Valor total:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 216, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         campo_Codigo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Codigo.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Codigo.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Codigo.setPreferredSize(new java.awt.Dimension(2, 20));
@@ -86,10 +87,10 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_CodigoKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 230, -1));
+        getContentPane().add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 230, 25));
 
         campo_Descripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Descripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Descripcion.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Descripcion.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Descripcion.setPreferredSize(new java.awt.Dimension(2, 20));
@@ -98,10 +99,10 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_DescripcionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 320, -1));
+        getContentPane().add(campo_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 320, 25));
 
         campo_Cantidad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Cantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Cantidad.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Cantidad.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Cantidad.setPreferredSize(new java.awt.Dimension(2, 20));
@@ -113,10 +114,10 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_CantidadKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 150, -1));
+        getContentPane().add(campo_Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 150, 25));
 
         campo_Unitario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Unitario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Unitario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Unitario.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Unitario.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Unitario.setPreferredSize(new java.awt.Dimension(2, 20));
@@ -128,12 +129,12 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_UnitarioKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Unitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 150, -1));
+        getContentPane().add(campo_Unitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 150, 25));
 
         campo_Total.setEditable(false);
         campo_Total.setBackground(new java.awt.Color(255, 255, 255));
         campo_Total.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Total.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Total.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Total.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Total.setPreferredSize(new java.awt.Dimension(2, 20));
@@ -142,19 +143,24 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_TotalKeyReleased(evt);
             }
         });
-        getContentPane().add(campo_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 150, -1));
+        getContentPane().add(campo_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 150, 25));
+
+        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
+        jToolBar1.setRollover(true);
 
         boton_Agregar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Agregar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         boton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mas (1).png"))); // NOI18N
         boton_Agregar.setText("Agregar");
-        getContentPane().add(boton_Agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, -1, -1));
+        boton_Agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton_Agregar.setMaximumSize(new java.awt.Dimension(89, 40));
+        boton_Agregar.setMinimumSize(new java.awt.Dimension(89, 40));
+        boton_Agregar.setPreferredSize(new java.awt.Dimension(89, 40));
+        jToolBar1.add(boton_Agregar);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagen-fondo-aurora-celeste_1.png"))); // NOI18N
-        jLabel6.setMaximumSize(new java.awt.Dimension(560, 335));
-        jLabel6.setMinimumSize(new java.awt.Dimension(560, 335));
-        jLabel6.setPreferredSize(new java.awt.Dimension(560, 335));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 335));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,37 +197,36 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
         calcular_Valor();
     }//GEN-LAST:event_campo_UnitarioKeyReleased
 
-    public void calcular_Valor(){
+    public void calcular_Valor() {
         try {
             double total = Integer.valueOf(this.campo_Cantidad.getText()) * Double.valueOf(this.campo_Unitario.getText());
             this.campo_Total.setText(this.formato_Numero.format(total));
         } catch (NumberFormatException e) {
         }
     }
-    
-    public boolean verificar_Campos(){
+
+    public boolean verificar_Campos() {
         boolean bandera = true;
-        
-        if(this.campo_Codigo.getText().isEmpty()){
+
+        if (this.campo_Codigo.getText().isEmpty()) {
             bandera = false;
         }
-        
-        if(this.campo_Descripcion.getText().isEmpty()){
+
+        if (this.campo_Descripcion.getText().isEmpty()) {
             bandera = false;
         }
-        
-        if(this.campo_Cantidad.getText().isEmpty() || this.campo_Cantidad.getText().equals("0")){
+
+        if (this.campo_Cantidad.getText().isEmpty() || this.campo_Cantidad.getText().equals("0")) {
             bandera = false;
         }
-        
-        if(this.campo_Unitario.getText().isEmpty() || this.campo_Unitario.getText().equals("0")){
+
+        if (this.campo_Unitario.getText().isEmpty() || this.campo_Unitario.getText().equals("0")) {
             bandera = false;
         }
-        
-        if(this.campo_Total.getText().isEmpty() || this.campo_Total.getText().equals("0")){
+
+        if (this.campo_Total.getText().isEmpty() || this.campo_Total.getText().equals("0")) {
             bandera = false;
         }
-        
         return bandera;
     }
     /**
@@ -278,6 +283,6 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

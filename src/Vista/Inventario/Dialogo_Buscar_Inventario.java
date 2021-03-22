@@ -5,9 +5,6 @@
  */
 package Vista.Inventario;
 
-import java.awt.Color;
-import java.awt.Font;
-
 /**
  *
  * @author David
@@ -20,11 +17,8 @@ public class Dialogo_Buscar_Inventario extends javax.swing.JDialog {
     public Dialogo_Buscar_Inventario(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        this.setLocationRelativeTo(parent);/*
-        this.tabla_Inventario.getTableHeader().setFont( new Font( "Arial", Font.BOLD, 13 ) );
-        this.tabla_Inventario.getTableHeader().setBackground( new Color( 32, 136, 203 ));
-        this.tabla_Inventario.getTableHeader().setForeground( new Color( 255, 255, 255));*/ 
-        this.tabla_Inventario.getTableHeader().setReorderingAllowed(false) ;
+        this.setLocationRelativeTo(parent);
+        this.tabla_Inventario.getTableHeader().setReorderingAllowed(false);
         this.boton_Nuevo_Producto.setVisible(false);
         this.campo_Buscar.setEditable(false);
     }
@@ -92,6 +86,7 @@ public class Dialogo_Buscar_Inventario extends javax.swing.JDialog {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         boton_Nuevo_Producto.setBackground(new java.awt.Color(255, 255, 255));

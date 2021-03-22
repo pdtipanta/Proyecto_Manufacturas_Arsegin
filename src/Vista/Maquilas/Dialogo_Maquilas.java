@@ -5,6 +5,8 @@
  */
 package Vista.Maquilas;
 
+import Modelo.Maquila;
+
 /**
  *
  * @author David
@@ -360,14 +362,13 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
             this.etiqueta_Correccion_RUC.setVisible(false);
         }
     }
-    
-    public void setCampos( String maquila, String RUC, String direccion, String telefono, String servicio ){
-        //this.botones(false, true, true, true, false);
-        this.combo_Maquila.setText(maquila);
-        this.campo_Direccion.setText(direccion);
-        this.campo_RUC.setText(RUC);
-        this.campo_Telefono.setText(telefono);
-        this.caja_Servicios.setText(servicio);
+
+    public void setCampos(Maquila maquila) {
+        this.combo_Maquila.setText(maquila.getMaquila());
+        this.campo_Direccion.setText(maquila.getDireccion());
+        this.campo_RUC.setText(maquila.getRUC());
+        this.campo_Telefono.setText(maquila.getTelefono());
+        this.caja_Servicios.setText(maquila.getServicio());
     }
     
     public void campos_Busqueda() {

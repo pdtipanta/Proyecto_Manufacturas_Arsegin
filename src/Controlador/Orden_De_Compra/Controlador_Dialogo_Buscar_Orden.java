@@ -9,9 +9,7 @@ import Datos.Proveedor.DAO_Proveedor_Implementacion;
 import Modelo.Orden_Compra;
 import Modelo.Proveedor;
 import Modelo.Usuario;
-import Vista.Orden_De_Compra.Dialogo_Buscar_Compra;
 import Vista.Orden_De_Compra.Panel_Orden_Compra;
-import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -30,36 +28,28 @@ import javax.swing.table.TableRowSorter;
  * @author David
  */
 public class Controlador_Dialogo_Buscar_Orden implements ActionListener, KeyListener, MouseListener {
-
-    //private final Vista_Principal           vista;
-    Panel_Orden_Compra          panel_Orden_Compra;
+    private final Panel_Orden_Compra        panel_Orden_Compra;
     private final Connection                conexion;
     private final String                    rol;
     private String                          valor = null;
-    //private final Dialogo_Buscar_Compra     dialogo_Buscar_Compra;
     private TableRowSorter                  TRSFiltro;
-    private DefaultTableModel               modelo_Tabla_Cotizacion;
-    private ArrayList<Orden_Compra>         Orden_Compra = new ArrayList<Orden_Compra>();
-    private Usuario                         usuario;
+    private final DefaultTableModel         modelo_Tabla_Cotizacion;
+    private final Usuario                   usuario;
 
     public Controlador_Dialogo_Buscar_Orden(Panel_Orden_Compra panel_Orden_Compra, Connection conexion, Usuario usuario, String rol) {
-        //this.vista = vista;
         this.panel_Orden_Compra = panel_Orden_Compra;
         this.conexion = conexion;
         this.usuario = usuario;
         this.rol = rol;
-        //this.dialogo_Buscar_Compra = new Dialogo_Buscar_Compra(this.vista, true);
-       this.panel_Orden_Compra.campo_Busqueda.addKeyListener(this);
-       this.panel_Orden_Compra.boton_Fecha.addActionListener(this);
-       this.panel_Orden_Compra.combo_Opciones.addActionListener(this);
-       this.panel_Orden_Compra.tabla_Consulta_Compra.addMouseListener(this);
+        this.panel_Orden_Compra.campo_Busqueda.addKeyListener(this);
+        this.panel_Orden_Compra.boton_Fecha.addActionListener(this);
+        this.panel_Orden_Compra.combo_Opciones.addActionListener(this);
+        this.panel_Orden_Compra.tabla_Consulta_Compra.addMouseListener(this);
         this.modelo_Tabla_Cotizacion = (DefaultTableModel) this.panel_Orden_Compra.tabla_Consulta_Compra.getModel();
     }
 
     public void iniciar() {
         consultar_Datos_Orden_Compra();
-        //this.dialogo_Buscar_Compra.setVisible(true);
-        //return this.Orden_Compra;
     }
 
     public void consultar_Datos_Orden_Compra() {
@@ -77,7 +67,6 @@ public class Controlador_Dialogo_Buscar_Orden implements ActionListener, KeyList
                 valor = "Todos" + ";" + "Todos";
                 break;
         }
-
         presentar_Ordenes(new DAO_Orden_Compra_Implementacion(this.conexion).consultar(valor));
     }
 
@@ -140,35 +129,22 @@ public class Controlador_Dialogo_Buscar_Orden implements ActionListener, KeyList
         seleccion_Tabla(this.panel_Orden_Compra.tabla_Consulta_Compra.getSelectedRow());
         TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.panel_Orden_Compra.campo_Busqueda.getText(), valor));
     }
-    
+
     public void seleccion_Tabla(int bandera) {
         if (bandera != -1) {
             this.panel_Orden_Compra.boton_Modificar_Orden_Compra.setEnabled(true);
             this.panel_Orden_Compra.boton_Generar_Orden.setEnabled(true);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(true);
         } else {
             this.panel_Orden_Compra.boton_Modificar_Orden_Compra.setEnabled(false);
             this.panel_Orden_Compra.boton_Generar_Orden.setEnabled(false);
-            //this.panel_Cotizacion.boton_Eliminar.setEnabled(false);
         }
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.panel_Orden_Compra.tabla_Consulta_Compra){
+        if (me.getSource() == this.panel_Orden_Compra.tabla_Consulta_Compra) {
             seleccion_Tabla(this.panel_Orden_Compra.tabla_Consulta_Compra.getSelectedRow());
         }
-/*
-        if (me.getSource() == this.dialogo_Buscar_Compra.tabla_Consulta_Compra) {
-
-            String valor = this.dialogo_Buscar_Compra.tabla_Consulta_Compra.getValueAt(this.dialogo_Buscar_Compra.tabla_Consulta_Compra.getSelectedRow(), 0) + ";" + this.dialogo_Buscar_Compra.tabla_Consulta_Compra.getValueAt(this.dialogo_Buscar_Compra.tabla_Consulta_Compra.getSelectedRow(), 5);
-
-            this.Orden_Compra = new DAO_Orden_Compra_Implementacion(this.conexion).consultar(valor);
-
-            if (this.Orden_Compra.size() == 1) {
-                this.dialogo_Buscar_Compra.dispose();
-            }
-        }*/
     }
 
     @Override

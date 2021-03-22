@@ -21,19 +21,15 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author David
  */
 public class Controlador_Reporte_Orden_Produccion {
-
-    private final Orden_Produccion orden_Produccion;
-            private final Maquila maquila;
+    private final Orden_Produccion       orden_Produccion;
+    private final Maquila                maquila;
 
     public Controlador_Reporte_Orden_Produccion(Orden_Produccion orden_Produccion, Maquila maquila) {
         this.orden_Produccion = orden_Produccion;
         this.maquila = maquila;
     }
 
-    
-
     public void iniciar() {
-
         try {
             Map parametro = new HashMap();
             parametro.put("no_Orden", this.orden_Produccion.getNumero_Orden());
@@ -48,20 +44,19 @@ public class Controlador_Reporte_Orden_Produccion {
         } catch (Exception e) {
         }
     }
-    
-    public ArrayList<Orden_Produccion> contruir_Orden(){
+
+    public ArrayList<Orden_Produccion> contruir_Orden() {
         ArrayList<Orden_Produccion> lista_Trabajo = new ArrayList<Orden_Produccion>();
-        
+
         String[] cantidad = this.orden_Produccion.getCantidad().split(";");
         String[] descripcion = this.orden_Produccion.getDescripcion().split(";");
         String[] v_Unitario = this.orden_Produccion.getV_Unitario().split(";");
         String[] v_Total = this.orden_Produccion.getV_Total().split(";");
-        
+
         for (int i = 0; i < cantidad.length - 1; i++) {
-            
+
             lista_Trabajo.add(new Orden_Produccion(this.orden_Produccion.getNumero_Orden(), this.orden_Produccion.getFecha(), this.orden_Produccion.getV_Pagar(), this.orden_Produccion.getEstado(), this.orden_Produccion.getObservaciones(), this.orden_Produccion.getMaquila(), cantidad[i], descripcion[i], v_Unitario[i], v_Total[i]));
         }
-        
         return lista_Trabajo;
     }
 }

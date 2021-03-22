@@ -47,25 +47,23 @@ import javax.swing.table.TableRowSorter;
  * @author David
  */
 public class Controlador_Compras implements ActionListener, MouseListener, KeyListener {
-    private Vista_Principal                    vista;
-    private Connection                         conexion_Database;
-    private Usuario                            usuario;
-    private String                             rol;
-    private Panel_Compras                      panel_Compras = new Panel_Compras();
+    private final Vista_Principal              vista;
+    private final Connection                   conexion_Database;
+    private final Usuario                      usuario;
+    private final String                       rol;
+    private final Panel_Compras                panel_Compras = new Panel_Compras();
     private Compras                            modelo_Compras;
     private Proveedor                          proveedor; 
     private ArrayList< Compras >               lista_Compras = new ArrayList<Compras>();
     private Orden_Compra                       modelo_Orden_Compra;
     private ArrayList< Orden_Compra >          lista_Orden_Compra = new ArrayList<Orden_Compra>();
-    private TableRowSorter                  TRSFiltro;
+    private TableRowSorter                     TRSFiltro;
     
     public Controlador_Compras(Vista_Principal vista, Connection conexion_Database, Usuario usuario, String rol) {
         this.vista = vista;
         this.conexion_Database = conexion_Database;
         this.usuario = usuario;
         this.rol = rol;
-        //this.panel_Compras.radio_Boton_No_Ingresados.addActionListener(this);
-        //this.panel_Compras.radio_Boton_Ingresados.addActionListener(this);
         this.panel_Compras.campo_Busqueda.addKeyListener(this);
         this.panel_Compras.boton_Buscar.addActionListener(this);
         this.panel_Compras.combo_Opcion.addActionListener(this);
@@ -83,55 +81,44 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
     @Override
     public void actionPerformed(ActionEvent ae) {
         
-        if(ae.getSource() == this.panel_Compras.combo_Filtrar){
-        if (this.panel_Compras.combo_Filtrar.getSelectedItem().equals("Seleccionar.....")) {
-            this.panel_Compras.campo_Busqueda.setText("");
-            this.panel_Compras.campo_Busqueda.setEditable(false);
-        }
-        }
-        if(ae.getSource() == this.panel_Compras.combo_Opcion){
-            if(this.panel_Compras.combo_Opcion.getSelectedItem().equals("Seleccionar.....")){
-            this.panel_Compras.campo_Busqueda.setEditable(false);
-            this.panel_Compras.combo_Filtrar.setEnabled(false);
-            DefaultTableModel modelo_Tabla_Datos_Compras = ( DefaultTableModel )  this.panel_Compras.tabla_Consulta_Orden_Compra.getModel(); 
-            modelo_Tabla_Datos_Compras.setRowCount(0);
+        if (ae.getSource() == this.panel_Compras.combo_Filtrar) {
+            if (this.panel_Compras.combo_Filtrar.getSelectedItem().equals("Seleccionar.....")) {
+                this.panel_Compras.campo_Busqueda.setText("");
+                this.panel_Compras.campo_Busqueda.setEditable(false);
             }
-            
-            if(this.panel_Compras.combo_Opcion.getSelectedItem().equals("Compras no ingresadas")){
+        }
+        if (ae.getSource() == this.panel_Compras.combo_Opcion) {
+            if (this.panel_Compras.combo_Opcion.getSelectedItem().equals("Seleccionar.....")) {
+                this.panel_Compras.campo_Busqueda.setEditable(false);
+                this.panel_Compras.combo_Filtrar.setEnabled(false);
+                DefaultTableModel modelo_Tabla_Datos_Compras = (DefaultTableModel) this.panel_Compras.tabla_Consulta_Orden_Compra.getModel();
+                modelo_Tabla_Datos_Compras.setRowCount(0);
+            }
+
+            if (this.panel_Compras.combo_Opcion.getSelectedItem().equals("Compras no ingresadas")) {
                 new Tabla_PDF_Compras_No_Ingresadas().construir_TablaPDF(panel_Compras.tabla_Consulta_Orden_Compra, new DAO_Orden_Compra_Implementacion(this.conexion_Database).consultar_Compras_Vacias(this.proveedor.getId_Proveedor()), new Orden_Compra());
-                this.panel_Compras.campo_Busqueda.setEditable(true); 
-                if(this.panel_Compras.tabla_Consulta_Orden_Compra.getRowCount()>0){
+                this.panel_Compras.campo_Busqueda.setEditable(true);
+                if (this.panel_Compras.tabla_Consulta_Orden_Compra.getRowCount() > 0) {
                     this.panel_Compras.combo_Filtrar.setEnabled(true);
-                }else{
+                } else {
                     this.panel_Compras.combo_Filtrar.setEnabled(false);
                     this.panel_Compras.combo_Filtrar.setSelectedItem("Seleccionar.....");
                 }
-                
+
             }
-            
-            if(this.panel_Compras.combo_Opcion.getSelectedItem().equals("Compras ingresadas")){
-            this.panel_Compras.campo_Busqueda.setEditable(true);
-            
-                this.tabla_Compras_Ingresadas(); 
-                if(this.panel_Compras.tabla_Consulta_Orden_Compra.getRowCount()>0){
+
+            if (this.panel_Compras.combo_Opcion.getSelectedItem().equals("Compras ingresadas")) {
+                this.panel_Compras.campo_Busqueda.setEditable(true);
+
+                this.tabla_Compras_Ingresadas();
+                if (this.panel_Compras.tabla_Consulta_Orden_Compra.getRowCount() > 0) {
                     this.panel_Compras.combo_Filtrar.setEnabled(true);
-                }else{
+                } else {
                     this.panel_Compras.combo_Filtrar.setEnabled(false);
                     this.panel_Compras.combo_Filtrar.setSelectedItem("Seleccionar.....");
                 }
-            
-            //panel_Compras.radio_Boton_No_Ingresados.isSelected();
-            //panel_Compras.radio_Boton_Ingresados.isSelected();
             }
         }
-/*
-        if (panel_Compras.radio_Boton_No_Ingresados.isSelected()) {
-            new Tabla_PDF_Compras_No_Ingresadas().construir_TablaPDF(panel_Compras.tabla_Consulta_Orden_Compra, new DAO_Orden_Compra_Implementacion(this.conexion_Database).consultar_Compras_Vacias(this.proveedor.getId_Proveedor()), new Orden_Compra());
-        }*/
-/*
-        if (panel_Compras.radio_Boton_Ingresados.isSelected()) {
-            this.tabla_Compras_Ingresadas();
-        }*/
 
         if (ae.getSource() == this.panel_Compras.boton_Buscar) {
             ArrayList<Proveedor> proveedor = new Controlador_Dialogo_Buscar_Proveedor(this.vista, this.conexion_Database).iniciar();
@@ -142,10 +129,8 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
                 modelo_Tabla_Consulta_Orden_Compra.setRowCount(0);
                 this.panel_Compras.combo_Opcion.setEnabled(true);
                 this.panel_Compras.combo_Opcion.setSelectedItem("Seleccionar.....");
-                //this.panel_Compras.radio_Boton_Ingresados.setEnabled(true);
-                //this.panel_Compras.radio_Boton_No_Ingresados.setEnabled(true);
                 this.proveedor = proveedor.get(0);
-                this.panel_Compras.valores_Proveedor(proveedor.get(0).getProveedor(), proveedor.get(0).getRUC(), proveedor.get(0).getDireccion(), proveedor.get(0).getCorreo(), proveedor.get(0).getTelefono());
+                this.panel_Compras.valores_Proveedor(proveedor.get(0));
             }
         }
 

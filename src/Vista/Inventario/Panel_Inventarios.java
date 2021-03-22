@@ -6,7 +6,6 @@
 package Vista.Inventario;
 
 import Controlador.PlaceHolder_Textos;
-import Modelo.Rol;
 import Modelo.Usuario;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
@@ -22,23 +21,10 @@ public class Panel_Inventarios extends javax.swing.JPanel {
      * Creates new form Panel_Inventario
      */
     public Panel_Inventarios() {
-        initComponents(); /*
-        this.textos_Place = new PlaceHolder_Textos("Codigo del producto", this.campo_Codigo);
-        this.textos_Place = new PlaceHolder_Textos("Descripcion del producto", this.campo_Descripcion);
-        this.textos_Place = new PlaceHolder_Textos("Unidades producto", this.campo_Cantidad);
-        this.textos_Place = new PlaceHolder_Textos("Precio de compra", this.campo_Precio_Compra);
-        this.textos_Place = new PlaceHolder_Textos("Precio de venta al publico", this.campo_Precio_Venta);;
-        this.textos_Place = new PlaceHolder_Textos("Nombre proveedor", this.combo_Proveedor);*/
-  /*      this.etiqueta_Indicador_Codigo.setVisible( false );
-        this.etiqueta_Indicador_Descripcion.setVisible( false ); 
-        this.etiqueta_Indicador_Cantidad.setVisible( false );
-        this.etiqueta_Indicador_Precio_Compra.setVisible( false );
-        this.etiqueta_Indicador_Precio_Venta.setVisible( false );
-        this.etiqueta_Indicador_Proveedor.setVisible( false );*/
-  this.tabla_Inventario.getTableHeader().setReorderingAllowed(false) ;
-        this.boton_Modificar.setEnabled( false );
-        this.boton_Eliminar.setEnabled( false );
-        //this.etiqueta_Correccion_Producto.setVisible(false);
+        initComponents();
+        this.tabla_Inventario.getTableHeader().setReorderingAllowed(false);
+        this.boton_Modificar.setEnabled(false);
+        this.boton_Eliminar.setEnabled(false);
     }
     
     public void Roles(String rol) {
@@ -260,109 +246,25 @@ public class Panel_Inventarios extends javax.swing.JPanel {
 
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
-    public void validar_Campos( KeyEvent evt, JTextField campo ){
+    public void validar_Campos(KeyEvent evt, JTextField campo) {
         char c = evt.getKeyChar();
-        if ( ( ( c < '0' ) || ( c > '9' ) ) && ( c != evt.VK_BACK_SPACE) && ( c != '.' || campo.getText().contains( "." ) ) ) evt.consume();
+        if (((c < '0') || (c > '9')) && (c != evt.VK_BACK_SPACE) && (c != '.' || campo.getText().contains("."))) {
+            evt.consume();
+        }
     }
-    /*
-    public boolean etiquetas( boolean bandera ){
-        
-        if( this.campo_Codigo.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Codigo.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Codigo.setVisible( false );
-        }
-        
-        if( this.campo_Descripcion.getText().isEmpty() ){ 
-            this.etiqueta_Indicador_Descripcion.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Descripcion.setVisible( false );
-        }
-            
-        if( this.campo_Cantidad.getText().isEmpty() ){
-            this.etiqueta_Indicador_Cantidad.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Cantidad.setVisible( false );
-        }
-        
-        if( this.campo_Precio_Compra.getText().isEmpty() ){
-            this.etiqueta_Indicador_Precio_Compra.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Precio_Compra.setVisible( false );
-        }
-        
-        if( this.campo_Precio_Venta.getText().isEmpty() ){
-            this.etiqueta_Indicador_Precio_Venta.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Precio_Venta.setVisible( false );
-        }
-        
-        if( this.combo_Proveedor.getText().isEmpty()){
-            this.etiqueta_Indicador_Proveedor.setVisible( true );
-            bandera = false;
-        }else{ 
-            this.etiqueta_Indicador_Proveedor.setVisible( false );
-        }
-        return bandera;
-    }*/
-    /*
-    public void limpiar_Campos(){
-        this.campo_Codigo.setText( "" );
-        this.campo_Descripcion.setText( "" );
-        this.campo_Cantidad.setText( "" );
-        this.campo_Precio_Compra.setText( "" );
-        this.campo_Precio_Venta.setText( "" );
-        this.combo_Proveedor.setText("");
-        this.etiqueta_Correccion_Producto.setVisible(false);
-    }*/
-    /*
-    public void botones( boolean bandera1, boolean bandera2, boolean bandera3, boolean bandera4, boolean bandera5, boolean bandera6  ){
-        this.boton_Guardar.setEnabled(bandera1);
-        this.boton_Nuevo_Producto.setEnabled(bandera2);
-        this.boton_Modificar.setEnabled(bandera3);
-        this.boton_Eliminar.setEnabled(bandera4);
-        this.campo_Codigo.setEditable(bandera5);
-        this.boton_Informe.setEnabled(bandera6);
-    }*/
-  /*  
-    public void setCampos( String codigo, String descripcion, String cantidad_Disponible, String precio_Compra, String precio_Venta, String proveedor){
-        this.botones(false, false, true, true, false, true);
-        this.campo_Codigo.setText(codigo);
-        this.campo_Descripcion.setText(descripcion);
-        this.campo_Cantidad.setText(cantidad_Disponible);
-        this.campo_Precio_Compra.setText(precio_Compra);
-        this.campo_Precio_Venta.setText(precio_Venta);
-        this.combo_Proveedor.setText(proveedor);
-    }*/
-    
+
     public void habilitar_Rol(boolean[] bandera) {
         this.boton_Nuevo_Producto.setVisible(bandera[0]);
-       // this.boton_Guardar.setVisible(bandera[1]);
         this.boton_Modificar.setVisible(bandera[2]);
         this.boton_Eliminar.setVisible(bandera[3]);
         this.boton_Informe.setVisible(bandera[4]);
         this.boton_Devoluciones.setVisible(bandera[5]);
-        //this.boton_Buscar.setVisible(bandera[6]);
-        //this.boton_Proveedor.setVisible(bandera[7]);
     }
-    
-    public void set_Usuario(Usuario usuario, String rol){
+
+    public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
     }
-    /*
-    public void correccion_Campos(String valor){
-        if(valor.equals(this.campo_Codigo.getText())){
-            this.etiqueta_Correccion_Producto.setVisible(true);
-        }else{
-            this.etiqueta_Correccion_Producto.setVisible(false);
-        }
-    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Cerrar_Sesion;
