@@ -19,7 +19,7 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class Consola {
 
-    /**HOLA DAVID
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws UnsupportedLookAndFeelException {
