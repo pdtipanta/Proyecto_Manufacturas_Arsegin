@@ -48,7 +48,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="120" height="800"/>
+          <AbsoluteConstraints x="0" y="0" width="130" height="800"/>
         </Constraint>
       </Constraints>
 
@@ -65,7 +65,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/agregar-archivo.png"/>
+              <Image iconType="3" name="/Imagenes/trabajo add.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
             <Property name="toolTipText" type="java.lang.String" value="Nueva cotizacion"/>
@@ -77,10 +77,10 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[110, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[110, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[110, 37]"/>
@@ -104,7 +104,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/editar-documento.png"/>
+              <Image iconType="3" name="/Imagenes/cotizacion mod.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar"/>
             <Property name="toolTipText" type="java.lang.String" value="Modificar cotizacion"/>
@@ -116,13 +116,13 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[110, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[110, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[110, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -140,7 +140,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/reportar 1.png"/>
+              <Image iconType="3" name="/Imagenes/imprimir.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cotizacion"/>
             <Property name="toolTipText" type="java.lang.String" value="Generar cotizacion"/>
@@ -152,10 +152,10 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[110, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[110, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[110, 37]"/>
@@ -164,8 +164,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JToolBar$Separator" name="jSeparator5">
         </Component>
       </SubComponents>
     </Container>
@@ -258,7 +256,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="120" y="40" width="1280" height="760"/>
+          <AbsoluteConstraints x="130" y="40" width="1270" height="760"/>
         </Constraint>
       </Constraints>
 
@@ -304,7 +302,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="120" y="0" width="980" height="40"/>
+          <AbsoluteConstraints x="130" y="0" width="970" height="40"/>
         </Constraint>
       </Constraints>
 

@@ -130,7 +130,7 @@ public class Panel_Compras extends javax.swing.JPanel {
 
         boton_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Buscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario-especialista.png"))); // NOI18N
+        boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_man_usersearch_thesearch_theclient_2356.png"))); // NOI18N
         boton_Buscar.setText("Proveedor");
         boton_Buscar.setToolTipText("Agregar proveedor");
         boton_Buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

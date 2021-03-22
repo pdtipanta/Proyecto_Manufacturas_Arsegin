@@ -978,7 +978,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/disquete.png"/>
+              <Image iconType="3" name="/Imagenes/businessapplication_accept_ok_male_man_you_negocio_2311.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Guardar"/>
             <Property name="toolTipText" type="java.lang.String" value="Guardar cotizacion"/>
@@ -1014,7 +1014,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/usuario-especialista.png"/>
+              <Image iconType="3" name="/Imagenes/business_man_usersearch_thesearch_theclient_2356.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
             <Property name="toolTipText" type="java.lang.String" value="Agregar cliente"/>

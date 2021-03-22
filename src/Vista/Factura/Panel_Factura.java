@@ -108,15 +108,15 @@ public class Panel_Factura extends javax.swing.JPanel {
 
         boton_Nueva_Factura.setBackground(new java.awt.Color(255, 255, 255));
         boton_Nueva_Factura.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Nueva_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-archivo.png"))); // NOI18N
+        boton_Nueva_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/factura add.png"))); // NOI18N
         boton_Nueva_Factura.setText("Nuevo");
         boton_Nueva_Factura.setToolTipText("Nueva cotizacion");
         boton_Nueva_Factura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nueva_Factura.setFocusable(false);
         boton_Nueva_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nueva_Factura.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Nueva_Factura.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Nueva_Factura.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Nueva_Factura.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Factura.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Factura.setPreferredSize(new java.awt.Dimension(120, 42));
         boton_Nueva_Factura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nueva_FacturaActionPerformed(evt);
@@ -127,15 +127,15 @@ public class Panel_Factura extends javax.swing.JPanel {
 
         boton_Modificar_Factura.setBackground(new java.awt.Color(255, 255, 255));
         boton_Modificar_Factura.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Modificar_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar-documento.png"))); // NOI18N
+        boton_Modificar_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/factura mod.png"))); // NOI18N
         boton_Modificar_Factura.setText("Modificar");
         boton_Modificar_Factura.setToolTipText("Modificar cotizacion");
         boton_Modificar_Factura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Modificar_Factura.setFocusable(false);
         boton_Modificar_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar_Factura.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Modificar_Factura.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Modificar_Factura.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Modificar_Factura.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Factura.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Factura.setPreferredSize(new java.awt.Dimension(120, 42));
         boton_Modificar_Factura.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar_Factura);
         jToolBar1.add(jSeparator2);
@@ -143,18 +143,18 @@ public class Panel_Factura extends javax.swing.JPanel {
 
         boton_Imprimir_Facturacion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Imprimir_Facturacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Imprimir_Facturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reportar 1.png"))); // NOI18N
+        boton_Imprimir_Facturacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Imprimir_Facturacion.setText("Factura");
         boton_Imprimir_Facturacion.setToolTipText("Generar factura");
         boton_Imprimir_Facturacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Imprimir_Facturacion.setFocusable(false);
         boton_Imprimir_Facturacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Imprimir_Facturacion.setMaximumSize(new java.awt.Dimension(100, 40));
-        boton_Imprimir_Facturacion.setMinimumSize(new java.awt.Dimension(100, 40));
-        boton_Imprimir_Facturacion.setPreferredSize(new java.awt.Dimension(100, 40));
+        boton_Imprimir_Facturacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Imprimir_Facturacion.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Imprimir_Facturacion.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Imprimir_Facturacion);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 790));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 790));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -229,7 +229,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 990, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 0, 980, 40));
 
         tabla_Consulta_Factura.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tabla_Consulta_Factura.setModel(new javax.swing.table.DefaultTableModel(
@@ -257,7 +257,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Consulta_Factura);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1290, 750));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 750));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_FacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_FacturaActionPerformed

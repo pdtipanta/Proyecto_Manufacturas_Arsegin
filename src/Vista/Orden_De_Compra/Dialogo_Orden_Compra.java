@@ -471,15 +471,15 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
 
         boton_Guardar_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
         boton_Guardar_Orden_Compra.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Guardar_Orden_Compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
+        boton_Guardar_Orden_Compra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/shoppingcart_accept_compra_12832.png"))); // NOI18N
         boton_Guardar_Orden_Compra.setText("Guardar");
         boton_Guardar_Orden_Compra.setToolTipText("Agregar cotizacion");
         boton_Guardar_Orden_Compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Guardar_Orden_Compra.setFocusable(false);
         boton_Guardar_Orden_Compra.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Guardar_Orden_Compra.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Guardar_Orden_Compra.setMinimumSize(new java.awt.Dimension(60, 37));
-        boton_Guardar_Orden_Compra.setPreferredSize(new java.awt.Dimension(60, 37));
+        boton_Guardar_Orden_Compra.setMaximumSize(new java.awt.Dimension(100, 40));
+        boton_Guardar_Orden_Compra.setMinimumSize(new java.awt.Dimension(100, 40));
+        boton_Guardar_Orden_Compra.setPreferredSize(new java.awt.Dimension(100, 40));
         boton_Guardar_Orden_Compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Guardar_Orden_CompraActionPerformed(evt);
@@ -490,13 +490,13 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
 
         boton_Buscar_Proveedor_Orden.setBackground(new java.awt.Color(255, 255, 255));
         boton_Buscar_Proveedor_Orden.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Buscar_Proveedor_Orden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario-especialista.png"))); // NOI18N
+        boton_Buscar_Proveedor_Orden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-proveedor-34 add.png"))); // NOI18N
         boton_Buscar_Proveedor_Orden.setText("Proveedor");
         boton_Buscar_Proveedor_Orden.setToolTipText("Agregar proveedor");
         boton_Buscar_Proveedor_Orden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Buscar_Proveedor_Orden.setMaximumSize(new java.awt.Dimension(110, 37));
-        boton_Buscar_Proveedor_Orden.setMinimumSize(new java.awt.Dimension(110, 37));
-        boton_Buscar_Proveedor_Orden.setPreferredSize(new java.awt.Dimension(110, 37));
+        boton_Buscar_Proveedor_Orden.setMaximumSize(new java.awt.Dimension(120, 40));
+        boton_Buscar_Proveedor_Orden.setMinimumSize(new java.awt.Dimension(120, 40));
+        boton_Buscar_Proveedor_Orden.setPreferredSize(new java.awt.Dimension(120, 40));
         jToolBar1.add(boton_Buscar_Proveedor_Orden);
 
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 40));

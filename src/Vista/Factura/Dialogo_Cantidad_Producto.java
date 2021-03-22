@@ -46,12 +46,12 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
         etiqueta_Total = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         etiqueta_Stock = new javax.swing.JLabel();
-        boton_Agregar_Producto = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         etiqueta_Codigo = new javax.swing.JLabel();
         etiqueta_Advertencia = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
+        boton_Agregar_Producto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Producto");
@@ -61,17 +61,18 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Producto:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
 
         etiqueta_Producto.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(etiqueta_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 310, 20));
+        etiqueta_Producto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(etiqueta_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 310, 24));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Cantidad:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
 
         campo_Cantidad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Cantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Cantidad.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 campo_CantidadPropertyChange(evt);
@@ -85,62 +86,72 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
                 campo_CantidadKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 110, 20));
+        getContentPane().add(campo_Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 110, 24));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Precio unidad:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
         etiqueta_Precio.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiqueta_Precio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         etiqueta_Precio.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         etiqueta_Precio.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 etiqueta_PrecioPropertyChange(evt);
             }
         });
-        getContentPane().add(etiqueta_Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 70, 20));
+        getContentPane().add(etiqueta_Precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 70, 24));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Precio total:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, 20));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, 20));
 
         etiqueta_Total.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(etiqueta_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 130, 20));
+        etiqueta_Total.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(etiqueta_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 130, 24));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Stock:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
         etiqueta_Stock.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Stock.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        etiqueta_Stock.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         etiqueta_Stock.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         etiqueta_Stock.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        getContentPane().add(etiqueta_Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 110, 20));
-
-        boton_Agregar_Producto.setBackground(new java.awt.Color(255, 255, 255));
-        boton_Agregar_Producto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Agregar_Producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anadir.png"))); // NOI18N
-        boton_Agregar_Producto.setText("Agregar");
-        boton_Agregar_Producto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(boton_Agregar_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 325, 110, 40));
+        getContentPane().add(etiqueta_Stock, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 110, 24));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Codigo:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, -1));
 
         etiqueta_Codigo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        getContentPane().add(etiqueta_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 320, 20));
+        etiqueta_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(etiqueta_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 320, 24));
 
         etiqueta_Advertencia.setFont(new java.awt.Font("Arial", 1, 11)); // NOI18N
         etiqueta_Advertencia.setForeground(java.awt.Color.red);
         etiqueta_Advertencia.setText("La cantidad no debe ser mayor al stock");
-        getContentPane().add(etiqueta_Advertencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, 220, -1));
+        getContentPane().add(etiqueta_Advertencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 220, -1));
 
         jLabel7.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Informacion producto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 520, 290));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 520, 290));
 
-        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 520, 70));
+        jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setRollover(true);
+
+        boton_Agregar_Producto.setBackground(new java.awt.Color(255, 255, 255));
+        boton_Agregar_Producto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        boton_Agregar_Producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario add.png"))); // NOI18N
+        boton_Agregar_Producto.setText("Agregar");
+        boton_Agregar_Producto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton_Agregar_Producto.setMaximumSize(new java.awt.Dimension(120, 37));
+        boton_Agregar_Producto.setMinimumSize(new java.awt.Dimension(120, 37));
+        boton_Agregar_Producto.setPreferredSize(new java.awt.Dimension(120, 37));
+        jToolBar1.add(boton_Agregar_Producto);
+
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 545, 40));
 
         pack();
         setLocationRelativeTo(null);
@@ -249,6 +260,6 @@ public class Dialogo_Cantidad_Producto extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

@@ -135,12 +135,12 @@ public class Dialogo_Agregar_Trabajo extends javax.swing.JDialog {
 
         boton_Agregar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Agregar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/anadir.png"))); // NOI18N
+        boton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trabajo add.png"))); // NOI18N
         boton_Agregar.setText("Agregar");
         boton_Agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Agregar.setMaximumSize(new java.awt.Dimension(91, 37));
-        boton_Agregar.setMinimumSize(new java.awt.Dimension(91, 37));
-        boton_Agregar.setPreferredSize(new java.awt.Dimension(91, 37));
+        boton_Agregar.setMaximumSize(new java.awt.Dimension(120, 37));
+        boton_Agregar.setMinimumSize(new java.awt.Dimension(120, 37));
+        boton_Agregar.setPreferredSize(new java.awt.Dimension(120, 37));
         jToolBar1.add(boton_Agregar);
 
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 2, 665, 40));

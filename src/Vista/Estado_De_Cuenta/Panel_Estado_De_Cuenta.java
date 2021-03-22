@@ -86,29 +86,29 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
 
         boton_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Buscar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario-especialista.png"))); // NOI18N
+        boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_man_usersearch_thesearch_theclient_2356.png"))); // NOI18N
         boton_Buscar.setText("Cliente");
         boton_Buscar.setToolTipText("Buscar cliente");
         boton_Buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Buscar.setFocusable(false);
         boton_Buscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Buscar.setMaximumSize(new java.awt.Dimension(90, 37));
-        boton_Buscar.setMinimumSize(new java.awt.Dimension(90, 37));
-        boton_Buscar.setPreferredSize(new java.awt.Dimension(90, 37));
+        boton_Buscar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Buscar.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Buscar.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Buscar);
         jToolBar1.add(jSeparator3);
 
         boton_Reporte.setBackground(new java.awt.Color(255, 255, 255));
         boton_Reporte.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reportar 1.png"))); // NOI18N
+        boton_Reporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Reporte.setText("Reporte");
         boton_Reporte.setToolTipText("Generar estado de cuenta");
         boton_Reporte.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Reporte.setFocusable(false);
         boton_Reporte.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Reporte.setMaximumSize(new java.awt.Dimension(90, 37));
-        boton_Reporte.setMinimumSize(new java.awt.Dimension(90, 37));
-        boton_Reporte.setPreferredSize(new java.awt.Dimension(90, 37));
+        boton_Reporte.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Reporte.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Reporte.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Reporte);
 
         add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 800));

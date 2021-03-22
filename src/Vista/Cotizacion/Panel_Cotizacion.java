@@ -74,7 +74,6 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         boton_Modificar_Cotizacion = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         boton_Generar_Cotizacion = new javax.swing.JButton();
-        jSeparator5 = new javax.swing.JToolBar.Separator();
         boton_Cerrar_Sesion = new javax.swing.JButton();
         etiqueta_Rol = new javax.swing.JLabel();
         etiqueta_Nombre_Usuario = new javax.swing.JLabel();
@@ -110,14 +109,14 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
 
         boton_Nueva_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Nueva_Cotizacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Nueva_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-archivo.png"))); // NOI18N
+        boton_Nueva_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/trabajo add.png"))); // NOI18N
         boton_Nueva_Cotizacion.setText("Nuevo");
         boton_Nueva_Cotizacion.setToolTipText("Nueva cotizacion");
         boton_Nueva_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nueva_Cotizacion.setFocusable(false);
         boton_Nueva_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nueva_Cotizacion.setMaximumSize(new java.awt.Dimension(110, 37));
-        boton_Nueva_Cotizacion.setMinimumSize(new java.awt.Dimension(110, 37));
+        boton_Nueva_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Nueva_Cotizacion.setPreferredSize(new java.awt.Dimension(110, 37));
         boton_Nueva_Cotizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,33 +128,32 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
 
         boton_Modificar_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Modificar_Cotizacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Modificar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar-documento.png"))); // NOI18N
+        boton_Modificar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cotizacion mod.png"))); // NOI18N
         boton_Modificar_Cotizacion.setText("Modificar");
         boton_Modificar_Cotizacion.setToolTipText("Modificar cotizacion");
         boton_Modificar_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Modificar_Cotizacion.setFocusable(false);
         boton_Modificar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar_Cotizacion.setMaximumSize(new java.awt.Dimension(110, 37));
-        boton_Modificar_Cotizacion.setMinimumSize(new java.awt.Dimension(110, 37));
-        boton_Modificar_Cotizacion.setPreferredSize(new java.awt.Dimension(110, 37));
+        boton_Modificar_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Cotizacion.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Modificar_Cotizacion);
         jToolBar1.add(jSeparator3);
 
         boton_Generar_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Generar_Cotizacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Generar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reportar 1.png"))); // NOI18N
+        boton_Generar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Generar_Cotizacion.setText("Cotizacion");
         boton_Generar_Cotizacion.setToolTipText("Generar cotizacion");
         boton_Generar_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Generar_Cotizacion.setFocusable(false);
         boton_Generar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Generar_Cotizacion.setMaximumSize(new java.awt.Dimension(110, 37));
-        boton_Generar_Cotizacion.setMinimumSize(new java.awt.Dimension(110, 37));
+        boton_Generar_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Generar_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Generar_Cotizacion.setPreferredSize(new java.awt.Dimension(110, 37));
         jToolBar1.add(boton_Generar_Cotizacion);
-        jToolBar1.add(jSeparator5);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -203,7 +201,7 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Consulta_Cotizacion);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -261,7 +259,7 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         jToolBar2.add(combo_Opciones);
         jToolBar2.add(jSeparator6);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 980, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_CotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_CotizacionActionPerformed
@@ -332,7 +330,6 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
-    private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;
     private javax.swing.JToolBar.Separator jSeparator8;

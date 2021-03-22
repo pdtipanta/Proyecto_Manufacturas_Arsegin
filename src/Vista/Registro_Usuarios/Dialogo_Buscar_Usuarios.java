@@ -44,7 +44,6 @@ public class Dialogo_Buscar_Usuarios extends javax.swing.JDialog {
         campo_Buscar = new javax.swing.JTextField();
         combo_Opciones = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar usuarios");
@@ -112,9 +111,6 @@ public class Dialogo_Buscar_Usuarios extends javax.swing.JDialog {
         getContentPane().add(combo_Opciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 32, 230, 23));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 102, 1150, 10));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Imagen-fondo-aurora-celeste_1.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1150, 410));
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -170,7 +166,6 @@ public class Dialogo_Buscar_Usuarios extends javax.swing.JDialog {
     public javax.swing.JComboBox<String> combo_Opciones;
     public javax.swing.ButtonGroup grupo_Botones;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     public javax.swing.JTable tabla_Usuarios;

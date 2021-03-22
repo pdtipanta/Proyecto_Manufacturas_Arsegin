@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.Locale;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author David
@@ -112,6 +113,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1173, 686));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         calendario_Factura.setBackground(new java.awt.Color(255, 255, 255));
@@ -316,7 +318,6 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         jLabel4.setText("Observaciones:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 206, -1, -1));
 
-        caja_Observaciones_Factura.setBackground(new java.awt.Color(255, 255, 255));
         caja_Observaciones_Factura.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         caja_Observaciones_Factura.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         getContentPane().add(caja_Observaciones_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 204, 270, 24));
@@ -411,25 +412,26 @@ public class Dialogo_Factura extends javax.swing.JDialog {
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
 
         boton_Guardar_Factura.setBackground(new java.awt.Color(255, 255, 255));
         boton_Guardar_Factura.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Guardar_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
+        boton_Guardar_Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/factura apro.png"))); // NOI18N
         boton_Guardar_Factura.setText("Guardar");
         boton_Guardar_Factura.setToolTipText("Agregar cotizacion");
         boton_Guardar_Factura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Guardar_Factura.setFocusable(false);
         boton_Guardar_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Guardar_Factura.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Guardar_Factura.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Guardar_Factura.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Guardar_Factura.setMaximumSize(new java.awt.Dimension(130, 37));
+        boton_Guardar_Factura.setMinimumSize(new java.awt.Dimension(130, 37));
+        boton_Guardar_Factura.setPreferredSize(new java.awt.Dimension(130, 37));
         jToolBar1.add(boton_Guardar_Factura);
         jToolBar1.add(jSeparator1);
 
         boton_Agregar_Cliente.setBackground(new java.awt.Color(255, 255, 255));
         boton_Agregar_Cliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Agregar_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario-especialista.png"))); // NOI18N
+        boton_Agregar_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_application_addmale_useradd_insert_add_user_client_2312.png"))); // NOI18N
         boton_Agregar_Cliente.setText("Cliente");
         boton_Agregar_Cliente.setToolTipText("Agregar cliente");
         boton_Agregar_Cliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

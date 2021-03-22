@@ -70,7 +70,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/usuario-especialista.png"/>
+              <Image iconType="3" name="/Imagenes/business_man_usersearch_thesearch_theclient_2356.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cliente"/>
             <Property name="toolTipText" type="java.lang.String" value="Buscar cliente"/>
@@ -82,13 +82,13 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -106,7 +106,7 @@
               <Font name="Arial" size="12" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/reportar 1.png"/>
+              <Image iconType="3" name="/Imagenes/imprimir.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Reporte"/>
             <Property name="toolTipText" type="java.lang.String" value="Generar estado de cuenta"/>
@@ -118,13 +118,13 @@
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalTextPosition" type="int" value="4"/>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[90, 37]"/>
+              <Dimension value="[120, 42]"/>
             </Property>
           </Properties>
           <AuxValues>

@@ -48,7 +48,7 @@ public class Controlador_Panel_Autenticar_Administrador implements ActionListene
             if (this.conexion_DataBase != null) {
                 if (new DAO_Ingreso(this.conexion_DataBase).rol_Sesion(conexion_Database.usuario()).split("`")[1].equals("Administrador")) {
                     vista.Panel_Contenedor.removeAll();
-                    new Controlador_Panel_Registro(vista, conexion_DataBase).iniciar();
+                    new Controlador_Panel_Registro(this.vista, this.conexion_DataBase).iniciar();
                 }
             } else {
                 this.panel_Autenticar_Administrador.etiqueta_Datos_Incorrectos.setVisible(true);

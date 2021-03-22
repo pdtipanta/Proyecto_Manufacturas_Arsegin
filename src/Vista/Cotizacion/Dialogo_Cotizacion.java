@@ -430,7 +430,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
 
         boton_Guardar_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Guardar_Cotizacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Guardar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
+        boton_Guardar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/businessapplication_accept_ok_male_man_you_negocio_2311.png"))); // NOI18N
         boton_Guardar_Cotizacion.setText("Guardar");
         boton_Guardar_Cotizacion.setToolTipText("Guardar cotizacion");
         boton_Guardar_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -444,7 +444,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
 
         boton_Agregar_Cliente.setBackground(new java.awt.Color(255, 255, 255));
         boton_Agregar_Cliente.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Agregar_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario-especialista.png"))); // NOI18N
+        boton_Agregar_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_man_usersearch_thesearch_theclient_2356.png"))); // NOI18N
         boton_Agregar_Cliente.setText("Cliente");
         boton_Agregar_Cliente.setToolTipText("Agregar cliente");
         boton_Agregar_Cliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

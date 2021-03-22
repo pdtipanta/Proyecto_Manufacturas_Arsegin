@@ -292,15 +292,15 @@ public class Dialogo_Orden_Produccion extends javax.swing.JDialog {
 
         boton_Guardar_Orden.setBackground(new java.awt.Color(255, 255, 255));
         boton_Guardar_Orden.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Guardar_Orden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
+        boton_Guardar_Orden.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/produccion lito.png"))); // NOI18N
         boton_Guardar_Orden.setText("Guardar");
         boton_Guardar_Orden.setToolTipText("Guardar orden");
         boton_Guardar_Orden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Guardar_Orden.setFocusable(false);
         boton_Guardar_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Guardar_Orden.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Guardar_Orden.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Guardar_Orden.setPreferredSize(new java.awt.Dimension(60, 37));
+        boton_Guardar_Orden.setMaximumSize(new java.awt.Dimension(120, 37));
+        boton_Guardar_Orden.setMinimumSize(new java.awt.Dimension(120, 37));
+        boton_Guardar_Orden.setPreferredSize(new java.awt.Dimension(120, 37));
         jToolBar1.add(boton_Guardar_Orden);
         jToolBar1.add(jSeparator1);
 
