@@ -219,13 +219,13 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
 
         boton_Guardar.setBackground(java.awt.Color.white);
         boton_Guardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
+        boton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/maquila guar.png"))); // NOI18N
         boton_Guardar.setText("Guardar");
         boton_Guardar.setToolTipText(" Agregar");
         boton_Guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Guardar.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Guardar.setMinimumSize(new java.awt.Dimension(60, 37));
-        boton_Guardar.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Guardar.setMaximumSize(new java.awt.Dimension(120, 40));
+        boton_Guardar.setMinimumSize(new java.awt.Dimension(120, 40));
+        boton_Guardar.setPreferredSize(new java.awt.Dimension(120, 40));
         boton_Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_GuardarActionPerformed(evt);

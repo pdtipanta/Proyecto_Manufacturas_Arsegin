@@ -69,13 +69,13 @@ public class Panel_Proveedor extends javax.swing.JPanel {
 
         boton_Nuevo_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
         boton_Nuevo_Proveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Nuevo_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-archivo.png"))); // NOI18N
+        boton_Nuevo_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-proveedor-34 add.png"))); // NOI18N
         boton_Nuevo_Proveedor.setText("Nuevo");
         boton_Nuevo_Proveedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nuevo_Proveedor.setFocusable(false);
-        boton_Nuevo_Proveedor.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Nuevo_Proveedor.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Nuevo_Proveedor.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Nuevo_Proveedor.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Proveedor.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Proveedor.setPreferredSize(new java.awt.Dimension(120, 42));
         boton_Nuevo_Proveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nuevo_ProveedorActionPerformed(evt);
@@ -87,41 +87,41 @@ public class Panel_Proveedor extends javax.swing.JPanel {
 
         boton_Modificar.setBackground(java.awt.Color.white);
         boton_Modificar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar-documento.png"))); // NOI18N
+        boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-proveedor-34 mod.png"))); // NOI18N
         boton_Modificar.setText("Modificar");
         boton_Modificar.setToolTipText(" Editar");
         boton_Modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Modificar.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Modificar.setPreferredSize(new java.awt.Dimension(60, 37));
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator2);
 
         boton_Eliminar.setBackground(java.awt.Color.white);
         boton_Eliminar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-eliminar.png"))); // NOI18N
+        boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-proveedor-34 del.png"))); // NOI18N
         boton_Eliminar.setText("Eliminar");
         boton_Eliminar.setToolTipText("Eliminar");
         boton_Eliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Eliminar.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Eliminar.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Eliminar.setPreferredSize(new java.awt.Dimension(60, 37));
+        boton_Eliminar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Eliminar);
         jToolBar1.add(jSeparator3);
 
         boton_Reporte_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
         boton_Reporte_Proveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Reporte_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reportar.png"))); // NOI18N
+        boton_Reporte_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Reporte_Proveedor.setText("Reporte");
         boton_Reporte_Proveedor.setToolTipText("Reporte");
         boton_Reporte_Proveedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Reporte_Proveedor.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Reporte_Proveedor.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Reporte_Proveedor.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Reporte_Proveedor.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Reporte_Proveedor.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Reporte_Proveedor.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Reporte_Proveedor.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Reporte_Proveedor);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -174,7 +174,7 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 990, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 980, 40));
 
         tabla_Proveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -201,7 +201,7 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Proveedores);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1290, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 760));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nuevo_ProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nuevo_ProveedorActionPerformed

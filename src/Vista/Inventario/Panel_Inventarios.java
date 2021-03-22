@@ -68,7 +68,6 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JToolBar.Separator();
         boton_Informe = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JToolBar.Separator();
-        boton_Devoluciones = new javax.swing.JButton();
         boton_Cerrar_Sesion = new javax.swing.JButton();
         etiqueta_Rol = new javax.swing.JLabel();
         etiqueta_Nombre_Usuario = new javax.swing.JLabel();
@@ -95,13 +94,13 @@ public class Panel_Inventarios extends javax.swing.JPanel {
 
         boton_Nuevo_Producto.setBackground(new java.awt.Color(255, 255, 255));
         boton_Nuevo_Producto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Nuevo_Producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar-archivo.png"))); // NOI18N
+        boton_Nuevo_Producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario add.png"))); // NOI18N
         boton_Nuevo_Producto.setText("Nuevo");
         boton_Nuevo_Producto.setFocusable(false);
         boton_Nuevo_Producto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nuevo_Producto.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Nuevo_Producto.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Nuevo_Producto.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Nuevo_Producto.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Producto.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Producto.setPreferredSize(new java.awt.Dimension(120, 42));
         boton_Nuevo_Producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nuevo_ProductoActionPerformed(evt);
@@ -113,46 +112,38 @@ public class Panel_Inventarios extends javax.swing.JPanel {
 
         boton_Modificar.setBackground(java.awt.Color.white);
         boton_Modificar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/editar-documento.png"))); // NOI18N
+        boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario mod.png"))); // NOI18N
         boton_Modificar.setText("Modificar");
         boton_Modificar.setToolTipText(" Editar");
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(113, 37));
-        boton_Modificar.setMinimumSize(new java.awt.Dimension(60, 37));
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator2);
 
         boton_Eliminar.setBackground(java.awt.Color.white);
         boton_Eliminar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-eliminar.png"))); // NOI18N
+        boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario elimi.png"))); // NOI18N
         boton_Eliminar.setText("Eliminar");
         boton_Eliminar.setToolTipText("Eliminar");
-        boton_Eliminar.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Eliminar.setMinimumSize(new java.awt.Dimension(60, 37));
+        boton_Eliminar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Eliminar);
         jToolBar1.add(jSeparator3);
 
         boton_Informe.setBackground(new java.awt.Color(255, 255, 255));
         boton_Informe.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Informe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/reanudar.png"))); // NOI18N
+        boton_Informe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Informe.setText("Reporte");
         boton_Informe.setToolTipText("Reporte inventario");
-        boton_Informe.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Informe.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Informe.setPreferredSize(new java.awt.Dimension(100, 37));
+        boton_Informe.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Informe.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Informe.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Informe);
         jToolBar1.add(jSeparator5);
 
-        boton_Devoluciones.setBackground(new java.awt.Color(255, 255, 255));
-        boton_Devoluciones.setText("Devoluciones");
-        boton_Devoluciones.setFocusable(false);
-        boton_Devoluciones.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        boton_Devoluciones.setMaximumSize(new java.awt.Dimension(100, 37));
-        boton_Devoluciones.setMinimumSize(new java.awt.Dimension(100, 37));
-        boton_Devoluciones.setPreferredSize(new java.awt.Dimension(100, 37));
-        boton_Devoluciones.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jToolBar1.add(boton_Devoluciones);
-
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -204,7 +195,7 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 980, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
 
         tabla_Inventario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tabla_Inventario.setModel(new javax.swing.table.DefaultTableModel(
@@ -234,7 +225,7 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         tabla_Inventario.setMinimumSize(new java.awt.Dimension(1396, 600));
         jScrollPane1.setViewportView(tabla_Inventario);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nuevo_ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nuevo_ProductoActionPerformed
@@ -258,7 +249,7 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         this.boton_Modificar.setVisible(bandera[2]);
         this.boton_Eliminar.setVisible(bandera[3]);
         this.boton_Informe.setVisible(bandera[4]);
-        this.boton_Devoluciones.setVisible(bandera[5]);
+        //this.boton_Devoluciones.setVisible(bandera[5]);
     }
 
     public void set_Usuario(Usuario usuario, String rol) {
@@ -268,7 +259,6 @@ public class Panel_Inventarios extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Cerrar_Sesion;
-    public javax.swing.JButton boton_Devoluciones;
     public javax.swing.JButton boton_Eliminar;
     public javax.swing.JButton boton_Informe;
     public javax.swing.JButton boton_Modificar;

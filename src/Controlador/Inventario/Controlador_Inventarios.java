@@ -51,7 +51,7 @@ public class Controlador_Inventarios implements ActionListener, MouseListener,Ke
         this.panel_Inventarios.boton_Eliminar.addActionListener(this);
         this.panel_Inventarios.boton_Informe.addActionListener(this);
         this.panel_Inventarios.boton_Cerrar_Sesion.addActionListener(this);
-        this.panel_Inventarios.boton_Devoluciones.addActionListener(this);
+        //this.panel_Inventarios.boton_Devoluciones.addActionListener(this);
         this.panel_Inventarios.tabla_Inventario.addMouseListener(this);
         this.panel_Inventarios.campo_Buscar.addKeyListener(this);
         this.modelo_Tabla_Productos = (DefaultTableModel) this.panel_Inventarios.tabla_Inventario.getModel();
@@ -116,10 +116,10 @@ public class Controlador_Inventarios implements ActionListener, MouseListener,Ke
             this.vista.borrar_Menu();
             new Controlador_Panel_Ingreso(this.vista).iniciar();
         }
-
+/*
         if (ae.getSource() == this.panel_Inventarios.boton_Devoluciones) {
             new Controlador_Dialogo_Devoluciones(this.vista).iniciar();
-        }
+        }*/
     }
     
     public void consultar_Datos_Inventario() {

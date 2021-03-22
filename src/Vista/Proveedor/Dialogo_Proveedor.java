@@ -257,7 +257,7 @@ public class Dialogo_Proveedor extends javax.swing.JDialog {
 
         boton_Guardar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Guardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
+        boton_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-proveedor-34 apro.png"))); // NOI18N
         boton_Guardar.setText("Guardar");
         boton_Guardar.setToolTipText("Guardar informacion");
         boton_Guardar.setFocusable(false);
