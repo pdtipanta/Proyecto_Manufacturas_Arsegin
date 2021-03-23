@@ -5,22 +5,19 @@
  */
 package Vista.Orden_De_Compra;
 
+import Controlador.Render_Tablas;
 import Modelo.Usuario;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author David
  */
 public class Panel_Orden_Compra extends javax.swing.JPanel {
 
-    private DefaultTableModel       modelo_Tabla_Datos_Compras;
     private DecimalFormat           formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
     /**
      * Creates new form Panel_Cotizacion
@@ -29,10 +26,6 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
         initComponents();
         this.boton_Modificar_Orden_Compra.setEnabled(false);
         this.boton_Generar_Orden.setEnabled(false);
-        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.CENTER);
-        this.tabla_Consulta_Compra.getColumnModel().getColumn(0).setCellRenderer(tcr);
-        this.tabla_Consulta_Compra.getColumnModel().getColumn(4).setCellRenderer(tcr);
         this.campo_Busqueda.setEditable(false);
         this.tabla_Consulta_Compra.getTableHeader().setReorderingAllowed(false);
         this.fecha_1.setVisible(false);
@@ -41,6 +34,7 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
         this.fecha_1.setDate(new Date());
         this.fecha_2.setDate(new Date());
         this.etiqueta_Error_Fecha.setVisible(false);
+        this.render_Columna();
     }
     
     public void Roles(String rol) {
@@ -317,6 +311,17 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
     public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
+    }
+    
+     public void render_Columna(){
+        Render_Tablas render_Tablas_Col0 = new Render_Tablas(0);
+        this.tabla_Consulta_Compra.getColumnModel().getColumn(0).setCellRenderer(render_Tablas_Col0);
+        
+        Render_Tablas render_Tablas_Col4 = new Render_Tablas(4);
+        this.tabla_Consulta_Compra.getColumnModel().getColumn(4).setCellRenderer(render_Tablas_Col4);
+        
+        Render_Tablas render_Tablas_Col6 = new Render_Tablas(6);
+        this.tabla_Consulta_Compra.getColumnModel().getColumn(6).setCellRenderer(render_Tablas_Col6);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

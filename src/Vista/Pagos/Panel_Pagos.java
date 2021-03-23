@@ -63,6 +63,8 @@ public class Panel_Pagos extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
+        jLabel10 = new javax.swing.JLabel();
+        campo_Busqueda = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(239, 239, 239));
         setMaximumSize(new java.awt.Dimension(1400, 800));
@@ -225,6 +227,23 @@ public class Panel_Pagos extends javax.swing.JPanel {
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search_locate_find_6278.png"))); // NOI18N
+        jLabel10.setText("       ");
+        jToolBar2.add(jLabel10);
+
+        campo_Busqueda.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        campo_Busqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Busqueda.setMaximumSize(new java.awt.Dimension(920, 30));
+        campo_Busqueda.setMinimumSize(new java.awt.Dimension(920, 30));
+        campo_Busqueda.setPreferredSize(new java.awt.Dimension(920, 30));
+        campo_Busqueda.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                campo_BusquedaCaretUpdate(evt);
+            }
+        });
+        jToolBar2.add(campo_Busqueda);
+
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 980, 40));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -251,6 +270,18 @@ public class Panel_Pagos extends javax.swing.JPanel {
         if ( ( c < 'a' || c > 'z' ) && ( c < 'A' || c >'Z' ) && ( c < '0'  || c > '9' ) && ( c < '#' || c > '&' ) && ( c < '-' || c > '/' ) &&  (  c == evt.VK_SPACE || this.campo_Correo.getText().contains( "@" ) ) ) evt.consume();
     }//GEN-LAST:event_campo_CorreoKeyTyped
 
+    private void campo_BusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_BusquedaCaretUpdate
+        String valor = this.campo_Busqueda.getText();
+
+        if (!this.combo_Opcion.getSelectedItem().equals("Seleccionar......")) {
+            for (int i = 0; i < this.tabla_Estado_Pagos.getRowCount(); i++) {
+                if (this.tabla_Estado_Pagos.getValueAt(i, 0).equals(valor)) {
+                    this.tabla_Estado_Pagos.changeSelection(i, 0, false, false);
+                }
+            }
+        }
+    }//GEN-LAST:event_campo_BusquedaCaretUpdate
+
     public void valores_Proveedores(Proveedor proveedor) {
         this.combo_Proveedor.setText(proveedor.getProveedor());
         this.campo_Direccion.setText(proveedor.getDireccion());
@@ -274,6 +305,7 @@ public class Panel_Pagos extends javax.swing.JPanel {
     public javax.swing.JButton boton_Buscar;
     public javax.swing.JButton boton_Cerrar_Sesion;
     public javax.swing.JButton boton_Reporte;
+    private javax.swing.JTextField campo_Busqueda;
     public javax.swing.JTextField campo_Correo;
     public javax.swing.JTextField campo_Direccion;
     public javax.swing.JTextField campo_RUC;
@@ -283,6 +315,7 @@ public class Panel_Pagos extends javax.swing.JPanel {
     public javax.swing.JLabel etiqueta_Nombre_Usuario;
     public javax.swing.JLabel etiqueta_Rol;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

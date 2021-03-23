@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Reportes/Reporte_Cliente.jrxml</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Factura/Controlador_Dialogo_Agregar_Factura.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Estado_De_Cuenta/Panel_Estado_De_Cuenta.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Compras/Panel_Compras.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Clientes/Controlador_Panel_Cliente.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Compras/Controlador_Compras.java</file>
         </group>
     </open-files>
 </project-private>

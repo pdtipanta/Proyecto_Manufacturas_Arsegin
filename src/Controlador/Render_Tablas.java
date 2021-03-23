@@ -7,7 +7,6 @@ package Controlador;
 
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -18,7 +17,7 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class Render_Tablas extends DefaultTableCellRenderer{
     private final int columna_Patron;
-    Font font = new Font("Arial", Font.BOLD, 14);
+    
     public Render_Tablas(int col_Tabla){
         this.columna_Patron = col_Tabla;
     }
@@ -59,6 +58,14 @@ public class Render_Tablas extends DefaultTableCellRenderer{
                     setBackground(Color.BLACK);
                     setForeground(Color.WHITE);
                 }
+                
+                if (table.getValueAt(row, 6).toString().equals("En revision")) {
+                    setBackground(Color.BLUE);
+                    setForeground(Color.WHITE);
+                } else if (table.getValueAt(row, 6).toString().equals("Aprobado")) {
+                    setBackground(Color.GREEN);
+                    setForeground(Color.BLACK);
+                } 
                 break;
         }
         super.getTableCellRendererComponent(table, value, Selected, Selected, row, col);

@@ -5,6 +5,7 @@
  */
 package Vista.Maquilas.Orden_De_Produccion;
 
+import Controlador.Render_Tabla_Orden_Produccion;
 import Modelo.Usuario;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,9 +22,6 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
      */
     public Panel_Orden_De_Produccion() {
         initComponents();
-        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.CENTER);
-        this.tabla_Consulta_Orden_Produccion.getColumnModel().getColumn(0).setCellRenderer(tcr);
         this.campo_Busqueda.setEditable(false);
         this.fecha_1.setVisible(false);
         this.fecha_2.setVisible(false);
@@ -34,6 +32,7 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         this.boton_Modificar_Orden.setEnabled(false);
         this.boton_Generar_Orden.setEnabled(false);
         this.tabla_Consulta_Orden_Produccion.getTableHeader().setReorderingAllowed(false);
+        this.render_Columna();
     }
 
     public void Roles(String rol) {
@@ -310,6 +309,17 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
 
     public void etiqueta_Error_Etiqueta(boolean bandera) {
         this.etiqueta_Error_Fecha.setVisible(bandera);
+    }
+    
+    public void render_Columna(){
+        Render_Tabla_Orden_Produccion render_Tabla_Orden0 = new Render_Tabla_Orden_Produccion(0);
+        this.tabla_Consulta_Orden_Produccion.getColumnModel().getColumn(0).setCellRenderer(render_Tabla_Orden0);
+
+        Render_Tabla_Orden_Produccion render_Tabla_Orden3 = new Render_Tabla_Orden_Produccion(3);
+        this.tabla_Consulta_Orden_Produccion.getColumnModel().getColumn(3).setCellRenderer(render_Tabla_Orden3);
+
+        Render_Tabla_Orden_Produccion render_Tabla_Orden4 = new Render_Tabla_Orden_Produccion(4);
+        this.tabla_Consulta_Orden_Produccion.getColumnModel().getColumn(4).setCellRenderer(render_Tabla_Orden4);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

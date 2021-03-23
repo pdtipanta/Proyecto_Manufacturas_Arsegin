@@ -6,6 +6,7 @@
 package Vista.Inventario;
 
 import Controlador.PlaceHolder_Textos;
+import Controlador.Render_Tabla_Inventario;
 import Modelo.Usuario;
 import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
@@ -25,6 +26,7 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         this.tabla_Inventario.getTableHeader().setReorderingAllowed(false);
         this.boton_Modificar.setEnabled(false);
         this.boton_Eliminar.setEnabled(false);
+        this.render_Columna();
     }
     
     public void Roles(String rol) {
@@ -255,6 +257,11 @@ public class Panel_Inventarios extends javax.swing.JPanel {
     public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
+    }
+    
+    public void render_Columna(){
+        Render_Tabla_Inventario render_Tabla_Inventario = new Render_Tabla_Inventario(3);
+        this.tabla_Inventario.getColumnModel().getColumn(3).setCellRenderer(render_Tabla_Inventario);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

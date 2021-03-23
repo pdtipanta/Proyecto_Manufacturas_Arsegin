@@ -145,6 +145,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         boton_Buscar_Proveedor_Orden = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Orden de Compra");
         setBackground(new java.awt.Color(229, 229, 229));
         setMaximumSize(new java.awt.Dimension(1175, 820));
         setMinimumSize(new java.awt.Dimension(1175, 820));
