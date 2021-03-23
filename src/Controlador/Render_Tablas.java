@@ -49,13 +49,13 @@ public class Render_Tablas extends DefaultTableCellRenderer{
             case 6:
                 setHorizontalAlignment(SwingConstants.CENTER);
                 if (table.getValueAt(row, 6).toString().equals("Credito")) {
-                    setBackground(Color.BLUE);
-                    setForeground(Color.WHITE);
+                    setBackground(Color.ORANGE);
+                    setForeground(Color.BLACK);
                 } else if (table.getValueAt(row, 6).toString().equals("Pagado")) {
                     setBackground(Color.GREEN);
                     setForeground(Color.BLACK);
                 } else if (table.getValueAt(row, 6).toString().equals("Anular")) {
-                    setBackground(Color.BLACK);
+                    setBackground(Color.BLUE);
                     setForeground(Color.WHITE);
                 }
                 
