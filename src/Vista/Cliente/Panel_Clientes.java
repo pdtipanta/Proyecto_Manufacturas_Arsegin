@@ -5,6 +5,7 @@
  */
 package Vista.Cliente;
 
+import Controlador.Render_Tablas;
 import Modelo.Usuario;
 
 /**
@@ -12,7 +13,6 @@ import Modelo.Usuario;
  * @author David
  */
 public class Panel_Clientes extends javax.swing.JPanel {
-
     /**
      * Creates new form Panel_Clientes
      */
@@ -21,6 +21,7 @@ public class Panel_Clientes extends javax.swing.JPanel {
         this.boton_Modificar.setEnabled(false);
         this.boton_Eliminar.setEnabled(false);
         this.tabla_Clientes.getTableHeader().setReorderingAllowed(false);
+        this.render_Columna();
     }
 
     /**
@@ -186,6 +187,11 @@ public class Panel_Clientes extends javax.swing.JPanel {
         campo_Buscar.setMaximumSize(new java.awt.Dimension(550, 30));
         campo_Buscar.setMinimumSize(new java.awt.Dimension(550, 30));
         campo_Buscar.setPreferredSize(new java.awt.Dimension(550, 30));
+        campo_Buscar.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                campo_BuscarCaretUpdate(evt);
+            }
+        });
         campo_Buscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_BuscarKeyTyped(evt);
@@ -222,9 +228,32 @@ public class Panel_Clientes extends javax.swing.JPanel {
 
     }//GEN-LAST:event_combo_OpcionesActionPerformed
 
+    private void campo_BuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_BuscarCaretUpdate
+
+    }//GEN-LAST:event_campo_BuscarCaretUpdate
+
+    public void filtrar_Tabla(String valor, int col) {
+        for (int i = 0; i < this.tabla_Clientes.getRowCount(); i++) {
+            if (this.tabla_Clientes.getValueAt(i, col).equals(valor)) {
+                this.tabla_Clientes.changeSelection(i, col, false, false);
+            }
+        }
+    }
+    
     public void set_Usuario(Usuario usuario, String rol){
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
+    }
+    
+    public void render_Columna(){
+        Render_Tablas render_Tablas_Col0 = new Render_Tablas(0);
+        this.tabla_Clientes.getColumnModel().getColumn(0).setCellRenderer(render_Tablas_Col0);
+        
+        Render_Tablas render_Tablas_Col5 = new Render_Tablas(5);
+        this.tabla_Clientes.getColumnModel().getColumn(5).setCellRenderer(render_Tablas_Col5);
+        
+        Render_Tablas render_Tablas_Col6 = new Render_Tablas(6);
+        this.tabla_Clientes.getColumnModel().getColumn(6).setCellRenderer(render_Tablas_Col6);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

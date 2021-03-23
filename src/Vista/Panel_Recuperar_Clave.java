@@ -61,7 +61,7 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
         boton_Cerrar_Sesion = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
 
-        setBackground(java.awt.SystemColor.activeCaption);
+        setBackground(new java.awt.Color(239, 239, 239));
         setMaximumSize(new java.awt.Dimension(1400, 800));
         setMinimumSize(new java.awt.Dimension(1400, 800));
         setPreferredSize(new java.awt.Dimension(1400, 800));
@@ -69,92 +69,92 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Usuario:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 142, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("C.I:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 182, -1, -1));
 
         campo_Recuperacion_Usuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Recuperacion_Usuario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Recuperacion_Usuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Recuperacion_Usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Recuperacion_UsuarioKeyTyped(evt);
             }
         });
-        add(campo_Recuperacion_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 225, 22));
+        add(campo_Recuperacion_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 225, 24));
 
         campo_Recuperacion_CI.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Recuperacion_CI.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Recuperacion_CI.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Recuperacion_CI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Recuperacion_CIKeyTyped(evt);
             }
         });
-        add(campo_Recuperacion_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 225, 22));
+        add(campo_Recuperacion_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 225, 24));
 
         boton_Recuperacion_Recuperar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Recuperacion_Recuperar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Recuperacion_Recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/correo (1).png"))); // NOI18N
+        boton_Recuperacion_Recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/email_mail_envelope_message_icon_181521.png"))); // NOI18N
         boton_Recuperacion_Recuperar.setText("Recuperar");
         boton_Recuperacion_Recuperar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         add(boton_Recuperacion_Recuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 110, 40));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Nueva contraseña:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Confirmar contraseña:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 430, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 430, -1, -1));
 
         campo_Recuperacion_Codigo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Recuperacion_Codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Recuperacion_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Recuperacion_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Recuperacion_CodigoKeyTyped(evt);
             }
         });
-        add(campo_Recuperacion_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 230, 22));
+        add(campo_Recuperacion_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 230, 24));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Codigo verificacion:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 340, -1, -1));
 
         campo_Recuperacion_Nueva.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Recuperacion_Nueva.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Recuperacion_Nueva.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Recuperacion_Nueva.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Recuperacion_NuevaKeyTyped(evt);
             }
         });
-        add(campo_Recuperacion_Nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 230, 22));
+        add(campo_Recuperacion_Nueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 230, 24));
 
         campo_Recuperacion_Confirmar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        campo_Recuperacion_Confirmar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        campo_Recuperacion_Confirmar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Recuperacion_Confirmar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Recuperacion_ConfirmarKeyTyped(evt);
             }
         });
-        add(campo_Recuperacion_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 230, 22));
+        add(campo_Recuperacion_Confirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 230, 24));
 
         etiqueta_Indicador_Usuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         etiqueta_Indicador_Usuario.setForeground(new java.awt.Color(198, 0, 0));
         etiqueta_Indicador_Usuario.setText("*");
-        add(etiqueta_Indicador_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, -1, -1));
+        add(etiqueta_Indicador_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 138, -1, -1));
 
         etiqueta_Indicador_CI.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         etiqueta_Indicador_CI.setForeground(new java.awt.Color(199, 0, 0));
         etiqueta_Indicador_CI.setText("*");
-        add(etiqueta_Indicador_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
+        add(etiqueta_Indicador_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 178, -1, -1));
 
         boton_Recuperacion_Guardar.setBackground(new java.awt.Color(255, 255, 255));
         boton_Recuperacion_Guardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Recuperacion_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/disquete.png"))); // NOI18N
+        boton_Recuperacion_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construction_project_plan_building_architect_design_develop-95_icon-icons.com_60215.png"))); // NOI18N
         boton_Recuperacion_Guardar.setText("Guardar");
         boton_Recuperacion_Guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(boton_Recuperacion_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 110, 45));
+        add(boton_Recuperacion_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 110, 45));
 
         etiqueta_Aceptado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprobar.png"))); // NOI18N
         add(etiqueta_Aceptado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));

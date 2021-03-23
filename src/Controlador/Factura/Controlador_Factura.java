@@ -60,7 +60,7 @@ public class Controlador_Factura extends EventListenerList implements ActionList
         }
   
         if (ae.getSource() == this.panel_Factura.boton_Modificar_Factura) {
-            ArrayList<Factura> factura = new DAO_Factura_Implementacion(this.conexion_Database).consultar(this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 0) + ";" + this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 6));
+            ArrayList<Factura> factura = new DAO_Factura_Implementacion(this.conexion_Database).consultar(this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 0) + ";" + this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 5));
 
             if (factura.size() == 1) {
                 String valor_Cliente = factura.get(0).getCliente() + ";" + factura.get(0).getVendedor();
@@ -77,7 +77,7 @@ public class Controlador_Factura extends EventListenerList implements ActionList
         }
         
         if (ae.getSource() == panel_Factura.boton_Imprimir_Facturacion) {
-            ArrayList<Factura> factura = new DAO_Factura_Implementacion(this.conexion_Database).consultar(this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 0) + ";" + this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 6));
+            ArrayList<Factura> factura = new DAO_Factura_Implementacion(this.conexion_Database).consultar(this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 0) + ";" + this.panel_Factura.tabla_Consulta_Factura.getValueAt(this.panel_Factura.tabla_Consulta_Factura.getSelectedRow(), 5));
 
             if (factura.size() == 1) {
                 ArrayList<Cliente> cliente = new DAO_Cliente_Implementacion(this.conexion_Database).consultar(factura.get(0).getCliente() + ";" + factura.get(0).getVendedor());

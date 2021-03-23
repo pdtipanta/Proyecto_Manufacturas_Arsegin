@@ -102,6 +102,7 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
     }
 
     public void facturas(String opcion) {
+        this.panel_Estado_De_Cuenta.campo_Busqueda.setText("");
         this.modelo_Tabla_Consulta_Estado_Cuenta.setRowCount(0);
         
         String valor = null;

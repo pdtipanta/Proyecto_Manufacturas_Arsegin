@@ -362,6 +362,7 @@
             </Property>
           </Properties>
           <Events>
+            <EventHandler event="caretUpdate" listener="javax.swing.event.CaretListener" parameters="javax.swing.event.CaretEvent" handler="campo_BuscarCaretUpdate"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_BuscarKeyTyped"/>
           </Events>
           <AuxValues>

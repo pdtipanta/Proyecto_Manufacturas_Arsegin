@@ -220,6 +220,11 @@ public class Panel_Compras extends javax.swing.JPanel {
         campo_Busqueda.setMaximumSize(new java.awt.Dimension(780, 30));
         campo_Busqueda.setMinimumSize(new java.awt.Dimension(780, 30));
         campo_Busqueda.setPreferredSize(new java.awt.Dimension(780, 30));
+        campo_Busqueda.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                campo_BusquedaCaretUpdate(evt);
+            }
+        });
         add(campo_Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 720, 390, -1));
 
         combo_Filtrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
@@ -239,6 +244,23 @@ public class Panel_Compras extends javax.swing.JPanel {
         add(combo_Opcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 270, 40));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void campo_BusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_BusquedaCaretUpdate
+        String valor = this.campo_Busqueda.getText();
+        
+        if (this.combo_Filtrar.getSelectedItem().equals("Nº Orden de compra")) {
+            this.filtrar_Tabla(valor, 0);
+        } else if (this.combo_Filtrar.getSelectedItem().equals("Nº Factura")) {
+            this.filtrar_Tabla(valor, 6);
+        }
+    }//GEN-LAST:event_campo_BusquedaCaretUpdate
+
+    public void filtrar_Tabla(String valor, int col) {
+        for (int i = 0; i < this.tabla_Consulta_Orden_Compra.getRowCount(); i++) {
+            if (this.tabla_Consulta_Orden_Compra.getValueAt(i, col).equals(valor)) {
+                this.tabla_Consulta_Orden_Compra.changeSelection(i, col, false, false);
+            }
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Buscar;

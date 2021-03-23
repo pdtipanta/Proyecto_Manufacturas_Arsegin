@@ -5,6 +5,7 @@
  */
 package Vista.Factura;
 
+import Controlador.Render_Tablas;
 import Modelo.Usuario;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -22,16 +23,17 @@ public class Panel_Factura extends javax.swing.JPanel {
      */
     public Panel_Factura() {
         initComponents();
-        this.boton_Modificar_Factura.setEnabled( false );
+        this.boton_Modificar_Factura.setEnabled(false);
         this.boton_Imprimir_Facturacion.setEnabled(false);
-        this.boton_Modificar_Factura.setEnabled( false );
+        this.boton_Modificar_Factura.setEnabled(false);
         this.fecha_1.setVisible(false);
         this.fecha_2.setVisible(false);
         this.boton_Fecha.setVisible(false);
-        this.fecha_1.setDate( new Date() );
-        this.fecha_2.setDate( new Date() );
+        this.fecha_1.setDate(new Date());
+        this.fecha_2.setDate(new Date());
         this.etiqueta_Error_Fecha.setVisible(false);
-       this.tabla_Consulta_Factura.getTableHeader().setReorderingAllowed(false) ;
+        this.tabla_Consulta_Factura.getTableHeader().setReorderingAllowed(false);
+        this.render_Columna();
     }
     
     public void Roles(String rol) {
@@ -229,7 +231,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 0, 980, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 0, 970, 40));
 
         tabla_Consulta_Factura.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tabla_Consulta_Factura.setModel(new javax.swing.table.DefaultTableModel(
@@ -237,11 +239,11 @@ public class Panel_Factura extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No_Factura", "Cliente", "RUC/ CI", "Estado", "Valor", "Fecha", "Id_Vendedor"
+                "No_Factura", "Cliente", "RUC/ CI", "Valor", "Fecha", "Id_Vendedor", "Estado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false
@@ -257,7 +259,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Consulta_Factura);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 750));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 750));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_FacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_FacturaActionPerformed
@@ -306,6 +308,26 @@ public class Panel_Factura extends javax.swing.JPanel {
     public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
+    }
+    
+    public void render_Columna(){
+        Render_Tablas render_Tablas_Col0 = new Render_Tablas(0);
+        this.tabla_Consulta_Factura.getColumnModel().getColumn(0).setCellRenderer(render_Tablas_Col0);
+        
+        Render_Tablas render_Tablas_Col2 = new Render_Tablas(2);
+        this.tabla_Consulta_Factura.getColumnModel().getColumn(2).setCellRenderer(render_Tablas_Col2);
+        
+        Render_Tablas render_Tablas_Col3 = new Render_Tablas(3);
+        this.tabla_Consulta_Factura.getColumnModel().getColumn(3).setCellRenderer(render_Tablas_Col3);
+        
+        Render_Tablas render_Tablas_Col4 = new Render_Tablas(4);
+        this.tabla_Consulta_Factura.getColumnModel().getColumn(4).setCellRenderer(render_Tablas_Col4);
+        
+        Render_Tablas render_Tablas_Col5 = new Render_Tablas(5);
+        this.tabla_Consulta_Factura.getColumnModel().getColumn(5).setCellRenderer(render_Tablas_Col5);
+        
+        Render_Tablas render_Tablas_Col6 = new Render_Tablas(6);
+        this.tabla_Consulta_Factura.getColumnModel().getColumn(6).setCellRenderer(render_Tablas_Col6);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

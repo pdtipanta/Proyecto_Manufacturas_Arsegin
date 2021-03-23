@@ -109,6 +109,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         boton_Agregar_Cliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cotizacion");
         setMaximumSize(new java.awt.Dimension(1060, 760));
         setMinimumSize(new java.awt.Dimension(1060, 760));
         setPreferredSize(new java.awt.Dimension(1060, 760));
@@ -430,15 +431,15 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
 
         boton_Guardar_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Guardar_Cotizacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Guardar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/businessapplication_accept_ok_male_man_you_negocio_2311.png"))); // NOI18N
+        boton_Guardar_Cotizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cotizacion aprob.png"))); // NOI18N
         boton_Guardar_Cotizacion.setText("Guardar");
         boton_Guardar_Cotizacion.setToolTipText("Guardar cotizacion");
         boton_Guardar_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Guardar_Cotizacion.setFocusable(false);
         boton_Guardar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Guardar_Cotizacion.setMaximumSize(new java.awt.Dimension(110, 37));
-        boton_Guardar_Cotizacion.setMinimumSize(new java.awt.Dimension(110, 37));
-        boton_Guardar_Cotizacion.setPreferredSize(new java.awt.Dimension(110, 37));
+        boton_Guardar_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 37));
+        boton_Guardar_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 37));
+        boton_Guardar_Cotizacion.setPreferredSize(new java.awt.Dimension(120, 37));
         jToolBar1.add(boton_Guardar_Cotizacion);
         jToolBar1.add(jSeparator1);
 

@@ -5,6 +5,7 @@
  */
 package Vista.Cotizacion;
 
+import Controlador.Render_Tablas;
 import Modelo.Usuario;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,8 +22,8 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
     public Panel_Cotizacion() {
         initComponents();
         DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.CENTER);
-        this.tabla_Consulta_Cotizacion.getColumnModel().getColumn(0).setCellRenderer(tcr);
+        tcr.setHorizontalAlignment(SwingConstants.RIGHT);
+        this.tabla_Consulta_Cotizacion.getColumnModel().getColumn(5).setCellRenderer(tcr);
         this.tabla_Consulta_Cotizacion.getTableHeader().setReorderingAllowed(false) ;
         this.campo_Busqueda.setEditable(false);
         this.campo_Busqueda.setEditable(false);
@@ -34,6 +35,7 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         this.etiqueta_Error_Fecha.setVisible(false);
         this.boton_Modificar_Cotizacion.setEnabled(false);
         this.boton_Generar_Cotizacion.setEnabled(false);
+        this.render_Columna();
     }
     
     public void Roles(String rol) {
@@ -308,6 +310,18 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         this.fecha_1.setVisible(bandera);
         this.fecha_2.setVisible(bandera);
         this.boton_Fecha.setVisible(bandera);
+    }
+    
+     public void render_Columna(){
+        Render_Tablas render_Tablas_Col0 = new Render_Tablas(0);
+        this.tabla_Consulta_Cotizacion.getColumnModel().getColumn(0).setCellRenderer(render_Tablas_Col0);
+        
+        Render_Tablas render_Tablas_Col2 = new Render_Tablas(2);
+        this.tabla_Consulta_Cotizacion.getColumnModel().getColumn(2).setCellRenderer(render_Tablas_Col2);
+        
+        Render_Tablas render_Tablas_Col4 = new Render_Tablas(4);
+        this.tabla_Consulta_Cotizacion.getColumnModel().getColumn(4).setCellRenderer(render_Tablas_Col4);
+    
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

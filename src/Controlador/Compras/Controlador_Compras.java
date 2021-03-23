@@ -64,10 +64,11 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
         this.conexion_Database = conexion_Database;
         this.usuario = usuario;
         this.rol = rol;
-        this.panel_Compras.campo_Busqueda.addKeyListener(this);
+       // this.panel_Compras.campo_Busqueda.addKeyListener(this);
         this.panel_Compras.boton_Buscar.addActionListener(this);
         this.panel_Compras.combo_Opcion.addActionListener(this);
         this.panel_Compras.combo_Filtrar.addActionListener(this);
+        this.panel_Compras.boton_Cerrar_Sesion.addActionListener(this);
         this.panel_Compras.tabla_Consulta_Orden_Compra.addMouseListener(this);
     }
 

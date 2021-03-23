@@ -71,6 +71,8 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jToolBar2 = new javax.swing.JToolBar();
+        jLabel12 = new javax.swing.JLabel();
+        campo_Busqueda = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(232, 232, 232));
         setMaximumSize(new java.awt.Dimension(1400, 800));
@@ -250,6 +252,22 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.setFloatable(false);
         jToolBar2.setRollover(true);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/search_locate_find_6278.png"))); // NOI18N
+        jLabel12.setText("     ");
+        jToolBar2.add(jLabel12);
+
+        campo_Busqueda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        campo_Busqueda.setMaximumSize(new java.awt.Dimension(750, 30));
+        campo_Busqueda.setMinimumSize(new java.awt.Dimension(750, 30));
+        campo_Busqueda.setPreferredSize(new java.awt.Dimension(950, 30));
+        campo_Busqueda.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                campo_BusquedaCaretUpdate(evt);
+            }
+        });
+        jToolBar2.add(campo_Busqueda);
+
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 1000, 40));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -257,17 +275,15 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
 
     }//GEN-LAST:event_combo_OpcionItemStateChanged
 
-    public void filtro(String opcion) {
-        DefaultTableModel modelo_Tabla_Consulta_Estado_Cuenta = (DefaultTableModel) this.tabla_Estado_Cuenta_Facturacion.getModel();
-        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(modelo_Tabla_Consulta_Estado_Cuenta);
-        this.tabla_Estado_Cuenta_Facturacion.setRowSorter(tr);
-
-        if (opcion != "Seleccione.........") {
-            tr.setRowFilter(RowFilter.regexFilter(opcion, 3));
-        } else {
-            this.tabla_Estado_Cuenta_Facturacion.setRowSorter(tr);
+    private void campo_BusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_BusquedaCaretUpdate
+        String valor = this.campo_Busqueda.getText();
+        
+        for(int i = 0; i<this.tabla_Estado_Cuenta_Facturacion.getRowCount(); i++){
+            if(this.tabla_Estado_Cuenta_Facturacion.getValueAt(i, 1).equals(valor)){
+                this.tabla_Estado_Cuenta_Facturacion.changeSelection(i, 1, false, false);
+            }
         }
-    }
+    }//GEN-LAST:event_campo_BusquedaCaretUpdate
 
     public void valores_Clientes(Cliente cliente, Usuario usuario) {
         DefaultTableModel modelo_Tabla_Consulta_Estado_Cuenta = (DefaultTableModel) this.tabla_Estado_Cuenta_Facturacion.getModel();
@@ -300,6 +316,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(0).setCellRenderer(tcr);
         this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(1).setCellRenderer(tcr);
         this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(2).setCellRenderer(tcr);
+        this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(3).setCellRenderer(tcr);
     }
 
     public void derecha_Tabla() {
@@ -312,6 +329,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
     public javax.swing.JButton boton_Buscar;
     public javax.swing.JButton boton_Cerrar_Sesion;
     public javax.swing.JButton boton_Reporte;
+    public javax.swing.JTextField campo_Busqueda;
     public javax.swing.JTextField campo_Ciudad;
     public javax.swing.JTextField campo_Cliente;
     public javax.swing.JTextField campo_Codigo;
@@ -327,6 +345,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

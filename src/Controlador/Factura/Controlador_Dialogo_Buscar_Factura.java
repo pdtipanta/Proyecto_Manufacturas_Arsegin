@@ -19,7 +19,10 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.ArrayList;
+import java.util.Locale;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -77,7 +80,7 @@ public class Controlador_Dialogo_Buscar_Factura implements ActionListener, KeyLi
             for (int i = 0; i < factura.size(); i++) {
                 String valor_Cliente = factura.get(i).getCliente() + ";" + factura.get(i).getVendedor();
                 ArrayList<Cliente> cliente = new DAO_Cliente_Implementacion(this.conexion).consultar(valor_Cliente);
-                Object[] fila = {factura.get(i).getNo_Factura(), cliente.get(0).getCliente(), cliente.get(0).getRUC(), factura.get(i).getEstado(), factura.get(i).getValor_Total(), factura.get(i).getFecha(), cliente.get(0).getEmpleado()};
+                Object[] fila = {factura.get(i).getNo_Factura(), cliente.get(0).getCliente(), cliente.get(0).getRUC(), factura.get(i).getValor_Total(), factura.get(i).getFecha(), cliente.get(0).getEmpleado(), factura.get(i).getEstado()};
                 this.modelo_Tabla_Facturas.addRow(fila);
             }
         }
