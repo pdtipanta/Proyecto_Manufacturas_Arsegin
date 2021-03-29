@@ -50,7 +50,6 @@ public class DAO_Ingreso{
             }
             consulta.close();
         } catch (SQLException e1) {
-            System.out.println(e1);
         }
         return rol;
     }
