@@ -103,7 +103,8 @@ public class Controlador_Dialogo_Buscar_Proveedor implements KeyListener, MouseL
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.dialogo_Buscar_Proveedor.tabla_Proveedores) {
+
+        if (me.getSource() == this.dialogo_Buscar_Proveedor.tabla_Proveedores && me.getButton() == 1) {
             this.proveedor = new DAO_Proveedor_Implementacion(this.conexion).consultar(String.valueOf(this.dialogo_Buscar_Proveedor.tabla_Proveedores.getValueAt(this.dialogo_Buscar_Proveedor.tabla_Proveedores.getSelectedRow(), 0)));
 
             if (proveedor.size() == 1) {

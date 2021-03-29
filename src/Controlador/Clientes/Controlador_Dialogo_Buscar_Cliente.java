@@ -123,7 +123,7 @@ public class Controlador_Dialogo_Buscar_Cliente implements KeyListener, MouseLis
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.dialogo_Buscar_Cliente.tabla_Clientes) {
+        if (me.getSource() == this.dialogo_Buscar_Cliente.tabla_Clientes && me.getButton() == 1) {
             this.cliente = new DAO_Cliente_Implementacion(this.conexion).consultar(this.dialogo_Buscar_Cliente.tabla_Clientes.getValueAt(this.dialogo_Buscar_Cliente.tabla_Clientes.getSelectedRow(), 0) + ";" + this.dialogo_Buscar_Cliente.tabla_Clientes.getValueAt(this.dialogo_Buscar_Cliente.tabla_Clientes.getSelectedRow(), 9));
             if (this.cliente.size() == 1) {
                 this.dialogo_Buscar_Cliente.dispose();

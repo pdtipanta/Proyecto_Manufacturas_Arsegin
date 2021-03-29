@@ -43,13 +43,13 @@ public class Controlador_Dialogo_Producto_Orden_Compra implements ActionListener
         this.vista = vista;
         this.conexion = conexion;
         this.dialogo_Orden_Compra = dialogo_Orden_Compra;
-        this.dialogo_Buscar_Inventario = new Dialogo_Buscar_Inventario(this.vista, true); 
+        this.dialogo_Buscar_Inventario = new Dialogo_Buscar_Inventario(this.vista, true);
         this.dialogo_Buscar_Inventario.campo_Buscar.addKeyListener(this);
         this.dialogo_Buscar_Inventario.tabla_Inventario.addMouseListener(this);
         this.dialogo_Buscar_Inventario.boton_Nuevo_Producto.addActionListener(this);
-        this.modelo_Tabla_Productos = ( DefaultTableModel ) this.dialogo_Buscar_Inventario.tabla_Inventario.getModel();
+        this.modelo_Tabla_Productos = (DefaultTableModel) this.dialogo_Buscar_Inventario.tabla_Inventario.getModel();
     }
-    
+
     public Object[] iniciar() {
         consultar_Datos_Inventario();
         this.dialogo_Buscar_Inventario.boton_Nuevo_Producto.setVisible(true);
@@ -113,7 +113,7 @@ public class Controlador_Dialogo_Producto_Orden_Compra implements ActionListener
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.dialogo_Buscar_Inventario.tabla_Inventario) {
+        if (me.getSource() == this.dialogo_Buscar_Inventario.tabla_Inventario && me.getButton() == 1) {
 
             this.inventario = new DAO_Inventario_Implementacion(this.conexion).consultar(String.valueOf(this.dialogo_Buscar_Inventario.tabla_Inventario.getValueAt(this.dialogo_Buscar_Inventario.tabla_Inventario.getSelectedRow(), 0)));
 

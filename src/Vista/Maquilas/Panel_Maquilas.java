@@ -46,7 +46,7 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         }
 
         if (rol.equals("Administrador")) {
-            boolean[] bandera = {false, false, false, true, false, false};
+            boolean[] bandera = {false, false, false, false, false, false};
             this.habilitar_Rol(bandera);
         }
         
@@ -283,6 +283,7 @@ if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
     }
 
     public void habilitar_Rol(boolean[] bandera) {
+        this.boton_Nuevo_Maquila.setVisible(bandera[0]);
         this.boton_Modificar.setVisible(bandera[1]);
         this.boton_Eliminar.setVisible(bandera[2]);
     }

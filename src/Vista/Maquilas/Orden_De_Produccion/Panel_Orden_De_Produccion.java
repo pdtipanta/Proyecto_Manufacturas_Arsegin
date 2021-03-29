@@ -12,8 +12,6 @@ import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.RowFilter;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableRowSorter;
 /**
  *
@@ -57,8 +55,7 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         }
 
         if (rol.equals("Administrador")) {
-            System.out.println("administrador");
-            boolean[] bandera = {true, false, false, true, false, false, false};
+            boolean[] bandera = {false, false, false, true, false, false, false};
             this.habilitar_Rol(bandera);
         }
 
@@ -372,7 +369,6 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         if (this.fecha_2.getDate() == null) {
             bandera = false;
         }
-
         return bandera;
     }
 
