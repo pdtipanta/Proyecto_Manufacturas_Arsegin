@@ -18,7 +18,7 @@ import javax.swing.table.TableRowSorter;
  * @author David
  */
 public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
-
+private TableRowSorter                  TRSFiltro;
     /**
      * Creates new form Panel_Estado_De_Cuenta
      */
@@ -44,6 +44,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         boton_Buscar = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JToolBar.Separator();
         boton_Reporte = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabla_Estado_Cuenta_Facturacion = new javax.swing.JTable();
@@ -112,6 +113,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         boton_Reporte.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Reporte.setPreferredSize(new java.awt.Dimension(120, 42));
         jToolBar1.add(boton_Reporte);
+        jToolBar1.add(jSeparator1);
 
         add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 100, 800));
 
@@ -266,6 +268,11 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
                 campo_BusquedaCaretUpdate(evt);
             }
         });
+        campo_Busqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_BusquedaKeyTyped(evt);
+            }
+        });
         jToolBar2.add(campo_Busqueda);
 
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 1000, 40));
@@ -285,6 +292,23 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_campo_BusquedaCaretUpdate
 
+    private void campo_BusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BusquedaKeyTyped
+       /*
+        DefaultTableModel modelo_Tabla_Consulta_Estado_Cuenta = (DefaultTableModel) this.tabla_Estado_Cuenta_Facturacion.getModel();
+        if (evt.getSource() == this.campo_Busqueda) {
+            this.campo_Busqueda.addKeyListener(new KeyAdapter() {
+                public void keyReleased(final KeyEvent e) {
+                    filtrar(1);
+                }
+            });
+            TRSFiltro = new TableRowSorter(modelo_Tabla_Consulta_Estado_Cuenta);
+            this.tabla_Estado_Cuenta_Facturacion.setRowSorter(TRSFiltro);
+        }*/
+    }//GEN-LAST:event_campo_BusquedaKeyTyped
+
+    public void filtrar(int i){
+    TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Busqueda.getText(), 1));
+}
     public void valores_Clientes(Cliente cliente, Usuario usuario) {
         DefaultTableModel modelo_Tabla_Consulta_Estado_Cuenta = (DefaultTableModel) this.tabla_Estado_Cuenta_Facturacion.getModel();
 
@@ -324,6 +348,8 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
         tcr.setHorizontalAlignment(SwingConstants.RIGHT);
         this.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumn(4).setCellRenderer(tcr);
     }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Buscar;
@@ -356,6 +382,7 @@ public class Panel_Estado_De_Cuenta extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;

@@ -57,7 +57,7 @@ public class Controlador_Panel_Cliente implements ActionListener {
 
         if (ae.getSource() == this.panel_Cliente.boton_Modificar) {
             Cliente cliente = new Cliente((String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 0), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 1), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 4), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 3), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 5), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 6), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 2), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 8), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 7), (String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 9));
-            if (new Controlador_Dialogo_Registrar_Cliente(this.vista, this.conexion_Database, this.usuario, cliente, "Modificar").iniciar()) {
+            if (new Controlador_Dialogo_Cliente(this.vista, this.conexion_Database, this.usuario, cliente, "Modificar").iniciar()) {
                 this.panel_Cliente.boton_Modificar.setEnabled(false);
                 this.panel_Cliente.boton_Eliminar.setEnabled(false);
                 this.cargar_Clientes();
@@ -96,7 +96,7 @@ public class Controlador_Panel_Cliente implements ActionListener {
         }
 
         if (ae.getSource() == this.panel_Cliente.boton_Nuevo_Cliente) {
-            if (new Controlador_Dialogo_Registrar_Cliente(this.vista, this.conexion_Database, this.usuario, cliente, "Registrar").iniciar()) {
+            if (new Controlador_Dialogo_Cliente(this.vista, this.conexion_Database, this.usuario, cliente, "Registrar").iniciar()) {
                 this.cargar_Clientes();
                 this.panel_Cliente.boton_Modificar.setEnabled(false);
                 this.panel_Cliente.boton_Eliminar.setEnabled(false);

@@ -5,18 +5,25 @@
  */
 package Vista.Inventario;
 
-import Controlador.PlaceHolder_Textos;
 import Controlador.Render_Tabla_Inventario;
 import Modelo.Usuario;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.JTextField;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author David
  */
 public class Panel_Inventarios extends javax.swing.JPanel {
-    PlaceHolder_Textos textos_Place;
+    private TableRowSorter                TRSFiltro;
     
     /**
      * Creates new form Panel_Inventario
@@ -225,20 +232,73 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         });
         tabla_Inventario.setMaximumSize(new java.awt.Dimension(1396, 600));
         tabla_Inventario.setMinimumSize(new java.awt.Dimension(1396, 600));
+        tabla_Inventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_InventarioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Inventario);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nuevo_ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nuevo_ProductoActionPerformed
-       // limpiar_Campos();
-       // this.botones(true, true, false, false, true, true);
+
     }//GEN-LAST:event_boton_Nuevo_ProductoActionPerformed
 
     private void campo_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BuscarKeyTyped
+        if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Buscar.setEditable(false);
+        } else {
+            this.campo_Buscar.setEditable(true);
+            if (evt.getSource() == this.campo_Buscar) {
+                this.campo_Buscar.addKeyListener(new KeyAdapter() {
 
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
+
+                TRSFiltro = new TableRowSorter(this.tabla_Inventario.getModel());
+                this.tabla_Inventario.setRowSorter(TRSFiltro);
+            }
+        }
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
+    private void tabla_InventarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_InventarioMouseClicked
+        seleccion_Tabla(this.tabla_Inventario.getSelectedRow());
+    }//GEN-LAST:event_tabla_InventarioMouseClicked
+
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por Codigo") {
+            filtrar_Tabla(0);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por Descripcion") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por Proveedor") {
+            filtrar_Tabla(2);
+        }
+    }
+    
+    public void filtrar_Tabla(int valor) {
+        seleccion_Tabla(this.tabla_Inventario.getSelectedRow());
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Buscar.getText(), valor));
+        if (this.tabla_Inventario.getRowCount() > 0) {
+            this.boton_Informe.setEnabled(true);
+        } else {
+            this.boton_Informe.setEnabled(false);
+        }
+    }
+    
+    public void seleccion_Tabla(int bandera) {
+        if (bandera != -1) {
+            this.boton_Modificar.setEnabled(true);
+            this.boton_Eliminar.setEnabled(true);
+        } else {
+            this.boton_Modificar.setEnabled(false);
+            this.boton_Eliminar.setEnabled(false);
+        }
+    }
+    
     public void validar_Campos(KeyEvent evt, JTextField campo) {
         char c = evt.getKeyChar();
         if (((c < '0') || (c > '9')) && (c != evt.VK_BACK_SPACE) && (c != '.' || campo.getText().contains("."))) {
@@ -251,7 +311,6 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         this.boton_Modificar.setVisible(bandera[2]);
         this.boton_Eliminar.setVisible(bandera[3]);
         this.boton_Informe.setVisible(bandera[4]);
-        //this.boton_Devoluciones.setVisible(bandera[5]);
     }
 
     public void set_Usuario(Usuario usuario, String rol) {

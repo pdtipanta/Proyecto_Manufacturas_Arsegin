@@ -13,31 +13,23 @@ import Vista.Maquilas.Panel_Maquilas;
 import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author David
  */
-public class Controlador_Maquila implements ActionListener, KeyListener, MouseListener{
+public class Controlador_Maquila implements ActionListener{
     private final Vista_Principal         vista;
     private final Connection              conexion_Database;
     private final Usuario                 usuario;
     private final String                  rol;
     private Maquila                       maquilas;
-    private TableRowSorter                TRSFiltro;
     private final DefaultTableModel       modelo_Tabla_Maquilas;
     private final Panel_Maquilas          panel_Maquilas = new Panel_Maquilas();
     
@@ -47,8 +39,6 @@ public class Controlador_Maquila implements ActionListener, KeyListener, MouseLi
         this.usuario = usuario;
         this.rol = rol;
         this.panel_Maquilas.boton_Modificar.addActionListener(this);
-        this.panel_Maquilas.campo_Buscar.addKeyListener(this);
-        this.panel_Maquilas.tabla_Maquilas.addMouseListener(this);
         this.panel_Maquilas.boton_Eliminar.addActionListener(this);
         this.panel_Maquilas.boton_Cerrar_Sesion.addActionListener(this);
         this.panel_Maquilas.boton_Nuevo_Maquila.addActionListener(this);
@@ -120,85 +110,5 @@ public class Controlador_Maquila implements ActionListener, KeyListener, MouseLi
 
     public void habilitar_Rol() {
         this.panel_Maquilas.Roles(rol);
-    }
-
-    @Override
-    public void keyTyped(KeyEvent ke) {
-        if (this.panel_Maquilas.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
-            this.panel_Maquilas.campo_Buscar.setEditable(false);
-        } else {
-            this.panel_Maquilas.campo_Buscar.setEditable(true);
-            if (ke.getSource() == this.panel_Maquilas.campo_Buscar) {
-                this.panel_Maquilas.campo_Buscar.addKeyListener(new KeyAdapter() {
-
-                    public void keyReleased(final KeyEvent e) {
-                        filtro();
-                    }
-                });
-
-                TRSFiltro = new TableRowSorter(this.panel_Maquilas.tabla_Maquilas.getModel());
-                this.panel_Maquilas.tabla_Maquilas.setRowSorter(TRSFiltro);
-            }
-        }
-    }
-
-    public void filtro() {
-        if (this.panel_Maquilas.combo_Opciones.getSelectedItem() == "Por nombre") {
-            filtrar_Tabla(1);
-        } else if (this.panel_Maquilas.combo_Opciones.getSelectedItem() == "Por RUC / CI") {
-            filtrar_Tabla(2);
-        } else if (this.panel_Maquilas.combo_Opciones.getSelectedItem() == "Por servicio") {
-            filtrar_Tabla(3);
-        }
-    }
-
-    public void filtrar_Tabla(int valor) {
-        seleccion_Tabla(this.panel_Maquilas.tabla_Maquilas.getSelectedRow());
-        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.panel_Maquilas.campo_Buscar.getText(), valor));
-    }
-
-    public void seleccion_Tabla(int bandera) {
-        if (bandera != -1) {
-            this.panel_Maquilas.boton_Modificar.setEnabled(true);
-            this.panel_Maquilas.boton_Eliminar.setEnabled(true);
-        } else {
-            this.panel_Maquilas.boton_Modificar.setEnabled(false);
-            this.panel_Maquilas.boton_Eliminar.setEnabled(false);
-        }
-    }
-
-    @Override
-    public void keyPressed(KeyEvent ke) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent ke) {
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.panel_Maquilas.tabla_Maquilas) {
-            seleccion_Tabla(this.panel_Maquilas.tabla_Maquilas.getSelectedRow());
-        }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

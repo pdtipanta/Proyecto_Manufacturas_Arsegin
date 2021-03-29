@@ -5,14 +5,18 @@
  */
 package Vista.Proveedor;
 
-import Controlador.PlaceHolder_Textos;
 import Modelo.Usuario;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author David
  */
 public class Panel_Proveedor extends javax.swing.JPanel {
+    private TableRowSorter                      TRSFiltro;
     /**
      * Creates new form Panel_Proveedor
      */
@@ -21,6 +25,7 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         this.tabla_Proveedores.getTableHeader().setReorderingAllowed(false) ;
         this.boton_Modificar.setEnabled( false );
         this.boton_Eliminar.setEnabled( false );
+        this.campo_Buscar.setEditable(false);
     }
 
     /**
@@ -199,6 +204,11 @@ public class Panel_Proveedor extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla_Proveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_ProveedoresMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Proveedores);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 760));
@@ -209,9 +219,59 @@ public class Panel_Proveedor extends javax.swing.JPanel {
     }//GEN-LAST:event_boton_Nuevo_ProveedorActionPerformed
 
     private void campo_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BuscarKeyTyped
+        if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Buscar.setEditable(false);
+        } else {
+            this.campo_Buscar.setEditable(true);
+            if (evt.getSource() == this.campo_Buscar) {
+                this.campo_Buscar.addKeyListener(new KeyAdapter() {
 
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
+
+                TRSFiltro = new TableRowSorter(this.tabla_Proveedores.getModel());
+                this.tabla_Proveedores.setRowSorter(TRSFiltro);
+            }
+        }
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
+    private void tabla_ProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_ProveedoresMouseClicked
+        seleccion_Tabla(this.tabla_Proveedores.getSelectedRow());
+    }//GEN-LAST:event_tabla_ProveedoresMouseClicked
+
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por nombre") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por RUC / CI") {
+            filtrar_Tabla(2);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por producto") {
+            filtrar_Tabla(3);
+        }
+    }
+
+    public void seleccion_Tabla(int bandera) {
+        if (bandera != -1) {
+            this.boton_Modificar.setEnabled(true);
+            this.boton_Eliminar.setEnabled(true);
+        } else {
+            this.boton_Modificar.setEnabled(false);
+            this.boton_Eliminar.setEnabled(false);
+        }
+    }
+
+    public void filtrar_Tabla(int valor) {
+        seleccion_Tabla(this.tabla_Proveedores.getSelectedRow());
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Buscar.getText(), valor));
+        
+        if (this.tabla_Proveedores.getRowCount() > 0) {
+            this.boton_Reporte_Proveedor.setEnabled(true);
+        } else {
+            this.boton_Reporte_Proveedor.setEnabled(false);
+        }
+    }
+    
     public void set_Usuario(Usuario usuario, String rol){
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);

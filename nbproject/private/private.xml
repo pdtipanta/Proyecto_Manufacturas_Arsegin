@@ -3,10 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Estado_De_Cuenta/Panel_Estado_De_Cuenta.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Compras/Panel_Compras.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Clientes/Controlador_Panel_Cliente.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Compras/Controlador_Compras.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Inventario/Panel_Inventarios.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Render_Tablas.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Inventario/Controlador_Dialogo_Inventario.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Datos/Inventario/DAO_Inventario_Implementacion.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Inventario/Dialogo_Imagen_Producto.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Inventario/Dialogo_Inventario.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Inventario/Controlador_Inventarios.java</file>
         </group>
     </open-files>
 </project-private>

@@ -7,16 +7,21 @@ package Vista.Maquilas.Orden_De_Produccion;
 
 import Controlador.Render_Tabla_Orden_Produccion;
 import Modelo.Usuario;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author David
  */
 public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
 
+    private TableRowSorter     TRSFiltro;
     /**
      * Creates new form Panel_Cotizacion
      */
@@ -211,6 +216,11 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla_Consulta_Orden_Produccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_Consulta_Orden_ProduccionMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Consulta_Orden_Produccion);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
@@ -233,6 +243,11 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         campo_Busqueda.setMaximumSize(new java.awt.Dimension(450, 30));
         campo_Busqueda.setMinimumSize(new java.awt.Dimension(450, 30));
         campo_Busqueda.setPreferredSize(new java.awt.Dimension(440, 30));
+        campo_Busqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_BusquedaKeyTyped(evt);
+            }
+        });
         jToolBar2.add(campo_Busqueda);
         jToolBar2.add(jSeparator4);
 
@@ -263,6 +278,11 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         combo_Opciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.....", "Por numero", "Por nombre", "Por RUC", "Por fecha" }));
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        combo_Opciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_OpcionesActionPerformed(evt);
+            }
+        });
         jToolBar2.add(combo_Opciones);
 
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
@@ -271,6 +291,65 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
     private void boton_Nueva_OrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_OrdenActionPerformed
 
     }//GEN-LAST:event_boton_Nueva_OrdenActionPerformed
+
+    private void campo_BusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BusquedaKeyTyped
+        if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Busqueda.setEditable(false);
+        } else {
+            this.campo_Busqueda.setEditable(true);
+            if (evt.getSource() == this.campo_Busqueda) {
+                this.campo_Busqueda.addKeyListener(new KeyAdapter() {
+
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
+
+                TRSFiltro = new TableRowSorter(this.tabla_Consulta_Orden_Produccion.getModel());
+                this.tabla_Consulta_Orden_Produccion.setRowSorter(TRSFiltro);
+            }
+        }
+    }//GEN-LAST:event_campo_BusquedaKeyTyped
+
+    private void tabla_Consulta_Orden_ProduccionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_Consulta_Orden_ProduccionMouseClicked
+        seleccion_Tabla(this.tabla_Consulta_Orden_Produccion.getSelectedRow());
+    }//GEN-LAST:event_tabla_Consulta_Orden_ProduccionMouseClicked
+
+    private void combo_OpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_OpcionesActionPerformed
+
+        if (evt.getSource() == this.combo_Opciones) {
+            if (this.combo_Opciones.getSelectedItem().equals("Por fecha")) {
+                this.desactivar_Calendarios(true);
+            } else {
+                this.desactivar_Calendarios(false);
+            }
+        }
+    }//GEN-LAST:event_combo_OpcionesActionPerformed
+    
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por numero") {
+            filtrar_Tabla(0);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por nombre") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por RUC") {
+            filtrar_Tabla(2);
+        }
+    }
+
+    public void filtrar_Tabla(int valor) {
+        seleccion_Tabla(this.tabla_Consulta_Orden_Produccion.getSelectedRow());
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Busqueda.getText(), valor));
+    }
+    
+    public void seleccion_Tabla(int bandera) {
+        if (bandera != -1) {
+            this.boton_Modificar_Orden.setEnabled(true);
+            this.boton_Generar_Orden.setEnabled(true);
+        } else {
+            this.boton_Modificar_Orden.setEnabled(false);
+            this.boton_Generar_Orden.setEnabled(false);
+        }
+    }
     
     public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());

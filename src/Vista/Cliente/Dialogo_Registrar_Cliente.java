@@ -5,7 +5,6 @@
  */
 package Vista.Cliente;
 
-import Controlador.PlaceHolder_Textos;
 import Modelo.Cliente;
 import java.text.DecimalFormat;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -23,8 +22,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(parent);
-        this.grupo_Botones_DNI.add(this.radio_Boton_CI);
-        this.grupo_Botones_DNI.add(this.radio_Boton_RUC);
         this.campo_RUC.setEditable(false);
         this.etiqueta_Indicador_Ciudad.setVisible(false);
         this.etiqueta_Indicador_RUC.setVisible(false);
@@ -48,7 +45,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupo_Botones_DNI = new javax.swing.ButtonGroup();
         etiqueta_Cliente = new javax.swing.JLabel();
         etiqueta_Ciudad = new javax.swing.JLabel();
         etiqueta_RUC = new javax.swing.JLabel();
@@ -75,13 +71,12 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         etiqueta_Indicador_Cliente = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         campo_Cod_Cliente = new javax.swing.JTextField();
-        radio_Boton_CI = new javax.swing.JRadioButton();
-        radio_Boton_RUC = new javax.swing.JRadioButton();
         campo_Ciudad = new javax.swing.JComboBox<>();
         etiqueta_Correccion_RUC = new javax.swing.JLabel();
         etiqueta_Correccion_Correo = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Agregar = new javax.swing.JButton();
+        combo_Opcion_Ruc = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Datos cliente");
@@ -126,6 +121,11 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         campo_Direccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Direccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Direccion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_DireccionFocusGained(evt);
+            }
+        });
         campo_Direccion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 campo_DireccionMouseClicked(evt);
@@ -140,6 +140,11 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         campo_Telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Telefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Telefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_TelefonoFocusGained(evt);
+            }
+        });
         campo_Telefono.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 campo_TelefonoMouseClicked(evt);
@@ -162,6 +167,11 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         campo_Correo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Correo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Correo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_CorreoFocusGained(evt);
+            }
+        });
         campo_Correo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 campo_CorreoMouseClicked(evt);
@@ -176,6 +186,11 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         campo_Contacto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Contacto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Contacto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_ContactoFocusGained(evt);
+            }
+        });
         campo_Contacto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 campo_ContactoMouseClicked(evt);
@@ -204,6 +219,19 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         campo_Celular.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Celular.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Celular.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                campo_CelularCaretUpdate(evt);
+            }
+        });
+        campo_Celular.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_CelularFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                campo_CelularFocusLost(evt);
+            }
+        });
         campo_Celular.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 campo_CelularMouseClicked(evt);
@@ -253,6 +281,11 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         combo_Cliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Cliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        combo_Cliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                combo_ClienteFocusGained(evt);
+            }
+        });
         combo_Cliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 combo_ClienteMouseClicked(evt);
@@ -287,28 +320,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
             }
         });
         getContentPane().add(campo_Cod_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 75, 170, 24));
-
-        radio_Boton_CI.setBackground(new java.awt.Color(255, 255, 255));
-        radio_Boton_CI.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        radio_Boton_CI.setText("Cedula");
-        radio_Boton_CI.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        radio_Boton_CI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radio_Boton_CIActionPerformed(evt);
-            }
-        });
-        getContentPane().add(radio_Boton_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 178, -1, -1));
-
-        radio_Boton_RUC.setBackground(new java.awt.Color(255, 255, 255));
-        radio_Boton_RUC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        radio_Boton_RUC.setText("RUC");
-        radio_Boton_RUC.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        radio_Boton_RUC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radio_Boton_RUCActionPerformed(evt);
-            }
-        });
-        getContentPane().add(radio_Boton_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 198, -1, -1));
 
         campo_Ciudad.setEditable(true);
         campo_Ciudad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -371,6 +382,21 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
 
         getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 40));
 
+        combo_Opcion_Ruc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        combo_Opcion_Ruc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "RUC", "Cedula" }));
+        combo_Opcion_Ruc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        combo_Opcion_Ruc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                combo_Opcion_RucFocusGained(evt);
+            }
+        });
+        combo_Opcion_Ruc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_Opcion_RucActionPerformed(evt);
+            }
+        });
+        getContentPane().add(combo_Opcion_Ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 186, 110, 24));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -392,11 +418,6 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_campo_TelefonoKeyTyped
 
-    private void radio_Boton_RUCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_Boton_RUCActionPerformed
-        this.campo_RUC.setEditable(true);
-        this.campo_RUC.setText("");
-    }//GEN-LAST:event_radio_Boton_RUCActionPerformed
-
     private void campo_DireccionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_DireccionKeyTyped
         char c = evt.getKeyChar();
         if (c == evt.VK_SPACE && this.campo_Direccion.getText().length() == 0) {
@@ -406,21 +427,16 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_campo_DireccionKeyTyped
 
-    private void radio_Boton_CIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_Boton_CIActionPerformed
-        this.campo_RUC.setEditable(true);
-        this.campo_RUC.setText("");
-    }//GEN-LAST:event_radio_Boton_CIActionPerformed
-
     private void campo_RUCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_RUCKeyTyped
         char c = evt.getKeyChar();
 
-        if (this.radio_Boton_RUC.isSelected()) {
+        if (this.combo_Opcion_Ruc.getSelectedItem().equals("RUC")) {
             if (c < '0' || c > '9' || this.campo_RUC.getText().length() >= 13) {
                 evt.consume();
             }
         }
 
-        if (this.radio_Boton_CI.isSelected()) {
+        if (this.combo_Opcion_Ruc.getSelectedItem().equals("Cedula")) {
             if (c < '0' || c > '9' || this.campo_RUC.getText().length() >= 10) {
                 evt.consume();
             }
@@ -454,7 +470,7 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_campo_CelularMouseClicked
 
     private void campo_RUCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campo_RUCMouseClicked
-        if (this.radio_Boton_CI.isSelected() || this.radio_Boton_RUC.isSelected()) {
+        if (!this.combo_Opcion_Ruc.getSelectedItem().equals("Seleccionar.....")) {
             this.colores_Bordes();
             this.campo_RUC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
         }
@@ -485,15 +501,16 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     }//GEN-LAST:event_campo_CiudadMouseClicked
 
     private void campo_CiudadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_CiudadFocusGained
-        
+        this.colores_Bordes();
+        this.campo_Ciudad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
     }//GEN-LAST:event_campo_CiudadFocusGained
 
     private void campo_CiudadMouseWheelMoved(java.awt.event.MouseWheelEvent evt) {//GEN-FIRST:event_campo_CiudadMouseWheelMoved
-        this.colores_Bordes();
+        
     }//GEN-LAST:event_campo_CiudadMouseWheelMoved
 
     private void campo_CiudadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_campo_CiudadItemStateChanged
-        this.colores_Bordes();
+        
     }//GEN-LAST:event_campo_CiudadItemStateChanged
 
     private void campo_Cod_ClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_Cod_ClienteKeyTyped
@@ -503,6 +520,58 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     private void combo_ClienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_combo_ClienteKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_ClienteKeyTyped
+
+    private void campo_CelularCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_CelularCaretUpdate
+       
+    }//GEN-LAST:event_campo_CelularCaretUpdate
+
+    private void campo_CelularFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_CelularFocusGained
+        this.colores_Bordes();
+        this.campo_Celular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_CelularFocusGained
+
+    private void campo_CelularFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_CelularFocusLost
+        
+    }//GEN-LAST:event_campo_CelularFocusLost
+
+    private void combo_Opcion_RucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_Opcion_RucActionPerformed
+        if (this.combo_Opcion_Ruc.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_RUC.setText("");
+            this.campo_RUC.setEditable(false);
+        } else {
+            this.campo_RUC.setEditable(true);
+        }
+    }//GEN-LAST:event_combo_Opcion_RucActionPerformed
+
+    private void campo_DireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_DireccionFocusGained
+        this.colores_Bordes();
+        this.campo_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_DireccionFocusGained
+
+    private void campo_CorreoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_CorreoFocusGained
+        this.colores_Bordes();
+        this.campo_Correo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_CorreoFocusGained
+
+    private void campo_ContactoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_ContactoFocusGained
+        this.colores_Bordes();
+        this.campo_Contacto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_ContactoFocusGained
+
+    private void combo_ClienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_ClienteFocusGained
+        this.colores_Bordes();
+        this.combo_Cliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_combo_ClienteFocusGained
+
+    private void campo_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_TelefonoFocusGained
+        this.colores_Bordes();
+        this.campo_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_TelefonoFocusGained
+
+    private void combo_Opcion_RucFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_Opcion_RucFocusGained
+        this.colores_Bordes();
+        this.combo_Opcion_Ruc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_combo_Opcion_RucFocusGained
 
     public boolean etiquetas() {
         boolean bandera = true;
@@ -521,9 +590,9 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
             this.etiqueta_Indicador_Ciudad.setVisible(false);
         }
 
-        if( this.campo_RUC.getText().matches( "[0-9][0-9]{12}" ) && this.radio_Boton_RUC.isSelected() ){
+        if( this.campo_RUC.getText().matches( "[0-9][0-9]{12}" ) && this.combo_Opcion_Ruc.getSelectedItem().equals("RUC") ){
             this.etiqueta_Indicador_RUC.setVisible( false );
-        }else if(this.campo_RUC.getText().matches( "[0-9][0-9]{9}" ) && this.radio_Boton_CI.isSelected()){
+        }else if(this.campo_RUC.getText().matches( "[0-9][0-9]{9}" ) && this.combo_Opcion_Ruc.getSelectedItem().equals("Cedula")){
             this.etiqueta_Indicador_RUC.setVisible( false );
         }
         else{
@@ -603,12 +672,12 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         this.campo_Correo.setText(cliente.getCorreo());
         this.campo_Contacto.setText(cliente.getPersona_Contacto());
     }
-    
+
     public void campos_Busqueda() {
         if (this.campo_RUC.getText().length() == 10) {
-            this.radio_Boton_CI.setSelected(true);
+            this.combo_Opcion_Ruc.setSelectedItem("Cedula");
         } else if (this.campo_RUC.getText().length() == 13) {
-            this.radio_Boton_RUC.setSelected(true);
+            this.combo_Opcion_Ruc.setSelectedItem("RUC");
         }
     }
     /**
@@ -661,6 +730,7 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
         this.campo_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         this.campo_RUC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         this.campo_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.combo_Opcion_Ruc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Agregar;
@@ -673,6 +743,7 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     public javax.swing.JTextField campo_RUC;
     public javax.swing.JTextField campo_Telefono;
     public javax.swing.JTextField combo_Cliente;
+    public javax.swing.JComboBox<String> combo_Opcion_Ruc;
     public javax.swing.JLabel etiqueta_Ciudad;
     public javax.swing.JLabel etiqueta_Cliente;
     private javax.swing.JLabel etiqueta_Correccion_Correo;
@@ -691,11 +762,8 @@ public class Dialogo_Registrar_Cliente extends javax.swing.JDialog {
     public javax.swing.JLabel etiqueta_Persona2;
     public javax.swing.JLabel etiqueta_RUC;
     public javax.swing.JLabel etiqueta_Telefono;
-    public javax.swing.ButtonGroup grupo_Botones_DNI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JToolBar jToolBar1;
-    private javax.swing.JRadioButton radio_Boton_CI;
-    private javax.swing.JRadioButton radio_Boton_RUC;
     // End of variables declaration//GEN-END:variables
 }

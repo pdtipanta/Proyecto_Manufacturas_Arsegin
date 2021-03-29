@@ -6,8 +6,19 @@
 package Vista.Inventario;
 
 import Modelo.Inventario;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -62,11 +73,15 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         etiqueta_Correccion_Producto = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Guardar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        campo_Direccion_Imagen = new javax.swing.JTextField();
+        boton_Cargar_Imagen = new javax.swing.JButton();
+        etiqueta_Foto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(752, 465));
-        setMinimumSize(new java.awt.Dimension(752, 465));
-        setPreferredSize(new java.awt.Dimension(752, 465));
+        setMaximumSize(new java.awt.Dimension(1086, 621));
+        setMinimumSize(new java.awt.Dimension(1086, 621));
+        setPreferredSize(new java.awt.Dimension(1086, 621));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -97,7 +112,7 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Proveedor:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setText("Cantidad:");
@@ -136,6 +151,7 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         });
         getContentPane().add(campo_Precio_Venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 200, 24));
 
+        campo_Codigo.setBackground(new java.awt.Color(255, 255, 255));
         campo_Codigo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -148,7 +164,7 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         etiqueta_Indicador_Proveedor.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Proveedor.setForeground(new java.awt.Color(198, 0, 0));
         etiqueta_Indicador_Proveedor.setText("*");
-        getContentPane().add(etiqueta_Indicador_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
 
         etiqueta_Indicador_Codigo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Codigo.setForeground(new java.awt.Color(198, 0, 0));
@@ -182,7 +198,7 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         combo_Proveedor.setMaximumSize(new java.awt.Dimension(2, 20));
         combo_Proveedor.setMinimumSize(new java.awt.Dimension(2, 20));
         combo_Proveedor.setPreferredSize(new java.awt.Dimension(2, 20));
-        getContentPane().add(combo_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 320, 24));
+        getContentPane().add(combo_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 320, 24));
 
         boton_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
         boton_Proveedor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -193,7 +209,7 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         boton_Proveedor.setMaximumSize(new java.awt.Dimension(110, 37));
         boton_Proveedor.setMinimumSize(new java.awt.Dimension(110, 37));
         boton_Proveedor.setPreferredSize(new java.awt.Dimension(110, 37));
-        getContentPane().add(boton_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 110, -1));
+        getContentPane().add(boton_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 410, 110, -1));
 
         etiqueta_Correccion_Producto.setFont(new java.awt.Font("Arial", 3, 11)); // NOI18N
         etiqueta_Correccion_Producto.setForeground(new java.awt.Color(220, 0, 0));
@@ -220,7 +236,29 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         });
         jToolBar1.add(boton_Guardar);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 40));
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setText("Imagen:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(67, 350, -1, -1));
+
+        campo_Direccion_Imagen.setEditable(false);
+        campo_Direccion_Imagen.setBackground(new java.awt.Color(255, 255, 255));
+        campo_Direccion_Imagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(campo_Direccion_Imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 330, 24));
+
+        boton_Cargar_Imagen.setBackground(new java.awt.Color(255, 255, 255));
+        boton_Cargar_Imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/upload_icon_124041.png"))); // NOI18N
+        boton_Cargar_Imagen.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton_Cargar_Imagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_Cargar_ImagenActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_Cargar_Imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 347, 40, 30));
+
+        etiqueta_Foto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        getContentPane().add(etiqueta_Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 400, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -257,6 +295,23 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
     private void boton_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_GuardarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_GuardarActionPerformed
+
+    private void boton_Cargar_ImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Cargar_ImagenActionPerformed
+
+        JFileChooser archivo = new JFileChooser();
+        archivo.setFileFilter(new FileNameExtensionFilter("jpg", "jpg"));
+        archivo.setDialogTitle("Abrir archivo");
+        int ventana = archivo.showOpenDialog(null);
+
+        if (ventana == JFileChooser.APPROVE_OPTION) {
+            File ruta_Archivo = archivo.getSelectedFile();
+            this.campo_Direccion_Imagen.setText(String.valueOf(ruta_Archivo));
+
+            Image foto = getToolkit().getImage(this.campo_Direccion_Imagen.getText());
+            foto = foto.getScaledInstance(400, 400, Image.SCALE_DEFAULT);
+            this.etiqueta_Foto.setIcon(new ImageIcon(foto));
+        }
+    }//GEN-LAST:event_boton_Cargar_ImagenActionPerformed
 
     public void validar_Campos(KeyEvent evt, JTextField campo) {
         char c = evt.getKeyChar();
@@ -327,6 +382,16 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         this.campo_Precio_Compra.setText(String.valueOf(inventario.getPrecio_Compra()));
         this.campo_Precio_Venta.setText(String.valueOf(inventario.getPrecio_Venta()));
         this.combo_Proveedor.setText(inventario.getProveedor());
+        this.ejecutar_Imagen(inventario.getImagen());
+    }
+    
+    public void ejecutar_Imagen(byte[] dato) {
+        try {
+            Image foto = getToolkit().createImage(dato);
+            foto = foto.getScaledInstance(400, 400, Image.SCALE_DEFAULT);
+            this.etiqueta_Foto.setIcon(new ImageIcon(foto));
+        } catch (Exception ex) {
+        }
     }
     /**
      * @param args the command line arguments
@@ -371,21 +436,25 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton boton_Cargar_Imagen;
     public javax.swing.JButton boton_Guardar;
     public javax.swing.JButton boton_Proveedor;
     public javax.swing.JFormattedTextField campo_Cantidad;
     public javax.swing.JTextField campo_Codigo;
     public javax.swing.JTextField campo_Descripcion;
+    public javax.swing.JTextField campo_Direccion_Imagen;
     public javax.swing.JTextField campo_Precio_Compra;
     public javax.swing.JTextField campo_Precio_Venta;
     public javax.swing.JTextField combo_Proveedor;
     private javax.swing.JLabel etiqueta_Correccion_Producto;
+    public javax.swing.JLabel etiqueta_Foto;
     private javax.swing.JLabel etiqueta_Indicador_Cantidad;
     private javax.swing.JLabel etiqueta_Indicador_Codigo;
     private javax.swing.JLabel etiqueta_Indicador_Descripcion;
     private javax.swing.JLabel etiqueta_Indicador_Precio_Compra;
     private javax.swing.JLabel etiqueta_Indicador_Precio_Venta;
     private javax.swing.JLabel etiqueta_Indicador_Proveedor;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

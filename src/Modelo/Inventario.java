@@ -16,22 +16,33 @@ public class Inventario {
     private double    precio_Compra;
     private double    precio_Venta;
     private String    proveedor;
+    private byte      imagen[];
 
-    public Inventario( String codigo, String descripcion, int cantidad_Disponible, double precio_Compra, double precio_Venta, String proveedor ) {
+    public Inventario( String codigo, String descripcion, int cantidad_Disponible, double precio_Compra, double precio_Venta, String proveedor, byte[] imagen ) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.cantidad_Disponible = cantidad_Disponible;
         this.precio_Compra = precio_Compra;
         this.precio_Venta = precio_Venta;
         this.proveedor = proveedor;
+        this.imagen = imagen;
     }
 
-    public Inventario(String codigo, String descripcion, int cantidad_Disponible, double precio_Compra, double precio_Venta) {
+    public Inventario(String codigo, String descripcion, int cantidad_Disponible, double precio_Compra, double precio_Venta, byte[] imagen) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.cantidad_Disponible = cantidad_Disponible;
         this.precio_Compra = precio_Compra;
         this.precio_Venta = precio_Venta;
+        this.imagen = imagen;
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
     
     public String getCodigo() {

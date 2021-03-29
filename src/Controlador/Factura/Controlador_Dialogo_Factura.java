@@ -107,7 +107,7 @@ public class Controlador_Dialogo_Factura implements ActionListener{
         inventario = new DAO_Inventario_Implementacion(this.conexion_Database).consultar((String) this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 1));
         int cantidad = inventario.get(0).getCantidad_Disponible() - Integer.parseInt(String.valueOf(this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 0)));
 
-        this.modelo_Inventario = new Inventario((String) this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 1), inventario.get(0).getDescripcion(), cantidad, inventario.get(0).getPrecio_Compra(), inventario.get(0).getPrecio_Venta(), inventario.get(0).getProveedor());
+        this.modelo_Inventario = new Inventario((String) this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 1), inventario.get(0).getDescripcion(), cantidad, inventario.get(0).getPrecio_Compra(), inventario.get(0).getPrecio_Venta(), inventario.get(0).getProveedor(), inventario.get(i).getImagen());
         try {
             new DAO_Inventario_Implementacion(this.conexion_Database).editar(this.modelo_Inventario);
         } catch (SQLException ex) {
@@ -136,7 +136,7 @@ public class Controlador_Dialogo_Factura implements ActionListener{
 
         int total = inventarios.get(0).getCantidad_Disponible() + Integer.parseInt(String.valueOf(cantidad[i]));
 
-        Inventario inventario = new Inventario(codigo[i], descripcion[i], total, inventarios.get(0).getPrecio_Compra(), inventarios.get(0).getPrecio_Venta(), inventarios.get(0).getProveedor());
+        Inventario inventario = new Inventario(codigo[i], descripcion[i], total, inventarios.get(0).getPrecio_Compra(), inventarios.get(0).getPrecio_Venta(), inventarios.get(0).getProveedor(), inventarios.get(0).getImagen());
 
         try {
             new DAO_Inventario_Implementacion(this.conexion_Database).editar(inventario);

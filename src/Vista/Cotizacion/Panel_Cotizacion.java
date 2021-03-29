@@ -7,15 +7,20 @@ package Vista.Cotizacion;
 
 import Controlador.Render_Tablas;
 import Modelo.Usuario;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.RowFilter;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author David
  */
 public class Panel_Cotizacion extends javax.swing.JPanel {
+    private TableRowSorter                      TRSFiltro;
     /**
      * Creates new form Panel_Cotizacion
      */
@@ -25,7 +30,6 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         tcr.setHorizontalAlignment(SwingConstants.RIGHT);
         this.tabla_Consulta_Cotizacion.getColumnModel().getColumn(5).setCellRenderer(tcr);
         this.tabla_Consulta_Cotizacion.getTableHeader().setReorderingAllowed(false) ;
-        this.campo_Busqueda.setEditable(false);
         this.campo_Busqueda.setEditable(false);
         this.fecha_1.setVisible(false);
         this.fecha_2.setVisible(false);
@@ -201,6 +205,16 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla_Consulta_Cotizacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_Consulta_CotizacionMouseClicked(evt);
+            }
+        });
+        tabla_Consulta_Cotizacion.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                tabla_Consulta_CotizacionKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Consulta_Cotizacion);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
@@ -223,9 +237,14 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         campo_Busqueda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Busqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Busqueda.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        campo_Busqueda.setMaximumSize(new java.awt.Dimension(500, 28));
-        campo_Busqueda.setMinimumSize(new java.awt.Dimension(500, 28));
-        campo_Busqueda.setPreferredSize(new java.awt.Dimension(450, 28));
+        campo_Busqueda.setMaximumSize(new java.awt.Dimension(400, 28));
+        campo_Busqueda.setMinimumSize(new java.awt.Dimension(400, 28));
+        campo_Busqueda.setPreferredSize(new java.awt.Dimension(400, 28));
+        campo_Busqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_BusquedaKeyTyped(evt);
+            }
+        });
         jToolBar2.add(campo_Busqueda);
         jToolBar2.add(jSeparator4);
 
@@ -258,6 +277,11 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         combo_Opciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "Por numero", "Por nombre", "Por RUC", "Por fecha" }));
         combo_Opciones.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        combo_Opciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_OpcionesActionPerformed(evt);
+            }
+        });
         jToolBar2.add(combo_Opciones);
         jToolBar2.add(jSeparator6);
 
@@ -268,6 +292,67 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
 
     }//GEN-LAST:event_boton_Nueva_CotizacionActionPerformed
 
+    private void campo_BusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BusquedaKeyTyped
+        if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Busqueda.setEditable(false);
+        } else {
+            this.campo_Busqueda.setEditable(true);
+            if (evt.getSource() == this.campo_Busqueda) {
+                this.campo_Busqueda.addKeyListener(new KeyAdapter() {
+
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
+                TRSFiltro = new TableRowSorter(this.tabla_Consulta_Cotizacion.getModel());
+                this.tabla_Consulta_Cotizacion.setRowSorter(TRSFiltro);
+            }
+        }
+    }//GEN-LAST:event_campo_BusquedaKeyTyped
+
+    private void tabla_Consulta_CotizacionKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabla_Consulta_CotizacionKeyTyped
+        
+    }//GEN-LAST:event_tabla_Consulta_CotizacionKeyTyped
+
+    private void tabla_Consulta_CotizacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_Consulta_CotizacionMouseClicked
+        seleccion_Tabla(this.tabla_Consulta_Cotizacion.getSelectedRow());
+    }//GEN-LAST:event_tabla_Consulta_CotizacionMouseClicked
+
+    private void combo_OpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_OpcionesActionPerformed
+        if (evt.getSource() == this.combo_Opciones) {
+            if (this.combo_Opciones.getSelectedItem().equals("Por fecha")) {
+                this.desactivar_Calendarios(true);
+            } else {
+                this.desactivar_Calendarios(false);
+            }
+        }
+    }//GEN-LAST:event_combo_OpcionesActionPerformed
+
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por numero") {
+            filtrar_Tabla(0);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por nombre") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por RUC") {
+            filtrar_Tabla(2);
+        }
+    }
+
+    public void filtrar_Tabla(int valor) {
+        seleccion_Tabla(this.tabla_Consulta_Cotizacion.getSelectedRow());
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Busqueda.getText(), valor));
+    }
+    
+    public void seleccion_Tabla(int bandera) {
+        if (bandera != -1) {
+            this.boton_Modificar_Cotizacion.setEnabled(true);
+            this.boton_Generar_Cotizacion.setEnabled(true);
+        } else {
+            this.boton_Generar_Cotizacion.setEnabled(false);
+            this.boton_Modificar_Cotizacion.setEnabled(false);
+        }
+    }
+    
     public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);

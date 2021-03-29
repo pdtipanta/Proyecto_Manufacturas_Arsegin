@@ -29,13 +29,14 @@ public class DAO_Inventario_Implementacion implements DAO_Inventario {
     public boolean crear( Inventario modelo_Inventarios ) throws SQLException{
         boolean bandera = true;
         try{
-            CallableStatement procedimiento_Crear_Inventario = this.conexion.prepareCall( "{CALL crear_Inventario(?, ?, ?, ?, ?, ?)}" );
+            CallableStatement procedimiento_Crear_Inventario = this.conexion.prepareCall( "{CALL crear_Inventario(?, ?, ?, ?, ?, ?, ?)}" );
             procedimiento_Crear_Inventario.setString( 1, modelo_Inventarios.getCodigo() );
             procedimiento_Crear_Inventario.setString( 2, modelo_Inventarios.getDescripcion() );
             procedimiento_Crear_Inventario.setInt( 3, modelo_Inventarios.getCantidad_Disponible() );
             procedimiento_Crear_Inventario.setDouble( 4, modelo_Inventarios.getPrecio_Compra() );
             procedimiento_Crear_Inventario.setDouble( 5, modelo_Inventarios.getPrecio_Venta() );
             procedimiento_Crear_Inventario.setString( 6, modelo_Inventarios.getProveedor() );
+            procedimiento_Crear_Inventario.setBytes(7, modelo_Inventarios.getImagen() );
             procedimiento_Crear_Inventario.executeUpdate();
             this.conexion.commit();
         } catch (SQLIntegrityConstraintViolationException e1) {
@@ -54,19 +55,20 @@ public class DAO_Inventario_Implementacion implements DAO_Inventario {
     public int editar( Inventario modelo_Inventarios ) throws SQLException{
         int bandera = 0;
         try{
-            CallableStatement procedimiento_Editar_Inventario = this.conexion.prepareCall( "{CALL editar_Inventario(?, ?, ?, ?, ?, ?)}" );
+            CallableStatement procedimiento_Editar_Inventario = this.conexion.prepareCall( "{CALL editar_Inventario(?, ?, ?, ?, ?, ?, ?)}" );
             procedimiento_Editar_Inventario.setString( 1, modelo_Inventarios.getCodigo() );
             procedimiento_Editar_Inventario.setString( 2, modelo_Inventarios.getDescripcion() );
             procedimiento_Editar_Inventario.setInt( 3, modelo_Inventarios.getCantidad_Disponible() );
             procedimiento_Editar_Inventario.setDouble( 4, modelo_Inventarios.getPrecio_Compra() );
             procedimiento_Editar_Inventario.setDouble( 5, modelo_Inventarios.getPrecio_Venta() );
             procedimiento_Editar_Inventario.setString( 6, modelo_Inventarios.getProveedor() );
+            procedimiento_Editar_Inventario.setBytes(7, modelo_Inventarios.getImagen() );
             bandera = procedimiento_Editar_Inventario.executeUpdate();
             this.conexion.commit();
         } catch (SQLIntegrityConstraintViolationException e1) {
             this.conexion.rollback();
             throw new SQLIntegrityConstraintViolationException(e1);
-        } catch (SQLException e1) {
+        } catch (SQLException e1) {System.out.println(e1);
             bandera = 0;
             this.conexion.rollback();
         } finally {
@@ -103,14 +105,14 @@ public class DAO_Inventario_Implementacion implements DAO_Inventario {
             ResultSet consulta = procedimiento_Inventario.executeQuery();
             
             while( consulta.next() ){
-                modelo_Inventario = new Inventario( consulta.getString( 1 ), consulta.getString( 4 ), consulta.getInt( 5 ), consulta.getDouble( 6 ), consulta.getDouble( 2 ), consulta.getString( 7 ) );
+                modelo_Inventario = new Inventario( consulta.getString( 1 ), consulta.getString( 4 ), consulta.getInt( 5 ), consulta.getDouble( 6 ), consulta.getDouble( 2 ), consulta.getString( 7 ), consulta.getBytes( 8 ) );
                 inventario.add( modelo_Inventario );
             }
             consulta.close();
         }catch( SQLException e1 ){System.out.println(e1);}finally{}
         return inventario;
     }
-
+/*
     @Override
     public ArrayList<Inventario> consultar_Inventario_Descripcion(String productos) {
         ArrayList<Inventario> inventario = new ArrayList<Inventario>();
@@ -121,11 +123,11 @@ public class DAO_Inventario_Implementacion implements DAO_Inventario {
             ResultSet consulta = procedimiento_Inventario.executeQuery();
             
             while( consulta.next() ){
-                modelo_Inventario = new Inventario( consulta.getString( 1 ), consulta.getString( 4 ), consulta.getInt( 5 ), consulta.getDouble( 6 ), consulta.getDouble( 2 ), consulta.getString( 7 ) );
+                modelo_Inventario = new Inventario( consulta.getString( 1 ), consulta.getString( 4 ), consulta.getInt( 5 ), consulta.getDouble( 6 ), consulta.getDouble( 2 ), consulta.getString( 7 ),  );
                 inventario.add( modelo_Inventario );
             }
             consulta.close();
         }catch( SQLException e1 ){}finally{}
         return inventario;
-    }
+    }*/
 }

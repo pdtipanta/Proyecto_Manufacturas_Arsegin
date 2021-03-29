@@ -5,15 +5,18 @@
  */
 package Vista.Maquilas;
 
-import Controlador.PlaceHolder_Textos;
 import Modelo.Usuario;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author David
  */
 public class Panel_Maquilas extends javax.swing.JPanel {
-    PlaceHolder_Textos textos_Place;
+    private TableRowSorter                TRSFiltro;
 
     /**
      * Creates new form Panel_Maquila
@@ -212,6 +215,11 @@ public class Panel_Maquilas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla_Maquilas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_MaquilasMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Maquilas);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
@@ -222,9 +230,53 @@ public class Panel_Maquilas extends javax.swing.JPanel {
     }//GEN-LAST:event_boton_Nuevo_MaquilaActionPerformed
 
     private void campo_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BuscarKeyTyped
+if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Buscar.setEditable(false);
+        } else {
+            this.campo_Buscar.setEditable(true);
+            if (evt.getSource() == this.campo_Buscar) {
+                this.campo_Buscar.addKeyListener(new KeyAdapter() {
 
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
+
+                TRSFiltro = new TableRowSorter(this.tabla_Maquilas.getModel());
+                this.tabla_Maquilas.setRowSorter(TRSFiltro);
+            }
+        }
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
+    private void tabla_MaquilasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_MaquilasMouseClicked
+        seleccion_Tabla(this.tabla_Maquilas.getSelectedRow());
+    }//GEN-LAST:event_tabla_MaquilasMouseClicked
+
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por nombre") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por RUC / CI") {
+            filtrar_Tabla(2);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por servicio") {
+            filtrar_Tabla(3);
+        }
+    }
+
+    public void filtrar_Tabla(int valor) {
+        seleccion_Tabla(this.tabla_Maquilas.getSelectedRow());
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Buscar.getText(), valor));
+    }
+
+    public void seleccion_Tabla(int bandera) {
+        if (bandera != -1) {
+            this.boton_Modificar.setEnabled(true);
+            this.boton_Eliminar.setEnabled(true);
+        } else {
+            this.boton_Modificar.setEnabled(false);
+            this.boton_Eliminar.setEnabled(false);
+        }
+    }
+    
     public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);

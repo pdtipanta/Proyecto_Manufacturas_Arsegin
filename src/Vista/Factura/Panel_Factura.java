@@ -7,17 +7,22 @@ package Vista.Factura;
 
 import Controlador.Render_Tablas;
 import Modelo.Usuario;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 /**
  *
  * @author David
  */
 public class Panel_Factura extends javax.swing.JPanel {
     private DecimalFormat           formato_Numero = new DecimalFormat("#.00", new DecimalFormatSymbols(Locale.US));
+    private TableRowSorter          TRSFiltro;
     /**
      * Creates new form Panel_Cotizacion
      */
@@ -53,7 +58,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         }
 
         if (rol.equals("Administrador")) {
-            boolean[] bandera = {true, false, false, true, false, false, false};
+            boolean[] bandera = {false, false, false, true, false, false, false};
             this.habilitar_Rol(bandera);
         }
     }
@@ -196,6 +201,11 @@ public class Panel_Factura extends javax.swing.JPanel {
         campo_Busqueda.setMaximumSize(new java.awt.Dimension(450, 30));
         campo_Busqueda.setMinimumSize(new java.awt.Dimension(450, 30));
         campo_Busqueda.setPreferredSize(new java.awt.Dimension(450, 30));
+        campo_Busqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_BusquedaKeyTyped(evt);
+            }
+        });
         jToolBar2.add(campo_Busqueda);
         jToolBar2.add(jSeparator5);
 
@@ -229,6 +239,11 @@ public class Panel_Factura extends javax.swing.JPanel {
         combo_Opciones.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Opciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "Por numero", "Por nombre", "Por RUC", "Por fecha" }));
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        combo_Opciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_OpcionesActionPerformed(evt);
+            }
+        });
         jToolBar2.add(combo_Opciones);
 
         add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 0, 970, 40));
@@ -257,6 +272,11 @@ public class Panel_Factura extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla_Consulta_Factura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_Consulta_FacturaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Consulta_Factura);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 750));
@@ -265,7 +285,65 @@ public class Panel_Factura extends javax.swing.JPanel {
     private void boton_Nueva_FacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_FacturaActionPerformed
 
     }//GEN-LAST:event_boton_Nueva_FacturaActionPerformed
+
+    private void campo_BusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BusquedaKeyTyped
+        if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Busqueda.setEditable(false);
+        } else {
+            this.campo_Busqueda.setEditable(true);
+            if (evt.getSource() == this.campo_Busqueda) {
+                this.campo_Busqueda.addKeyListener(new KeyAdapter() {
+
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
+
+                TRSFiltro = new TableRowSorter(this.tabla_Consulta_Factura.getModel());
+                this.tabla_Consulta_Factura.setRowSorter(TRSFiltro);
+            }
+        }
+    }//GEN-LAST:event_campo_BusquedaKeyTyped
+
+    private void tabla_Consulta_FacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_Consulta_FacturaMouseClicked
+        seleccion_Tabla(this.tabla_Consulta_Factura.getSelectedRow());
+    }//GEN-LAST:event_tabla_Consulta_FacturaMouseClicked
+
+    private void combo_OpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_OpcionesActionPerformed
+        if (evt.getSource() == this.combo_Opciones) {
+            if (this.combo_Opciones.getSelectedItem().equals("Por fecha")) {
+                this.desactivar_Calendarios(true);
+            } else {
+                this.desactivar_Calendarios(false);
+            }
+        }
+    }//GEN-LAST:event_combo_OpcionesActionPerformed
   
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por numero") {
+            filtrar_Tabla(0);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por nombre") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por RUC") {
+            filtrar_Tabla(2);
+        }
+    }
+
+    public void filtrar_Tabla(int valor) {
+        seleccion_Tabla(this.tabla_Consulta_Factura.getSelectedRow());
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Busqueda.getText(), valor));
+    }
+
+    public void seleccion_Tabla(int bandera) {
+        if (bandera != -1) {
+            this.boton_Modificar_Factura.setEnabled(true);
+            this.boton_Imprimir_Facturacion.setEnabled(true);
+        } else {
+            this.boton_Modificar_Factura.setEnabled(false);
+            this.boton_Imprimir_Facturacion.setEnabled(false);
+        }
+    }
+    
     public String calendario_Inicio() {
         Date fecha = this.fecha_1.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);

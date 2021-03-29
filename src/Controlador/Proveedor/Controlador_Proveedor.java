@@ -14,32 +14,24 @@ import Vista.Proveedor.Panel_Proveedor;
 import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author David
  */
-public class Controlador_Proveedor implements ActionListener, KeyListener, MouseListener {
+public class Controlador_Proveedor implements ActionListener {
     private final Vista_Principal         vista;
     private final Connection              conexion_Database;
     private final Usuario                 usuario;
     private final String                  rol;
     private final DefaultTableModel       modelo_Tabla_Proveedor;
-    private TableRowSorter                TRSFiltro;
     private final Panel_Proveedor         panel_Proveedor = new Panel_Proveedor();
     private Proveedor                     modelo_Proveedor;
 
@@ -53,8 +45,6 @@ public class Controlador_Proveedor implements ActionListener, KeyListener, Mouse
         this.panel_Proveedor.boton_Reporte_Proveedor.addActionListener(this);
         this.panel_Proveedor.boton_Cerrar_Sesion.addActionListener(this);
         this.panel_Proveedor.boton_Nuevo_Proveedor.addActionListener(this);
-        this.panel_Proveedor.campo_Buscar.addKeyListener(this);
-        this.panel_Proveedor.tabla_Proveedores.addMouseListener(this);
         this.panel_Proveedor.combo_Opciones.addActionListener(this);
         this.modelo_Tabla_Proveedor = (DefaultTableModel) this.panel_Proveedor.tabla_Proveedores.getModel();
     }
@@ -118,87 +108,6 @@ public class Controlador_Proveedor implements ActionListener, KeyListener, Mouse
         }
     }
 
-    @Override
-    public void keyTyped(KeyEvent ke) {
-        if (this.panel_Proveedor.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
-            this.panel_Proveedor.campo_Buscar.setEditable(false);
-        } else {
-            this.panel_Proveedor.campo_Buscar.setEditable(true);
-            if (ke.getSource() == this.panel_Proveedor.campo_Buscar) {
-                this.panel_Proveedor.campo_Buscar.addKeyListener(new KeyAdapter() {
-
-                    public void keyReleased(final KeyEvent e) {
-                        filtro();
-                    }
-                });
-
-                TRSFiltro = new TableRowSorter(this.panel_Proveedor.tabla_Proveedores.getModel());
-                this.panel_Proveedor.tabla_Proveedores.setRowSorter(TRSFiltro);
-            }
-        }
-    }
-
-    @Override
-    public void keyPressed(KeyEvent ke) {
-    }
-
-    @Override
-    public void keyReleased(KeyEvent ke) {
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.panel_Proveedor.tabla_Proveedores) {
-            seleccion_Tabla(this.panel_Proveedor.tabla_Proveedores.getSelectedRow());
-        }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-    }
-
-    public void filtro() {
-        if (this.panel_Proveedor.combo_Opciones.getSelectedItem() == "Por nombre") {
-            filtrar_Tabla(1);
-        } else if (this.panel_Proveedor.combo_Opciones.getSelectedItem() == "Por RUC / CI") {
-            filtrar_Tabla(2);
-        } else if (this.panel_Proveedor.combo_Opciones.getSelectedItem() == "Por producto") {
-            filtrar_Tabla(3);
-        }
-    }
-
-    public void seleccion_Tabla(int bandera) {
-        if (bandera != -1) {
-            this.panel_Proveedor.boton_Modificar.setEnabled(true);
-            this.panel_Proveedor.boton_Eliminar.setEnabled(true);
-        } else {
-            this.panel_Proveedor.boton_Modificar.setEnabled(false);
-            this.panel_Proveedor.boton_Eliminar.setEnabled(false);
-        }
-    }
-
-    public void filtrar_Tabla(int valor) {
-        seleccion_Tabla(this.panel_Proveedor.tabla_Proveedores.getSelectedRow());
-        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.panel_Proveedor.campo_Buscar.getText(), valor));
-        if (this.panel_Proveedor.tabla_Proveedores.getRowCount() > 0) {
-            this.panel_Proveedor.boton_Reporte_Proveedor.setEnabled(true);
-        } else {
-            this.panel_Proveedor.boton_Reporte_Proveedor.setEnabled(false);
-        }
-    }
-    
     public String numero_Proveedor() {
         String numero = new DAO_Proveedor_Implementacion(this.conexion_Database).consultar_Numero_Proveedor();
         String valor = "";

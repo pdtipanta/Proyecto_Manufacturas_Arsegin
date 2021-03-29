@@ -7,12 +7,17 @@ package Vista.Cliente;
 
 import Controlador.Render_Tablas;
 import Modelo.Usuario;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
  * @author David
  */
 public class Panel_Clientes extends javax.swing.JPanel {
+    private TableRowSorter                  TRSFiltro;
     /**
      * Creates new form Panel_Clientes
      */
@@ -21,6 +26,7 @@ public class Panel_Clientes extends javax.swing.JPanel {
         this.boton_Modificar.setEnabled(false);
         this.boton_Eliminar.setEnabled(false);
         this.tabla_Clientes.getTableHeader().setReorderingAllowed(false);
+        this.campo_Buscar.setEditable(false);
         this.render_Columna();
     }
 
@@ -169,6 +175,11 @@ public class Panel_Clientes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        tabla_Clientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_ClientesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_Clientes);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1290, 760));
@@ -221,7 +232,21 @@ public class Panel_Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_boton_Nuevo_ClienteActionPerformed
 
     private void campo_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BuscarKeyTyped
+if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Buscar.setEditable(false);
+        } else {
+            this.campo_Buscar.setEditable(true);
+            if (evt.getSource() == this.campo_Buscar) {
+                this.campo_Buscar.addKeyListener(new KeyAdapter() {
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
 
+                TRSFiltro = new TableRowSorter(this.tabla_Clientes.getModel());
+                this.tabla_Clientes.setRowSorter(TRSFiltro);
+            }
+        }
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
     private void combo_OpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_OpcionesActionPerformed
@@ -232,11 +257,39 @@ public class Panel_Clientes extends javax.swing.JPanel {
 
     }//GEN-LAST:event_campo_BuscarCaretUpdate
 
-    public void filtrar_Tabla(String valor, int col) {
-        for (int i = 0; i < this.tabla_Clientes.getRowCount(); i++) {
-            if (this.tabla_Clientes.getValueAt(i, col).equals(valor)) {
-                this.tabla_Clientes.changeSelection(i, col, false, false);
-            }
+    private void tabla_ClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_ClientesMouseClicked
+         seleccion_Tabla(this.tabla_Clientes.getSelectedRow());
+    }//GEN-LAST:event_tabla_ClientesMouseClicked
+
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por codigo") {
+            filtrar_Tabla(0);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por nombre") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por RUC / Cedula") {
+            filtrar_Tabla(2);
+        } else if (this.combo_Opciones.getSelectedItem() == "Ciudad") {
+            filtrar_Tabla(3);
+        }
+    }
+
+    public void seleccion_Tabla(int bandera) {
+        if (bandera != -1) {
+            this.boton_Modificar.setEnabled(true);
+            this.boton_Eliminar.setEnabled(true);
+        } else {
+            this.boton_Modificar.setEnabled(false);
+            this.boton_Eliminar.setEnabled(false);
+        }
+    }
+
+    public void filtrar_Tabla(int valor) {
+        seleccion_Tabla(this.tabla_Clientes.getSelectedRow());
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Buscar.getText(), valor));
+        if (this.tabla_Clientes.getRowCount() > 0) {
+            this.boton_Reportes_Clientes.setEnabled(true);
+        } else {
+            this.boton_Reportes_Clientes.setEnabled(false);
         }
     }
     

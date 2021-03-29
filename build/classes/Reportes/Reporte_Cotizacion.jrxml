@@ -407,7 +407,7 @@
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[IVA]]></text>
+				<text><![CDATA[IVA:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="389" y="40" width="76" height="20" uuid="9fe8cad3-35ea-4e8f-856a-156776deb411"/>
@@ -423,13 +423,6 @@
 				</textElement>
 				<text><![CDATA[Observaciones:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="98" y="0" width="269" height="20" uuid="73139262-6dbe-4088-8251-0f2ff6f54922"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
-			</textField>
 			<line>
 				<reportElement x="385" y="20" width="170" height="1" uuid="11d2e161-434f-484b-b913-3272286def9d"/>
 			</line>
@@ -474,6 +467,13 @@
 				</textElement>
 				<text><![CDATA[%]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="98" y="1" width="286" height="20" uuid="d767df5b-9b7e-4a1a-a051-580b7a7bba24"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{observaciones}]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnFooter>
 	<pageFooter>
