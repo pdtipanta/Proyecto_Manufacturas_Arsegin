@@ -29,25 +29,14 @@ public class Controlador_Dialogo_Devoluciones implements MouseListener{
         this.dialogo_Devoluciones_Inventario.tabla_Inventario.addMouseListener(this);
         this.modelo_Tabla_Productos = (DefaultTableModel) this.dialogo_Devoluciones_Inventario.tabla_Inventario.getModel();
     }
-    
+
     public void iniciar() {
         consultar_Datos_Inventario();
         this.dialogo_Devoluciones_Inventario.setVisible(true);
     }
 
     public void consultar_Datos_Inventario() {
-        /*
-        Factory fabrica = new Creador_Inventario().consultar();
-        Creador dao = fabrica.consultar();
 
-        inventario = dao.consultar("");
-
-        if (inventario.size() > 0) {
-            for (int i = 0; i < inventario.size(); i++) {
-                Object[] fila = {inventario.get(i).getCodigo(), inventario.get(i).getDescripcion(), inventario.get(i).getCantidad_Disponible()};
-                this.modelo_Tabla_Productos.addRow(fila);
-            }
-        }*/
     }
 
     @Override

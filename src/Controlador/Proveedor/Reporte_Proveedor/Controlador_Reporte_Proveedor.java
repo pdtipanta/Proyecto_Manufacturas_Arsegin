@@ -19,6 +19,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author David
  */
 public class Controlador_Reporte_Proveedor {
+
     ArrayList<Proveedor> lista_Proveedores;
 
     public Controlador_Reporte_Proveedor(ArrayList<Proveedor> lista_Proveedores) {

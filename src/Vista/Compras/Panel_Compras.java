@@ -7,9 +7,19 @@ package Vista.Compras;
 
 import Modelo.Proveedor;
 import Modelo.Usuario;
+import java.awt.Desktop;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -48,21 +58,21 @@ public class Panel_Compras extends javax.swing.JPanel {
         }
         return bandera;
     }
-    
+
     public String calendario_Fecha(int fila) {
         Date fecha = (Date) tabla_Consulta_Orden_Compra.getValueAt(fila, 7);
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
     }
-    
-    public void valores_Proveedor(Proveedor proveedor){
+
+    public void valores_Proveedor(Proveedor proveedor) {
         this.campo_Proveedor.setText(proveedor.getProveedor());
         this.campo_RUC.setText(proveedor.getRUC());
         this.campo_Direccion.setText(proveedor.getDireccion());
         this.campo_Correo.setText(proveedor.getCorreo());
         this.campo_Telefono.setText(proveedor.getTelefono());
     }
-    
-    public void set_Usuario(Usuario usuario, String rol){
+
+    public void set_Usuario(Usuario usuario, String rol) {
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
     }
@@ -119,6 +129,11 @@ public class Panel_Compras extends javax.swing.JPanel {
             }
         ));
         tabla_Consulta_Orden_Compra.setRowHeight(20);
+        tabla_Consulta_Orden_Compra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_Consulta_Orden_CompraMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tabla_Consulta_Orden_Compra);
 
         add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 272, 1300, 440));
@@ -246,7 +261,7 @@ public class Panel_Compras extends javax.swing.JPanel {
 
     private void campo_BusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_BusquedaCaretUpdate
         String valor = this.campo_Busqueda.getText();
-        
+
         if (this.combo_Filtrar.getSelectedItem().equals("Nº Orden de compra")) {
             this.filtrar_Tabla(valor, 0);
         } else if (this.combo_Filtrar.getSelectedItem().equals("Nº Factura")) {
@@ -254,11 +269,60 @@ public class Panel_Compras extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_campo_BusquedaCaretUpdate
 
+    private void tabla_Consulta_Orden_CompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_Consulta_Orden_CompraMouseClicked
+        if (evt.getSource() == this.tabla_Consulta_Orden_Compra) {
+            int column = this.tabla_Consulta_Orden_Compra.getColumnModel().getColumnIndexAtX(evt.getX());
+            int row = evt.getY() / this.tabla_Consulta_Orden_Compra.getRowHeight();
+
+            if (column == 8 && this.combo_Opcion.getSelectedItem().equals("Compras no ingresadas")) {
+                Object ubicacion_BotonTabla = this.tabla_Consulta_Orden_Compra.getValueAt(row, column);
+                if (ubicacion_BotonTabla instanceof JButton) {
+                    ((JButton) ubicacion_BotonTabla).doClick();
+                    JButton boton_Tabla = (JButton) ubicacion_BotonTabla;
+                    JFileChooser panel_Seleccion_PDF = new JFileChooser();
+                    panel_Seleccion_PDF.setFileFilter(new FileNameExtensionFilter("pdf", "pdf"));
+
+                    if (panel_Seleccion_PDF.showOpenDialog(null) == 0) {
+                        boton_Tabla.setText(panel_Seleccion_PDF.getSelectedFile().getAbsolutePath());
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_tabla_Consulta_Orden_CompraMouseClicked
+
     public void filtrar_Tabla(String valor, int col) {
         for (int i = 0; i < this.tabla_Consulta_Orden_Compra.getRowCount(); i++) {
             if (this.tabla_Consulta_Orden_Compra.getValueAt(i, col).equals(valor)) {
                 this.tabla_Consulta_Orden_Compra.changeSelection(i, col, false, false);
             }
+        }
+    }
+
+    public byte[] digitalizar_PDF(String direccion_Archivo) {
+        File ruta = new File(direccion_Archivo);
+        byte[] factura = new byte[(int) ruta.length()];
+
+        try {
+            new FileInputStream(ruta).read(factura);
+        } catch (IOException ex) {
+        }
+        return factura;
+    }
+
+    public void ejecutar_archivoPDF(byte[] factura) {
+        try {
+            InputStream datos_SerialesPDF = new ByteArrayInputStream(factura);
+            int tamano_Entrada = datos_SerialesPDF.available();
+            byte[] datos_PDF = new byte[tamano_Entrada];
+            datos_SerialesPDF.read(datos_PDF, 0, tamano_Entrada);
+
+            OutputStream salida_PDF = new FileOutputStream("new.pdf");
+            salida_PDF.write(datos_PDF);
+
+            Desktop.getDesktop().open(new File("new.pdf"));
+            salida_PDF.close();
+            datos_SerialesPDF.close();
+        } catch (IOException | NumberFormatException ex) {
         }
     }
 

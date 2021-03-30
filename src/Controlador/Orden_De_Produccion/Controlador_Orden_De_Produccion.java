@@ -113,7 +113,7 @@ public class Controlador_Orden_De_Produccion extends EventListenerList implement
     public void habilitar_Rol() {
         this.panel_Orden_Produccion.Roles(rol);
     }
-    
+
     public DefaultTableModel presentar_Ordenes(ArrayList<Orden_Produccion> orden_Produccion) {
         this.modelo_Tabla_Maquila.setRowCount(0);
 

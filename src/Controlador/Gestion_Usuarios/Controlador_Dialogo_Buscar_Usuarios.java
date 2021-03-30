@@ -32,8 +32,8 @@ public class Controlador_Dialogo_Buscar_Usuarios implements KeyListener, MouseLi
     private final DefaultTableModel          modelo_Tabla_Usuarios;
     private TableRowSorter                   TRSFiltro;
 
-    public Controlador_Dialogo_Buscar_Usuarios(Panel_Registro panel_Registro, Connection  conexion_DataBase) {
-        this.conexion_DataBase = conexion_DataBase; 
+    public Controlador_Dialogo_Buscar_Usuarios(Panel_Registro panel_Registro, Connection conexion_DataBase) {
+        this.conexion_DataBase = conexion_DataBase;
         this.panel_Registro = panel_Registro;
         this.panel_Registro.campo_Buscar.addKeyListener(this);
         this.panel_Registro.tabla_Usuarios.addMouseListener(this);

@@ -33,7 +33,7 @@ public class Tabla_PDF_Compras_Ingresadas extends DefaultTableCellRenderer {
             @Override
             public boolean isCellEditable(int row, int column) {
                 boolean bandera = false;
-                if(column == 9 && (lista_Compra.get(row).getEstado().equals("Por pagar") || lista_Compra.get(row).getEstado().equals("Seleccione..."))){
+                if (column == 9 && (lista_Compra.get(row).getEstado().equals("Por pagar") || lista_Compra.get(row).getEstado().equals("Seleccione..."))) {
                     bandera = true;
                 }
                 return bandera;
@@ -59,7 +59,7 @@ public class Tabla_PDF_Compras_Ingresadas extends DefaultTableCellRenderer {
         if (get_Image("/Imagenes/32pdf.png") != null) {
             icono = new ImageIcon(get_Image("/Imagenes/32pdf.png"));
         }
-        
+
         ImageIcon icono_1 = null;
         if (get_Image("/Imagenes/disquete.png") != null) {
             icono_1 = new ImageIcon(get_Image("/Imagenes/disquete.png"));
@@ -82,15 +82,15 @@ public class Tabla_PDF_Compras_Ingresadas extends DefaultTableCellRenderer {
                 fila[9] = modelo_Compras.getEstado();
 
                 if (modelo_Orden_Compra.getNo_Orden() != null) {
-                    if(modelo_Compras.getEstado().equals("Pagado")||modelo_Compras.getEstado().equals("Anulado")){
+                    if (modelo_Compras.getEstado().equals("Pagado") || modelo_Compras.getEstado().equals("Anulado")) {
                         fila[10] = "Registrado";
-                    }else{
+                    } else {
                         fila[10] = new JButton(icono_1);
                     }
                     fila[5] = new JButton(icono);
                     fila[8] = new JButton(icono);
-                    
-                    tabla.getColumnModel().getColumn(9).setCellEditor(new DefaultCellEditor( combo ));
+
+                    tabla.getColumnModel().getColumn(9).setCellEditor(new DefaultCellEditor(combo));
 
                 } else {
                     fila[5] = new JButton("Vacio");

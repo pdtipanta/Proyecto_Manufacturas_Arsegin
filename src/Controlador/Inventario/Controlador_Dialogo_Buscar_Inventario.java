@@ -80,7 +80,7 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
     }
 
     @Override
-    public void keyPressed(KeyEvent ke) {   
+    public void keyPressed(KeyEvent ke) {
     }
 
     @Override
@@ -112,11 +112,11 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
     }
 
     @Override
-    public void mousePressed(MouseEvent me) {    
+    public void mousePressed(MouseEvent me) {
     }
 
     @Override
-    public void mouseReleased(MouseEvent me) {    
+    public void mouseReleased(MouseEvent me) {
     }
 
     @Override
@@ -127,4 +127,3 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
     public void mouseExited(MouseEvent me) {
     }
 }
-

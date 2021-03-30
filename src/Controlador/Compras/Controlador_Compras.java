@@ -16,31 +16,18 @@ import Modelo.Proveedor;
 import Modelo.Usuario;
 import Vista.Compras.Panel_Compras;
 import Vista.Vista_Principal;
-import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -57,14 +44,12 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
     private ArrayList< Compras >               lista_Compras = new ArrayList<Compras>();
     private Orden_Compra                       modelo_Orden_Compra;
     private ArrayList< Orden_Compra >          lista_Orden_Compra = new ArrayList<Orden_Compra>();
-    private TableRowSorter                     TRSFiltro;
     
     public Controlador_Compras(Vista_Principal vista, Connection conexion_Database, Usuario usuario, String rol) {
         this.vista = vista;
         this.conexion_Database = conexion_Database;
         this.usuario = usuario;
         this.rol = rol;
-       // this.panel_Compras.campo_Busqueda.addKeyListener(this);
         this.panel_Compras.boton_Buscar.addActionListener(this);
         this.panel_Compras.combo_Opcion.addActionListener(this);
         this.panel_Compras.combo_Filtrar.addActionListener(this);
@@ -81,7 +66,7 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+
         if (ae.getSource() == this.panel_Compras.combo_Filtrar) {
             if (this.panel_Compras.combo_Filtrar.getSelectedItem().equals("Seleccionar.....")) {
                 this.panel_Compras.campo_Busqueda.setText("");
@@ -149,15 +134,6 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
             int column = this.panel_Compras.tabla_Consulta_Orden_Compra.getColumnModel().getColumnIndexAtX(me.getX());
             int row = me.getY() / this.panel_Compras.tabla_Consulta_Orden_Compra.getRowHeight();
 
-            if (column == 8 && this.panel_Compras.combo_Opcion.getSelectedItem().equals("Compras ingresadas")) {
-                Object ubicacion_BotonTabla = this.panel_Compras.tabla_Consulta_Orden_Compra.getValueAt(row, column);
-
-                if (ubicacion_BotonTabla instanceof JButton) {
-                    ((JButton) ubicacion_BotonTabla).doClick();
-                    ejecutar_archivoPDF(this.lista_Compras.get(row).getFactura());
-                }
-            }
-
             if (column == 5) {
                 Object ubicacion_BotonTabla = this.panel_Compras.tabla_Consulta_Orden_Compra.getValueAt(row, column);
 
@@ -181,17 +157,12 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
                 }
             }
 
-            if (column == 8 && this.panel_Compras.combo_Opcion.getSelectedItem().equals("Compras no ingresadas")) {
+            if (column == 8 && this.panel_Compras.combo_Opcion.getSelectedItem().equals("Compras ingresadas")) {
                 Object ubicacion_BotonTabla = this.panel_Compras.tabla_Consulta_Orden_Compra.getValueAt(row, column);
+
                 if (ubicacion_BotonTabla instanceof JButton) {
                     ((JButton) ubicacion_BotonTabla).doClick();
-                    JButton boton_Tabla = (JButton) ubicacion_BotonTabla;
-                    JFileChooser panel_Seleccion_PDF = new JFileChooser();
-                    panel_Seleccion_PDF.setFileFilter(new FileNameExtensionFilter("pdf", "pdf"));
-
-                    if (panel_Seleccion_PDF.showOpenDialog(null) == 0) {
-                        boton_Tabla.setText(panel_Seleccion_PDF.getSelectedFile().getAbsolutePath());
-                    }
+                    this.panel_Compras.ejecutar_archivoPDF(this.lista_Compras.get(row).getFactura());
                 }
             }
 
@@ -208,7 +179,7 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
                         String no_Factura = String.valueOf(modelo_Tabla_Consulta_Orden_Compra.getValueAt(row, 6));
                         double valor_Factura = Double.valueOf(String.valueOf(modelo_Tabla_Consulta_Orden_Compra.getValueAt(row, 4)));
 
-                        this.modelo_Compras = new Compras((String) modelo_Tabla_Consulta_Orden_Compra.getValueAt(row, 0), no_Factura, (String) modelo_Tabla_Consulta_Orden_Compra.getValueAt(row, 1), this.panel_Compras.calendario_Fecha(row), digitalizar_PDF(boton.getText()), valor_Factura, (String) this.panel_Compras.tabla_Consulta_Orden_Compra.getValueAt(row, 9));
+                        this.modelo_Compras = new Compras((String) modelo_Tabla_Consulta_Orden_Compra.getValueAt(row, 0), no_Factura, (String) modelo_Tabla_Consulta_Orden_Compra.getValueAt(row, 1), this.panel_Compras.calendario_Fecha(row), this.panel_Compras.digitalizar_PDF(boton.getText()), valor_Factura, (String) this.panel_Compras.tabla_Consulta_Orden_Compra.getValueAt(row, 9));
 
                         try {
                             if (new DAO_Compras_Implementacion(this.conexion_Database).crear(this.modelo_Compras)) {
@@ -267,39 +238,10 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
     public void mouseExited(MouseEvent me) {
     }
 
-    public byte[] digitalizar_PDF(String direccion_Archivo) {
-        File ruta = new File(direccion_Archivo);
-        byte[] factura = new byte[(int) ruta.length()];
-
-        try {
-            new FileInputStream(ruta).read(factura);
-        } catch (IOException ex) {
-        }
-        return factura;
-    }
-
     public void tabla_Compras_Ingresadas() {
         this.lista_Orden_Compra = new DAO_Orden_Compra_Implementacion(this.conexion_Database).consultar_Compras_Ingresadas(this.proveedor.getId_Proveedor());
         this.lista_Compras = new DAO_Compras_Implementacion(this.conexion_Database).consultar(this.proveedor.getId_Proveedor());
         new Tabla_PDF_Compras_Ingresadas().construir_TablaPDF(this.panel_Compras.tabla_Consulta_Orden_Compra, this.lista_Orden_Compra, this.lista_Compras, new Orden_Compra(), new Compras());
-
-    }
-
-    public void ejecutar_archivoPDF(byte[] factura) {
-        try {
-            InputStream datos_SerialesPDF = new ByteArrayInputStream(factura);
-            int tamano_Entrada = datos_SerialesPDF.available();
-            byte[] datos_PDF = new byte[tamano_Entrada];
-            datos_SerialesPDF.read(datos_PDF, 0, tamano_Entrada);
-
-            OutputStream salida_PDF = new FileOutputStream("new.pdf");
-            salida_PDF.write(datos_PDF);
-
-            Desktop.getDesktop().open(new File("new.pdf"));
-            salida_PDF.close();
-            datos_SerialesPDF.close();
-        } catch (IOException | NumberFormatException ex) {
-        }
     }
 
     public void set_Usuario() {
@@ -308,37 +250,8 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
 
     @Override
     public void keyTyped(KeyEvent ke) {
-        if (this.panel_Compras.combo_Filtrar.getSelectedItem().equals("Seleccionar.....")) {
-            //this.panel_Compras.campo_Busqueda.setText("");
-            this.panel_Compras.campo_Busqueda.setEditable(false);
-        } else {
-            this.panel_Compras.campo_Busqueda.setEditable(true);
-            if (ke.getSource() == this.panel_Compras.campo_Busqueda) {
-                this.panel_Compras.campo_Busqueda.addKeyListener(new KeyAdapter() {
-
-                    public void keyReleased(final KeyEvent e) {
-                        filtro();
-                    }
-                });
-
-                TRSFiltro = new TableRowSorter(this.panel_Compras.tabla_Consulta_Orden_Compra.getModel());
-                this.panel_Compras.tabla_Consulta_Orden_Compra.setRowSorter(TRSFiltro);
-            }
-        }
-    }
-    
-    public void filtro() {
-        if (this.panel_Compras.combo_Filtrar.getSelectedItem() == "Nº Orden de compra") {
-            filtrar_Tabla(0);
-        } else if (this.panel_Compras.combo_Filtrar.getSelectedItem() == "Nº Factura") {
-            filtrar_Tabla(6);
-        }
     }
 
-    public void filtrar_Tabla(int valor) {
-        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.panel_Compras.campo_Busqueda.getText(), valor));
-    }
-    
     @Override
     public void keyPressed(KeyEvent ke) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -346,6 +259,6 @@ public class Controlador_Compras implements ActionListener, MouseListener, KeyLi
 
     @Override
     public void keyReleased(KeyEvent ke) {
-       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

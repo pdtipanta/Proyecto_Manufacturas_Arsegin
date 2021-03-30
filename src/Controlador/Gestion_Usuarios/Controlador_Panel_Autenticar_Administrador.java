@@ -41,7 +41,7 @@ public class Controlador_Panel_Autenticar_Administrador implements ActionListene
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource() == panel_Autenticar_Administrador.boton_Iniciar_Administrador) {
             Sesion modelo_Ingreso = new Sesion(panel_Autenticar_Administrador.campo_Usuario.getText(), cifrado_MD5(panel_Autenticar_Administrador.campo_Clave.getText()));
-            
+
             Conexion_Database conexion_Database = new Conexion_Database(modelo_Ingreso);
             this.conexion_DataBase = conexion_Database.iniciar();
 

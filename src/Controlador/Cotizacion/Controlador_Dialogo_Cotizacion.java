@@ -39,6 +39,7 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
     private final String                  rol;
     private final String                  actividad;
     private boolean                       bandera = false;
+    
     public Controlador_Dialogo_Cotizacion(Vista_Principal vista, Connection conexion_Database, Cliente cliente, Cotizacion cotizacion, Usuario usuario, String rol, String actividad) {
         this.vista = vista;
         this.conexion_Database = conexion_Database;
@@ -53,13 +54,13 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
         this.dialogo_Cotizacion.boton_Agregar_Cliente.addActionListener(this);
         modelo_Tabla_Cotizacion = (DefaultTableModel) dialogo_Cotizacion.tabla_Productos_Cotizacion.getModel();
     }
-    
+
     public boolean iniciar() {
-        this.tipo_Actividad();   
+        this.tipo_Actividad();
         this.dialogo_Cotizacion.setVisible(true);
         return this.bandera;
     }
-    
+
     public void tipo_Actividad() {
         if (this.actividad.equals("Registrar")) {
             this.numero_Cotizacion();
@@ -82,7 +83,7 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
                 this.dialogo_Cotizacion.boton_Quitar_Fila.setEnabled(true);
             }
         }
-        
+
         if (ae.getSource() == this.dialogo_Cotizacion.boton_Agregar_Fila) {
             ArrayList<Inventario> inventario = new Controlador_Dialogo_Buscar_Inventario(this.vista, this.conexion_Database, false).iniciar();
             boolean bandera = true;
@@ -110,7 +111,7 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
                 }
             }
         }
-        
+
         if (ae.getSource() == this.dialogo_Cotizacion.boton_Guardar_Cotizacion) {
 
             if (this.modelo_Tabla_Cotizacion.getRowCount() > 0 && this.dialogo_Cotizacion.etiquetas()) {
@@ -152,7 +153,7 @@ public class Controlador_Dialogo_Cotizacion implements ActionListener{
             }
         }
     }
-    
+
     public void numero_Cotizacion() {;
         this.dialogo_Cotizacion.etiqueta_No_Cotizacion.setText(new Numeracion_Documentos().convertir_Numero(new DAO_Cotizacion_Implementacion(this.conexion_Database).consultar_Numero_Cotizacion()));
     }

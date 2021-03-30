@@ -31,7 +31,7 @@ public class Controlador_Cotizacion implements ActionListener{
     private final String                  rol;
     private Cliente                       modelo_Cliente;
     private Cotizacion                    modelo_Cotizacion;
-    
+
     public Controlador_Cotizacion(Vista_Principal vista, Connection conexion_Database, Usuario usuario, String rol) {
         this.vista = vista;
         this.conexion_Database = conexion_Database;

@@ -293,17 +293,7 @@ private TableRowSorter                  TRSFiltro;
     }//GEN-LAST:event_campo_BusquedaCaretUpdate
 
     private void campo_BusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BusquedaKeyTyped
-       /*
-        DefaultTableModel modelo_Tabla_Consulta_Estado_Cuenta = (DefaultTableModel) this.tabla_Estado_Cuenta_Facturacion.getModel();
-        if (evt.getSource() == this.campo_Busqueda) {
-            this.campo_Busqueda.addKeyListener(new KeyAdapter() {
-                public void keyReleased(final KeyEvent e) {
-                    filtrar(1);
-                }
-            });
-            TRSFiltro = new TableRowSorter(modelo_Tabla_Consulta_Estado_Cuenta);
-            this.tabla_Estado_Cuenta_Facturacion.setRowSorter(TRSFiltro);
-        }*/
+
     }//GEN-LAST:event_campo_BusquedaKeyTyped
 
     public void filtrar(int i){

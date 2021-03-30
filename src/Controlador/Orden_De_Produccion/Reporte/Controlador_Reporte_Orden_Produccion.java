@@ -21,8 +21,9 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author David
  */
 public class Controlador_Reporte_Orden_Produccion {
-    private final Orden_Produccion       orden_Produccion;
-    private final Maquila                maquila;
+
+    private final Orden_Produccion orden_Produccion;
+    private final Maquila maquila;
 
     public Controlador_Reporte_Orden_Produccion(Orden_Produccion orden_Produccion, Maquila maquila) {
         this.orden_Produccion = orden_Produccion;

@@ -695,6 +695,16 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         Render_Tabla_Productos_Cotizacion render_Tablas_Col1 = new Render_Tabla_Productos_Cotizacion(1);
         this.tabla_Productos_Factura.getColumnModel().getColumn(1).setCellRenderer(render_Tablas_Col1);
     }
+  
+    public boolean estado_Factura() {
+        boolean bandera = false;
+        if (this.combo_Estado_Factura.getSelectedItem().equals("Credito")) {
+            bandera = true;
+        } else if (this.combo_Estado_Factura.getSelectedItem().equals("Pagado")) {
+            bandera = true;
+        }
+        return bandera;
+    }
 
     /**
      * @param args the command line arguments

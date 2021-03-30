@@ -15,14 +15,15 @@ import java.sql.SQLException;
  *
  * @author LENOVO
  */
-public class DAO_Ingreso{
+public class DAO_Ingreso {
+
     private Connection conexion;
     private Usuario usuario;
-    
-    public DAO_Ingreso( Connection conexion ){
+
+    public DAO_Ingreso(Connection conexion) {
         this.conexion = conexion;
     }
-    
+
     public Usuario iniciar_Sesion(String modelo_Ingreso) {
         try {
             CallableStatement procedimiento_Iniciar_Sesion = this.conexion.prepareCall("{CALL consulta_Usuarios(?)}");
@@ -37,7 +38,7 @@ public class DAO_Ingreso{
         }
         return this.usuario;
     }
-    
+
     public String rol_Sesion(String usuario) {
         String rol = null;
         try {

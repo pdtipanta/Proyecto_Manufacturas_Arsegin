@@ -14,17 +14,10 @@ import Modelo.Proveedor;
 import Modelo.Usuario;
 import Vista.Pagos.Panel_Pagos;
 import Vista.Vista_Principal;
-import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.util.ArrayList;
 import javax.swing.JButton;
@@ -117,7 +110,7 @@ public class Controlador_Pagos implements  ActionListener, MouseListener {
 
                 if (ubicacion_BotonTabla instanceof JButton) {
                     ((JButton) ubicacion_BotonTabla).doClick();
-                    ejecutar_archivoPDF(this.lista_Compras.get(row).getFactura());
+                    this.panel_Pagos.ejecutar_archivoPDF(this.lista_Compras.get(row).getFactura());
                 }
             }
         }
@@ -137,24 +130,6 @@ public class Controlador_Pagos implements  ActionListener, MouseListener {
 
     @Override
     public void mouseExited(MouseEvent me) {
-    }
-
-    public void ejecutar_archivoPDF(byte[] factura) {
-        try {
-            InputStream datos_SerialesPDF = new ByteArrayInputStream(factura);
-            int tamano_Entrada = datos_SerialesPDF.available();
-            byte[] datos_PDF = new byte[tamano_Entrada];
-            datos_SerialesPDF.read(datos_PDF, 0, tamano_Entrada);
-
-            OutputStream salida_PDF = new FileOutputStream("new.pdf");
-            salida_PDF.write(datos_PDF);
-
-            Desktop.getDesktop().open(new File("new.pdf"));
-            salida_PDF.close();
-            datos_SerialesPDF.close();
-
-        } catch (IOException | NumberFormatException ex) {
-        }
     }
 
     public void set_Usuario() {

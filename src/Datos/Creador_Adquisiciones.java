@@ -10,8 +10,12 @@ package Datos;
  * @author David
  */
 public abstract class Creador_Adquisiciones {
+
     public abstract Factory crear();
+
     public abstract Factory consultar();
+
     public abstract Factory editar();
+
     public abstract Factory eliminar();
 }

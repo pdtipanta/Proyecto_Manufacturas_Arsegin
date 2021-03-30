@@ -104,9 +104,9 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
     public void facturas(String opcion) {
         this.panel_Estado_De_Cuenta.campo_Busqueda.setText("");
         this.modelo_Tabla_Consulta_Estado_Cuenta.setRowCount(0);
-        
+
         String valor = null;
-        
+
         switch (this.rol) {
             case "Vendedor":
                 valor = this.usuario.getCedula();
@@ -120,7 +120,7 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
                 valor = "Todos";
                 break;
         }
-        
+
         this.lista_Factura = new DAO_Factura_Implementacion(this.conexion_Database).consultar_Facturas_Adeudadas(this.panel_Estado_De_Cuenta.campo_Codigo.getText(), opcion, valor);
 
         new Tabla_PDF__Estado_Cuenta_Facturacion().construir_TablaPDF(this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion, this.lista_Factura);
@@ -137,16 +137,16 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
         if (me.getSource() == this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion) {
             int column = this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getColumnModel().getColumnIndexAtX(me.getX());
             int row = me.getY() / this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getRowHeight();
-            
+
             if (column > 0) {
                 Object ubicacion_BotonTabla = this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getValueAt(row, column);
                 if (ubicacion_BotonTabla instanceof JButton) {
                     ((JButton) ubicacion_BotonTabla).doClick();
                     JButton boton_Tabla = (JButton) ubicacion_BotonTabla;
-                    
+
                     ArrayList<Factura> lista_Factura = new DAO_Factura_Implementacion(this.conexion_Database).consultar(this.panel_Estado_De_Cuenta.tabla_Estado_Cuenta_Facturacion.getValueAt(row, 1) + ";" + "Todos");
                     ArrayList<Cliente> cliente = new DAO_Cliente_Implementacion(this.conexion_Database).consultar(lista_Factura.get(0).getCliente() + ";" + "Todos");
-                    
+
                     if (lista_Factura.size() == 1 && cliente.size() == 1) {
                         new Controlador_Reporte_Factura(lista_Factura.get(0), cliente.get(0)).iniciar();
                     }
@@ -170,7 +170,7 @@ public class Controlador_Estado_Cuenta implements MouseListener, ActionListener{
     @Override
     public void mouseExited(MouseEvent me) {
     }
-    
+
     public void set_Usuario() {
         this.panel_Estado_De_Cuenta.set_Usuario(this.usuario, this.rol);
     }

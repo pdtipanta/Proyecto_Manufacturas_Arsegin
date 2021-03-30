@@ -16,14 +16,15 @@ import java.sql.SQLException;
  *
  * @author David
  */
-public class DAO_Recuperar_Usuario{
+public class DAO_Recuperar_Usuario {
+
     private Connection conexion;
     private Usuario modelo_Registro;
-    
-    public DAO_Recuperar_Usuario( Connection conexion_Database ){
+
+    public DAO_Recuperar_Usuario(Connection conexion_Database) {
         this.conexion = conexion_Database;
     }
-    
+
     public Usuario consultar_Usuario(String usuario, String cedula) {
         try {
             CallableStatement procedimiento_Iniciar_Sesion = this.conexion.prepareCall("{CALL consulta_Datos_Usuario(?, ?)}");
@@ -53,28 +54,28 @@ public class DAO_Recuperar_Usuario{
             procedimiento_Editar_Usuario.setInt(7, clase.getRol());
             bandera = procedimiento_Editar_Usuario.executeUpdate();
             this.conexion.commit();
-        } 
-        catch (SQLException e1) {
+        } catch (SQLException e1) {
             bandera = 0;
             this.conexion.rollback();
-        }finally{}
+        } finally {
+        }
         return bandera;
     }
-    
+
     public int recuperacion_Clave(Sesion clase) throws SQLException {
         int bandera = 1;
-        
+
         try {
             CallableStatement procedimiento_Cambio_Clave = this.conexion.prepareCall("{CALL recuperacion_Clave(?, ?)}");
             procedimiento_Cambio_Clave.setString(1, clase.getUsuario());
             procedimiento_Cambio_Clave.setString(2, clase.getClave());
             bandera = procedimiento_Cambio_Clave.executeUpdate();
-           this.conexion.commit();
-        } 
-        catch (SQLException e1) {
+            this.conexion.commit();
+        } catch (SQLException e1) {
             bandera = 1;
             this.conexion.rollback();
-        }finally{}
+        } finally {
+        }
         return bandera;
     }
 }

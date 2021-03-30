@@ -44,7 +44,7 @@ public class Controlador_Dialogo_Proveedor implements ActionListener {
         this.dialogo_Registrar_Proveedor.setVisible(true);
         return this.bandera;
     }
- 
+
     public void tipo_Actividad() {
         if (this.actividad.equals("Registrar")) {
             this.numero_Proveedor();

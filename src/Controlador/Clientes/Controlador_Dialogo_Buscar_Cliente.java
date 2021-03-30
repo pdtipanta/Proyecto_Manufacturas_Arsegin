@@ -10,16 +10,13 @@ import Modelo.Cliente;
 import Modelo.Usuario;
 import Vista.Cliente.Dialogo_Buscar_Cliente;
 import Vista.Vista_Principal;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.util.ArrayList;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -32,8 +29,7 @@ public class Controlador_Dialogo_Buscar_Cliente implements KeyListener, MouseLis
     private final String                    rol;   
     private final Dialogo_Buscar_Cliente    dialogo_Buscar_Cliente;
     private final DefaultTableModel         modelo_Tabla_Clientes;
-    private TableRowSorter                  TRSFiltro;
-    private ArrayList<Cliente>             cliente = new ArrayList< Cliente>();
+    private ArrayList<Cliente>              cliente = new ArrayList< Cliente>();
 
     public Controlador_Dialogo_Buscar_Cliente(Vista_Principal vista, Connection conexion, Usuario usuario, String rol) {
         this.vista = vista;
@@ -81,22 +77,6 @@ public class Controlador_Dialogo_Buscar_Cliente implements KeyListener, MouseLis
     @Override
     public void keyTyped(KeyEvent ke) {
 
-        if (this.dialogo_Buscar_Cliente.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
-            this.dialogo_Buscar_Cliente.campo_Buscar.setEditable(false);
-        } else {
-            this.dialogo_Buscar_Cliente.campo_Buscar.setEditable(true);
-            if (ke.getSource() == this.dialogo_Buscar_Cliente.campo_Buscar) {
-                this.dialogo_Buscar_Cliente.campo_Buscar.addKeyListener(new KeyAdapter() {
-
-                    public void keyReleased(final KeyEvent e) {
-                        filtro();
-                    }
-                });
-
-                TRSFiltro = new TableRowSorter(this.dialogo_Buscar_Cliente.tabla_Clientes.getModel());
-                this.dialogo_Buscar_Cliente.tabla_Clientes.setRowSorter(TRSFiltro);
-            }
-        }
     }
 
     @Override
@@ -105,20 +85,6 @@ public class Controlador_Dialogo_Buscar_Cliente implements KeyListener, MouseLis
 
     @Override
     public void keyReleased(KeyEvent ke) {
-    }
-
-    public void filtro() {
-        if (this.dialogo_Buscar_Cliente.combo_Opciones.getSelectedItem() == "Por codigo") {
-            filtrar_Tabla(0);
-        } else if (this.dialogo_Buscar_Cliente.combo_Opciones.getSelectedItem() == "Por nombre") {
-            filtrar_Tabla(1);
-        } else if (this.dialogo_Buscar_Cliente.combo_Opciones.getSelectedItem() == "Por RUC / Cedula") {
-            filtrar_Tabla(2);
-        }
-    }
-
-    public void filtrar_Tabla(int valor) {
-        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.dialogo_Buscar_Cliente.campo_Buscar.getText(), valor));
     }
 
     @Override

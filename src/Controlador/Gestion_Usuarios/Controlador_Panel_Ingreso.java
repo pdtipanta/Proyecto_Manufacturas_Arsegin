@@ -43,17 +43,17 @@ public class Controlador_Panel_Ingreso implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
-        if( ae.getSource() == panel_Ingreso.boton_Crear_Usuario ){
+
+        if (ae.getSource() == panel_Ingreso.boton_Crear_Usuario) {
             vista.Panel_Contenedor.removeAll();
-            new Controlador_Panel_Autenticar_Administrador( vista ).iniciar();
+            new Controlador_Panel_Autenticar_Administrador(vista).iniciar();
         }
 
         if (ae.getSource() == panel_Ingreso.boton_Iniciar_Sesion) {
             Sesion modelo_Ingreso = new Sesion(panel_Ingreso.campo_Usuario_Ingreso.getText(), cifrado_MD5(panel_Ingreso.campo_Clave_Ingreso.getText()));
             Conexion_Database conexion_Database = new Conexion_Database(modelo_Ingreso);
             this.conexion_DataBase = conexion_Database.iniciar();
-           
+
             if (this.conexion_DataBase != null) {
                 this.panel_Ingreso.setVisible(false);
                 try {
@@ -65,10 +65,10 @@ public class Controlador_Panel_Ingreso implements ActionListener {
                 this.panel_Ingreso.etiqueta_Datos_Incorrectos.setVisible(true);
             }
         }
- 
-        if( ae.getSource() == this.panel_Ingreso.boton_Olvido_Clave ){
+
+        if (ae.getSource() == this.panel_Ingreso.boton_Olvido_Clave) {
             vista.Panel_Contenedor.removeAll();
-            new Controlador_Recuperacion_Clave( this.vista, this.conexion_DataBase ).iniciar();
+            new Controlador_Recuperacion_Clave(this.vista, this.conexion_DataBase).iniciar();
         }
     }
 

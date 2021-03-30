@@ -46,7 +46,7 @@ public class Controlador_Dialogo_Orden_Produccion implements ActionListener{
         this.dialogo_Orden_Produccion.boton_Agregar_Fila.addActionListener(this);
         this.modelo_Tabla_Orden_Produccion = (DefaultTableModel) this.dialogo_Orden_Produccion.tabla_Productos_Maquila.getModel();
     }
-    
+
     public boolean iniciar() {
         this.tipo_Actividad();
         this.dialogo_Orden_Produccion.setVisible(true);

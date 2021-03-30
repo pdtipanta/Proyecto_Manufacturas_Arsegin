@@ -64,7 +64,7 @@ public class Controlador_Dialogo_Factura implements ActionListener{
         this.dialogo_Factura.setVisible(true);
         return this.bandera;
     }
-    
+
     public void tipo_Actividad() {
         if (this.actividad.equals("Registrar")) {
             this.numero_Factura();
@@ -117,16 +117,6 @@ public class Controlador_Dialogo_Factura implements ActionListener{
         }
     }
 
-    public boolean estado_Factura() {
-        boolean bandera = false;
-        if (this.dialogo_Factura.combo_Estado_Factura.getSelectedItem().equals("Credito")) {
-            bandera = true;
-        } else if (this.dialogo_Factura.combo_Estado_Factura.getSelectedItem().equals("Pagado")) {
-            bandera = true;
-        }
-        return bandera;
-    }
-    
     public void reponer_Inventario(int i) {
 
         String[] cantidad = this.respaldo_Factura.getCantidad().split(";");
@@ -159,7 +149,7 @@ public class Controlador_Dialogo_Factura implements ActionListener{
                 this.dialogo_Factura.valor_IVA.setEnabled(true);
             }
         }
-        
+
         if (ae.getSource() == this.dialogo_Factura.boton_Agregar_Fila) {
             ArrayList<Inventario> inventario = new Controlador_Dialogo_Buscar_Inventario(this.vista, this.conexion_Database, false).iniciar();
             boolean bandera = true;
@@ -172,7 +162,7 @@ public class Controlador_Dialogo_Factura implements ActionListener{
                     }
                 }
                 if (bandera) {
-                    Object[] fila = new Controlador_Dialogo_Agregar_Factura(this.vista, inventario.get(0)).iniciar();
+                    Object[] fila = new Controlador_Dialogo_Agregar_Producto(this.vista, inventario.get(0)).iniciar();
 
                     if (fila != null) {
                         this.modelo_Tabla_Factura.addRow(fila);
@@ -183,7 +173,7 @@ public class Controlador_Dialogo_Factura implements ActionListener{
                 }
             }
         }
-        
+
         if (ae.getSource() == this.dialogo_Factura.boton_Guardar_Factura) {
 
             if (this.modelo_Tabla_Factura.getRowCount() > 0 && this.dialogo_Factura.etiquetas()) {
@@ -210,11 +200,11 @@ public class Controlador_Dialogo_Factura implements ActionListener{
                     this.dialogo_Factura.etiquetas();
                 }
             }
-            
+
             if (this.actividad.equals("Modificar")) {
                 String[] tamaño = this.respaldo_Factura.getCodigo().split(";");
 
-                if (this.modelo_Tabla_Factura.getRowCount() > 0 && this.dialogo_Factura.etiquetas() && this.estado_Factura()) {
+                if (this.modelo_Tabla_Factura.getRowCount() > 0 && this.dialogo_Factura.etiquetas() && this.dialogo_Factura.estado_Factura()) {
                     String[] valores = this.dialogo_Factura.evaluar_Tabla();
 
                     try {
@@ -256,6 +246,5 @@ public class Controlador_Dialogo_Factura implements ActionListener{
                 }
             }
         }
-
     }
 }

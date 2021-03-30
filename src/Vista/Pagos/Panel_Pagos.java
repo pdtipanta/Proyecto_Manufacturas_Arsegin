@@ -6,12 +6,14 @@
 package Vista.Pagos;
 
 import Modelo.Proveedor;
-import Modelo.Rol;
 import Modelo.Usuario;
-import java.awt.Color;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
+import java.awt.Desktop;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  *
@@ -299,6 +301,24 @@ public class Panel_Pagos extends javax.swing.JPanel {
     public void set_Usuario(Usuario usuario, String rol){
         this.etiqueta_Nombre_Usuario.setText(usuario.getNombre() + " " + usuario.getApellido());
         this.etiqueta_Rol.setText(rol);
+    }
+    
+        public void ejecutar_archivoPDF(byte[] factura) {
+        try {
+            InputStream datos_SerialesPDF = new ByteArrayInputStream(factura);
+            int tamano_Entrada = datos_SerialesPDF.available();
+            byte[] datos_PDF = new byte[tamano_Entrada];
+            datos_SerialesPDF.read(datos_PDF, 0, tamano_Entrada);
+
+            OutputStream salida_PDF = new FileOutputStream("new.pdf");
+            salida_PDF.write(datos_PDF);
+
+            Desktop.getDesktop().open(new File("new.pdf"));
+            salida_PDF.close();
+            datos_SerialesPDF.close();
+
+        } catch (IOException | NumberFormatException ex) {
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

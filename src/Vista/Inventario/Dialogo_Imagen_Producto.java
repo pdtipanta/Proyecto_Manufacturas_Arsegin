@@ -66,7 +66,6 @@ public class Dialogo_Imagen_Producto extends javax.swing.JDialog {
         setTitle("Producto");
         setMaximumSize(new java.awt.Dimension(500, 597));
         setMinimumSize(new java.awt.Dimension(500, 597));
-        setPreferredSize(new java.awt.Dimension(500, 597));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         etiqueta_Imagen.setMaximumSize(new java.awt.Dimension(500, 500));

@@ -22,8 +22,8 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class Controlador_Reporte_Estado_De_Cuenta {
 
-    private ArrayList<Factura>        lista_Factura;
-    private Panel_Estado_De_Cuenta    panel_Estado_De_Cuenta;
+    private ArrayList<Factura> lista_Factura;
+    private Panel_Estado_De_Cuenta panel_Estado_De_Cuenta;
 
     public Controlador_Reporte_Estado_De_Cuenta(Panel_Estado_De_Cuenta panel_Estado_De_Cuenta, ArrayList<Factura> lista_Factura) {
         this.lista_Factura = lista_Factura;

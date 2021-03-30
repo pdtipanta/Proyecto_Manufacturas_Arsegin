@@ -5,11 +5,17 @@
  */
 package Vista.Cliente;
 
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
+
 /**
  *
  * @author David
  */
 public class Dialogo_Buscar_Cliente extends javax.swing.JDialog {
+    private TableRowSorter TRSFiltro;
 
     /**
      * Creates new form Dialogo_Buscar_Cliente
@@ -19,7 +25,7 @@ public class Dialogo_Buscar_Cliente extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(parent);
         this.campo_Buscar.setEditable(false);
-        this.tabla_Clientes.getTableHeader().setReorderingAllowed(false) ;
+        this.tabla_Clientes.getTableHeader().setReorderingAllowed(false);
     }
 
     /**
@@ -125,16 +131,42 @@ public class Dialogo_Buscar_Cliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campo_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BuscarKeyTyped
-        
+        if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Buscar.setEditable(false);
+        } else {
+            this.campo_Buscar.setEditable(true);
+            if (evt.getSource() == this.campo_Buscar) {
+                this.campo_Buscar.addKeyListener(new KeyAdapter() {
+
+                    public void keyReleased(final KeyEvent e) {
+                        filtro();
+                    }
+                });
+
+                TRSFiltro = new TableRowSorter(this.tabla_Clientes.getModel());
+                this.tabla_Clientes.setRowSorter(TRSFiltro);
+            }
+        }
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
     private void combo_OpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_OpcionesActionPerformed
-        this.limpiar_Campo();
-    }//GEN-LAST:event_combo_OpcionesActionPerformed
 
-    public void limpiar_Campo(){
-        this.campo_Buscar.setText("");
+    }//GEN-LAST:event_combo_OpcionesActionPerformed
+ 
+    public void filtro() {
+        if (this.combo_Opciones.getSelectedItem() == "Por codigo") {
+            filtrar_Tabla(0);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por nombre") {
+            filtrar_Tabla(1);
+        } else if (this.combo_Opciones.getSelectedItem() == "Por RUC / Cedula") {
+            filtrar_Tabla(2);
+        }
     }
+
+    public void filtrar_Tabla(int valor) {
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.campo_Buscar.getText(), valor));
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -90,16 +90,15 @@ public class Controlador_Orden_De_Compra implements ActionListener {
         }
     }
 
-    public void cargar_Ordenes(){
+    public void cargar_Ordenes() {
         new Controlador_Dialogo_Buscar_Orden(this.panel_Orden_Compra, this.conexion_Database, this.usuario, this.rol).iniciar();
     }
-    
+
     public void habilitar_Rol() {
         this.panel_Orden_Compra.Roles(rol);
     }
-    
-    public void set_Usuario(){
+
+    public void set_Usuario() {
         this.panel_Orden_Compra.set_Usuario(this.usuario, this.rol);
     }
 }
-    

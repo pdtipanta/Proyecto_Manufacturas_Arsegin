@@ -117,7 +117,7 @@ public class Controlador_Dialogo_Orden_Compra implements ActionListener{
 
             }
         }
-        
+
         if (ae.getSource() == this.dialogo_Orden_Compra.boton_Guardar_Orden_Compra) {
 
             if (this.actividad.equals("Registrar")) {

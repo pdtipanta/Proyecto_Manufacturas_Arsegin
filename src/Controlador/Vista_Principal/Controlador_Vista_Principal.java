@@ -27,7 +27,7 @@ public class Controlador_Vista_Principal{
         this.menu = new Menu(this.vista, this.conexion_Database, this.usuario, this.rol);
 
         switch (this.rol) {
-            
+
             case "Vendedor":
                 limpiar_Panel_Contenedor();
                 menu.construir_Menu_Cliente();
@@ -70,7 +70,7 @@ public class Controlador_Vista_Principal{
                 menu.construir_Submenu_Pagos();
                 menu.construir();
                 break;
-                
+
             case "Administrador":
                 limpiar_Panel_Contenedor();
                 menu.construir_Menu_Cliente();
@@ -78,13 +78,13 @@ public class Controlador_Vista_Principal{
                 menu.construir_Submenu_Estado_Cuenta();
                 menu.construir_Submenu_Cotizacion();
                 menu.construir_Submenu_Factura();
-                
+
                 menu.construir_Menu_Proveedor();
                 menu.construir_Submenu_Proveedor();
                 menu.construir_Submenu_Compras();
                 menu.construir_Submenu_Orden_Compra();
                 menu.construir_Submenu_Pagos();
-                
+
                 menu.construir_Menu_Inventario();
                 menu.construir_Submenu_Inventario();
 
@@ -100,8 +100,8 @@ public class Controlador_Vista_Principal{
     public void limpiar_Panel_Contenedor() {
         vista.Panel_Contenedor.removeAll();
     }
-    
-    public void borrar_Menu(){
+
+    public void borrar_Menu() {
         this.vista.set_Menu(this.menu.menu());
     }
 }

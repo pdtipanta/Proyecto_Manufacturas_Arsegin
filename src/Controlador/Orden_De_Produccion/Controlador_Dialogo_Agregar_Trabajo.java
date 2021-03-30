@@ -25,15 +25,15 @@ public class Controlador_Dialogo_Agregar_Trabajo implements ActionListener{
         this.dialogo_Agregar_Trabajo.boton_Agregar.addActionListener(this);
     }
     
-    public Object[] iniciar(){
+    public Object[] iniciar() {
         this.dialogo_Agregar_Trabajo.setVisible(true);
         return this.item;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        if(ae.getSource() == this.dialogo_Agregar_Trabajo.boton_Agregar){
-            if(this.dialogo_Agregar_Trabajo.verificar_Campos()){
+        if (ae.getSource() == this.dialogo_Agregar_Trabajo.boton_Agregar) {
+            if (this.dialogo_Agregar_Trabajo.verificar_Campos()) {
                 Object[] trabajo = {Integer.valueOf(this.dialogo_Agregar_Trabajo.campo_Cantidad.getText()), this.dialogo_Agregar_Trabajo.campo_Descripcion.getText(), Double.valueOf(this.dialogo_Agregar_Trabajo.campo_Unitario.getText()), Double.valueOf(this.dialogo_Agregar_Trabajo.campo_Total.getText())};
                 this.item = trabajo;
                 this.dialogo_Agregar_Trabajo.dispose();

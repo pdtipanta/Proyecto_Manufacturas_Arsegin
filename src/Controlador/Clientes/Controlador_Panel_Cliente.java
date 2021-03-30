@@ -68,7 +68,6 @@ public class Controlador_Panel_Cliente implements ActionListener {
 
             try {
                 if (new DAO_Cliente_Implementacion(this.conexion_Database).eliminar((String) this.panel_Cliente.tabla_Clientes.getValueAt(this.panel_Cliente.tabla_Clientes.getSelectedRow(), 0)) > 0) {
-                    JOptionPane.showMessageDialog(null, "Cliente eliminado", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
                     this.cargar_Clientes();
                     this.panel_Cliente.boton_Modificar.setEnabled(false);
                     this.panel_Cliente.boton_Eliminar.setEnabled(false);

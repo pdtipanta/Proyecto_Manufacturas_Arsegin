@@ -18,9 +18,10 @@ import java.util.ArrayList;
  * @author David
  */
 public class DAO_Usuario {
-    private Connection conexion;
+
+    private final Connection conexion;
     private Usuario usuario;
-    
+
     public DAO_Usuario(Connection conexion_Database) {
         this.conexion = conexion_Database;
     }
@@ -43,7 +44,7 @@ public class DAO_Usuario {
         } catch (SQLIntegrityConstraintViolationException e1) {
             this.conexion.rollback();
             throw new SQLIntegrityConstraintViolationException(e1);
-        }catch (SQLException e1) {
+        } catch (SQLException e1) {
             bandera = 0;
             this.conexion.rollback();
         } finally {

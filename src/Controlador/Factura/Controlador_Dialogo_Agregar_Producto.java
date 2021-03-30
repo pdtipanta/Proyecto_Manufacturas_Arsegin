@@ -18,13 +18,13 @@ import javax.swing.JOptionPane;
  *
  * @author David
  */
-public class Controlador_Dialogo_Agregar_Factura implements ActionListener, KeyListener {
+public class Controlador_Dialogo_Agregar_Producto implements ActionListener, KeyListener {
     private final Vista_Principal    vista;
     private final Inventario         inventario;
     private Object[]                 item;
     private final Dialogo_Cantidad_Producto dialogo_Cantidad_Producto;
 
-    public Controlador_Dialogo_Agregar_Factura(Vista_Principal vista, Inventario inventario) {
+    public Controlador_Dialogo_Agregar_Producto(Vista_Principal vista, Inventario inventario) {
         this.vista = vista;
         this.inventario = inventario;
         this.dialogo_Cantidad_Producto = new Dialogo_Cantidad_Producto(this.vista, true);

@@ -21,8 +21,9 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author David
  */
 public class Controlador_Reporte_Factura {
-    private Factura factura;
-    private Cliente cliente;
+
+    private final Factura factura;
+    private final Cliente cliente;
 
     public Controlador_Reporte_Factura(Factura factura, Cliente cliente) {
         this.factura = factura;
@@ -65,7 +66,7 @@ public class Controlador_Reporte_Factura {
                 parametro.put("dia", fecha[2]);
                 parametro.put("mes", fecha[1]);
                 parametro.put("anio", fecha[0]);
-                parametro.put("tasa_IVA", (int)((this.factura.getIVA()/this.factura.getV_Subtotal())*100));
+                parametro.put("tasa_IVA", (int) ((this.factura.getIVA() / this.factura.getV_Subtotal()) * 100));
                 new JasperViewer(JasperFillManager.fillReport((JasperReport) JRLoader.loadObjectFromFile(System.getProperty("user.dir") + "/src/Reportes/Reporte_Factura.jasper"), parametro, new JRBeanCollectionDataSource(construir_Factura())), false).setVisible(true);
             } catch (Exception e) {
             }

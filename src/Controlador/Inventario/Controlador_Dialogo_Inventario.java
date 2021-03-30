@@ -50,9 +50,9 @@ public class Controlador_Dialogo_Inventario implements ActionListener{
         this.dialogo_Inventario.setVisible(true);
         return this.bandera;
     }
-    
+
     public void tipo_Actividad() {
-       if (this.actividad.equals("Modificar")) {
+        if (this.actividad.equals("Modificar")) {
             this.dialogo_Inventario.campo_Codigo.setEditable(false);
             this.dialogo_Inventario.setCampos(inventario);
             this.imagen = this.inventario.getImagen();
@@ -78,7 +78,7 @@ public class Controlador_Dialogo_Inventario implements ActionListener{
                 }
             } else if (this.actividad.equals("Modificar")) {
                 if (this.dialogo_Inventario.etiquetas()) {
-                    
+
                     try {
                         if (new DAO_Inventario_Implementacion(this.conexion).editar(new Inventario(this.dialogo_Inventario.campo_Codigo.getText(), this.dialogo_Inventario.campo_Descripcion.getText(), Integer.parseInt(this.dialogo_Inventario.campo_Cantidad.getText()), Double.parseDouble(this.dialogo_Inventario.campo_Precio_Compra.getText()), Double.parseDouble(this.dialogo_Inventario.campo_Precio_Venta.getText()), this.dialogo_Inventario.combo_Proveedor.getText(), this.digitalizar_Imagen(this.dialogo_Inventario.campo_Direccion_Imagen.getText()))) > 0) {
                             this.bandera = true;
@@ -100,12 +100,13 @@ public class Controlador_Dialogo_Inventario implements ActionListener{
             }
         }
     }
+
     public byte[] digitalizar_Imagen(String direccion_Archivo) {
         byte[] factura = null;
         if (this.dialogo_Inventario.campo_Direccion_Imagen.getText().isEmpty()) {
             factura = this.imagen;
-            
-        }else{
+
+        } else {
             File ruta = new File(direccion_Archivo);
             factura = new byte[(int) ruta.length()];
 

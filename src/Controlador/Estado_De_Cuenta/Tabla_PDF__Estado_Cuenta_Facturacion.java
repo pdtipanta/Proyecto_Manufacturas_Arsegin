@@ -20,18 +20,19 @@ import javax.swing.table.TableColumn;
  * @author David
  */
 public class Tabla_PDF__Estado_Cuenta_Facturacion {
+
     private Factura modelo_Factura;
-    
-    public void construir_TablaPDF( JTable tabla, ArrayList<Factura> lista_Facturas ) {
-        tabla.setDefaultRenderer( Object.class, new Imagen_Tabla_Estado_Cuenta_Facturacion() );
+
+    public void construir_TablaPDF(JTable tabla, ArrayList<Factura> lista_Facturas) {
+        tabla.setDefaultRenderer(Object.class, new Imagen_Tabla_Estado_Cuenta_Facturacion());
         DefaultTableModel modelo_Tabla = new DefaultTableModel() {
-            
+
             @Override
-            public boolean isCellEditable( int row, int column ) {
+            public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        
+
         modelo_Tabla.setRowCount(0);
         tabla.setModel(modelo_Tabla);
         modelo_Tabla.addColumn("Cliente");

@@ -86,7 +86,7 @@ public class Controlador_Dialogo_Maquilas implements ActionListener{
                     }
                 }
             }
-          
+
             if (this.dialogo_Maquilas.etiquetas()) {
                 if (this.actividad.equals("Modificar")) {
                     try {

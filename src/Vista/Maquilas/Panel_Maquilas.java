@@ -65,8 +65,6 @@ public class Panel_Maquilas extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        grupo_Botones = new javax.swing.ButtonGroup();
-        grupo_Botones_Telefono = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Nuevo_Maquila = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -172,7 +170,6 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         jLabel1.setText("    ");
         jToolBar2.add(jLabel1);
 
-        campo_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         campo_Buscar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         campo_Buscar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Buscar.setMaximumSize(new java.awt.Dimension(750, 30));
@@ -298,8 +295,6 @@ if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
     public javax.swing.JComboBox<String> combo_Opciones;
     public javax.swing.JLabel etiqueta_Nombre_Usuario;
     public javax.swing.JLabel etiqueta_Rol;
-    private javax.swing.ButtonGroup grupo_Botones;
-    private javax.swing.ButtonGroup grupo_Botones_Telefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;

@@ -28,7 +28,7 @@ public class Controlador_Dialogo_Nuevo_Producto implements ActionListener, KeyLi
         this.dialogo_Nuevo_Producto.campo_Cantidad.addKeyListener(this);
         this.dialogo_Nuevo_Producto.campo_Unitario.addKeyListener(this);
     }
-    
+
     public Object[] iniciar() {
         this.dialogo_Nuevo_Producto.setVisible(true);
         return this.inventario;

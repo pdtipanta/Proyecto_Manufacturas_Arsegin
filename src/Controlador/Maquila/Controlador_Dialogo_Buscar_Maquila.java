@@ -35,19 +35,19 @@ public class Controlador_Dialogo_Buscar_Maquila implements KeyListener, MouseLis
     public Controlador_Dialogo_Buscar_Maquila(Vista_Principal vista, Connection conexion) {
         this.vista = vista;
         this.conexion = conexion;
-        this.dialogo_Buscar_Maquilas = new Dialogo_Buscar_Maquilas(this.vista, true); 
+        this.dialogo_Buscar_Maquilas = new Dialogo_Buscar_Maquilas(this.vista, true);
         this.dialogo_Buscar_Maquilas.campo_Buscar.addKeyListener(this);
         this.dialogo_Buscar_Maquilas.tabla_Maquilas.addMouseListener(this);
-        this.modelo_Tabla_Maquilas = ( DefaultTableModel ) this.dialogo_Buscar_Maquilas.tabla_Maquilas.getModel();
+        this.modelo_Tabla_Maquilas = (DefaultTableModel) this.dialogo_Buscar_Maquilas.tabla_Maquilas.getModel();
     }
-    
-    public ArrayList<Maquila> iniciar(){
+
+    public ArrayList<Maquila> iniciar() {
         consultar_Datos_Maquila();
         this.dialogo_Buscar_Maquilas.setVisible(true);
         return maquila;
     }
-    
-    public void consultar_Datos_Maquila(){
+
+    public void consultar_Datos_Maquila() {
         ArrayList<Maquila> maquila = new DAO_Maquila_Implementacion(this.conexion).consultar("Todos");
 
         if (maquila.size() > 0) {
@@ -70,7 +70,8 @@ public class Controlador_Dialogo_Buscar_Maquila implements KeyListener, MouseLis
 
                     public void keyReleased(final KeyEvent e) {
                         filtro();
-                    }});
+                    }
+                });
 
                 TRSFiltro = new TableRowSorter(this.dialogo_Buscar_Maquilas.tabla_Maquilas.getModel());
                 this.dialogo_Buscar_Maquilas.tabla_Maquilas.setRowSorter(TRSFiltro);
@@ -79,14 +80,14 @@ public class Controlador_Dialogo_Buscar_Maquila implements KeyListener, MouseLis
     }
 
     @Override
-    public void keyPressed(KeyEvent ke) {   
+    public void keyPressed(KeyEvent ke) {
     }
 
     @Override
     public void keyReleased(KeyEvent ke) {
     }
-    
-    public void filtro(){
+
+    public void filtro() {
         if (this.dialogo_Buscar_Maquilas.combo_Opciones.getSelectedItem() == "Por nombre") {
             filtrar_Tabla(1);
         } else if (this.dialogo_Buscar_Maquilas.combo_Opciones.getSelectedItem() == "Por RUC / CI") {
@@ -95,35 +96,35 @@ public class Controlador_Dialogo_Buscar_Maquila implements KeyListener, MouseLis
             filtrar_Tabla(3);
         }
     }
-    
-    public void filtrar_Tabla(int valor){
-        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.dialogo_Buscar_Maquilas.campo_Buscar.getText(), valor ));
+
+    public void filtrar_Tabla(int valor) {
+        TRSFiltro.setRowFilter(RowFilter.regexFilter("(?i)" + this.dialogo_Buscar_Maquilas.campo_Buscar.getText(), valor));
     }
 
     @Override
     public void mouseClicked(MouseEvent me) {
         if (me.getSource() == this.dialogo_Buscar_Maquilas.tabla_Maquilas) {
-            maquila = new DAO_Maquila_Implementacion(this.conexion).consultar(String.valueOf(this.dialogo_Buscar_Maquilas.tabla_Maquilas.getValueAt( this.dialogo_Buscar_Maquilas.tabla_Maquilas.getSelectedRow(), 0)));
+            maquila = new DAO_Maquila_Implementacion(this.conexion).consultar(String.valueOf(this.dialogo_Buscar_Maquilas.tabla_Maquilas.getValueAt(this.dialogo_Buscar_Maquilas.tabla_Maquilas.getSelectedRow(), 0)));
 
-            if (maquila.size()==1) {
+            if (maquila.size() == 1) {
                 this.dialogo_Buscar_Maquilas.dispose();
             }
         }
     }
 
     @Override
-    public void mousePressed(MouseEvent me) {    
+    public void mousePressed(MouseEvent me) {
     }
 
     @Override
-    public void mouseReleased(MouseEvent me) {    
+    public void mouseReleased(MouseEvent me) {
     }
 
     @Override
-    public void mouseEntered(MouseEvent me) {   
+    public void mouseEntered(MouseEvent me) {
     }
 
     @Override
-    public void mouseExited(MouseEvent me) { 
+    public void mouseExited(MouseEvent me) {
     }
 }

@@ -29,11 +29,11 @@ import javax.swing.JOptionPane;
  * @author David
  */
 public class Controlador_Recuperacion_Clave implements ActionListener, KeyListener{
-    private Vista_Principal         vista;
+    private final Vista_Principal         vista;
     private Connection              conexion_DataBase;
-    private Usuario                 modelo_Registro;
-    private String                  codigo;
-    private Panel_Recuperar_Clave   panel_Recuperar_Clave = new Panel_Recuperar_Clave();
+    private Usuario                       modelo_Registro;
+    private String                        codigo;
+    private final Panel_Recuperar_Clave   panel_Recuperar_Clave = new Panel_Recuperar_Clave();
 
     public Controlador_Recuperacion_Clave(Vista_Principal vista, Connection conexion_DataBase) {
         this.vista = vista;
@@ -88,7 +88,7 @@ public class Controlador_Recuperacion_Clave implements ActionListener, KeyListen
                 JOptionPane.showMessageDialog(null, "Ingresar valores", "Recuperacion Clave", JOptionPane.WARNING_MESSAGE);
             }
         }
-        
+
         if (ae.getSource() == this.panel_Recuperar_Clave.boton_Cerrar_Sesion) {
             this.vista.Panel_Contenedor.removeAll();
             new Controlador_Panel_Ingreso(this.vista).iniciar();
@@ -117,7 +117,7 @@ public class Controlador_Recuperacion_Clave implements ActionListener, KeyListen
             }
         }
     }
-    
+
     public void modelo_Ingreso() {
         Conexion_Database conexion_Database = new Conexion_Database(new Sesion("root", ""));
         this.conexion_DataBase = conexion_Database.iniciar();

@@ -21,6 +21,7 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author David
  */
 public class Controlador_Visualizar_Factura {
+
     private ArrayList<Factura> lista_Factura;
     private Panel_Estado_De_Cuenta panel_Estado_De_Cuenta;
 

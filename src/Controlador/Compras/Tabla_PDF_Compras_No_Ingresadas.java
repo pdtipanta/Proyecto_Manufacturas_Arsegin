@@ -27,7 +27,6 @@ public class Tabla_PDF_Compras_No_Ingresadas {
     private JComboBox combo = new JComboBox(new String[]{"Seleccione...", "Pagado", "Por pagar", "Anulado"});
 
     public void construir_TablaPDF(JTable tabla, ArrayList<Orden_Compra> lista_Orden, Orden_Compra modelo_Orden_Compra) {
-        System.out.println(lista_Orden.size());
         tabla.setDefaultRenderer(Object.class, new Imagen_Tabla_Compras());
 
         DefaultTableModel modelo_Tabla = new DefaultTableModel() {
