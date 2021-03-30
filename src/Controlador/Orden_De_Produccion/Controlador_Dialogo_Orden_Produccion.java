@@ -66,7 +66,8 @@ public class Controlador_Dialogo_Orden_Produccion implements ActionListener{
                 this.dialogo_Orden_Produccion.boton_Agregar_Fila.setEnabled(bandera);
                 this.dialogo_Orden_Produccion.boton_Quitar_Fila.setEnabled(bandera);
                 this.dialogo_Orden_Produccion.combo_Estado_Orden.setEnabled(bandera);
-                this.dialogo_Orden_Produccion.boton_Agregar_Maquila.setEnabled(!bandera);
+                this.dialogo_Orden_Produccion.boton_Agregar_Maquila.setEnabled(false);
+                this.dialogo_Orden_Produccion.boton_Guardar_Orden.setEnabled(bandera);
 
                 String valor_Maquila = orden_Produccion.getMaquila();
                 ArrayList<Maquila> maquila = new DAO_Maquila_Implementacion(this.conexion).consultar(valor_Maquila);

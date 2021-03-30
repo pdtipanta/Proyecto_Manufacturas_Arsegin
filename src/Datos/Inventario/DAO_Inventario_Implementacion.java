@@ -51,7 +51,6 @@ public class DAO_Inventario_Implementacion implements DAO_Inventario {
         return bandera;
     }
 
-
     @Override
     public int editar(Inventario modelo_Inventarios) throws SQLException {
         int bandera = 0;
@@ -70,7 +69,6 @@ public class DAO_Inventario_Implementacion implements DAO_Inventario {
             this.conexion.rollback();
             throw new SQLIntegrityConstraintViolationException(e1);
         } catch (SQLException e1) {
-            System.out.println(e1);
             bandera = 0;
             this.conexion.rollback();
         } finally {
@@ -112,7 +110,6 @@ public class DAO_Inventario_Implementacion implements DAO_Inventario {
             }
             consulta.close();
         } catch (SQLException e1) {
-            System.out.println(e1);
         } finally {
         }
         return inventario;

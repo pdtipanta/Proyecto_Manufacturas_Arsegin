@@ -13,8 +13,11 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public interface DAO_Factura extends Creador<Factura>{
-    public ArrayList<Factura> consultar_Facturas_Adeudadas( String cliente, String tipo, String id );
+public interface DAO_Factura extends Creador<Factura> {
+
+    public ArrayList<Factura> consultar_Facturas_Adeudadas(String cliente, String tipo, String id);
+
     public String consultar_Numero_Factura();
+
     public ArrayList<Factura> consultar_Facturas_Fechas(String valor);
 }

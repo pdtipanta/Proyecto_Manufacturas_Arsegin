@@ -18,7 +18,7 @@ public class Numeracion_Documentos {
     DecimalFormat format3 = new DecimalFormat("0000000");
 
     public String convertir_Numero(String numero) {
-        
+
         String[] arreglo = verificar_Numero(numero).split("-");
         if (Integer.parseInt(arreglo[2]) == 999 && Integer.parseInt(arreglo[2]) != 9999999) {
             arreglo[1] = String.valueOf(Integer.parseInt(arreglo[1]) + 1);
@@ -32,7 +32,7 @@ public class Numeracion_Documentos {
         }
         return format1.format(Integer.valueOf(arreglo[0])) + "-" + format2.format(Integer.valueOf(arreglo[1])) + "-" + format3.format(Integer.valueOf(arreglo[2]) + 1);
     }
-    
+
     private String verificar_Numero(String numero) {
         if (numero == null) {
             numero = "000-000-0000000";

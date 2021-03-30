@@ -97,6 +97,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
 
         campo_RUC.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_RUC.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_RUC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_RUCFocusGained(evt);
+            }
+        });
         campo_RUC.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_RUCKeyTyped(evt);
@@ -106,6 +111,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
 
         campo_Direccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Direccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Direccion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_DireccionFocusGained(evt);
+            }
+        });
         campo_Direccion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_DireccionKeyTyped(evt);
@@ -115,6 +125,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
 
         campo_Telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Telefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Telefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_TelefonoFocusGained(evt);
+            }
+        });
         campo_Telefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_TelefonoKeyTyped(evt);
@@ -126,6 +141,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         caja_Servicios.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         caja_Servicios.setRows(5);
         caja_Servicios.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        caja_Servicios.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                caja_ServiciosFocusGained(evt);
+            }
+        });
         caja_Servicios.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 caja_ServiciosKeyTyped(evt);
@@ -160,6 +180,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         combo_Maquila.setMaximumSize(new java.awt.Dimension(2, 20));
         combo_Maquila.setMinimumSize(new java.awt.Dimension(2, 20));
         combo_Maquila.setPreferredSize(new java.awt.Dimension(2, 20));
+        combo_Maquila.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                combo_MaquilaFocusGained(evt);
+            }
+        });
         getContentPane().add(combo_Maquila, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 310, 24));
 
         etiqueta_Indicador_Maquila.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
@@ -170,6 +195,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         radio_RUC.setBackground(new java.awt.Color(255, 255, 255));
         radio_RUC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         radio_RUC.setText("RUC");
+        radio_RUC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                radio_RUCFocusGained(evt);
+            }
+        });
         radio_RUC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radio_RUCActionPerformed(evt);
@@ -180,6 +210,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         radio_Cedula.setBackground(new java.awt.Color(255, 255, 255));
         radio_Cedula.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         radio_Cedula.setText("Cedula");
+        radio_Cedula.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                radio_CedulaFocusGained(evt);
+            }
+        });
         radio_Cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radio_CedulaActionPerformed(evt);
@@ -190,6 +225,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         radio_Convencional.setBackground(new java.awt.Color(255, 255, 255));
         radio_Convencional.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         radio_Convencional.setText("Convencional");
+        radio_Convencional.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                radio_ConvencionalFocusGained(evt);
+            }
+        });
         radio_Convencional.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radio_ConvencionalActionPerformed(evt);
@@ -200,6 +240,11 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         radio_Celular.setBackground(new java.awt.Color(255, 255, 255));
         radio_Celular.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         radio_Celular.setText("Celular");
+        radio_Celular.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                radio_CelularFocusGained(evt);
+            }
+        });
         radio_Celular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radio_CelularActionPerformed(evt);
@@ -309,6 +354,51 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_boton_GuardarActionPerformed
 
+    private void combo_MaquilaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_MaquilaFocusGained
+        this.colores_Bordes();
+        this.combo_Maquila.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_combo_MaquilaFocusGained
+
+    private void campo_RUCFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_RUCFocusGained
+        this.colores_Bordes();
+        this.campo_RUC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_RUCFocusGained
+
+    private void radio_RUCFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio_RUCFocusGained
+        this.colores_Bordes();
+        this.radio_RUC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_radio_RUCFocusGained
+
+    private void radio_CedulaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio_CedulaFocusGained
+        this.colores_Bordes();
+        this.radio_Cedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_radio_CedulaFocusGained
+
+    private void campo_DireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_DireccionFocusGained
+        this.colores_Bordes();
+        this.campo_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_DireccionFocusGained
+
+    private void campo_TelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_TelefonoFocusGained
+        this.colores_Bordes();
+        this.campo_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_TelefonoFocusGained
+
+    private void radio_ConvencionalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio_ConvencionalFocusGained
+        this.colores_Bordes();
+        this.radio_Convencional.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_radio_ConvencionalFocusGained
+
+    private void radio_CelularFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_radio_CelularFocusGained
+        this.colores_Bordes();
+        this.radio_Celular.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_radio_CelularFocusGained
+
+    private void caja_ServiciosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_caja_ServiciosFocusGained
+        this.colores_Bordes();
+        this.caja_Servicios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_caja_ServiciosFocusGained
+
     public boolean etiquetas(){
        boolean bandera = true;
        
@@ -388,6 +478,13 @@ public class Dialogo_Maquilas extends javax.swing.JDialog {
         }
     }
     
+    public void colores_Bordes() {
+        this.caja_Servicios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_Direccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_RUC.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_Telefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.combo_Maquila.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+    }
     /**
      * @param args the command line arguments
      */

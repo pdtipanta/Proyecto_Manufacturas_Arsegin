@@ -13,7 +13,9 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public interface DAO_Cotizaciones extends Creador<Cotizacion>{
+public interface DAO_Cotizaciones extends Creador<Cotizacion> {
+
     public String consultar_Numero_Cotizacion();
+
     public ArrayList<Cotizacion> consultar_Cotizacion_Fechas(String valor);
 }

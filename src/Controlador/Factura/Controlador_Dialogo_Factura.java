@@ -105,15 +105,18 @@ public class Controlador_Dialogo_Factura implements ActionListener{
         ArrayList< Inventario> inventario = new ArrayList<Inventario>();
 
         inventario = new DAO_Inventario_Implementacion(this.conexion_Database).consultar((String) this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 1));
-        int cantidad = inventario.get(0).getCantidad_Disponible() - Integer.parseInt(String.valueOf(this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 0)));
 
-        this.modelo_Inventario = new Inventario((String) this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 1), inventario.get(0).getDescripcion(), cantidad, inventario.get(0).getPrecio_Compra(), inventario.get(0).getPrecio_Venta(), inventario.get(0).getProveedor(), inventario.get(i).getImagen());
+        if (inventario.size() == 1) {
+            int cantidad = inventario.get(0).getCantidad_Disponible() - Integer.parseInt(String.valueOf(this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 0)));
+
+            this.modelo_Inventario = new Inventario((String) this.dialogo_Factura.tabla_Productos_Factura.getValueAt(i, 1), inventario.get(0).getDescripcion(), cantidad, inventario.get(0).getPrecio_Compra(), inventario.get(0).getPrecio_Venta(), inventario.get(0).getProveedor(), inventario.get(0).getImagen());
+        }
         try {
             new DAO_Inventario_Implementacion(this.conexion_Database).editar(this.modelo_Inventario);
         } catch (SQLException ex) {
         }
     }
-    
+
     public boolean estado_Factura() {
         boolean bandera = false;
         if (this.dialogo_Factura.combo_Estado_Factura.getSelectedItem().equals("Credito")) {

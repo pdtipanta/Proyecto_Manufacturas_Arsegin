@@ -13,7 +13,9 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public interface DAO_Orden_Produccion extends Creador<Orden_Produccion>{
+public interface DAO_Orden_Produccion extends Creador<Orden_Produccion> {
+
     public String consultar_Numero_Orden();
+
     public ArrayList<Orden_Produccion> consultar_Ordenes_Produccion_Fechas(String valor);
 }

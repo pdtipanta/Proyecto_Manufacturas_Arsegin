@@ -103,7 +103,7 @@ public class Controlador_Dialogo_Buscar_Inventario implements KeyListener, Mouse
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if (me.getSource() == this.dialogo_Buscar_Inventario.tabla_Inventario) {
+        if (me.getSource() == this.dialogo_Buscar_Inventario.tabla_Inventario && me.getButton() == 1) {
             inventario = new DAO_Inventario_Implementacion(this.conexion).consultar(String.valueOf(this.dialogo_Buscar_Inventario.tabla_Inventario.getValueAt(this.dialogo_Buscar_Inventario.tabla_Inventario.getSelectedRow(), 0)));
             if (inventario.size() == 1) {
                 this.dialogo_Buscar_Inventario.dispose();

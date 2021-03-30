@@ -103,6 +103,11 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
 
         campo_Descripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Descripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Descripcion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_DescripcionFocusGained(evt);
+            }
+        });
         campo_Descripcion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_DescripcionKeyTyped(evt);
@@ -121,6 +126,11 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         campo_Cantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Cantidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         campo_Cantidad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        campo_Cantidad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_CantidadFocusGained(evt);
+            }
+        });
         campo_Cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_CantidadKeyTyped(evt);
@@ -130,6 +140,11 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
 
         campo_Precio_Compra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Precio_Compra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Precio_Compra.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_Precio_CompraFocusGained(evt);
+            }
+        });
         campo_Precio_Compra.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_Precio_CompraKeyTyped(evt);
@@ -139,6 +154,11 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
 
         campo_Precio_Venta.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Precio_Venta.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Precio_Venta.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_Precio_VentaFocusGained(evt);
+            }
+        });
         campo_Precio_Venta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_Precio_VentaActionPerformed(evt);
@@ -151,9 +171,13 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         });
         getContentPane().add(campo_Precio_Venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 200, 24));
 
-        campo_Codigo.setBackground(new java.awt.Color(255, 255, 255));
         campo_Codigo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Codigo.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_CodigoFocusGained(evt);
+            }
+        });
         campo_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_CodigoKeyTyped(evt);
@@ -198,6 +222,11 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         combo_Proveedor.setMaximumSize(new java.awt.Dimension(2, 20));
         combo_Proveedor.setMinimumSize(new java.awt.Dimension(2, 20));
         combo_Proveedor.setPreferredSize(new java.awt.Dimension(2, 20));
+        combo_Proveedor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                combo_ProveedorFocusGained(evt);
+            }
+        });
         getContentPane().add(combo_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 320, 24));
 
         boton_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
@@ -245,6 +274,11 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
         campo_Direccion_Imagen.setEditable(false);
         campo_Direccion_Imagen.setBackground(new java.awt.Color(255, 255, 255));
         campo_Direccion_Imagen.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        campo_Direccion_Imagen.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                campo_Direccion_ImagenFocusGained(evt);
+            }
+        });
         getContentPane().add(campo_Direccion_Imagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 330, 24));
 
         boton_Cargar_Imagen.setBackground(new java.awt.Color(255, 255, 255));
@@ -312,6 +346,41 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
             this.etiqueta_Foto.setIcon(new ImageIcon(foto));
         }
     }//GEN-LAST:event_boton_Cargar_ImagenActionPerformed
+
+    private void campo_CodigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_CodigoFocusGained
+        this.colores_Bordes();
+        this.campo_Codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_CodigoFocusGained
+
+    private void campo_DescripcionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_DescripcionFocusGained
+        this.colores_Bordes();
+        this.campo_Descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_DescripcionFocusGained
+
+    private void campo_CantidadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_CantidadFocusGained
+        this.colores_Bordes();
+        this.campo_Cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_CantidadFocusGained
+
+    private void campo_Precio_CompraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_Precio_CompraFocusGained
+        this.colores_Bordes();
+        this.campo_Precio_Compra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_Precio_CompraFocusGained
+
+    private void campo_Precio_VentaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_Precio_VentaFocusGained
+        this.colores_Bordes();
+        this.campo_Precio_Venta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_Precio_VentaFocusGained
+
+    private void campo_Direccion_ImagenFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campo_Direccion_ImagenFocusGained
+        this.colores_Bordes();
+        this.campo_Direccion_Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_campo_Direccion_ImagenFocusGained
+
+    private void combo_ProveedorFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_combo_ProveedorFocusGained
+        this.colores_Bordes();
+        this.combo_Proveedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 180, 20)));
+    }//GEN-LAST:event_combo_ProveedorFocusGained
 
     public void validar_Campos(KeyEvent evt, JTextField campo) {
         char c = evt.getKeyChar();
@@ -392,6 +461,16 @@ public class Dialogo_Inventario extends javax.swing.JDialog {
             this.etiqueta_Foto.setIcon(new ImageIcon(foto));
         } catch (Exception ex) {
         }
+    }
+    
+    public void colores_Bordes() {
+        this.campo_Codigo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_Cantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_Descripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_Direccion_Imagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_Precio_Compra.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.campo_Precio_Venta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        this.combo_Proveedor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
     }
     /**
      * @param args the command line arguments

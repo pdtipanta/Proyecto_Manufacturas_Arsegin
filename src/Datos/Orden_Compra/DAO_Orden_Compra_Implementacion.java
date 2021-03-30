@@ -16,11 +16,12 @@ import java.util.ArrayList;
  *
  * @author David
  */
-public class DAO_Orden_Compra_Implementacion implements DAO_Orden_Compra{
+public class DAO_Orden_Compra_Implementacion implements DAO_Orden_Compra {
+
     private Orden_Compra modelo_Orden_Compra;
-    
-    private Connection conexion;
-    
+
+    private final Connection conexion;
+
     public DAO_Orden_Compra_Implementacion(Connection conexion_Database) {
         this.conexion = conexion_Database;
     }
@@ -161,7 +162,7 @@ public class DAO_Orden_Compra_Implementacion implements DAO_Orden_Compra{
                 lista_Ordenes.add(modelo_Orden_Compra);
             }
             consulta.close();
-        } catch (SQLException ex) {System.out.println(ex);
+        } catch (SQLException ex) {
         } finally {
         }
         return lista_Ordenes;
@@ -186,28 +187,29 @@ public class DAO_Orden_Compra_Implementacion implements DAO_Orden_Compra{
         }
         return lista_Ordenes;
     }
-    
-    public ArrayList<Orden_Compra> consultar_Ordenes_Fechas(String valor){
+
+    public ArrayList<Orden_Compra> consultar_Ordenes_Fechas(String valor) {
         ArrayList<Orden_Compra> lista_Ordenes = new ArrayList<Orden_Compra>();
 
         String cadena = String.valueOf(valor);
         String valores[] = cadena.split(";");
 
-        try{
-            CallableStatement procedimiento_consulta_Orden = this.conexion.prepareCall( "{CALL consultar_Ordenes_Fechas(?,?,?,?)}" );
-            procedimiento_consulta_Orden.setString( 1, valores[0] );
-            procedimiento_consulta_Orden.setString( 2, valores[1] );
-            procedimiento_consulta_Orden.setString( 3, valores[2] );
-            procedimiento_consulta_Orden.setString( 4, valores[3] );
+        try {
+            CallableStatement procedimiento_consulta_Orden = this.conexion.prepareCall("{CALL consultar_Ordenes_Fechas(?,?,?,?)}");
+            procedimiento_consulta_Orden.setString(1, valores[0]);
+            procedimiento_consulta_Orden.setString(2, valores[1]);
+            procedimiento_consulta_Orden.setString(3, valores[2]);
+            procedimiento_consulta_Orden.setString(4, valores[3]);
             ResultSet consulta = procedimiento_consulta_Orden.executeQuery();
-            
-            while( consulta.next() ){
+
+            while (consulta.next()) {
                 modelo_Orden_Compra = new Orden_Compra(consulta.getString(1), consulta.getString(2), consulta.getDouble(3), consulta.getDouble(4), consulta.getDouble(5), consulta.getString(6), consulta.getString(7), consulta.getString(8), consulta.getString(9), consulta.getString(12), consulta.getString(13), consulta.getString(14), consulta.getString(15), consulta.getString(16));
                 lista_Ordenes.add(modelo_Orden_Compra);
             }
             consulta.close();
-        } catch ( SQLException ex ) { 
-        }finally{}
+        } catch (SQLException ex) {
+        } finally {
+        }
         return lista_Ordenes;
     }
 }

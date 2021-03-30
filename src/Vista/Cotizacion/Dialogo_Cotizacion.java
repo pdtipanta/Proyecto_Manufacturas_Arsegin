@@ -5,6 +5,7 @@
  */
 package Vista.Cotizacion;
 
+import Controlador.Render_Tabla_Productos_Cotizacion;
 import Modelo.Cliente;
 import Modelo.Cotizacion;
 import Modelo.Usuario;
@@ -44,6 +45,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         this.boton_Quitar_Fila.setEnabled(false);
         this.calendario_Cotizacion.setDate(new Date());
         this.valor_IVA.setValue(12);
+        this.render_Columna();
     }
 
     /**
@@ -219,6 +221,13 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(tabla_Productos_Cotizacion);
+        if (tabla_Productos_Cotizacion.getColumnModel().getColumnCount() > 0) {
+            tabla_Productos_Cotizacion.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tabla_Productos_Cotizacion.getColumnModel().getColumn(1).setPreferredWidth(90);
+            tabla_Productos_Cotizacion.getColumnModel().getColumn(2).setPreferredWidth(420);
+            tabla_Productos_Cotizacion.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tabla_Productos_Cotizacion.getColumnModel().getColumn(4).setPreferredWidth(50);
+        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 830, 240));
 
@@ -683,6 +692,14 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         Date fecha;
         fecha = (Date) this.calendario_Cotizacion.getDate();
         return new SimpleDateFormat("yyyy-MM-dd").format(fecha);
+    }
+    
+    public void render_Columna() {
+        Render_Tabla_Productos_Cotizacion render_Tablas_Col0 = new Render_Tabla_Productos_Cotizacion(0);
+        this.tabla_Productos_Cotizacion.getColumnModel().getColumn(0).setCellRenderer(render_Tablas_Col0);
+
+        Render_Tabla_Productos_Cotizacion render_Tablas_Col1 = new Render_Tabla_Productos_Cotizacion(1);
+        this.tabla_Productos_Cotizacion.getColumnModel().getColumn(1).setCellRenderer(render_Tablas_Col1);
     }
     /**
      * @param args the command line arguments

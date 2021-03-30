@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Inventario/Panel_Inventarios.java</file>
             <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Render_Tablas.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Inventario/Controlador_Dialogo_Inventario.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Datos/Inventario/DAO_Inventario_Implementacion.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Inventario/Dialogo_Imagen_Producto.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Inventario/Dialogo_Inventario.java</file>
-            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Controlador/Inventario/Controlador_Inventarios.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Maquilas/Panel_Maquilas.java</file>
+            <file>file:/C:/Users/David/Documents/NetBeansProjects/Proyecto%20Manufacturas%20Arsegin/src/Vista/Maquilas/Orden_De_Produccion/Panel_Orden_De_Produccion.java</file>
         </group>
     </open-files>
 </project-private>

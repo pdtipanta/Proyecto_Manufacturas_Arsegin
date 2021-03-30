@@ -18,9 +18,10 @@ import java.util.ArrayList;
  * @author David
  */
 public class DAO_Cliente_Implementacion implements DAO_Clientes {
+
     private Cliente modelo_Cliente;
-    private Connection conexion;
-    
+    private final Connection conexion;
+
     public DAO_Cliente_Implementacion(Connection conexion_Database) {
         this.conexion = conexion_Database;
     }
@@ -54,7 +55,7 @@ public class DAO_Cliente_Implementacion implements DAO_Clientes {
     }
 
     @Override
-    public int editar(Cliente clase) throws SQLException{
+    public int editar(Cliente clase) throws SQLException {
         int bandera = 0;
         try {
             CallableStatement procedimiento_Editar_Cliente = this.conexion.prepareCall("{CALL editar_Clientes(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}");
@@ -103,9 +104,9 @@ public class DAO_Cliente_Implementacion implements DAO_Clientes {
     @Override
     public ArrayList<Cliente> consultar(Object valor) {
         ArrayList<Cliente> cliente = new ArrayList<Cliente>();
-        
+
         String cadena = String.valueOf(valor);
-        String valores[] =  cadena.split(";");
+        String valores[] = cadena.split(";");
 
         try {
             CallableStatement procedimiento_Usuario = this.conexion.prepareCall("{CALL consulta_Clientes(?, ?)}");
@@ -119,70 +120,24 @@ public class DAO_Cliente_Implementacion implements DAO_Clientes {
             }
             consulta.close();
         } catch (SQLException e1) {
-        }finally{}
-        return cliente;
-    }
-
-    @Override
-    public String[] consultar_Lista_Ciudades(String valor) {
-        ArrayList<String> ciudades = new ArrayList<String>();
-        String[] arreglo_Ciudades = null;
-
-        try {
-            CallableStatement procedimiento_Usuario = this.conexion.prepareCall("{CALL consulta_Ciudades(?)}");
-            procedimiento_Usuario.setString(1, valor);
-            ResultSet consulta = procedimiento_Usuario.executeQuery();
-            ciudades.add("Seleccione......");
-            ciudades.add("Todos");
-
-            while (consulta.next()) {
-                ciudades.add(consulta.getString(1));
-            }
-
-            arreglo_Ciudades = new String[ciudades.size()];
-            arreglo_Ciudades = ciudades.toArray(arreglo_Ciudades);
-
-            consulta.close();
-        } catch (SQLException e1) {
         } finally {
         }
-        return arreglo_Ciudades;
+        return cliente;
     }
-    
-    
 
     @Override
     public String consultar_Numero_Cliente() {
         String numero_Cliente = "";
-        try{
-            CallableStatement procedimiento_Consultar_Numero_Cliente = this.conexion.prepareCall( "{CALL numero_Codigo_Cliente()}" );
-            ResultSet consulta = procedimiento_Consultar_Numero_Cliente.executeQuery();
-            while(consulta.next() ){
-                numero_Cliente = consulta.getString( 1 );
-            }
-            consulta.close();
-        }catch( SQLException e1 ){    
-        }finally{}
-        return numero_Cliente;
-    }
-
-    @Override
-    public ArrayList<Cliente> consultar_Reporte_Cliente(String valor, String usuario) {
-        ArrayList<Cliente> cliente = new ArrayList<Cliente>();
-
         try {
-            CallableStatement procedimiento_Usuario = this.conexion.prepareCall("{CALL consulta_Reporte_Cliente(?, ?)}");
-            procedimiento_Usuario.setObject(1, valor);
-            procedimiento_Usuario.setObject(2, usuario);
-            ResultSet consulta = procedimiento_Usuario.executeQuery();
-
+            CallableStatement procedimiento_Consultar_Numero_Cliente = this.conexion.prepareCall("{CALL numero_Codigo_Cliente()}");
+            ResultSet consulta = procedimiento_Consultar_Numero_Cliente.executeQuery();
             while (consulta.next()) {
-                modelo_Cliente = new Cliente(consulta.getString(1), consulta.getString(2), consulta.getString(3), consulta.getString(4), consulta.getString(5), consulta.getString(6), consulta.getString(7), consulta.getString(8), consulta.getString(9), consulta.getString(10));
-                cliente.add(modelo_Cliente);
+                numero_Cliente = consulta.getString(1);
             }
             consulta.close();
         } catch (SQLException e1) {
-        }finally{}
-        return cliente;
+        } finally {
+        }
+        return numero_Cliente;
     }
 }

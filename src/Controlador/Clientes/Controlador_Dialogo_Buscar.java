@@ -51,7 +51,7 @@ public class Controlador_Dialogo_Buscar{
                 valor = "Todos" + ";" + "Todos";
                 break;
         }
-        
+
         this.modelo_Tabla_Clientes.setRowCount(0);
         ArrayList<Cliente> cliente = new DAO_Cliente_Implementacion(this.conexion).consultar(valor);
 

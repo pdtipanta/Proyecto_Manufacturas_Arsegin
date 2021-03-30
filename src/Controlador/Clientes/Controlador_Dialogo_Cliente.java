@@ -8,7 +8,7 @@ package Controlador.Clientes;
 import Datos.Cliente.DAO_Cliente_Implementacion;
 import Modelo.Cliente;
 import Modelo.Usuario;
-import Vista.Cliente.Dialogo_Registrar_Cliente;
+import Vista.Cliente.Dialogo_Cliente;
 import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
  */
 public class Controlador_Dialogo_Cliente implements ActionListener {
 
-    private final Dialogo_Registrar_Cliente  dialogo_Registrar_Cliente;
+    private final Dialogo_Cliente  dialogo_Registrar_Cliente;
     private final Vista_Principal            vista;
     private final Connection                 conexion_Database;
     private final Usuario                    usuario;
@@ -37,7 +37,7 @@ public class Controlador_Dialogo_Cliente implements ActionListener {
         this.usuario = usuario;
         this.actividad = actividad;
         this.cliente = cliente;
-        this.dialogo_Registrar_Cliente = new Dialogo_Registrar_Cliente(this.vista, true);
+        this.dialogo_Registrar_Cliente = new Dialogo_Cliente(this.vista, true);
         this.dialogo_Registrar_Cliente.boton_Agregar.addActionListener(this);
     }
 

@@ -56,7 +56,11 @@ public class Controlador_Factura extends EventListenerList implements ActionList
     public void actionPerformed(ActionEvent ae) {
         
         if (ae.getSource() == this.panel_Factura.boton_Nueva_Factura) {
-            new Controlador_Dialogo_Factura(this.vista, this.conexion_Database, factura, cliente, this.usuario, this.rol, "Registrar").iniciar();
+            if (new Controlador_Dialogo_Factura(this.vista, this.conexion_Database, factura, cliente, this.usuario, this.rol, "Registrar").iniciar()) {
+                this.panel_Factura.boton_Modificar_Factura.setEnabled(false);
+                this.panel_Factura.boton_Imprimir_Facturacion.setEnabled(false);
+                this.cargar_Facturas();
+            }
         }
   
         if (ae.getSource() == this.panel_Factura.boton_Modificar_Factura) {

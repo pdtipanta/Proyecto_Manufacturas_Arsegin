@@ -21,7 +21,7 @@ public class Render_Tablas extends DefaultTableCellRenderer{
     public Render_Tablas(int col_Tabla){
         this.columna_Patron = col_Tabla;
     }
-    
+   
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean Selected, boolean hasFocus, int row, int col) {
 
@@ -58,14 +58,14 @@ public class Render_Tablas extends DefaultTableCellRenderer{
                     setBackground(Color.BLUE);
                     setForeground(Color.WHITE);
                 }
-                
+
                 if (table.getValueAt(row, 6).toString().equals("En revision")) {
                     setBackground(Color.BLUE);
                     setForeground(Color.WHITE);
                 } else if (table.getValueAt(row, 6).toString().equals("Aprobado")) {
                     setBackground(Color.GREEN);
                     setForeground(Color.BLACK);
-                } 
+                }
                 break;
         }
         super.getTableCellRendererComponent(table, value, Selected, Selected, row, col);

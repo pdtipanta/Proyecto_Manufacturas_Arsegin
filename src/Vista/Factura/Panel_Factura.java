@@ -53,7 +53,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         }
 
         if (rol.equals("Contador")) {
-            boolean[] bandera = {true, false, false, true, false, false, false};
+            boolean[] bandera = {false, false, false, true, false, false, false};
             this.habilitar_Rol(bandera);
         }
 

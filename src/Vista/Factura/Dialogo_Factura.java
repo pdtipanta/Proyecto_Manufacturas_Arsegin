@@ -5,6 +5,7 @@
  */
 package Vista.Factura;
 
+import Controlador.Render_Tabla_Productos_Cotizacion;
 import Modelo.Cliente;
 import Modelo.Factura;
 import Modelo.Usuario;
@@ -48,6 +49,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         this.valor_IVA.setValue(12);
         this.valor_IVA.setEnabled(false);
         this.modelo_Tabla_Factura = (DefaultTableModel) this.tabla_Productos_Factura.getModel();
+        this.render_Columna();
     }
 
     /**
@@ -190,6 +192,13 @@ public class Dialogo_Factura extends javax.swing.JDialog {
             }
         });
         jScrollPane1.setViewportView(tabla_Productos_Factura);
+        if (tabla_Productos_Factura.getColumnModel().getColumnCount() > 0) {
+            tabla_Productos_Factura.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tabla_Productos_Factura.getColumnModel().getColumn(1).setPreferredWidth(90);
+            tabla_Productos_Factura.getColumnModel().getColumn(2).setPreferredWidth(420);
+            tabla_Productos_Factura.getColumnModel().getColumn(3).setPreferredWidth(50);
+            tabla_Productos_Factura.getColumnModel().getColumn(4).setPreferredWidth(50);
+        }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 366, 1090, 240));
 
@@ -456,7 +465,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         });
         jToolBar1.add(jButton1);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1173, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1175, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -677,6 +686,14 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         this.campo_Vendedor.setText(factura.getVendedor());
         this.caja_Observaciones_Factura.setText(factura.getObservaciones());
         this.valor_IVA.setValue((int) ((factura.getIVA() / factura.getV_Subtotal()) * 100));
+    }
+    
+    public void render_Columna() {
+        Render_Tabla_Productos_Cotizacion render_Tablas_Col0 = new Render_Tabla_Productos_Cotizacion(0);
+        this.tabla_Productos_Factura.getColumnModel().getColumn(0).setCellRenderer(render_Tablas_Col0);
+
+        Render_Tabla_Productos_Cotizacion render_Tablas_Col1 = new Render_Tabla_Productos_Cotizacion(1);
+        this.tabla_Productos_Factura.getColumnModel().getColumn(1).setCellRenderer(render_Tablas_Col1);
     }
 
     /**

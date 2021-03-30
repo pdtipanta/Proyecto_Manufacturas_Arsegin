@@ -13,5 +13,6 @@ import Modelo.Maquila;
  * @author David
  */
 public interface DAO_Maquila extends Creador<Maquila> {
+
     public String consultar_Numero_Maquila();
 }

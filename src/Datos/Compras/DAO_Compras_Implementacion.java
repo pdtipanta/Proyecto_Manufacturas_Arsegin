@@ -112,19 +112,4 @@ public class DAO_Compras_Implementacion implements DAO_Compras {
         }finally{}
         return Compras;
     }
-
-    @Override
-    public String consultar_Numero_Compra() {
-        String numero_Compra = "";
-        try{
-            CallableStatement procedimiento_Consultar_Numero_Compra = this.conexion.prepareCall( "{CALL numero_Compra()}" );
-            ResultSet consulta = procedimiento_Consultar_Numero_Compra.executeQuery();
-            while(consulta.next() ){
-                numero_Compra = consulta.getString( 1 );
-            }
-            consulta.close();
-        }catch( SQLException e1 ){    
-        }finally{}
-        return numero_Compra;
-    }
 }

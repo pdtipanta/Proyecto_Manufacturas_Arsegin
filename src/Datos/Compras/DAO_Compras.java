@@ -14,6 +14,6 @@ import java.util.ArrayList;
  * @author David
  */
 public interface DAO_Compras extends Creador<Compras> {
-    public ArrayList<Compras> consultar_Pagos_Adeudados( String proveedor, String estado );
-    public String consultar_Numero_Compra();
+
+    public ArrayList<Compras> consultar_Pagos_Adeudados(String proveedor, String estado);
 }

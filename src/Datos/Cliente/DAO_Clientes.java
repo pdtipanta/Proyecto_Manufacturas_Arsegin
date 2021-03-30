@@ -7,14 +7,12 @@ package Datos.Cliente;
 
 import Datos.Creador;
 import Modelo.Cliente;
-import java.util.ArrayList;
 
 /**
  *
  * @author David
  */
 public interface DAO_Clientes extends Creador<Cliente> {
-    public String[] consultar_Lista_Ciudades(String valor);
-    public ArrayList<Cliente> consultar_Reporte_Cliente(String valor, String usuario);
+
     public String consultar_Numero_Cliente();
 }

@@ -172,6 +172,7 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         jLabel1.setText("    ");
         jToolBar2.add(jLabel1);
 
+        campo_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         campo_Buscar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         campo_Buscar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Buscar.setMaximumSize(new java.awt.Dimension(750, 30));
