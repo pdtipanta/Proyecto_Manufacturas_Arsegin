@@ -71,6 +71,7 @@ public class Controlador_Panel_Cliente implements ActionListener {
                     this.cargar_Clientes();
                     this.panel_Cliente.boton_Modificar.setEnabled(false);
                     this.panel_Cliente.boton_Eliminar.setEnabled(false);
+                    JOptionPane.showMessageDialog(null, "Cliente eliminado", "Exito en la operacion", JOptionPane.INFORMATION_MESSAGE);
                 }
             } catch (SQLIntegrityConstraintViolationException e1) {
                 JOptionPane.showMessageDialog(null, "No se puede eliminar el cliente, debido a que mantiene documentos pendientes", "Clientes", JOptionPane.WARNING_MESSAGE);

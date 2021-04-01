@@ -57,12 +57,12 @@ public class Panel_Autenticar_Administrador extends javax.swing.JPanel {
 
         campo_Clave.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Clave.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), java.awt.SystemColor.textHighlight)); // NOI18N
-        add(campo_Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 350, 40));
+        add(campo_Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 350, 40));
 
         etiqueta_Datos_Incorrectos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiqueta_Datos_Incorrectos.setForeground(new java.awt.Color(195, 0, 0));
         etiqueta_Datos_Incorrectos.setText("Datos incorrectos vuelva intentar");
-        add(etiqueta_Datos_Incorrectos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 320, -1));
+        add(etiqueta_Datos_Incorrectos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 320, -1));
 
         boton_Iniciar_Administrador.setBackground(java.awt.SystemColor.textHighlight);
         boton_Iniciar_Administrador.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -70,7 +70,7 @@ public class Panel_Autenticar_Administrador extends javax.swing.JPanel {
         boton_Iniciar_Administrador.setText("Iniciar sesion");
         boton_Iniciar_Administrador.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Iniciar_Administrador.setBorderPainted(false);
-        add(boton_Iniciar_Administrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 130, 40));
+        add(boton_Iniciar_Administrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 130, 40));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 22)); // NOI18N
         jLabel3.setText("REGISTRAR USUARIOS");

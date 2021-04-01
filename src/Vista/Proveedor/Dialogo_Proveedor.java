@@ -78,9 +78,9 @@ public class Dialogo_Proveedor extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Proveedor");
         setBackground(new java.awt.Color(229, 229, 229));
-        setMaximumSize(new java.awt.Dimension(787, 435));
-        setMinimumSize(new java.awt.Dimension(787, 435));
-        setPreferredSize(new java.awt.Dimension(787, 435));
+        setMaximumSize(new java.awt.Dimension(787, 461));
+        setMinimumSize(new java.awt.Dimension(787, 461));
+        setPreferredSize(new java.awt.Dimension(787, 461));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -129,7 +129,7 @@ public class Dialogo_Proveedor extends javax.swing.JDialog {
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Correo:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 195, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(107, 195, -1, -1));
 
         campo_Correo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Correo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -148,7 +148,7 @@ public class Dialogo_Proveedor extends javax.swing.JDialog {
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Telefono:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 230, -1, -1));
 
         campo_Telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Telefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());

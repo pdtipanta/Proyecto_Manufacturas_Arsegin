@@ -113,6 +113,7 @@ public class Dialogo_Buscar_Cliente extends javax.swing.JDialog {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jToolBar1.add(jLabel1);
 
+        campo_Buscar.setBackground(new java.awt.Color(255, 255, 255));
         campo_Buscar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Buscar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Buscar.setMaximumSize(new java.awt.Dimension(400, 27));

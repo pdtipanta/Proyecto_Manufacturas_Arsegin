@@ -42,7 +42,6 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         campo_Recuperacion_Usuario = new javax.swing.JTextField();
         campo_Recuperacion_CI = new javax.swing.JTextField();
-        boton_Recuperacion_Recuperar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         campo_Recuperacion_Codigo = new javax.swing.JTextField();
@@ -51,7 +50,6 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
         campo_Recuperacion_Confirmar = new javax.swing.JPasswordField();
         etiqueta_Indicador_Usuario = new javax.swing.JLabel();
         etiqueta_Indicador_CI = new javax.swing.JLabel();
-        boton_Recuperacion_Guardar = new javax.swing.JButton();
         etiqueta_Aceptado = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -60,6 +58,9 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
         etiqueta_Contraseñas_No_Coinciden = new javax.swing.JLabel();
         boton_Cerrar_Sesion = new javax.swing.JButton();
         jToolBar1 = new javax.swing.JToolBar();
+        boton_Recuperacion_Recuperar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        boton_Recuperacion_Guardar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(239, 239, 239));
         setMaximumSize(new java.awt.Dimension(1400, 800));
@@ -92,13 +93,6 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
             }
         });
         add(campo_Recuperacion_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 225, 24));
-
-        boton_Recuperacion_Recuperar.setBackground(new java.awt.Color(255, 255, 255));
-        boton_Recuperacion_Recuperar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Recuperacion_Recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/email_mail_envelope_message_icon_181521.png"))); // NOI18N
-        boton_Recuperacion_Recuperar.setText("Recuperar");
-        boton_Recuperacion_Recuperar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(boton_Recuperacion_Recuperar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 110, 40));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Nueva contraseña:");
@@ -149,13 +143,6 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
         etiqueta_Indicador_CI.setText("*");
         add(etiqueta_Indicador_CI, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 178, -1, -1));
 
-        boton_Recuperacion_Guardar.setBackground(new java.awt.Color(255, 255, 255));
-        boton_Recuperacion_Guardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        boton_Recuperacion_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construction_project_plan_building_architect_design_develop-95_icon-icons.com_60215.png"))); // NOI18N
-        boton_Recuperacion_Guardar.setText("Guardar");
-        boton_Recuperacion_Guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(boton_Recuperacion_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, 110, 45));
-
         etiqueta_Aceptado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comprobar.png"))); // NOI18N
         add(etiqueta_Aceptado, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
@@ -185,13 +172,34 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
         boton_Cerrar_Sesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Exit-32.png"))); // NOI18N
         boton_Cerrar_Sesion.setText("Cerrar");
         boton_Cerrar_Sesion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(boton_Cerrar_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 0, 100, 40));
+        add(boton_Cerrar_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(1300, 0, 100, 60));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.setFloatable(false);
         jToolBar1.setRollover(true);
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 40));
+
+        boton_Recuperacion_Recuperar.setBackground(new java.awt.Color(255, 255, 255));
+        boton_Recuperacion_Recuperar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        boton_Recuperacion_Recuperar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/email_mail_envelope_message_icon_181521.png"))); // NOI18N
+        boton_Recuperacion_Recuperar.setText("Recuperar");
+        boton_Recuperacion_Recuperar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton_Recuperacion_Recuperar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Recuperacion_Recuperar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(boton_Recuperacion_Recuperar);
+        jToolBar1.add(jSeparator1);
+
+        boton_Recuperacion_Guardar.setBackground(new java.awt.Color(255, 255, 255));
+        boton_Recuperacion_Guardar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        boton_Recuperacion_Guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construction_project_plan_building_architect_design_develop-95_icon-icons.com_60215.png"))); // NOI18N
+        boton_Recuperacion_Guardar.setText("Guardar");
+        boton_Recuperacion_Guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        boton_Recuperacion_Guardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Recuperacion_Guardar.setMaximumSize(new java.awt.Dimension(60, 55));
+        boton_Recuperacion_Guardar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jToolBar1.add(boton_Recuperacion_Guardar);
+
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1300, 60));
     }// </editor-fold>//GEN-END:initComponents
 
     private void campo_Recuperacion_CIKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_Recuperacion_CIKeyTyped
@@ -288,6 +296,7 @@ public class Panel_Recuperar_Clave extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

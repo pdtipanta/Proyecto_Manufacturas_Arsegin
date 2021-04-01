@@ -51,9 +51,9 @@ public class Dialogo_Agregar_Trabajo extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nuevo trabajo");
         setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        setMaximumSize(new java.awt.Dimension(506, 250));
-        setMinimumSize(new java.awt.Dimension(506, 250));
-        setPreferredSize(new java.awt.Dimension(506, 250));
+        setMaximumSize(new java.awt.Dimension(557, 300));
+        setMinimumSize(new java.awt.Dimension(557, 300));
+        setPreferredSize(new java.awt.Dimension(557, 300));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N

@@ -5,6 +5,8 @@
  */
 package Vista.Registro_Usuarios;
 
+import Controlador.Render_Tablas;
+
 /**
  *
  * @author LENOVO
@@ -17,6 +19,7 @@ public class Panel_Registro extends javax.swing.JPanel {
     public Panel_Registro() {
         initComponents();
         this.boton_Modificar.setEnabled(false);
+        this.render_Columna();
     }
 
     /**
@@ -163,6 +166,13 @@ public class Panel_Registro extends javax.swing.JPanel {
 
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
+    public void render_Columna(){
+        Render_Tablas render_Tablas_Col0 = new Render_Tablas(0);
+        this.tabla_Usuarios.getColumnModel().getColumn(0).setCellRenderer(render_Tablas_Col0);
+        
+        Render_Tablas render_Tablas_Col4 = new Render_Tablas(0);
+        this.tabla_Usuarios.getColumnModel().getColumn(4).setCellRenderer(render_Tablas_Col4);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_Cerrar_Sesion;

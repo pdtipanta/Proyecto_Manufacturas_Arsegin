@@ -91,7 +91,6 @@ public class Panel_Compras extends javax.swing.JPanel {
         tabla_Consulta_Orden_Compra = new javax.swing.JTable();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Buscar = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -148,7 +147,7 @@ public class Panel_Compras extends javax.swing.JPanel {
         jToolBar1.setRollover(true);
 
         boton_Buscar.setBackground(new java.awt.Color(255, 255, 255));
-        boton_Buscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        boton_Buscar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         boton_Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/business_man_usersearch_thesearch_theclient_2356.png"))); // NOI18N
         boton_Buscar.setText("Proveedor");
         boton_Buscar.setToolTipText("Agregar proveedor");
@@ -160,7 +159,6 @@ public class Panel_Compras extends javax.swing.JPanel {
         boton_Buscar.setPreferredSize(new java.awt.Dimension(109, 57));
         boton_Buscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Buscar);
-        jToolBar1.add(jSeparator2);
 
         add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 800));
 
@@ -253,6 +251,7 @@ public class Panel_Compras extends javax.swing.JPanel {
         jLabel8.setText("Filtrar:    ");
         jToolBar2.add(jLabel8);
 
+        campo_Busqueda.setBackground(new java.awt.Color(255, 255, 255));
         campo_Busqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         campo_Busqueda.setMaximumSize(new java.awt.Dimension(750, 30));
         campo_Busqueda.setMinimumSize(new java.awt.Dimension(750, 30));
@@ -369,7 +368,6 @@ public class Panel_Compras extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JToolBar.Separator jSeparator1;
-    private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     public javax.swing.JTable tabla_Consulta_Orden_Compra;

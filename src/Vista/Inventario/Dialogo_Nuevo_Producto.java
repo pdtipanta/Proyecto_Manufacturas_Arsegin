@@ -52,9 +52,9 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nuevo producto");
-        setMaximumSize(new java.awt.Dimension(523, 285));
-        setMinimumSize(new java.awt.Dimension(523, 285));
-        setPreferredSize(new java.awt.Dimension(523, 285));
+        setMaximumSize(new java.awt.Dimension(523, 320));
+        setMinimumSize(new java.awt.Dimension(523, 320));
+        setPreferredSize(new java.awt.Dimension(523, 320));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
