@@ -41,7 +41,6 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         grupo_Botones_Telefono = new javax.swing.ButtonGroup();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Nuevo_Proveedor = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         boton_Modificar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
@@ -78,16 +77,17 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         boton_Nuevo_Proveedor.setText("Nuevo");
         boton_Nuevo_Proveedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nuevo_Proveedor.setFocusable(false);
-        boton_Nuevo_Proveedor.setMaximumSize(new java.awt.Dimension(120, 42));
-        boton_Nuevo_Proveedor.setMinimumSize(new java.awt.Dimension(120, 42));
-        boton_Nuevo_Proveedor.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Proveedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nuevo_Proveedor.setMaximumSize(new java.awt.Dimension(80, 52));
+        boton_Nuevo_Proveedor.setMinimumSize(new java.awt.Dimension(80, 52));
+        boton_Nuevo_Proveedor.setPreferredSize(new java.awt.Dimension(80, 52));
+        boton_Nuevo_Proveedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nuevo_Proveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nuevo_ProveedorActionPerformed(evt);
             }
         });
         jToolBar1.add(boton_Nuevo_Proveedor);
-        jToolBar1.add(jSeparator4);
         jToolBar1.add(jSeparator1);
 
         boton_Modificar.setBackground(java.awt.Color.white);
@@ -96,9 +96,11 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         boton_Modificar.setText("Modificar");
         boton_Modificar.setToolTipText(" Editar");
         boton_Modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 42));
-        boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 42));
-        boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(80, 52));
+        boton_Modificar.setMinimumSize(new java.awt.Dimension(80, 52));
+        boton_Modificar.setPreferredSize(new java.awt.Dimension(80, 52));
+        boton_Modificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator2);
 
@@ -108,9 +110,11 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         boton_Eliminar.setText("Eliminar");
         boton_Eliminar.setToolTipText("Eliminar");
         boton_Eliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Eliminar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Eliminar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Eliminar.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Eliminar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Eliminar);
         jToolBar1.add(jSeparator3);
 
@@ -120,13 +124,14 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         boton_Reporte_Proveedor.setText("Reporte");
         boton_Reporte_Proveedor.setToolTipText("Reporte");
         boton_Reporte_Proveedor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Reporte_Proveedor.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Reporte_Proveedor.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Reporte_Proveedor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Reporte_Proveedor.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Reporte_Proveedor.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Reporte_Proveedor.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Reporte_Proveedor.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Reporte_Proveedor);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -179,7 +184,7 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 980, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1020, 40));
 
         tabla_Proveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -211,7 +216,7 @@ public class Panel_Proveedor extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Proveedores);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 1320, 760));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nuevo_ProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nuevo_ProveedorActionPerformed
@@ -296,7 +301,6 @@ public class Panel_Proveedor extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;

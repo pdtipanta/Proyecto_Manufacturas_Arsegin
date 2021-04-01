@@ -62,10 +62,11 @@ public class Panel_Registro extends javax.swing.JPanel {
         boton_Nuevo.setText("Nuevo");
         boton_Nuevo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nuevo.setFocusable(false);
-        boton_Nuevo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nuevo.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nuevo.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Nuevo.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Nuevo.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Nuevo);
         jToolBar1.add(jSeparator2);
         jToolBar1.add(jSeparator1);
@@ -76,14 +77,15 @@ public class Panel_Registro extends javax.swing.JPanel {
         boton_Modificar.setText("Modificar");
         boton_Modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Modificar.setFocusable(false);
-        boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator3);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 85, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -123,7 +125,7 @@ public class Panel_Registro extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Usuarios);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1310, 760));
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -154,7 +156,7 @@ public class Panel_Registro extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 1010, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void campo_BuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_BuscarKeyTyped

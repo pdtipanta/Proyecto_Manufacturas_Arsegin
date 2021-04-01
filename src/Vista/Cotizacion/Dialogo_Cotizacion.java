@@ -133,19 +133,19 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Direccion:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 271, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 255, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Telefono:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 192, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 186, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Solicitante:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 232, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 222, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Correo:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 272, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 255, -1, -1));
 
         campo_Direccion_Cotizacion.setEditable(false);
         campo_Direccion_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -156,7 +156,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
                 campo_Direccion_CotizacionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Direccion_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 310, 24));
+        getContentPane().add(campo_Direccion_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 255, 310, 24));
 
         campo_Contacto_Cotizacion.setEditable(false);
         campo_Contacto_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -167,7 +167,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
                 campo_Contacto_CotizacionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Contacto_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 280, 24));
+        getContentPane().add(campo_Contacto_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 280, 24));
 
         campo_Correo_Cotizacion.setEditable(false);
         campo_Correo_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -178,7 +178,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
                 campo_Correo_CotizacionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Correo_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 270, 300, 24));
+        getContentPane().add(campo_Correo_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 255, 300, 24));
 
         campo_Telefono_Cotizacion.setEditable(false);
         campo_Telefono_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -189,7 +189,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
                 campo_Telefono_CotizacionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Telefono_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 150, 24));
+        getContentPane().add(campo_Telefono_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 185, 150, 24));
 
         tabla_Productos_Cotizacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tabla_Productos_Cotizacion.setModel(new javax.swing.table.DefaultTableModel(
@@ -320,7 +320,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel18.setText("Ciudad:");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 192, -1, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 186, -1, -1));
 
         campo_Ciudad_Cotizacion.setEditable(false);
         campo_Ciudad_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -331,7 +331,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
                 campo_Ciudad_CotizacionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Ciudad_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 190, 230, 24));
+        getContentPane().add(campo_Ciudad_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 185, 230, 24));
 
         etiqueta_Indicador_Cliente.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Cliente.setForeground(new java.awt.Color(220, 0, 0));
@@ -341,7 +341,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         etiqueta_Indicador_Direccion.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Direccion.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Direccion.setText("*");
-        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 265, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 256, -1, -1));
 
         etiqueta_Indicador_Telefono.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Telefono.setForeground(new java.awt.Color(220, 0, 0));
@@ -356,7 +356,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         etiqueta_Indicador_Correo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Correo.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Correo.setText("*");
-        getContentPane().add(etiqueta_Indicador_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 265, 20, -1));
+        getContentPane().add(etiqueta_Indicador_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 256, 20, -1));
 
         etiqueta_Indicador_RUC.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_RUC.setForeground(new java.awt.Color(220, 0, 0));
@@ -366,7 +366,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         etiqueta_Indicador_Contacto.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Contacto.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Contacto.setText("*");
-        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 228, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 220, -1, -1));
 
         etiqueta_Indicador_Modalidad.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Modalidad.setForeground(new java.awt.Color(198, 0, 0));
@@ -381,7 +381,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("Emite:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 232, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 222, -1, -1));
 
         campo_Emisor_Cotizacion.setEditable(false);
         campo_Emisor_Cotizacion.setBackground(new java.awt.Color(255, 255, 255));
@@ -390,7 +390,7 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         campo_Emisor_Cotizacion.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Emisor_Cotizacion.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Emisor_Cotizacion.setPreferredSize(new java.awt.Dimension(2, 20));
-        getContentPane().add(campo_Emisor_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 230, 230, 24));
+        getContentPane().add(campo_Emisor_Cotizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 220, 230, 24));
 
         campo_Codigo_Cliente.setEditable(false);
         campo_Codigo_Cliente.setBackground(new java.awt.Color(255, 255, 255));
@@ -415,11 +415,11 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
                 valor_IVAKeyTyped(evt);
             }
         });
-        getContentPane().add(valor_IVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 670, 110, 24));
+        getContentPane().add(valor_IVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 665, 110, 24));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel20.setText("IVA %:");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 672, -1, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 665, -1, -1));
 
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Valor total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 1030, 130));
@@ -445,10 +445,11 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         boton_Guardar_Cotizacion.setToolTipText("Guardar cotizacion");
         boton_Guardar_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Guardar_Cotizacion.setFocusable(false);
-        boton_Guardar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Guardar_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 37));
+        boton_Guardar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Guardar_Cotizacion.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Guardar_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 37));
         boton_Guardar_Cotizacion.setPreferredSize(new java.awt.Dimension(120, 37));
+        boton_Guardar_Cotizacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Guardar_Cotizacion);
         jToolBar1.add(jSeparator1);
 
@@ -458,12 +459,14 @@ public class Dialogo_Cotizacion extends javax.swing.JDialog {
         boton_Agregar_Cliente.setText("Cliente");
         boton_Agregar_Cliente.setToolTipText("Agregar cliente");
         boton_Agregar_Cliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Agregar_Cliente.setMaximumSize(new java.awt.Dimension(85, 37));
+        boton_Agregar_Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Agregar_Cliente.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Agregar_Cliente.setMinimumSize(new java.awt.Dimension(85, 37));
         boton_Agregar_Cliente.setPreferredSize(new java.awt.Dimension(85, 37));
+        boton_Agregar_Cliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Agregar_Cliente);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 1060, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 0, 1060, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

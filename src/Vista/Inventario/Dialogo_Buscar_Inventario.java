@@ -82,7 +82,7 @@ public class Dialogo_Buscar_Inventario extends javax.swing.JDialog {
             tabla_Inventario.getColumnModel().getColumn(5).setPreferredWidth(20);
         }
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 40, 1390, 790));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1390, 770));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -95,9 +95,11 @@ public class Dialogo_Buscar_Inventario extends javax.swing.JDialog {
         boton_Nuevo_Producto.setText("Nuevo producto");
         boton_Nuevo_Producto.setToolTipText("Agregar nuevo producto");
         boton_Nuevo_Producto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Nuevo_Producto.setMaximumSize(new java.awt.Dimension(140, 40));
-        boton_Nuevo_Producto.setMinimumSize(new java.awt.Dimension(140, 40));
-        boton_Nuevo_Producto.setPreferredSize(new java.awt.Dimension(140, 40));
+        boton_Nuevo_Producto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nuevo_Producto.setMaximumSize(new java.awt.Dimension(80, 52));
+        boton_Nuevo_Producto.setMinimumSize(new java.awt.Dimension(80, 52));
+        boton_Nuevo_Producto.setPreferredSize(new java.awt.Dimension(100, 52));
+        boton_Nuevo_Producto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Nuevo_Producto);
         jToolBar1.add(jSeparator1);
 
@@ -126,7 +128,7 @@ public class Dialogo_Buscar_Inventario extends javax.swing.JDialog {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.add(combo_Opciones);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1400, 58));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

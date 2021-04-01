@@ -86,10 +86,11 @@ public class Panel_Pagos extends javax.swing.JPanel {
         boton_Buscar.setText("Proveedor");
         boton_Buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Buscar.setFocusable(false);
-        boton_Buscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Buscar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Buscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Buscar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Buscar.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Buscar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Buscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Buscar);
         jToolBar1.add(jSeparator1);
 
@@ -100,13 +101,14 @@ public class Panel_Pagos extends javax.swing.JPanel {
         boton_Reporte.setToolTipText("Generar estado de pagos");
         boton_Reporte.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Reporte.setFocusable(false);
-        boton_Reporte.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Reporte.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Reporte.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Reporte.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Reporte.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Reporte.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Reporte.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Reporte);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 800));
 
         tabla_Estado_Pagos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,17 +120,17 @@ public class Panel_Pagos extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tabla_Estado_Pagos);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 1230, 490));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 1270, 490));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Proveedor:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
         combo_Proveedor.setEditable(false);
         combo_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
         combo_Proveedor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Proveedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(combo_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 320, 24));
+        add(combo_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 320, 24));
 
         campo_RUC.setEditable(false);
         campo_RUC.setBackground(new java.awt.Color(255, 255, 255));
@@ -139,7 +141,7 @@ public class Panel_Pagos extends javax.swing.JPanel {
                 campo_RUCKeyTyped(evt);
             }
         });
-        add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, 150, 24));
+        add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, 150, 24));
 
         campo_Direccion.setEditable(false);
         campo_Direccion.setBackground(new java.awt.Color(255, 255, 255));
@@ -150,15 +152,15 @@ public class Panel_Pagos extends javax.swing.JPanel {
                 campo_DireccionKeyTyped(evt);
             }
         });
-        add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 560, 24));
+        add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 115, 560, 24));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Direccion:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 115, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Telefono:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         campo_Telefono.setEditable(false);
         campo_Telefono.setBackground(new java.awt.Color(255, 255, 255));
@@ -169,7 +171,7 @@ public class Panel_Pagos extends javax.swing.JPanel {
                 campo_TelefonoKeyTyped(evt);
             }
         });
-        add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 230, 24));
+        add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 230, 24));
 
         campo_Correo.setEditable(false);
         campo_Correo.setBackground(new java.awt.Color(255, 255, 255));
@@ -180,24 +182,24 @@ public class Panel_Pagos extends javax.swing.JPanel {
                 campo_CorreoKeyTyped(evt);
             }
         });
-        add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 230, 24));
+        add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 230, 24));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Correo:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, -1, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 150, -1, -1));
 
         combo_Opcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Opcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar......", "Todos", "Por pagar", "Pagado", "Anulado" }));
         combo_Opcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(combo_Opcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 200, 24));
+        add(combo_Opcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 185, 200, 24));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Estado:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 185, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("RUC:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, -1, -1));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -220,10 +222,10 @@ public class Panel_Pagos extends javax.swing.JPanel {
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, 180, 40));
 
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Informacion proveedor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 1280, 200));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 1320, 200));
 
         jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 1280, 560));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 1320, 560));
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -246,7 +248,7 @@ public class Panel_Pagos extends javax.swing.JPanel {
         });
         jToolBar2.add(campo_Busqueda);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 980, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1020, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void campo_RUCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_RUCKeyTyped

@@ -120,10 +120,11 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         boton_Nueva_Cotizacion.setToolTipText("Nueva cotizacion");
         boton_Nueva_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nueva_Cotizacion.setFocusable(false);
-        boton_Nueva_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nueva_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nueva_Cotizacion.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Nueva_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Nueva_Cotizacion.setPreferredSize(new java.awt.Dimension(110, 37));
+        boton_Nueva_Cotizacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nueva_Cotizacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nueva_CotizacionActionPerformed(evt);
@@ -139,10 +140,11 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         boton_Modificar_Cotizacion.setToolTipText("Modificar cotizacion");
         boton_Modificar_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Modificar_Cotizacion.setFocusable(false);
-        boton_Modificar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar_Cotizacion.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Modificar_Cotizacion.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Cotizacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar_Cotizacion);
         jToolBar1.add(jSeparator3);
 
@@ -153,13 +155,14 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         boton_Generar_Cotizacion.setToolTipText("Generar cotizacion");
         boton_Generar_Cotizacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Generar_Cotizacion.setFocusable(false);
-        boton_Generar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Generar_Cotizacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Generar_Cotizacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Generar_Cotizacion.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Generar_Cotizacion.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Generar_Cotizacion.setPreferredSize(new java.awt.Dimension(110, 37));
+        boton_Generar_Cotizacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Generar_Cotizacion);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -217,7 +220,7 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Consulta_Cotizacion);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 1320, 760));
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -285,7 +288,7 @@ public class Panel_Cotizacion extends javax.swing.JPanel {
         jToolBar2.add(combo_Opciones);
         jToolBar2.add(jSeparator6);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1020, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_CotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_CotizacionActionPerformed

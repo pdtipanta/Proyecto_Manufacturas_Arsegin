@@ -78,10 +78,11 @@ public class Panel_Clientes extends javax.swing.JPanel {
         boton_Nuevo_Cliente.setText("Nuevo");
         boton_Nuevo_Cliente.setToolTipText("Nuevo cliente");
         boton_Nuevo_Cliente.setFocusable(false);
-        boton_Nuevo_Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nuevo_Cliente.setMaximumSize(new java.awt.Dimension(100, 40));
+        boton_Nuevo_Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nuevo_Cliente.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Nuevo_Cliente.setMinimumSize(new java.awt.Dimension(100, 40));
-        boton_Nuevo_Cliente.setPreferredSize(new java.awt.Dimension(100, 40));
+        boton_Nuevo_Cliente.setPreferredSize(new java.awt.Dimension(100, 50));
+        boton_Nuevo_Cliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nuevo_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nuevo_ClienteActionPerformed(evt);
@@ -95,10 +96,11 @@ public class Panel_Clientes extends javax.swing.JPanel {
         boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/businessapplication_edit_male_user_thepencil_theclient_negocio_2321.png"))); // NOI18N
         boton_Modificar.setText("Modificar");
         boton_Modificar.setToolTipText("Modificar cliente");
-        boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 40));
+        boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 40));
         boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 40));
+        boton_Modificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator3);
 
@@ -107,10 +109,11 @@ public class Panel_Clientes extends javax.swing.JPanel {
         boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/delete_delete_deleteusers_delete_male_user_maleclient_2348.png"))); // NOI18N
         boton_Eliminar.setText("Eliminar");
         boton_Eliminar.setToolTipText("Eliminar cliente");
-        boton_Eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Eliminar.setMaximumSize(new java.awt.Dimension(110, 40));
+        boton_Eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Eliminar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Eliminar.setMinimumSize(new java.awt.Dimension(110, 40));
-        boton_Eliminar.setPreferredSize(new java.awt.Dimension(110, 40));
+        boton_Eliminar.setPreferredSize(new java.awt.Dimension(110, 52));
+        boton_Eliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Eliminar);
         jToolBar1.add(jSeparator4);
 
@@ -119,14 +122,15 @@ public class Panel_Clientes extends javax.swing.JPanel {
         boton_Reportes_Clientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Reportes_Clientes.setText("Reporte");
         boton_Reportes_Clientes.setToolTipText("Reporte cliente");
-        boton_Reportes_Clientes.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Reportes_Clientes.setMaximumSize(new java.awt.Dimension(100, 40));
+        boton_Reportes_Clientes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Reportes_Clientes.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Reportes_Clientes.setMinimumSize(new java.awt.Dimension(100, 40));
         boton_Reportes_Clientes.setPreferredSize(new java.awt.Dimension(100, 40));
+        boton_Reportes_Clientes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Reportes_Clientes);
         jToolBar1.add(jSeparator5);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 110, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -182,7 +186,7 @@ public class Panel_Clientes extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Clientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 1290, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1310, 760));
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -224,7 +228,7 @@ public class Panel_Clientes extends javax.swing.JPanel {
         });
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 990, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 1010, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nuevo_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nuevo_ClienteActionPerformed

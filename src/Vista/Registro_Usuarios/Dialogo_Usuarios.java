@@ -74,9 +74,9 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(910, 639));
-        setMinimumSize(new java.awt.Dimension(910, 639));
-        setPreferredSize(new java.awt.Dimension(910, 639));
+        setMaximumSize(new java.awt.Dimension(825, 450));
+        setMinimumSize(new java.awt.Dimension(825, 450));
+        setPreferredSize(new java.awt.Dimension(825, 450));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -86,31 +86,31 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Apellido:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 175, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Nº Cedula:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Usuario:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 350, 60, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 60, 20));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Contraseña:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 315, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Correo:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 245, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Repetir contraseña:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Tipo de Rol:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 385, -1, -1));
 
         campo_Nombre_Registro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Nombre_Registro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -128,7 +128,7 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
                 campo_Apellido_RegistroKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Apellido_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 352, 25));
+        getContentPane().add(campo_Apellido_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 175, 352, 25));
 
         campo_Cedula_Registro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Cedula_Registro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -137,7 +137,7 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
                 campo_Cedula_RegistroKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Cedula_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 200, 25));
+        getContentPane().add(campo_Cedula_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 200, 25));
 
         campo_Correo_Registro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Correo_Registro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -146,7 +146,7 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
                 campo_Correo_RegistroKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Correo_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 350, 25));
+        getContentPane().add(campo_Correo_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 245, 350, 25));
 
         campo_Uusario_Registro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Uusario_Registro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -155,7 +155,7 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
                 campo_Uusario_RegistroKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Uusario_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 190, 25));
+        getContentPane().add(campo_Uusario_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 190, 25));
 
         campo_Contraseniaa_Registro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Contraseniaa_Registro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -164,11 +164,11 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
                 campo_Contraseniaa_RegistroKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Contraseniaa_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 180, 25));
+        getContentPane().add(campo_Contraseniaa_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 315, 180, 25));
 
         combo_Rol_Registro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Rol_Registro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(combo_Rol_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, 210, 25));
+        getContentPane().add(combo_Rol_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 385, 210, 25));
 
         campo_Recontrasenia_Registro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Recontrasenia_Registro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -177,13 +177,13 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
                 campo_Recontrasenia_RegistroKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Recontrasenia_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 180, 25));
+        getContentPane().add(campo_Recontrasenia_Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 180, 25));
         getContentPane().add(etiqueta_Mensaje_Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 470, 220, 15));
 
         etiqueta_Mensaje_Rol.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Mensaje_Rol.setForeground(java.awt.Color.red);
         etiqueta_Mensaje_Rol.setText("*");
-        getContentPane().add(etiqueta_Mensaje_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 20, 20));
+        getContentPane().add(etiqueta_Mensaje_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 385, 20, 20));
 
         etiqueta_Nombre.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Nombre.setForeground(java.awt.Color.red);
@@ -193,42 +193,42 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
         etiqueta_Apellido.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Apellido.setForeground(java.awt.Color.red);
         etiqueta_Apellido.setText("*");
-        getContentPane().add(etiqueta_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, -1));
+        getContentPane().add(etiqueta_Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 175, -1, -1));
 
         etiqueta_Cedula.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Cedula.setForeground(java.awt.Color.red);
         etiqueta_Cedula.setText("*");
-        getContentPane().add(etiqueta_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
+        getContentPane().add(etiqueta_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
 
         etiqueta_Correo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Correo.setForeground(java.awt.Color.red);
         etiqueta_Correo.setText("*");
-        getContentPane().add(etiqueta_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
+        getContentPane().add(etiqueta_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 245, -1, -1));
 
         etiqueta_Usuario.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Usuario.setForeground(java.awt.Color.red);
         etiqueta_Usuario.setText("*");
-        getContentPane().add(etiqueta_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
+        getContentPane().add(etiqueta_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
 
         etiqueta_Contraseña.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Contraseña.setForeground(java.awt.Color.red);
         etiqueta_Contraseña.setText("*");
-        getContentPane().add(etiqueta_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, -1, -1));
+        getContentPane().add(etiqueta_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 315, -1, -1));
 
         etiqueta_Repetir_Contraseña.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         etiqueta_Repetir_Contraseña.setForeground(java.awt.Color.red);
         etiqueta_Repetir_Contraseña.setText("*");
-        getContentPane().add(etiqueta_Repetir_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 460, -1, -1));
+        getContentPane().add(etiqueta_Repetir_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
 
         etiqueta_Correccion_Cedula.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         etiqueta_Correccion_Cedula.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Correccion_Cedula.setText("El numero de cedula ya esta registrado para otro usuario");
-        getContentPane().add(etiqueta_Correccion_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 240, 360, -1));
+        getContentPane().add(etiqueta_Correccion_Cedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 212, 360, -1));
 
         etiqueta_Correccion_Usuario.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         etiqueta_Correccion_Usuario.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Correccion_Usuario.setText("El usuario ya esta registrado");
-        getContentPane().add(etiqueta_Correccion_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, -1, -1));
+        getContentPane().add(etiqueta_Correccion_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 282, -1, -1));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -240,16 +240,18 @@ public class Dialogo_Usuarios extends javax.swing.JDialog {
         boton_Registro_Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/usuario guar.png"))); // NOI18N
         boton_Registro_Usuario.setText("Guardar");
         boton_Registro_Usuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Registro_Usuario.setMaximumSize(new java.awt.Dimension(120, 40));
+        boton_Registro_Usuario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Registro_Usuario.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Registro_Usuario.setMinimumSize(new java.awt.Dimension(120, 40));
         boton_Registro_Usuario.setPreferredSize(new java.awt.Dimension(120, 40));
+        boton_Registro_Usuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Registro_Usuario);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 50));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 56));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 22)); // NOI18N
         jLabel1.setText("REGISTRO DE NUEVO USUARIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

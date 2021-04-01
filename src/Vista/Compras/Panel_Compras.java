@@ -107,11 +107,14 @@ public class Panel_Compras extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        campo_Busqueda = new javax.swing.JTextField();
-        combo_Filtrar = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         combo_Opcion = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jToolBar2 = new javax.swing.JToolBar();
+        jLabel8 = new javax.swing.JLabel();
+        campo_Busqueda = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        combo_Filtrar = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(234, 234, 234));
         setMaximumSize(new java.awt.Dimension(1400, 800));
@@ -136,11 +139,12 @@ public class Panel_Compras extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(tabla_Consulta_Orden_Compra);
 
-        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 272, 1300, 440));
+        add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 352, 1190, 400));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar1.setFloatable(false);
+        jToolBar1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jToolBar1.setRollover(true);
 
         boton_Buscar.setBackground(new java.awt.Color(255, 255, 255));
@@ -150,43 +154,44 @@ public class Panel_Compras extends javax.swing.JPanel {
         boton_Buscar.setToolTipText("Agregar proveedor");
         boton_Buscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Buscar.setFocusable(false);
-        boton_Buscar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Buscar.setMaximumSize(new java.awt.Dimension(125, 37));
-        boton_Buscar.setMinimumSize(new java.awt.Dimension(109, 37));
-        boton_Buscar.setPreferredSize(new java.awt.Dimension(109, 37));
+        boton_Buscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Buscar.setMaximumSize(new java.awt.Dimension(85, 52));
+        boton_Buscar.setMinimumSize(new java.awt.Dimension(109, 57));
+        boton_Buscar.setPreferredSize(new java.awt.Dimension(109, 57));
+        boton_Buscar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Buscar);
         jToolBar1.add(jSeparator2);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 40));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 800));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Proveedor:");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("RUC / CI:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 100, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Direccion:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 140, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 165, -1, -1));
 
         campo_Proveedor.setEditable(false);
         campo_Proveedor.setBackground(new java.awt.Color(255, 255, 255));
         campo_Proveedor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Proveedor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 230, 24));
+        add(campo_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 230, 24));
 
         campo_RUC.setEditable(false);
         campo_RUC.setBackground(new java.awt.Color(255, 255, 255));
         campo_RUC.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 170, 24));
+        add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 130, 170, 24));
 
         campo_Direccion.setEditable(false);
         campo_Direccion.setBackground(new java.awt.Color(255, 255, 255));
         campo_Direccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Direccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 550, 24));
+        add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 165, 550, 24));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -209,54 +214,66 @@ public class Panel_Compras extends javax.swing.JPanel {
         campo_Correo.setBackground(new java.awt.Color(255, 255, 255));
         campo_Correo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Correo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 280, 24));
+        add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 280, 24));
 
         campo_Telefono.setEditable(false);
         campo_Telefono.setBackground(new java.awt.Color(255, 255, 255));
         campo_Telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Telefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, 170, 24));
+        add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 200, 170, 24));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Correo:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 180, -1, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Telefono:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 180, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 200, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo blanco.png"))); // NOI18N
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 0, 180, 40));
 
         jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Informacion proveedor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 1360, 170));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 1270, 200));
+
+        combo_Opcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        combo_Opcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "Compras no ingresadas", "Compras ingresadas" }));
+        combo_Opcion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        add(combo_Opcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 235, 270, 25));
+
+        jLabel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 1270, 470));
+
+        jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jToolBar2.setFloatable(false);
+        jToolBar2.setRollover(true);
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel8.setText("Filtrar:    ");
+        jToolBar2.add(jLabel8);
 
         campo_Busqueda.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        campo_Busqueda.setMaximumSize(new java.awt.Dimension(780, 30));
-        campo_Busqueda.setMinimumSize(new java.awt.Dimension(780, 30));
-        campo_Busqueda.setPreferredSize(new java.awt.Dimension(780, 30));
+        campo_Busqueda.setMaximumSize(new java.awt.Dimension(750, 30));
+        campo_Busqueda.setMinimumSize(new java.awt.Dimension(750, 30));
+        campo_Busqueda.setPreferredSize(new java.awt.Dimension(750, 30));
         campo_Busqueda.addCaretListener(new javax.swing.event.CaretListener() {
             public void caretUpdate(javax.swing.event.CaretEvent evt) {
                 campo_BusquedaCaretUpdate(evt);
             }
         });
-        add(campo_Busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 720, 390, -1));
+        jToolBar2.add(campo_Busqueda);
+        jToolBar2.add(jSeparator1);
 
         combo_Filtrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         combo_Filtrar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "Nº Orden de compra", "Nº Factura" }));
-        add(combo_Filtrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 720, 180, 30));
+        jToolBar2.add(combo_Filtrar);
 
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel8.setText("Filtrar:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 727, -1, -1));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 2, 1010, 40));
 
-        jLabel9.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Compras", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 1360, 540));
-
-        combo_Opcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        combo_Opcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "Compras no ingresadas", "Compras ingresadas" }));
-        combo_Opcion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        add(combo_Opcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 270, 40));
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel10.setText("Compras:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(155, 240, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void campo_BusquedaCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_BusquedaCaretUpdate
@@ -341,6 +358,7 @@ public class Panel_Compras extends javax.swing.JPanel {
     public javax.swing.JLabel etiqueta_Rol;
     public javax.swing.ButtonGroup grupo_Botones;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -350,8 +368,10 @@ public class Panel_Compras extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JToolBar jToolBar2;
     public javax.swing.JTable tabla_Consulta_Orden_Compra;
     // End of variables declaration//GEN-END:variables
 }

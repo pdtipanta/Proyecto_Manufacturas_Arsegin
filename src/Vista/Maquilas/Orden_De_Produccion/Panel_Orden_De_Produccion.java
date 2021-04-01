@@ -127,10 +127,11 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         boton_Nueva_Orden.setToolTipText("Nueva cotizacion");
         boton_Nueva_Orden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nueva_Orden.setFocusable(false);
-        boton_Nueva_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nueva_Orden.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nueva_Orden.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Nueva_Orden.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Nueva_Orden.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Orden.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nueva_Orden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nueva_OrdenActionPerformed(evt);
@@ -146,10 +147,11 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         boton_Modificar_Orden.setToolTipText("Modificar orden");
         boton_Modificar_Orden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Modificar_Orden.setFocusable(false);
-        boton_Modificar_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar_Orden.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar_Orden.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar_Orden.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Modificar_Orden.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Orden.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar_Orden);
         jToolBar1.add(jSeparator3);
 
@@ -160,14 +162,15 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         boton_Generar_Orden.setToolTipText("Generar orden");
         boton_Generar_Orden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Generar_Orden.setFocusable(false);
-        boton_Generar_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Generar_Orden.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Generar_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Generar_Orden.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Generar_Orden.setMinimumSize(new java.awt.Dimension(120, 42));
-        boton_Generar_Orden.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Generar_Orden.setPreferredSize(new java.awt.Dimension(80, 42));
+        boton_Generar_Orden.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Generar_Orden);
         jToolBar1.add(jSeparator5);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -220,7 +223,7 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Consulta_Orden_Produccion);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 1320, 760));
 
         jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -282,7 +285,7 @@ public class Panel_Orden_De_Produccion extends javax.swing.JPanel {
         });
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1020, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_OrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_OrdenActionPerformed

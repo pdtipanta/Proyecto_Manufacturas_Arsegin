@@ -21,6 +21,7 @@ import Vista.Vista_Principal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
+import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
 /**
@@ -77,36 +78,47 @@ public class Menu implements ActionListener{
     }
 
     public void construir() {
+        this.menu_Principal.setBackground(new java.awt.Color(255, 255, 255));
+        this.menu_Principal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         this.vista.setJMenuBar(menu_Principal);
     }
 
     public void construir_Menu_Cliente() {
-        menu_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Clientes.png")));
-        menu_Cliente.setText("Cliente");
+        menu_Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cliente.png")));
+        menu_Cliente.setText("Clientes");
+        this.centrar_Menu(menu_Cliente);
         menu_Principal.add(menu_Cliente);
+    }
+    
+    public void centrar_Menu(JMenu menu) {
+        menu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        menu.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        menu.setFont(new java.awt.Font("Arial", 1, 12));
     }
 
     public void construir_Menu_Proveedor() {
-        menu_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/tranvia.png")));
-        menu_Proveedor.setText("Proveedor");
+        menu_Proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Proveedor.png")));
+        menu_Proveedor.setText("Proveedores");
+        this.centrar_Menu(menu_Proveedor);
         menu_Principal.add(menu_Proveedor);
-
     }
 
     public void construir_Menu_Inventario() {
-        menu_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/almacenamiento.png")));
-        menu_Inventario.setText("Inventario");
+        menu_Inventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/bodega.png")));
+        menu_Inventario.setText("Inventarios");
+        this.centrar_Menu(menu_Inventario);
         menu_Principal.add(menu_Inventario);
     }
 
     public void construir_Menu_Maquila() {
-        menu_Maquila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sastre_1.png")));
-        menu_Maquila.setText("Maquila");
+        menu_Maquila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/sastre.png")));
+        menu_Maquila.setText("Maquilas");
+        this.centrar_Menu(menu_Maquila);
         menu_Principal.add(menu_Maquila);
     }
 
     public void construir_Submenu_Cliente() {
-        submenu_Cliente.setText("Clientes");
+        submenu_Cliente.setText("Cliente");
         this.submenu_Cliente.addActionListener(this);
         menu_Cliente.add(submenu_Cliente);
     }
@@ -130,7 +142,7 @@ public class Menu implements ActionListener{
     }
 
     public void construir_Submenu_Proveedor() {
-        submenu_Proveedores.setText("Proveedores");
+        submenu_Proveedores.setText("Proveedor");
         this.submenu_Proveedores.addActionListener(this);
         menu_Proveedor.add(submenu_Proveedores);
     }
@@ -154,13 +166,13 @@ public class Menu implements ActionListener{
     }
 
     public void construir_Submenu_Inventario() {
-        submenu_Inventarios.setText("Inventarios");
+        submenu_Inventarios.setText("Inventario");
         this.submenu_Inventarios.addActionListener(this);
         menu_Inventario.add(submenu_Inventarios);
     }
 
     public void construir_Submenu_Maquila() {
-        submenu_Maquilas.setText("Maquilas");
+        submenu_Maquilas.setText("Maquila");
         this.submenu_Maquilas.addActionListener(this);
         menu_Maquila.add(submenu_Maquilas);
     }

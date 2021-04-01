@@ -122,23 +122,23 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         calendario_Factura.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         calendario_Factura.setDateFormatString("yyyy-MM-dd");
         calendario_Factura.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        getContentPane().add(calendario_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 164, 140, 24));
+        getContentPane().add(calendario_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 176, 140, 24));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Fecha:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 166, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 180, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel5.setText("Cliente:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 86, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 106, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel6.setText("Direccion:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 166, 80, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 176, 80, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel7.setText("Telefono:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 246, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 246, -1, -1));
 
         campo_Direccion_Factura.setEditable(false);
         campo_Direccion_Factura.setBackground(new java.awt.Color(255, 255, 255));
@@ -149,7 +149,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
                 campo_Direccion_FacturaKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Direccion_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 166, 370, 24));
+        getContentPane().add(campo_Direccion_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 176, 370, 24));
 
         campo_Telefono_Factura.setEditable(false);
         campo_Telefono_Factura.setBackground(new java.awt.Color(255, 255, 255));
@@ -234,11 +234,11 @@ public class Dialogo_Factura extends javax.swing.JDialog {
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setText("Tipo de pago:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 126, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(722, 146, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("No. Factura:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 86, -1, -1));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(734, 106, -1, -1));
 
         boton_Agregar_Fila.setBackground(new java.awt.Color(255, 255, 255));
         boton_Agregar_Fila.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -268,7 +268,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel16.setText("RUC:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 126, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 142, -1, -1));
 
         campo_RUC_Factura.setEditable(false);
         campo_RUC_Factura.setBackground(new java.awt.Color(255, 255, 255));
@@ -279,11 +279,11 @@ public class Dialogo_Factura extends javax.swing.JDialog {
                 campo_RUC_FacturaKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_RUC_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 125, 200, 24));
+        getContentPane().add(campo_RUC_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 141, 200, 24));
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel18.setText("Ciudad:");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 246, -1, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 248, -1, -1));
 
         campo_Ciudad_Factura.setEditable(false);
         campo_Ciudad_Factura.setBackground(new java.awt.Color(255, 255, 255));
@@ -294,12 +294,12 @@ public class Dialogo_Factura extends javax.swing.JDialog {
                 campo_Ciudad_FacturaKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Ciudad_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 244, 200, 24));
+        getContentPane().add(campo_Ciudad_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 246, 200, 24));
 
         combo_Estado_Factura.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Estado_Factura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione.........", "Credito", "Pagado", "Anular" }));
         combo_Estado_Factura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(combo_Estado_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 121, 170, 26));
+        getContentPane().add(combo_Estado_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 141, 170, 26));
 
         combo_Cliente_Factura.setEditable(false);
         combo_Cliente_Factura.setBackground(new java.awt.Color(255, 255, 255));
@@ -308,7 +308,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         combo_Cliente_Factura.setMaximumSize(new java.awt.Dimension(2, 25));
         combo_Cliente_Factura.setMinimumSize(new java.awt.Dimension(2, 25));
         combo_Cliente_Factura.setPreferredSize(new java.awt.Dimension(2, 25));
-        getContentPane().add(combo_Cliente_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 86, 240, 24));
+        getContentPane().add(combo_Cliente_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 106, 240, 24));
 
         campo_Vendedor.setEditable(false);
         campo_Vendedor.setBackground(new java.awt.Color(255, 255, 255));
@@ -317,19 +317,19 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         campo_Vendedor.setMaximumSize(new java.awt.Dimension(2, 20));
         campo_Vendedor.setMinimumSize(new java.awt.Dimension(2, 20));
         campo_Vendedor.setPreferredSize(new java.awt.Dimension(2, 20));
-        getContentPane().add(campo_Vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 206, 250, 24));
+        getContentPane().add(campo_Vendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 211, 250, 24));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel8.setText("Vendedor:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 206, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 212, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel4.setText("Observaciones:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 206, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(704, 211, -1, -1));
 
         caja_Observaciones_Factura.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         caja_Observaciones_Factura.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(caja_Observaciones_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 204, 270, 24));
+        getContentPane().add(caja_Observaciones_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 211, 270, 24));
 
         cantidad_Items.setEditable(false);
         cantidad_Items.setBackground(new java.awt.Color(255, 255, 255));
@@ -340,12 +340,12 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         etiqueta_Indicador_Cliente.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Cliente.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Cliente.setText("*");
-        getContentPane().add(etiqueta_Indicador_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 86, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 104, -1, -1));
 
         etiqueta_Indicador_Direccion.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Direccion.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Direccion.setText("*");
-        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 166, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 176, -1, -1));
 
         etiqueta_Indicador_Telefono.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Telefono.setForeground(new java.awt.Color(220, 0, 0));
@@ -355,7 +355,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         etiqueta_Indicador_RUC.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_RUC.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_RUC.setText("*");
-        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 126, -1, -1));
+        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 138, -1, -1));
 
         etiqueta_Indicador_Ciudad.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Ciudad.setForeground(new java.awt.Color(220, 0, 0));
@@ -365,29 +365,29 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         etiqueta_Indicador_Contacto.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Contacto.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Contacto.setText("*");
-        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 206, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, -1, -1));
 
         etiqueta_Indicador_Estado.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Estado.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Estado.setText("*");
-        getContentPane().add(etiqueta_Indicador_Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 126, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Estado, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 106, -1, -1));
 
         etiqueta_No_Factura.setEditable(false);
         etiqueta_No_Factura.setBackground(new java.awt.Color(255, 255, 255));
         etiqueta_No_Factura.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         etiqueta_No_Factura.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(etiqueta_No_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 82, 170, 24));
+        getContentPane().add(etiqueta_No_Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 106, 170, 24));
 
         campo_Codigo.setEditable(false);
         campo_Codigo.setBackground(new java.awt.Color(255, 255, 255));
         campo_Codigo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 86, 110, 24));
+        getContentPane().add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 106, 110, 24));
 
         etiqueta_Indicador_Calendario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Calendario.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Calendario.setText("*");
-        getContentPane().add(etiqueta_Indicador_Calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 166, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 174, -1, -1));
 
         valor_IVA.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         valor_IVA.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -408,7 +408,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(818, 646, -1, -1));
 
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Datos del cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 46, 640, 240));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 76, 640, 210));
 
         jLabel21.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 296, 1150, 390));
@@ -417,7 +417,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 606, 50, 40));
 
         jLabel20.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Datos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 46, 460, 240));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 76, 470, 210));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -431,10 +431,11 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         boton_Guardar_Factura.setToolTipText("Agregar cotizacion");
         boton_Guardar_Factura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Guardar_Factura.setFocusable(false);
-        boton_Guardar_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Guardar_Factura.setMaximumSize(new java.awt.Dimension(130, 37));
-        boton_Guardar_Factura.setMinimumSize(new java.awt.Dimension(130, 37));
-        boton_Guardar_Factura.setPreferredSize(new java.awt.Dimension(130, 37));
+        boton_Guardar_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Guardar_Factura.setMaximumSize(new java.awt.Dimension(80, 52));
+        boton_Guardar_Factura.setMinimumSize(new java.awt.Dimension(130, 57));
+        boton_Guardar_Factura.setPreferredSize(new java.awt.Dimension(130, 57));
+        boton_Guardar_Factura.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Guardar_Factura);
         jToolBar1.add(jSeparator1);
 
@@ -444,9 +445,11 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         boton_Agregar_Cliente.setText("Cliente");
         boton_Agregar_Cliente.setToolTipText("Agregar cliente");
         boton_Agregar_Cliente.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Agregar_Cliente.setMaximumSize(new java.awt.Dimension(100, 40));
+        boton_Agregar_Cliente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Agregar_Cliente.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Agregar_Cliente.setMinimumSize(new java.awt.Dimension(100, 40));
         boton_Agregar_Cliente.setPreferredSize(new java.awt.Dimension(80, 40));
+        boton_Agregar_Cliente.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Agregar_Cliente);
         jToolBar1.add(jSeparator2);
 
@@ -455,9 +458,11 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/calculadora.png"))); // NOI18N
         jButton1.setText("Calculadora");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.setMaximumSize(new java.awt.Dimension(111, 37));
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setMaximumSize(new java.awt.Dimension(80, 52));
         jButton1.setMinimumSize(new java.awt.Dimension(111, 37));
         jButton1.setPreferredSize(new java.awt.Dimension(111, 37));
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -465,7 +470,7 @@ public class Dialogo_Factura extends javax.swing.JDialog {
         });
         jToolBar1.add(jButton1);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1175, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1175, 56));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

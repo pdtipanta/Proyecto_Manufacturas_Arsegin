@@ -102,10 +102,11 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         boton_Nuevo_Maquila.setText("Nuevo");
         boton_Nuevo_Maquila.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nuevo_Maquila.setFocusable(false);
-        boton_Nuevo_Maquila.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nuevo_Maquila.setMaximumSize(new java.awt.Dimension(120, 42));
-        boton_Nuevo_Maquila.setMinimumSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Maquila.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nuevo_Maquila.setMaximumSize(new java.awt.Dimension(80, 52));
+        boton_Nuevo_Maquila.setMinimumSize(new java.awt.Dimension(120, 52));
         boton_Nuevo_Maquila.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Maquila.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nuevo_Maquila.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nuevo_MaquilaActionPerformed(evt);
@@ -121,9 +122,11 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         boton_Modificar.setText("Modificar");
         boton_Modificar.setToolTipText(" Editar");
         boton_Modificar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator3);
 
@@ -133,12 +136,14 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         boton_Eliminar.setText("Eliminar");
         boton_Eliminar.setToolTipText("Eliminar");
         boton_Eliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Eliminar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Eliminar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Eliminar.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Eliminar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Eliminar);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -188,7 +193,7 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1020, 40));
 
         tabla_Maquilas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -220,7 +225,7 @@ public class Panel_Maquilas extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Maquilas);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 1320, 760));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nuevo_MaquilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nuevo_MaquilaActionPerformed

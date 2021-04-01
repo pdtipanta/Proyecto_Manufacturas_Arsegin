@@ -81,21 +81,23 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Datos cliente");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(826, 601));
+        setMaximumSize(new java.awt.Dimension(826, 440));
+        setMinimumSize(new java.awt.Dimension(826, 440));
+        setPreferredSize(new java.awt.Dimension(826, 440));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         etiqueta_Cliente.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Cliente.setText("Cliente:");
-        getContentPane().add(etiqueta_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 134, -1, -1));
+        getContentPane().add(etiqueta_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
         etiqueta_Ciudad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Ciudad.setText("Ciudad:");
-        getContentPane().add(etiqueta_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 324, -1, -1));
+        getContentPane().add(etiqueta_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 252, -1, -1));
 
         etiqueta_RUC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_RUC.setText("R.U.C/ CI:");
-        getContentPane().add(etiqueta_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 190, -1, -1));
+        getContentPane().add(etiqueta_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
 
         campo_RUC.setEditable(false);
         campo_RUC.setBackground(new java.awt.Color(255, 255, 255));
@@ -112,11 +114,11 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 campo_RUCKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 186, 210, 24));
+        getContentPane().add(campo_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 145, 210, 24));
 
         etiqueta_Direccion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Direccion.setText("Direccion:");
-        getContentPane().add(etiqueta_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 380, -1, -1));
+        getContentPane().add(etiqueta_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 288, -1, -1));
 
         campo_Direccion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Direccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -135,7 +137,7 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 campo_DireccionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 410, 24));
+        getContentPane().add(campo_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 285, 410, 24));
 
         campo_Telefono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Telefono.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -154,15 +156,15 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 campo_TelefonoKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 180, 24));
+        getContentPane().add(campo_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 180, 24));
 
         etiqueta_Telefono.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Telefono.setText("Telefono:");
-        getContentPane().add(etiqueta_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(61, 262, -1, -1));
+        getContentPane().add(etiqueta_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
 
         etiqueta_Correo.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Correo.setText("Correo:");
-        getContentPane().add(etiqueta_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, -1, -1));
+        getContentPane().add(etiqueta_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
         campo_Correo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Correo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -181,7 +183,7 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 campo_CorreoKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 330, 24));
+        getContentPane().add(campo_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 330, 24));
 
         campo_Contacto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Contacto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -200,21 +202,21 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 campo_ContactoKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 510, 330, 24));
+        getContentPane().add(campo_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 355, 330, 24));
 
         etiqueta_Persona1.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.focus"));
         etiqueta_Persona1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Persona1.setText("Persona de");
-        getContentPane().add(etiqueta_Persona1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, 20));
+        getContentPane().add(etiqueta_Persona1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, 20));
 
         etiqueta_Persona2.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.focus"));
         etiqueta_Persona2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiqueta_Persona2.setText(" contacto:");
-        getContentPane().add(etiqueta_Persona2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
+        getContentPane().add(etiqueta_Persona2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Celular:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 262, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 217, -1, -1));
 
         campo_Celular.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Celular.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -241,42 +243,42 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 campo_CelularKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 260, 157, 24));
+        getContentPane().add(campo_Celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 215, 157, 24));
 
         etiqueta_Indicador_Direccion.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Direccion.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Direccion.setText("*");
-        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 376, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 284, -1, -1));
 
         etiqueta_Indicador_Telefono.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Telefono.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Telefono.setText("*");
-        getContentPane().add(etiqueta_Indicador_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 256, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
 
         etiqueta_Indicador_Ciudad.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Ciudad.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Ciudad.setText("*");
-        getContentPane().add(etiqueta_Indicador_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 320, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
         etiqueta_Indicador_Celular.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Celular.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Celular.setText("*");
-        getContentPane().add(etiqueta_Indicador_Celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(452, 256, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Celular, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 216, -1, -1));
 
         etiqueta_Indicador_Correo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Correo.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Correo.setText("*");
-        getContentPane().add(etiqueta_Indicador_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 436, 20, -1));
+        getContentPane().add(etiqueta_Indicador_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 20, -1));
 
         etiqueta_Indicador_RUC.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_RUC.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_RUC.setText("*");
-        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 182, -1, -1));
+        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
         etiqueta_Indicador_Contacto.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Contacto.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Contacto.setText("*");
-        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 502, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, -1, -1));
 
         combo_Cliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Cliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -295,12 +297,12 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 combo_ClienteKeyTyped(evt);
             }
         });
-        getContentPane().add(combo_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 330, 24));
+        getContentPane().add(combo_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 330, 24));
 
         etiqueta_Indicador_Cliente.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Cliente.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Cliente.setText("*");
-        getContentPane().add(etiqueta_Indicador_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 130, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Cod. Cliente:");
@@ -344,17 +346,17 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 campo_CiudadMouseClicked(evt);
             }
         });
-        getContentPane().add(campo_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 180, 24));
+        getContentPane().add(campo_Ciudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 180, 24));
 
         etiqueta_Correccion_RUC.setFont(new java.awt.Font("Arial", 3, 11)); // NOI18N
         etiqueta_Correccion_RUC.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Correccion_RUC.setText("El RUC/CI ya se encuentra registrado para otro cliente");
-        getContentPane().add(etiqueta_Correccion_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 310, -1));
+        getContentPane().add(etiqueta_Correccion_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 310, -1));
 
         etiqueta_Correccion_Correo.setFont(new java.awt.Font("Arial", 3, 11)); // NOI18N
         etiqueta_Correccion_Correo.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Correccion_Correo.setText("El Correo ya se encuentra registrado para otro cliente");
-        getContentPane().add(etiqueta_Correccion_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, 310, -1));
+        getContentPane().add(etiqueta_Correccion_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, 310, -1));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -368,10 +370,11 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
         boton_Agregar.setToolTipText("Guardar cliente");
         boton_Agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Agregar.setFocusable(false);
-        boton_Agregar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Agregar.setMaximumSize(new java.awt.Dimension(100, 57));
+        boton_Agregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Agregar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Agregar.setMinimumSize(new java.awt.Dimension(100, 57));
         boton_Agregar.setPreferredSize(new java.awt.Dimension(100, 57));
+        boton_Agregar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_AgregarActionPerformed(evt);
@@ -379,7 +382,7 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
         });
         jToolBar1.add(boton_Agregar);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 54));
 
         combo_Opcion_Ruc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         combo_Opcion_Ruc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "RUC", "Cedula" }));
@@ -394,9 +397,10 @@ public class Dialogo_Cliente extends javax.swing.JDialog {
                 combo_Opcion_RucActionPerformed(evt);
             }
         });
-        getContentPane().add(combo_Opcion_Ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 186, 110, 24));
+        getContentPane().add(combo_Opcion_Ruc, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 145, 110, 24));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_AgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_AgregarActionPerformed

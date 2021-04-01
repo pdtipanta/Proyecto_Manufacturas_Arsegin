@@ -52,30 +52,30 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Nuevo producto");
-        setMaximumSize(new java.awt.Dimension(640, 402));
-        setMinimumSize(new java.awt.Dimension(640, 402));
-        setPreferredSize(new java.awt.Dimension(640, 402));
+        setMaximumSize(new java.awt.Dimension(523, 285));
+        setMinimumSize(new java.awt.Dimension(523, 285));
+        setPreferredSize(new java.awt.Dimension(523, 285));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Codigo:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Descripcion:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 115, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Cantidad:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setText("Valor unitario:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Valor total:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         campo_Codigo.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -87,7 +87,7 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_CodigoKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 230, 25));
+        getContentPane().add(campo_Codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 230, 25));
 
         campo_Descripcion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Descripcion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -99,7 +99,7 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_DescripcionKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 320, 25));
+        getContentPane().add(campo_Descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 115, 320, 25));
 
         campo_Cantidad.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Cantidad.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -114,7 +114,7 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_CantidadKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 150, 25));
+        getContentPane().add(campo_Cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 150, 25));
 
         campo_Unitario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Unitario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -129,7 +129,7 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_UnitarioKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Unitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 150, 25));
+        getContentPane().add(campo_Unitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 185, 150, 25));
 
         campo_Total.setEditable(false);
         campo_Total.setBackground(new java.awt.Color(255, 255, 255));
@@ -143,7 +143,7 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
                 campo_TotalKeyReleased(evt);
             }
         });
-        getContentPane().add(campo_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 150, 25));
+        getContentPane().add(campo_Total, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 150, 25));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -155,12 +155,14 @@ public class Dialogo_Nuevo_Producto extends javax.swing.JDialog {
         boton_Agregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/mas (1).png"))); // NOI18N
         boton_Agregar.setText("Agregar");
         boton_Agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Agregar.setMaximumSize(new java.awt.Dimension(89, 40));
+        boton_Agregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Agregar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Agregar.setMinimumSize(new java.awt.Dimension(89, 40));
         boton_Agregar.setPreferredSize(new java.awt.Dimension(89, 40));
+        boton_Agregar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Agregar);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 641, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

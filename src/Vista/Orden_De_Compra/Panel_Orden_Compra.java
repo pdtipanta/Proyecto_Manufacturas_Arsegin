@@ -123,10 +123,11 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
         boton_Nueva_Orden_Compra.setToolTipText("Nueva cotizacion");
         boton_Nueva_Orden_Compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nueva_Orden_Compra.setFocusable(false);
-        boton_Nueva_Orden_Compra.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nueva_Orden_Compra.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Orden_Compra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nueva_Orden_Compra.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Nueva_Orden_Compra.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Nueva_Orden_Compra.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Orden_Compra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nueva_Orden_Compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nueva_Orden_CompraActionPerformed(evt);
@@ -142,10 +143,11 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
         boton_Modificar_Orden_Compra.setToolTipText("Editar cotizacion");
         boton_Modificar_Orden_Compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Modificar_Orden_Compra.setFocusable(false);
-        boton_Modificar_Orden_Compra.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar_Orden_Compra.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Orden_Compra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar_Orden_Compra.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar_Orden_Compra.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Modificar_Orden_Compra.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Orden_Compra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Modificar_Orden_Compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Modificar_Orden_CompraActionPerformed(evt);
@@ -161,14 +163,15 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
         boton_Generar_Orden.setToolTipText("Generar cotizacion");
         boton_Generar_Orden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Generar_Orden.setFocusable(false);
-        boton_Generar_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Generar_Orden.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Generar_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Generar_Orden.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Generar_Orden.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Generar_Orden.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Generar_Orden.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Generar_Orden);
         jToolBar1.add(jSeparator4);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -249,7 +252,7 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
         });
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 1020, 40));
 
         tabla_Consulta_Compra.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tabla_Consulta_Compra.setModel(new javax.swing.table.DefaultTableModel(
@@ -282,7 +285,7 @@ public class Panel_Orden_Compra extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Consulta_Compra);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 1320, 760));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_Orden_CompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_Orden_CompraActionPerformed

@@ -78,7 +78,6 @@ public class Panel_Factura extends javax.swing.JPanel {
         jSeparator3 = new javax.swing.JToolBar.Separator();
         boton_Modificar_Factura = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
         boton_Imprimir_Facturacion = new javax.swing.JButton();
         boton_Cerrar_Sesion = new javax.swing.JButton();
         etiqueta_Rol = new javax.swing.JLabel();
@@ -120,10 +119,11 @@ public class Panel_Factura extends javax.swing.JPanel {
         boton_Nueva_Factura.setToolTipText("Nueva cotizacion");
         boton_Nueva_Factura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Nueva_Factura.setFocusable(false);
-        boton_Nueva_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nueva_Factura.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nueva_Factura.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Nueva_Factura.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Nueva_Factura.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Nueva_Factura.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nueva_Factura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nueva_FacturaActionPerformed(evt);
@@ -139,14 +139,14 @@ public class Panel_Factura extends javax.swing.JPanel {
         boton_Modificar_Factura.setToolTipText("Modificar cotizacion");
         boton_Modificar_Factura.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Modificar_Factura.setFocusable(false);
-        boton_Modificar_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Modificar_Factura.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar_Factura.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar_Factura.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar_Factura.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Modificar_Factura.setPreferredSize(new java.awt.Dimension(120, 42));
         boton_Modificar_Factura.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        boton_Modificar_Factura.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar_Factura);
         jToolBar1.add(jSeparator2);
-        jToolBar1.add(jSeparator4);
 
         boton_Imprimir_Facturacion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Imprimir_Facturacion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -155,13 +155,14 @@ public class Panel_Factura extends javax.swing.JPanel {
         boton_Imprimir_Facturacion.setToolTipText("Generar factura");
         boton_Imprimir_Facturacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Imprimir_Facturacion.setFocusable(false);
-        boton_Imprimir_Facturacion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Imprimir_Facturacion.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Imprimir_Facturacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Imprimir_Facturacion.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Imprimir_Facturacion.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Imprimir_Facturacion.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Imprimir_Facturacion.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Imprimir_Facturacion);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 790));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 790));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -246,7 +247,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         });
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 0, 970, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 0, 1020, 40));
 
         tabla_Consulta_Factura.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tabla_Consulta_Factura.setModel(new javax.swing.table.DefaultTableModel(
@@ -279,7 +280,7 @@ public class Panel_Factura extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Consulta_Factura);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 750));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 1320, 750));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nueva_FacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nueva_FacturaActionPerformed
@@ -427,7 +428,6 @@ public class Panel_Factura extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator7;

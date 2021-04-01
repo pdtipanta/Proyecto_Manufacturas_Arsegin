@@ -58,14 +58,14 @@ public class Panel_Ingreso extends javax.swing.JPanel {
 
         campo_Clave_Ingreso.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         campo_Clave_Ingreso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingrese contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14), java.awt.SystemColor.textHighlight)); // NOI18N
-        add(campo_Clave_Ingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, 350, 40));
+        add(campo_Clave_Ingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 250, 350, 40));
 
         boton_Crear_Usuario.setBackground(java.awt.Color.white);
         boton_Crear_Usuario.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         boton_Crear_Usuario.setForeground(java.awt.SystemColor.textHighlight);
         boton_Crear_Usuario.setText("Crear usuario");
         boton_Crear_Usuario.setBorder(null);
-        add(boton_Crear_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
+        add(boton_Crear_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 340, -1, -1));
 
         boton_Iniciar_Sesion.setBackground(java.awt.SystemColor.textHighlight);
         boton_Iniciar_Sesion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -73,18 +73,18 @@ public class Panel_Ingreso extends javax.swing.JPanel {
         boton_Iniciar_Sesion.setText("Iniciar sesion");
         boton_Iniciar_Sesion.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Iniciar_Sesion.setBorderPainted(false);
-        add(boton_Iniciar_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 130, 40));
+        add(boton_Iniciar_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 130, 40));
 
         boton_Olvido_Clave.setBackground(new java.awt.Color(255, 255, 255));
         boton_Olvido_Clave.setText("¿Olvido su contraseña?");
         boton_Olvido_Clave.setBorder(null);
         boton_Olvido_Clave.setPreferredSize(new java.awt.Dimension(150, 17));
-        add(boton_Olvido_Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 440, 140, -1));
+        add(boton_Olvido_Clave, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 410, 140, -1));
 
         etiqueta_Datos_Incorrectos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiqueta_Datos_Incorrectos.setForeground(new java.awt.Color(195, 0, 0));
         etiqueta_Datos_Incorrectos.setText("No se ha podido encontrar tu cuenta en el sistema");
-        add(etiqueta_Datos_Incorrectos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 330, 320, -1));
+        add(etiqueta_Datos_Incorrectos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 320, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arsegin total.jpg"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(1400, 829));

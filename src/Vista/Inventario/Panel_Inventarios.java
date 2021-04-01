@@ -64,7 +64,6 @@ public class Panel_Inventarios extends javax.swing.JPanel {
 
         jToolBar1 = new javax.swing.JToolBar();
         boton_Nuevo_Producto = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
         jSeparator1 = new javax.swing.JToolBar.Separator();
         boton_Modificar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JToolBar.Separator();
@@ -101,17 +100,17 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         boton_Nuevo_Producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario add.png"))); // NOI18N
         boton_Nuevo_Producto.setText("Nuevo");
         boton_Nuevo_Producto.setFocusable(false);
-        boton_Nuevo_Producto.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Nuevo_Producto.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Producto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Nuevo_Producto.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Nuevo_Producto.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Nuevo_Producto.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Nuevo_Producto.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Nuevo_Producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Nuevo_ProductoActionPerformed(evt);
             }
         });
         jToolBar1.add(boton_Nuevo_Producto);
-        jToolBar1.add(jSeparator4);
         jToolBar1.add(jSeparator1);
 
         boton_Modificar.setBackground(java.awt.Color.white);
@@ -119,9 +118,11 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         boton_Modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario mod.png"))); // NOI18N
         boton_Modificar.setText("Modificar");
         boton_Modificar.setToolTipText(" Editar");
-        boton_Modificar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Modificar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Modificar.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Modificar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Modificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Modificar);
         jToolBar1.add(jSeparator2);
 
@@ -130,9 +131,11 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         boton_Eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/inventario elimi.png"))); // NOI18N
         boton_Eliminar.setText("Eliminar");
         boton_Eliminar.setToolTipText("Eliminar");
-        boton_Eliminar.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Eliminar.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Eliminar.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Eliminar.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Eliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Eliminar);
         jToolBar1.add(jSeparator3);
 
@@ -141,13 +144,15 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         boton_Informe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/imprimir.png"))); // NOI18N
         boton_Informe.setText("Reporte");
         boton_Informe.setToolTipText("Reporte inventario");
-        boton_Informe.setMaximumSize(new java.awt.Dimension(120, 42));
+        boton_Informe.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Informe.setMaximumSize(new java.awt.Dimension(80, 52));
         boton_Informe.setMinimumSize(new java.awt.Dimension(120, 42));
         boton_Informe.setPreferredSize(new java.awt.Dimension(120, 42));
+        boton_Informe.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Informe);
         jToolBar1.add(jSeparator5);
 
-        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 800));
+        add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 90, 800));
 
         boton_Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         boton_Cerrar_Sesion.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -199,7 +204,7 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         combo_Opciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jToolBar2.add(combo_Opciones);
 
-        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 970, 40));
+        add(jToolBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 1010, 40));
 
         tabla_Inventario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tabla_Inventario.setModel(new javax.swing.table.DefaultTableModel(
@@ -234,7 +239,7 @@ public class Panel_Inventarios extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tabla_Inventario);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 1270, 760));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 1310, 760));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_Nuevo_ProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_Nuevo_ProductoActionPerformed
@@ -334,7 +339,6 @@ public class Panel_Inventarios extends javax.swing.JPanel {
     private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar jToolBar1;

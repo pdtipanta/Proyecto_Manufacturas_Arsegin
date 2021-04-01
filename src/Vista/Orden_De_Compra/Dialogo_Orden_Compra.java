@@ -127,7 +127,6 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         cantidad_Items = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         caja_Observaciones = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         valor_IVA = new javax.swing.JSpinner();
@@ -139,6 +138,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         boton_Guardar_Orden_Compra = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JToolBar.Separator();
@@ -156,31 +156,31 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         calendario_Orden_Compra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         calendario_Orden_Compra.setDateFormatString("yyyy-MM-dd");
         calendario_Orden_Compra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        getContentPane().add(calendario_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 180, 24));
+        getContentPane().add(calendario_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, 180, 24));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Fecha:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setText("Proveedor:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setText("Direccion:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 215, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Telefono:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel8.setText("Solicitante:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 285, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setText("Correo:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 240, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, -1, -1));
 
         campo_Direccion_Orden_Compra.setEditable(false);
         campo_Direccion_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
@@ -191,7 +191,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 campo_Direccion_Orden_CompraKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Direccion_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 660, 24));
+        getContentPane().add(campo_Direccion_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 215, 660, 24));
 
         campo_Solicitante_Orden_Compra.setEditable(false);
         campo_Solicitante_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
@@ -202,7 +202,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 campo_Solicitante_Orden_CompraKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Solicitante_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 310, 24));
+        getContentPane().add(campo_Solicitante_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 285, 310, 24));
 
         campo_Correo_Orden_Compra.setEditable(false);
         campo_Correo_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
@@ -213,7 +213,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 campo_Correo_Orden_CompraKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Correo_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 310, 24));
+        getContentPane().add(campo_Correo_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 310, 24));
 
         campo_Telefono_Orden_Compra.setEditable(false);
         campo_Telefono_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
@@ -224,7 +224,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 campo_Telefono_Orden_CompraKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_Telefono_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 230, 24));
+        getContentPane().add(campo_Telefono_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 230, 24));
 
         tabla_Productos_Orden_Compra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         tabla_Productos_Orden_Compra.setModel(new javax.swing.table.DefaultTableModel(
@@ -297,16 +297,16 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel13.setText("Tipo de pago:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 285, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("Numero de O/C:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 20));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, 20));
 
         etiqueta_No_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
         etiqueta_No_Orden_Compra.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         etiqueta_No_Orden_Compra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(etiqueta_No_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 210, 24));
+        getContentPane().add(etiqueta_No_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 210, 24));
 
         boton_Agregar_Fila.setBackground(new java.awt.Color(255, 255, 255));
         boton_Agregar_Fila.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -336,7 +336,7 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setText("RUC:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, -1, -1));
 
         campo_RUC_Orden_Compra.setEditable(false);
         campo_RUC_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
@@ -347,53 +347,53 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 campo_RUC_Orden_CompraKeyTyped(evt);
             }
         });
-        getContentPane().add(campo_RUC_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 180, 24));
+        getContentPane().add(campo_RUC_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 180, 180, 24));
 
         etiqueta_Indicador_Proveedor.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Proveedor.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Proveedor.setText("*");
-        getContentPane().add(etiqueta_Indicador_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Proveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 180, -1, -1));
 
         etiqueta_Indicador_Direccion.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Direccion.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Direccion.setText("*");
-        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 215, -1, -1));
 
         etiqueta_Indicador_Telefono.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Telefono.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Telefono.setText("*");
-        getContentPane().add(etiqueta_Indicador_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         etiqueta_Indicador_Correo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Correo.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Correo.setText("*");
-        getContentPane().add(etiqueta_Indicador_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 240, 20, -1));
+        getContentPane().add(etiqueta_Indicador_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, 20, -1));
 
         etiqueta_Indicador_RUC.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_RUC.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_RUC.setText("*");
-        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, -1, -1));
+        getContentPane().add(etiqueta_Indicador_RUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
 
         etiqueta_Indicador_Contacto.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Contacto.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Contacto.setText("*");
-        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 285, -1, -1));
 
         etiqueta_Indicador_Modalidad.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Modalidad.setForeground(new java.awt.Color(198, 0, 0));
         etiqueta_Indicador_Modalidad.setText("*");
-        getContentPane().add(etiqueta_Indicador_Modalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 280, -1, -1));
+        getContentPane().add(etiqueta_Indicador_Modalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 285, -1, -1));
 
         combo_Modalidad_Pago_Orden_Compra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Modalidad_Pago_Orden_Compra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar......", "Credito", "Contado", "Anulado" }));
         combo_Modalidad_Pago_Orden_Compra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(combo_Modalidad_Pago_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 280, 200, 24));
+        getContentPane().add(combo_Modalidad_Pago_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 285, 200, 24));
 
         combo_Proveedor_Orden_Compra.setEditable(false);
         combo_Proveedor_Orden_Compra.setBackground(new java.awt.Color(255, 255, 255));
         combo_Proveedor_Orden_Compra.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Proveedor_Orden_Compra.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        getContentPane().add(combo_Proveedor_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 320, 24));
+        getContentPane().add(combo_Proveedor_Orden_Compra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 320, 24));
 
         cantidad_Items.setEditable(false);
         cantidad_Items.setBackground(new java.awt.Color(255, 255, 255));
@@ -409,16 +409,13 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 660, 330, 90));
 
-        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 1110, 130));
-
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setText("Items");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 660, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         jLabel20.setText("IVA %:");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 700, -1, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 690, -1, -1));
 
         valor_IVA.setFont(new java.awt.Font("Arial", 0, 15)); // NOI18N
         valor_IVA.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -431,11 +428,11 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
                 valor_IVAKeyTyped(evt);
             }
         });
-        getContentPane().add(valor_IVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 700, 110, 23));
+        getContentPane().add(valor_IVA, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 690, 110, 23));
 
         etiqueta_Estado_Orden.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         etiqueta_Estado_Orden.setForeground(new java.awt.Color(51, 153, 0));
-        getContentPane().add(etiqueta_Estado_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 340, 40));
+        getContentPane().add(etiqueta_Estado_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 340, 40));
 
         combo_Estado_Orden.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         combo_Estado_Orden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar.....", "Aprobado", "No Aprobado" }));
@@ -454,16 +451,19 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         etiqueta_Indicador_Calendario.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         etiqueta_Indicador_Calendario.setForeground(new java.awt.Color(220, 0, 0));
         etiqueta_Indicador_Calendario.setText("*");
-        getContentPane().add(etiqueta_Indicador_Calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 20, -1));
+        getContentPane().add(etiqueta_Indicador_Calendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 20, -1));
 
         jLabel14.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 1110, 60));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 1110, 60));
 
         jLabel19.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Informacion proveedor", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 1110, 250));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1110, 230));
 
         jLabel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Productos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 1110, 250));
+
+        jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Total", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 14))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 1110, 130));
 
         jToolBar1.setBackground(new java.awt.Color(255, 255, 255));
         jToolBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -477,10 +477,11 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         boton_Guardar_Orden_Compra.setToolTipText("Agregar cotizacion");
         boton_Guardar_Orden_Compra.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Guardar_Orden_Compra.setFocusable(false);
-        boton_Guardar_Orden_Compra.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        boton_Guardar_Orden_Compra.setMaximumSize(new java.awt.Dimension(100, 40));
+        boton_Guardar_Orden_Compra.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Guardar_Orden_Compra.setMaximumSize(new java.awt.Dimension(80, 54));
         boton_Guardar_Orden_Compra.setMinimumSize(new java.awt.Dimension(100, 40));
         boton_Guardar_Orden_Compra.setPreferredSize(new java.awt.Dimension(100, 40));
+        boton_Guardar_Orden_Compra.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         boton_Guardar_Orden_Compra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_Guardar_Orden_CompraActionPerformed(evt);
@@ -495,12 +496,14 @@ public class Dialogo_Orden_Compra extends javax.swing.JDialog {
         boton_Buscar_Proveedor_Orden.setText("Proveedor");
         boton_Buscar_Proveedor_Orden.setToolTipText("Agregar proveedor");
         boton_Buscar_Proveedor_Orden.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        boton_Buscar_Proveedor_Orden.setMaximumSize(new java.awt.Dimension(120, 40));
+        boton_Buscar_Proveedor_Orden.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        boton_Buscar_Proveedor_Orden.setMaximumSize(new java.awt.Dimension(80, 54));
         boton_Buscar_Proveedor_Orden.setMinimumSize(new java.awt.Dimension(120, 40));
         boton_Buscar_Proveedor_Orden.setPreferredSize(new java.awt.Dimension(120, 40));
+        boton_Buscar_Proveedor_Orden.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Buscar_Proveedor_Orden);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 40));
+        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1180, 60));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
