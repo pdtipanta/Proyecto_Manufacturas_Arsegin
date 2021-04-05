@@ -255,7 +255,10 @@ if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
     }//GEN-LAST:event_campo_BuscarKeyTyped
 
     private void combo_OpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_OpcionesActionPerformed
-
+        if (this.combo_Opciones.getSelectedItem().equals("Seleccionar.....")) {
+            this.campo_Buscar.setText("");
+            this.filtrar_Tabla(0);
+        }
     }//GEN-LAST:event_combo_OpcionesActionPerformed
 
     private void campo_BuscarCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_campo_BuscarCaretUpdate

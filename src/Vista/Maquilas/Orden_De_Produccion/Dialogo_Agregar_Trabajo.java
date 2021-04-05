@@ -139,9 +139,10 @@ public class Dialogo_Agregar_Trabajo extends javax.swing.JDialog {
         boton_Agregar.setText("Agregar");
         boton_Agregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         boton_Agregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        boton_Agregar.setMaximumSize(new java.awt.Dimension(120, 54));
-        boton_Agregar.setMinimumSize(new java.awt.Dimension(120, 37));
-        boton_Agregar.setPreferredSize(new java.awt.Dimension(120, 37));
+        boton_Agregar.setMaximumSize(new java.awt.Dimension(80, 54));
+        boton_Agregar.setMinimumSize(new java.awt.Dimension(80, 54));
+        boton_Agregar.setPreferredSize(new java.awt.Dimension(80, 54));
+        boton_Agregar.setRolloverEnabled(false);
         boton_Agregar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         jToolBar1.add(boton_Agregar);
 

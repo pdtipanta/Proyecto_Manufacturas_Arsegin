@@ -33,20 +33,20 @@ public class Conexion_Database {
             conexion.setAutoCommit(false);
             this.usuario_Sesion = this.conexion.getMetaData().getUserName();
         } catch (ClassNotFoundException | SQLException e1) {;
-        }// fin catch
+        }
         return this.conexion;
     }
 
     public Connection obtenerConeccion() {
         return conexion;
-    }// fin de constructor
+    }
 
     public Connection cerrarConeccion() {
         return conexion = null;
-    }// fin metodo obtenerEstadoConeccion
+    }
 
     public String usuario() {
         return this.usuario_Sesion;
     }
-}// fin clase ConeccionBaseDatos
+}
 
